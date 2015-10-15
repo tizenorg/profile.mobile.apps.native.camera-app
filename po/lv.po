@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Zems akumulatora uzlādes līmenis."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Nevar saglabāt failu. Ierīces krātuve ir pilna."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Skaļuma taustiņš"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Nevar saglabāt failu. Nepietiek atmiņas."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Nevar izmantot zibspuldzi. Zems akumulatora uzlādes līmenis."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Pelēktoņi"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Pašb.ar aizmug."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Notiek apstrāde..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Mainīt krātuves vietu"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Ir ievietota SD karte. Noklusējuma krātuves vieta tiks mainīta uz SD karti."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Mainīt"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD kartē"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Uz leju"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Pa kreisi"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Pa labi"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Uz augšu"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Atcelt"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Labi"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pauze"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Autofokuss neizdevās."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Pārvietojiet lēnām"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Aizmugurējā kamera automātiski nosaka un fokusējas uz jūsu seju, kad uzņemat pašportretus."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Nevar uzņemt attēlus panorāmas režīmā. Ainavas dati nav pietiekami."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorāma"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Atiestatīt"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Aizslēga skaņa"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Iekļaut īsceļu izkārtojumu"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Piesk.,lai fotogr."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto."
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Poga"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Mākoņains"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Dienasgaisma"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Ierīce"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efekti"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Aizvērt kameru. Akumulatora temperatūra ir par augstu."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Zibspuldze"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Dienasgaismas lampa"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokusa režīms"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Neviens"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Nav efektu"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Galerijā nav attēlu"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Izslēgt"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Ieslēgt"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sēpija"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Iestatījumi"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Taimeris"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Kvēlspuldze"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Videoklipa lielums"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Ekspozīcijas vērtība"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Ierakstīt"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Ierakstīšanas režīms"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Ainava"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Baltā balanss"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera tiks aizvērta."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Uzņemšana neizdevās."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Ierakstīšana neizdevās."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Atmiņas karte izņemta."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Ierakstīšana tika apturēta. Turpināt ierakstīšanu varēsit tad, kad ierīce būs atdzisusi."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Drošības politika ierobežo kameras lietošanu."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Zibspuldze tika izslēgta. To ieslēgt varēsit tad, kad ierīce būs atdzisusi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Sarunas laikā nevar veikt videoierakstu."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Nevar aktivizēt kameru."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Zvana laikā nevar startēt kameru."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Nevar ieslēgt zibspuldzi. Mēģiniet vēlreiz, kad ierīce būs atdzisusi."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Saglabāt"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatīvs"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Nav pieejams"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Sejas"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Izvēlēts"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Saglabāt kā apvērstu"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Tālummaiņa"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Krātuves atrašanās vieta"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Atiestatīt"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Ierakstīt videoklipu"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fotografēt"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Video nepietiek atmiņas."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Atiestatīt"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Atmest"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Brīdinājums"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pieskarieties kameras pogai un pēc tam lēni pārvietojiet ierīci vienā virzienā."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Visiem kameras iestatījumiem tiks atjaunotas noklusējuma vērtības."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Lēni grieziet ierīci."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Lēni grieziet ierīci pa kreisi."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Lēni grieziet ierīci pa labi."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Sasveriet ierīci uz aizmuguri."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Sasveriet ierīci uz priekšu."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Ierīce tika pagriezta pārāk ātri. Nevar fotografēt režīmā Plaša pašbilde."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Sapludinot attēlus, radās kļūda. Attēls tomēr ir saglabāts."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Neizdevās uzņemt attēlus režīmā Plaša pašbilde. Nevar izšķirt objektu."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Nevar fotografēt režīmā Plaša pašbilde. Nepietiekams apgaismojums."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Lēni groziet ierīci pa kreisi vai pa labi."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pieskarieties Kameras pogai un lēni pagrieziet ierīci vienā virzienā."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Plaša pašbilde"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Intervālu foto"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Izmest attēlus"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d attēli tiks izmesti."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Notiek ierakstīšana ar austiņu mikrofonu."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Nevar akt. atr. vietas atzīmes"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Lai izmantotu atrašanās vietas atzīmes, izvēlieties Iestatījumi > Atrašanās vieta un pārliecinieties, vai ir aktivizētas funkcijas GPS un Bezvadu tīkli."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Velciet rāmi un mainiet izm., lai iest. sejas atr. vietu. %d sek. pēc signāla, kad seja būs kadrā, tiks uzņemts attēls."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Atjaunoti kameras noklusējuma iestatījumi."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Sapņu fotoattēli"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Šī funkcija katram uzņemtajam attēlam pievienos, ieguls un saglabās ģeogrāfiskās atrašanās vietas datus. Sūtot, kopīgojot, izplatot, pārsūtot vai kopējot šos attēlus, rīkojieties piesardzīgi, jo tajos ir ietverta informācija par attēlu uzņemšanas vietu."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Sejas noteikšana ir aktivizēta. Kamera atskaņos pīkstienu un pēc %d sekundēm uzņems attēlu."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Sasniegts maksimālais ieraksta laiks."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Pašreizējā režīmā nevar veikt tālummaiņu."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Aktivizēt"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Aktivizēt atrašanās vietu atzīmes"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Atrašanās vieta atzīmes"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Vairs nerādīt"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Nevar ierakstīt videoklipu. Nepietiek atmiņas."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Nevar uzņemt attēlu. Nepietiek atmiņas."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "GATAVS"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ATCELT"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Pašportrets"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Attēla lielums"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Zibspuldzi nevar izmantot zemā temperatūrā."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Ātrā palaišana"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Atveriet programmu Kamera, divreiz ātri nospiežot sākuma taustiņu."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Saglabāt"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kamera tika atvērta, izmantojot ātro palaišanu. Sākuma taustiņš tika ātri nospiests divas reizes. Lai deaktivizētu ātro palaišanu, atveriet kameras iestatījumu sadaļu un izvēlieties Ātrā palaišana."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kameras iestatījumi"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Ekspozīcija"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

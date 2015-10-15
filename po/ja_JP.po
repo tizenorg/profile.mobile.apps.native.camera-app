@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "バッテリーの残量が不足しています。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "ﾌｧｲﾙを保存できません。ｼｽﾃﾑﾒﾓﾘ(本体)がいっぱいです。"
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "音量キー"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "ファイルを保存できません。メモリが不足しています。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "フラッシュを使用できません。バッテリーの残量が低下してます。"
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "グレースケール"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "ﾘｱｶﾒﾗ自分撮り"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "処理中..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "保存先を変更"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "外部SDカードが挿入されました。保存場所が外部SDカードに変更されます。"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "変更"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "外部SDカード"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "下へ"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "左へ"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "右へ"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "上へ"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "キャンセル"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "一時停止"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "オートフォーカスに失敗しました。"
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "ゆっくり移動"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "自分撮りをするときに、リアカメラが顔を自動的に検出し、焦点を合わせます。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "パノラマモードで写真を撮影できません。風景の情報が十分ではありません。"
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "パノラマ"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "リセット"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "シャッター音"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "ショートカットのレイアウトを含む"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "タップして撮影"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "自動"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "ボタン"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "曇り"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "晴天"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "デバイス"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "エフェクト"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "温度上昇を検知したため、カメラを終了します。"
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "フラッシュ"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "蛍光灯"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "フォーカスモード"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "なし"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "効果なし"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "ギャラリーに画像がありません。"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "OFF"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "ON"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "セピア"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "設定"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "タイマー"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "白熱灯"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "動画のサイズ"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "露出補正"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "録画"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "録画モード"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "風景"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "ホワイト​バランス"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "カメラを終了します。"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "キャプチャに失敗しました。"
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "録画に失敗しました。"
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "外部SDカードが取り外されました。"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "録画が停止しました。端末の温度が下がった後、録画できます。"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "カメラの使用は、セキュリティポリシーによって制限されています。"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "フラッシュがOFFになりました。端末の温度が下がった後、フラッシュをONにできます。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "通話中には、録画できません。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "カメラを起動できません"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "通話中には、カメラを起動できません。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "フラッシュをONにできません。端末の温度が下がった後、再度実行してください。"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "保存"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "白黒反転"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "不可"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "顔別"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "カメラ"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "選択"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "左右反転して保存"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "ズーム"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "保存場所"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "リセット"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "録画"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "カメラを起動"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "ビデオの十分なメモリがありません"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "リセット"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "破棄"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "通知"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "カメラボタンをタップした後、端末を一方向にゆっくり動かしてください。"
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "全てのカメラ設定を初期設定にリセットします。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "端末をゆっくりと動かしてください。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "端末をゆっくりと左に動かしてください。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "端末をゆっくりと右に動かしてください。"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "端末を後方に傾けてください。"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "端末を前方に傾けてください。"
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "端末を動かすのが速すぎます。ワイド自分撮りモードで写真を撮影することができません。"
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "写真の合成中にエラーが発生しましたが、写真は保存されました。"
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "ワイド自分撮りモードでの写真撮影に失敗しました。被写体を認識できませんでした。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "光が不足しているため、ワイド自分撮りモードで写真を撮影できません。"
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "端末を左または右にゆっくりと動かしてください。"
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "カメラボタンをタップし、端末を一方向に​ゆっくりと動かしてください。"
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "ワイド自分撮り"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "ｲﾝﾀｰﾊﾞﾙｼｮｯﾄ"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "画像を破棄"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d枚の写真を破棄します。"
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "イヤホンマイクで録音中です。"
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "位置情報タグの有効化不可"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "位置情報タグを使用するには、[設定] > [位置情報]に移動し、GPSがONであり、無線ネットワークが有効であることを確認してください。"
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "ﾌﾚｰﾑをﾄﾞﾗｯｸﾞまたはｻｲｽﾞ変更し、顔の位置を選択します。顔がﾌﾚｰﾑに収まるとｶﾒﾗからﾋﾞｰﾌﾟ音が鳴り、​%d秒後に写真を撮影します。"
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "カメラの設定を初期化しました。"
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "ドリームショット"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "この機能は、撮影した各写真にその位置情報を追加し、位置情報が埋め込まれた状態で保存します。位置情報を含めた写真を送信、共有、配布、転送およびコピーする場合、ご注意ください。"
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "顔検出が有効になりました。カメラからビープ音が鳴り、%d秒後に写真を撮影します。"
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "最大録画時間に達しました。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "現在のモードではズーム機能を使用できません。"
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "有効"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "位置情報タグを有効化"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "位置情報タグ"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "今後表示しない"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "動画を撮影できません。メモリが不足しています。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "写真を撮影できません。メモリが不足しています。"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "完了"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "キャンセル"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "自分撮り"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "画像サイズ"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "低温ではフラッシュを使用できません。"
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "クイック起動"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "ホームキーを素早く2回押してカメラを起動します。"
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "保存先"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "ホームキーが素早く2回押されたため、カメラはクイック起動で起動しました。クイック起動を無効にするには、[カメラ設定]に移動して、[クイック起動]を選択します。"
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "カメラ設定"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "露出"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

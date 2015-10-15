@@ -1,0 +1,123 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#ifndef __H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__
+#define __H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__
+
+
+#define CAMERA_BTN_X		685
+#define CAMERA_BTN_Y		190
+#define CAMERA_BTN_W		100
+#define CAMERA_BTN_H		100
+
+#define CAMCORDER_BTN_X		690
+#define CAMCORDER_BTN_Y		94
+#define CAMCORDER_BTN_W		84
+#define CAMCORDER_BTN_H		84
+
+#define THUMBNAIL_BTN_X		690
+#define THUMBNAIL_BTN_Y		4
+#define THUMBNAIL_BTN_W		84
+#define THUMBNAIL_BTN_H		84
+
+#define SELF_PORTRAIT_BTN_X	690
+#define SELF_PORTRAIT_BTN_Y	300
+#define SELF_PORTRAIT_BTN_W	84
+#define SELF_PORTRAIT_BTN_H	84
+
+#define SETTING_BTN_X			690
+#define SETTING_BTN_Y			390
+#define QUICK_SETTING_BTN_W		84
+#define QUICK_SETTING_BTN_H		84
+
+#define SETTING_BTN_W			54
+#define SETTING_BTN_H			54
+
+#define MODE_BTN_X			22
+#define MODE_BTN_Y			354
+#define MODE_BTN_W			46
+#define MODE_BTN_H			46
+
+#define MODE_DISPLAY_X			(MAIN_W/2-MODE_DISPLAY_W/2)
+#define MODE_DISPLAY_Y			22
+#define MODE_DISPLAY_W			154
+#define MODE_DISPLAY_H			58
+//#define MODE_DISPLAY_H		38
+#define VER_MODE_DISPLAY_X		163
+#define VER_MODE_DISPLAY_Y		91
+
+#define MODE_ARROW_BTN_P_X		215
+#define MODE_ARROW_BTN_P_Y		643
+#define MODE_ARROW_BTN_W		48
+#define MODE_ARROW_BTN_H		38
+
+#define MODE_ARROW_BTN_PR_X		215
+#define MODE_ARROW_BTN_PR_Y		(MAIN_W-(VER_MODE_DISPLAY_Y+MODE_DISPLAY_H+MODE_ARROW_BTN_H+7))
+
+#define MODE_ARROW_BTN_L_X		376
+#define MODE_ARROW_BTN_L_Y		424
+
+#define MODE_ARROW_BTN_LR_X		376
+#define MODE_ARROW_BTN_LR_Y		(MAIN_H-(MODE_DISPLAY_Y+MODE_DISPLAY_H+MODE_ARROW_BTN_H+7))
+
+#define MODE_ARROW_BTN_UP_W		48
+#define MODE_ARROW_BTN_UP_H		38
+
+#define MODE_ARROW_BTN_UP_P_X		215
+#define MODE_ARROW_BTN_UP_P_Y		600
+
+#define MODE_ARROW_BTN_UP_PR_X		215
+#define MODE_ARROW_BTN_UP_PR_Y		(MODE_ARROW_BTN_PR_Y-43)
+
+#define MODE_ARROW_BTN_UP_L_X		376
+#define MODE_ARROW_BTN_UP_L_Y		(MODE_ARROW_BTN_L_Y -43)
+
+#define MODE_ARROW_BTN_UP_LR_X		376
+#define MODE_ARROW_BTN_UP_LR_Y		(MODE_ARROW_BTN_LR_Y-43)
+
+
+/*indicatior is between mode and self-portrait*/
+#define INDICATOR_X			80
+#define INDICATOR_Y			33
+#define INDICATOR_W			32
+#define INDICATOR_H			0
+
+#define EFFECT_INDICATOR_TEXT_H	30
+#define EFFECT_INDICATOR_X			(MAIN_W/2-EFFECT_INDICATOR_W/2)
+#define EFFECT_INDICATOR_Y			22
+#define EFFECT_INDICATOR_W			254
+#define EFFECT_INDICATOR_H			48
+#define VER_EFFECT_INDICATOR_X		(MAIN_H/2-EFFECT_INDICATOR_W/2)
+#define VER_EFFECT_INDICATOR_Y		600
+
+#define BATTERY_INDICATOR_X		16
+#define BATTERY_INDICATOR_Y		12
+#define BATTERY_INDICATOR_W		30
+#define BATTERY_INDICATOR_H		30
+#define BATTERY_INDICATOR_X_V		(320-30-12)
+#define BATTERY_INDICATOR_Y_V		16
+#define BATTERY_INDICATOR_TEXT_H	30
+
+images {
+	image: THUMBNAIL_BTN_NORMAL_IMAGE COMP;
+	image: CAMERA_THUMBNAIL_NO_ITEM COMP;
+	image: SETTING_LINE_IMAGE COMP;
+	image: SETTING_LINE_VERTICAL_IMAGE COMP;
+}
+
+#endif /*__H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__*/
+//end files

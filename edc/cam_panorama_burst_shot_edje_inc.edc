@@ -1,0 +1,393 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#ifndef __H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__
+#define __H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__
+
+
+#define GUIDE_DIRECTION_LAYOUT_WIDTH	160
+#define GUIDE_DIRECTION_LAYOUT_HEIGHT	96
+
+#define GUIDE_DIRECTION_LAYOUT_WIDTH_VER	GUIDE_DIRECTION_LAYOUT_HEIGHT/2
+#define GUIDE_DIRECTION_LAYOUT_HEIGHT_VER	GUIDE_DIRECTION_LAYOUT_WIDTH/2
+
+#define GUIDE_DIRECTION_LAYOUT_PREVIEW_WIDTH	152
+#define GUIDE_DIRECTION_LAYOUT_PREVIEW_HEIGHT	86
+
+#define GUIDE_DIRECTION_LAYOUT_PREVIEW_WIDTH_VER	GUIDE_DIRECTION_LAYOUT_PREVIEW_HEIGHT/2
+#define GUIDE_DIRECTION_LAYOUT_PREVIEW_HEIGHT_VER	GUIDE_DIRECTION_LAYOUT_PREVIEW_WIDTH/2
+
+
+#define PANORAMA_THUMBNAIL_PROGRESS_X	150
+#define PANORAMA_THUMBNAIL_PROGRESS_Y	310
+#define PANORAMA_THUMBNAIL_PROGRESS_W	500
+#define PANORAMA_THUMBNAIL_PROGRESS_H	96
+
+#define PANORAMA_THUMBNAIL_PROGRESS_X_VER	10
+#define PANORAMA_THUMBNAIL_PROGRESS_Y_VER	580
+#define PANORAMA_THUMBNAIL_PROGRESS_W_VER	460/2
+#define PANORAMA_THUMBNAIL_PROGRESS_H_VER	160/2
+
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_X	150
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_Y	310
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_W 700
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_H PANORAMA_THUMBNAIL_PROGRESS_H
+
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_RIGHT_X	55
+
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_X_VER	10
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_Y_VER	580
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_W_VER	460
+#define PANORAMA_THUMBNAIL_PROGRESS_SHOT_H_VER	PANORAMA_THUMBNAIL_PROGRESS_H_VER
+
+
+
+#define PANORAMA_POPUP_TEXT_START_X	180
+#define PANORAMA_POPUP_TEXT_START_Y	260
+#define PANORAMA_POPUP_TEXT_W	440
+#define PANORAMA_POPUP_TEXT_H	30
+
+#define PANORAMA_POPUP_TEXT_VER_START_X	20
+#define PANORAMA_POPUP_TEXT_VER_START_Y	450
+#define PANORAMA_POPUP_TEXT_VER_W	440
+#define PANORAMA_POPUP_TEXT_VER_H	30
+
+
+
+#define BACK_BUTTON_X	(1168)
+#define BACK_BUTTON_Y	(20)
+#define ICON_WIDTH	(63)
+#define ICON_HEIGHT	(63)
+
+//modify as the standby view
+#define CAMERA_BTN_X	685
+#define CAMERA_BTN_Y	190
+#define CAMERA_BTN_W	100
+#define CAMERA_BTN_H	100
+
+
+#define WARNING_ARROW_W (32)
+#define WARNING_ARROW_H (48)
+
+
+#define PANORAMA_ANI_STEP(interval_name, interval_value) \
+		program {\
+				name: "arrow,move,up,"interval_name;\
+				source: "prog";\
+				signal: "arrow,move,up,"interval_name;\
+				script: {\
+					set_state(PART:"up_arrow", "default", 0.0);\
+					set_state(PART:"down_arrow", "dim", 0.0);\
+					set_state(PART:"left_arrow", "dim", 0.0);\
+					set_state(PART:"right_arrow", "dim", 0.0);\
+					set_state(PART:"up_arrow_text", "default", 0.0);\
+					set_state(PART:"down_arrow_text", "dim", 0.0);\
+					set_state(PART:"left_arrow_text", "dim", 0.0);\
+					set_state(PART:"right_arrow_text", "dim", 0.0);\
+					set_state(PART:"warningframe", "up", 0.0);\
+				}\
+				after: "arrow,move,up,ani,start,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,down,"interval_name;\
+				source: "prog";\
+				signal: "arrow,move,down,"interval_name;\
+				script: {\
+					set_state(PART:"up_arrow", "dim", 0.0);\
+					set_state(PART:"down_arrow", "default", 0.0);\
+					set_state(PART:"left_arrow", "dim", 0.0);\
+					set_state(PART:"right_arrow", "dim", 0.0);\
+					set_state(PART:"up_arrow_text", "dim", 0.0);\
+					set_state(PART:"down_arrow_text", "default", 0.0);\
+					set_state(PART:"left_arrow_text", "dim", 0.0);\
+					set_state(PART:"right_arrow_text", "dim", 0.0);\
+					set_state(PART:"warningframe", "up", 0.0);\
+				}\
+				after: "arrow,move,down,ani,start,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,left,"interval_name;\
+				source: "prog";\
+				signal: "arrow,move,left,"interval_name;\
+				script: {\
+					set_state(PART:"up_arrow", "dim", 0.0);\
+					set_state(PART:"down_arrow", "dim", 0.0);\
+					set_state(PART:"left_arrow", "default", 0.0);\
+					set_state(PART:"right_arrow", "dim", 0.0);\
+					set_state(PART:"right_arrow_text", "dim", 0.0);\
+					set_state(PART:"up_arrow_text", "dim", 0.0);\
+					set_state(PART:"down_arrow_text", "dim", 0.0);\
+					set_state(PART:"left_arrow_text", "default", 0.0);\
+					set_state(PART:"right_arrow_text", "dim", 0.0);\
+					set_state(PART:"warningframe", "up", 0.0);\
+				}\
+				after: "arrow,move,left,ani,start,"interval_name;\
+			}\
+\
+			program {\
+				name: "arrow,move,right,"interval_name;\
+				source: "prog";\
+				signal: "arrow,move,right,"interval_name;\
+				script: {\
+					set_state(PART:"up_arrow", "dim", 0.0);\
+					set_state(PART:"down_arrow", "dim", 0.0);\
+					set_state(PART:"left_arrow", "dim", 0.0);\
+					set_state(PART:"right_arrow", "default", 0.0);\
+					set_state(PART:"up_arrow_text", "dim", 0.0);\
+					set_state(PART:"down_arrow_text", "dim", 0.0);\
+					set_state(PART:"left_arrow_text", "dim", 0.0);\
+					set_state(PART:"right_arrow_text", "default", 0.0);\
+					set_state(PART:"warningframe", "up", 0.0);\
+				}\
+				after: "arrow,move,right,ani,start,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,up,ani,start,"interval_name;\
+				signal: "arrow,move,up,ani,start,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "up_arrow" ;\
+				transition: ACCELERATE interval_value;\
+				after: "arrow,move,up,ani,1,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,up,ani,1,"interval_name;\
+				signal: "arrow,move,up,ani,1,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_2" 0.0;\
+				target: "up_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "arrow,move,up,ani,2,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,up,ani,2,"interval_name;\
+				signal: "arrow,move,up,ani,2,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "up_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "warnning,sound,play,"interval_name;\
+			}\
+\
+			program {\
+				name: "arrow,move,down,ani,start,"interval_name;\
+				signal: "arrow,move,down,ani,start,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "down_arrow" ;\
+				transition: ACCELERATE interval_value;\
+				after: "arrow,move,down,ani,1,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,down,ani,1,"interval_name;\
+				signal: "arrow,move,down,ani,1,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_2" 0.0;\
+				target: "down_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "arrow,move,down,ani,2,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,down,ani,2,"interval_name;\
+				signal: "arrow,move,down,ani,2,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "down_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "warnning,sound,play,"interval_name;\
+			}\
+\
+			program {\
+				name: "arrow,move,left,ani,start,"interval_name;\
+				signal: "arrow,move,left,ani,start,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "left_arrow" ;\
+				transition: ACCELERATE interval_value;\
+				after: "arrow,move,left,ani,1,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,left,ani,1,"interval_name;\
+				signal: "arrow,move,left,ani,1,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_2" 0.0;\
+				target: "left_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "arrow,move,left,ani,2,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,left,ani,2,"interval_name;\
+				signal: "arrow,move,left,ani,2,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "left_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "warnning,sound,play,"interval_name;\
+			}\
+\
+			program {\
+				name: "arrow,move,right,ani,start,"interval_name;\
+				signal: "arrow,move,right,ani,start,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "right_arrow" ;\
+				transition: ACCELERATE interval_value;\
+				after: "arrow,move,right,ani,1,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,right,ani,1,"interval_name;\
+				signal: "arrow,move,right,ani,1,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_2" 0.0;\
+				target: "right_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "arrow,move,right,ani,2,"interval_name;\
+			}\
+			program {\
+				name: "arrow,move,right,ani,2,"interval_name;\
+				signal: "arrow,move,right,ani,2,"interval_name;\
+				source: "*";\
+				action: STATE_SET "state_1" 0.0;\
+				target: "right_arrow" ;\
+				transition: DECELERATE interval_value;\
+				after: "warnning,sound,play,"interval_name;\
+			}\
+			program {\
+				name: "warnning,sound,play,"interval_name;\
+				signal: "warnning,sound,play,"interval_name;\
+				source: "prog";\
+				action: SIGNAL_EMIT "warnning,sound,play,"interval_name "warnning,sound,play,"interval_name;\
+			}\
+
+#define WARNING_TXT_UP(part_name, to_bg, text_offset) \
+	part { name: part_name; \
+		type: TEXT; \
+		effect: OUTLINE;\
+		mouse_events: 1; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			rel1 { relative: 0.0 0.0; to: to_bg; offset:0 (-text_offset);} \
+			rel2 { relative: 1.0 0.0; to: to_bg;} \
+			color:245 245 245 255; \
+			text { \
+				size: 15; \
+				align: 0.5 0.5; \
+			} \
+		} \
+		description { \
+			state: "dim" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0.0; \
+		} \
+	}
+
+#define WARNING_TXT_LEFT(part_name, to_bg, text_offset) \
+	part { name: part_name; \
+		type: TEXT; \
+		effect: OUTLINE;\
+		mouse_events: 1; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			rel1 { relative: 0.0 0.0; to: to_bg; offset:-250 0;} \
+			rel2 { relative: 0.0 1.0; to: to_bg; offset:-text_offset 0;} \
+			color:245 245 245 255; \
+			text { \
+				size: 15; \
+				align: 1.0 0.5; \
+			} \
+		} \
+		description { \
+			state: "dim" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0.0; \
+		} \
+	}
+
+#define WARNING_TXT_LEFT_CORNER(part_name, to_bg, text_offset) \
+	part { name: part_name; \
+		type: TEXT; \
+		effect: OUTLINE;\
+		mouse_events: 1; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			rel1 { relative: 0.0 0.0; to: to_bg; offset: -text_offset 0;} \
+			rel2 { relative: 0.0 1.0; to: to_bg; offset: 0 0;} \
+			color:245 245 245 255; \
+			text { \
+				size: 15; \
+				align: 1.0 0.5; \
+			} \
+		} \
+		description { \
+			state: "dim" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0.0; \
+		} \
+	}
+
+#define WARNING_TXT_RIGHT(part_name, to_bg, text_offset) \
+	part { name: part_name; \
+		type: TEXT; \
+		effect: OUTLINE;\
+		mouse_events: 1; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			align: 0.0 0.5; \
+			rel1 { relative: 1.0 0.0; to: to_bg; offset:(text_offset) 0;} \
+			rel2 { relative: 1.0 1.0; to: to_bg; offset:(text_offset+150) 0;} \
+			color:245 245 245 255; \
+			text { \
+				size: 15; \
+				align: 0.0 0.5; \
+			} \
+		} \
+		description { \
+			state: "dim" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0.0; \
+		} \
+	}
+
+#define WARNING_TXT_DOWN(part_name, to_bg, text_offset) \
+	part { name: part_name; \
+		type: TEXT; \
+		effect: OUTLINE;\
+		mouse_events: 1; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			rel1 { relative: 0.0 1.0; to: to_bg;} \
+			rel2 { relative: 1.0 1.0; to: to_bg; offset:0 (text_offset);} \
+			color:245 245 245 255; \
+			text { \
+				size: 15; \
+				align: 0.5 0.5; \
+			} \
+		} \
+		description { \
+			state: "dim" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0.0; \
+		} \
+	}
+
+#endif /*__H_EDC_CAM_STANDBY_VIEW_INC_EDC_H__*/
+//endfile

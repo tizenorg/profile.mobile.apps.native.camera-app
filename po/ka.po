@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "კვების ელემენტი იცლება."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "ფაილი ვერ ინახება. მოწყობილობის მეხსიერება სავსეა."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "ხმის ღილაკი"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "ფაილი ვერ ინახება. არ არის საკმარისი მეხსიერება."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "ნათებას ვერ გამოიყენებთ. კვების ელემენტი იცლება."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "შავ-თეთრი"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "სელფი უკ.კამერ."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "მუშავდება..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "შენახვის ადგილის შეცვლა"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD ბარათი ჩადებულია. ნაგულისხმევი შენახვის ადგილი შეიცვლება და გახდება SD ბარათი"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "შეცვლა"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD ბარათი"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "ქვემოთ"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "მარცხნივ"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "მარჯვნივ"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "ზემოთ"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "გაუქმება"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "პაუზა"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "ავტომატურად ვერ დაფოკუსდა."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "ნელა ამოძრავება"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "უკანა კამერა ავტომატურად ამოიცნობს და ფოკუსში მოაქცევს სახეს, როდესაც საკუთარ თავს გადაუღებთ სურათებს."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "სურათებს ვერ გადაიღებთ პანორამულ რეჟიმში. სცენარის ინფორმაცია არ არის საკმარისი."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "პანორამა"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "გადატვირთვა"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "ჩამკეტის ხმა"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "ღილაკების განლაგებით"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "შეეხეთ და გადაიღეთ"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "ავტომატური"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "ღილაკი"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "ღრუბლიანი"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "დღის განათ."
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "მოწყობილობა"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "ეფექტები"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "გამორთეთ კამერა. კვების ელემენტის ტემპერატურა ძალიან მაღალია."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "ნათება"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "ფლუორესცენტული"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "ფოკუსირების რეჟიმი"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "არცერთი"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "ეფექტის გარეშე"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "გალერეაში სურათები არაა"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "გამორთ."
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "ჩართ."
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "სეპია"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "პარამეტრები"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "თაიმერი"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "კაშკაშა"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "ვიდეოს ზომა"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "ექსპოზიციის ზომა"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "ჩაწერა"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "ჩაწერის რეჟიმი"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "პანორამა"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "თეთრის ბალანსი"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "კამერა დაიხურება."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "სურათი ვერ გადაიღო."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "შენახვის პროცესი შეუძლებელია."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "მეხსიერების ბარათი ამოღებულია."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "ჩაწერა გაჩერდა. შეგიძლიათ ჩაწეროთ, როდესაც აპარატი გაგრილდება"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "უსაფრთხოების პოლიტიკა ზღუდავს კამერის გამოყენებას."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "ნათება გამორთულია. შეგიძლიათ ჩართოთ ნათება, როდესაც აპარატი გაგრილდება"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "ვიდეოს ვერ ჩაწერთ ზარის დროს."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "კამერას ვერ ჩართავთ."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "კამერას ვერ ჩართავთ ზარის დროს."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "ნათების ჩართვა შეუძლებელია. ისევ მოსინჯეთ, როდესაც აპარატი გაგრილდება"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "შენახვა"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "ნეგატივი"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "მიუწვდომელია"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "სახეები"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "ფოტოაპარატი"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "შერჩეულია"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "გადაბრუნებული ფორმით შენახვა"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "მასშტაბი"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "შენახვის ადგილი"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "გაუქმება"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "ვიდეოს ჩაწერა"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "სურათის გადაღება"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "მეხსიერება არ არის საკმარისი\nვიდეოსათვის."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "გადატვირთვა"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "წაშლა"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "გაფრთხილება"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "შეეხეთ კამერის ღილაკს, შემდეგ კი ნელა ამოძრავეთ მოწყობილობა ერთი მიმართულებით."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "კამერის ყველა პარამეტრისთვის აღდგება ნაგულისხმევი მნიშვნელობები."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "ნელა მოაბრუნეთ მოწყობილობა."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "ნელა მოაბრუნეთ მოწყობილობა მარცხნივ."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "ნელა მოაბრუნეთ მოწყობილობა მარჯვნივ."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "გადახარეთ აპარატი უკან."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "გადახარეთ აპარატი წინ."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "აპარატი მოტრიალდა ზედმეტად სწრაფად. სურათს ვერ გადაიღებთ ფართო სელფის რეჟიმში."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "შეცდომა მოხდა სურათების გაერთიანებისას. სურათი მაინც შეინახა."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "სურათები ვერ გადაიღეთ ფართო სელფის რეჟიმში. ობიექტის ამოცნობა ვერ შესრულდა."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "სურათებს ვერ გადაიღებთ ფართო სელფის რეჟიმში. არ არის საკმარისი განათება."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "ნელა მიბრუნეთ აპარატი მარცხნივ ან მარჯვნივ."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "შეეხეთ კამერის ღილაკს და აპარატი ნელა ამოძრავეთ ერთი მიმართულებით."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "ფართო სელფი"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "ინტერვალით გდღ."
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "სურათების წაშლა"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "წაიშლება %d სურათი."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "იწერება ყურსასმენის მიკროფონით."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "ლოკაციის იარლიყები ვერ ირთვება"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "ლოკაციის იარლიყების გამოსაყენებლად, გახსენით პარამეტრები > ლოკაცია და დარწმუნდით, რომ GPS ჩართულია და უსადენო ქსელები გააქტიურებულია."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "სახის ადგილისთვის გადაიტანეთ ჩარჩო და შეცვალეთ ზომა. კამერა დაიწრიპინებს და გადაიღებს %d წამში როცა სახე იქნება ჩარჩოში."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "კამერის პარამეტრები შეიცვალა ნაგულისხმევი მნიშვნელობებით."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "წარმოსახვით გადაღება"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "ეს ფუნქცია თითოეულ გადაღებულ სურათზე მიამაგრებს, ჩააშენებს და შეინახავს გეოგრაფიული ლოკაციის მონაცემს. სიფრთხილე გმართებთ, როდესაც აგზავნით, აზიარებთ, არიგებთ, გადასცემთ ან აკოპირებთ სურათებს, რადგან ისინი შეიცავს სურათის გადაღების ადგილის ინფორმაციას."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "გააქტიურებულია სახის ამოცნობა. კამერა გამოსცემს ხმას და გადაიღებს სურათს %d წამში."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "მიღწეულია ჩანაწერის მაქსიმალური დრო."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "ზომას ვერ შეცვლით მიმდინარე რეჟიმში."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "ჩართვა"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "ლოკაციის იარლიყების გააქტიურება"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "ლოკაციის იარლიყები"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "აღარ მაჩვენო"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "ვიდეოს ჩაწერა შეუძლებელია. მეხსიერება არ ყოფნის."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "სურათის გადაღება შეუძლებელია. მეხსიერება არ ყოფნის."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "მზადაა"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "გაუქმება"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "სელფი"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "სურათის ზომა"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "ნათებას ვერ გამოიყენებთ დაბალ ტემპერატურაზე."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "სწრაფი ჩართვა"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "კამერა გაიხსნება საწყის ეკრანზე სწრაფი მიმდევრობით ორჯერ დაჭერით."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "შენახვა ადგილზე"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "კამერა გაიხსნა სწრაფი ჩართვის ფუნქციით. შესრულდა საწყისი ეკრანის ღილაკზე სწრაფი მიმდევრობით ორჯერ დაჭერა. სწრაფი ჩართვის ფუნქციის გამოსართავად, გახსენით კამერის პარამეტრები და აირჩიეთ სწრაფი ჩართვა."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "ფოტოაპარატის პარამეტრები"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "ექსპოზიცია"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

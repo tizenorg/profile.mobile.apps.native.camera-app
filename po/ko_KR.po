@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "배터리가 부족합니다."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "디바이스 저장공간이 없어 파일을 저장할 수 없습니다."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "음량 버튼"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "저장공간이 부족하여 파일을 저장할 수 없습니다."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "배터리가 부족하여 플래시를 사용할 수 없습니다."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "흑백"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "후면 셀프 샷"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "진행 중..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "저장 위치 변경"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD 카드를 삽입하였습니다. 기본 저장 위치를 SD 카드로 변경합니다."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "변경"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD 카드"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "아래로"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "왼쪽으로"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "오른쪽으로"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "위로"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "취소"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "확인"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "일시정지"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "자동으로 초점을 맞추지 못하였습니다."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "천천히 이동"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "후면 카메라로 셀프 사진을 촬영할 때 얼굴을 자동으로 인식하여 초점을 맞춥니다."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "풍경이 크게 변하지 않아 [파노라마 모드]로 촬영할 수 없습니다."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "파노라마"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "초기화"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "촬영음"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "바로가기 구성 포함"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "눌러서 사진 촬영"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "자동"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "버튼"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "흐린 날"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "태양광"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "디바이스"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "효과"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "[카메라]를 종료하세요. 배터리 온도가 너무 높습니다."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "플래시"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "형광등"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "초점 모드"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "설정 안 함"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "효과 없음"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "갤러리에 이미지 없음"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "해제"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "사용"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "세피아"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "설정"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "타이머"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "백열등"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "동영상 크기"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "노출값"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "녹화"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "촬영 모드"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "풍경"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "화이트밸런스"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "[카메라]를 종료합니다."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "촬영하지 못하였습니다."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "촬영하지 못하였습니다."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "SD 카드를 분리하였습니다."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "촬영을 중지하였습니다. 디바이스 온도가 낮아지면 다시 촬영할 수 있습니다."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "보안정책에 따라 [카메라]를 사용할 수 없습니다."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "플래시가 꺼졌습니다. 디바이스 온도가 낮아지면 플래시를 켤 수 있습니다."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "통화 중에는 동영상을 촬영할 수 없습니다."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "[카메라]를 실행할 수 없습니다."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "통화 중에는 [카메라]를 실행할 수 없습니다."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "플래시를 켤 수 없습니다. 디바이스 온도가 낮아지면 다시 시도하세요."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "저장"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "반전"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "사용할 수 없음"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "얼굴"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "카메라"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "선택 완료"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "좌우반전 저장"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "줌"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "저장 위치"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "초기화"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "동영상 촬영"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "사진 촬영"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "저장공간이 부족합니다."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "초기화"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "저장 안 함"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "알림"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "카메라 버튼을 누른 후, 디바이스를 한쪽 방향으로 천천히 움직이세요."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "모든 카메라 설정을 기본으로 초기화합니다."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "디바이스를 천천히 회전시키세요."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "디바이스를 왼쪽으로 회전시키세요."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "디바이스를 오른쪽으로 천천히 회전시키세요."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "디바이스를 뒤로 기울이세요."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "디바이스를 앞으로 기울이세요."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "디바이스를 너무 빨리 회전시켜 [와이드 셀프 샷 모드]로 사진을 촬영할 수 없습니다."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "사진을 합치는 중에 오류가 발생하였습니다. 사진은 저장된 상태입니다."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "[와이드 셀프 샷 모드]에서 사진을 촬영하지 못하였습니다. 대상을 구별할 수 없습니다."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "빛이 부족하여 [와이드 셀프 샷 모드]로 사진을 촬영할 수 없습니다."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "디바이스를 왼쪽 또는 오른쪽으로 천천히 회전시키세요."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "카메라 버튼을 누른 후 디바이스를 한쪽 방향으로 천천히 회전시키세요."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "와이드 셀프 샷"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "인터벌 샷"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "사진 저장 안 함"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "사진 %d개를 저장하지 않습니다."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "이어폰 마이크로 녹음 중입니다."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "위치 태그를 실행할 수 없음"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "[위치 태그]를 사용하려면, [설정] > [위치]에서 GPS 및 무선 네트워크가 실행된 상태인지 확인하세요."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "얼굴의 위치를 선택하려면 사각형을 끌어와서 크기를 조절하세요. 얼굴이 사각형 안에 들어오면 카메라에서 신호음이 울리고 %d초 후에 사진을 촬영합니다."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "카메라 설정을 기본 설정으로 초기화하였습니다."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "드림 샷"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "이 기능을 실행하면 사진에 위치정보가 함께 저장됩니다. 이 사진을 전송, 공유, 배포, 전달, 복사할 경우 사진을 촬영한 장소의 위치정보가 포함되어 있으니 주의하세요."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "[얼굴 인식]을 실행하였습니다. 카메라에서 신호음이 울리고 %d초 후에 사진을 촬영합니다."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "최대 촬영 시간에 도달하였습니다."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "현재 모드에서는 줌 기능을 사용할 수 없습니다."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "사용"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "위치 태그 실행"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "위치 태그"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "다시 보지 않기"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "저장공간이 부족하여 동영상을 촬영할 수 없습니다."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "저장공간이 부족하여 사진을 촬영할 수 없습니다."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "완료"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "취소"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "셀프 샷"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "사진 크기"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "저온에서는 플래시를 사용할 수 없습니다."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "빠른 실행"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "홈 버튼을 빠르게 두 번 눌러 카메라를 실행합니다."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "저장 위치"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "홈 버튼을 빠르게 두 번 눌러 [빠른 실행]으로 [카메라]를 실행한 상태입니다. [빠른 실행]을 해제하려면 [카메라 설정]에서 [빠른 실행]을 선택하세요."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "카메라 설정"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "노출"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

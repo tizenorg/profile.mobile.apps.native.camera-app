@@ -1,0 +1,13 @@
+<manifest>
+	<define>
+		<domain name="org.tizen.camera-app" />
+	</define>
+	<assign>
+		<filesystem path="/usr/share/icons/default/small/org.tizen.camera-app.png" label="_" />
+		<filesystem path="/opt/usr/apps/org.tizen.camera-app/data/.camera.ini" label="org.tizen.camera-app" />
+		<filesystem path="/usr/apps/org.tizen.camera-app/res/locale/*" label="_" />
+	</assign>
+	<request>
+		<domain name="org.tizen.camera-app" />
+	</request>
+</manifest>

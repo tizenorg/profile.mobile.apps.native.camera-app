@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Низький заряд акумулятора."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Неможливо зберегти файл. Місце збереж.на пристрої заповнено."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Клавіша гучності"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Неможливо зберегти файл. Недостатньо пам’яті."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Неможливо використати спалах. Низький заряд акумулятора."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Відтінки сірого"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Авто селфі"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Обробка..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Змінити місце збереження"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Вставлено карту пам'яті. Стандартне місце збереження буде змінено на карту пам’яті"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Змінити"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Карта пам’яті"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Вниз"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Вліво"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Вправо"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Вгору"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Скасувати"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "ОК"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Пауза"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Збій автофокусу."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Переміщуйте повільно"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Під час створення автопортретів задня камера автоматично розпізнає обличчя та сфокусується на ньому."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Неможливо зробити фотографії в режимі панорамної зйомки. Недостатньо деталей пейзажу."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Панорама"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Скинути"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Звук затвора"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Включаючи ярлики"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Нат., щоб сфотогр."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Авто"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Кнопка"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Хмарно"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Сонячно"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Пристрій"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Ефекти"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Вийдіть із камери. Зависока температура акумулятора."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Спалах"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Денне світло"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Режим фокусування"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Немає"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Без ефектів"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Немає зображень"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Вимкнено"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Увімкнено"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Сепія"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Налаштування"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Таймер"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Штучне світло"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Розмір відео"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Значення витримки"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Записати"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Режим відеозйомки"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Пейзаж"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Баланс білого"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Камеру буде закрито."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Збій зйомки."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Збій записування."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Карту пам'яті видалено."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Записування зупинено. Його можна буде поновити після того, як пристрій охолоне"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Використання камери обмежено політикою безпеки."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Спалах вимкнено. Його можна буде ввімкнути після того, як пристрій охолоне"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Неможливо записати відео під час виклику."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Неможливо запустити камеру."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Неможливо запустити камеру під час виклику."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Неможливо ввімкнути спалах. Спробуйте ще раз після того, як пристрій охолоне"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Збер."
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Негатив"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Недоступно"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Обличчя"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Камера"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Вибрано"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Зберегти як перевернуте"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Масштабування"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Місце збереження"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Скидання"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Записати відео"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Зробити фото"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Недостатньо\nпам'яті для відео."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Скинути"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Відхилити"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Попередження"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Натисніть кнопку камери, а потім повільно перемістіть пристрій в одному напрямку."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Усі налаштування камери буде скинуто до стандартних."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Повільно поверніть пристрій."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Повільно поверніть пристрій вліво."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Повільно поверніть пристрій вправо."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Нахиліть пристрій назад."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Нахиліть пристрій вперед."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Пристрій обертається занадто швидко. Неможливо створити фотографію у режимі широкоформатного селфі."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Під час злиття зображень сталася помилка. Зображення все одно буде збережено."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Не вдалося створити фотографії в режимі широкоформатного селфі. Неможливо розрізнити об’єкт."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Неможливо створити фотографії у режимі широкоформатного селфі. Недостатньо світла."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Повільно поверніть пристрій вліво або вправо."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Натисніть кнопку камери та повільно повертайте пристрій в одному напрямку."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Широк. селфі"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Інтервал зйомки"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Скасув. вибір зображ."
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Буде видалено зображень: %d."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Запис через мікрофон із навушників."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Неможл.ввімк.теги розташування"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Щоб використовувати теги розташування, перейдіть до меню «Налаштування» > «Розташування» та переконайтеся, що GPS і мобільні мережі ввімкнено."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Перетащ.рамку–змін.розмір і вст.полож.обличчя. Після його розташ.у рамці буде відтв.звук.сигнал і за %d сек.розп.зйомка."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Налаштування камери скинуто до стандартних значень."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Знімок мрії"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Ця функція дає змогу додавати, прикріплювати та зберігати дані географічного розташування для кожної зробленої фотографії. Будьте уважні під час надсилання, надання спільного доступу, розповсюдження, передачі або копіювання цих фотографій, оскільки вони містять інформацію про місце, де були зроблені знімки."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Функцію розпізнавання обличчя ввімкнено. На камері відтвориться звуковий сигнал і за %d сек. розпочнеться зйомка."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Досягнуто максимального часу записування."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Неможливо збільшити масштаб у поточному режимі."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Увімкнути"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Увімкнення тегів розташування"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Теги розташування"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Більше не показувати"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Неможливо записати відео. Недостатньо пам’яті."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Неможливо створити фотографію. Недостатньо пам’яті."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "ГОТОВО"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "СКАСУВАТИ"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Селфі"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Розмір фотографії"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Неможливо використовувати спалах за низької температури."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Швидкий запуск"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Запустіть камеру, швидко натиснувши двічі клавішу «Домашній»."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Зберегти до"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Камеру відкрито через швидкий запуск. Клавішу «Домашній» натиснуто двічі поспіль. Щоб вимкнути швидкий запуск, перейдіть у налаштування камери та виберіть «Швидкий запуск»."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Налаштування камери"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Експозиція"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

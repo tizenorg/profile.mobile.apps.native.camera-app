@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Batéria je takmer vybitá."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Súbor sa nedá uložiť. Úložisko zariadenia je plné."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Tlačidlo hlasitosti"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Súbor sa nedá uložiť. Nedostatok pamäte."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Nemožno použiť blesk. Batéria je takmer vybitá."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Stupne sivej"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Selfie"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Prebieha spracovanie..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Zmeniť umiest. úlož. priestoru"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Bola vložená karta SD. Predvolené umiestnenie úložného priestoru sa zmení na kartu SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Zmeniť"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Karta SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Nadol"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Doľava"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Doprava"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Nahor"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Zrušiť"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pauza"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "﻿Automatické zaostrovanie zlyhalo."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Pohybujte pomaly"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Pri snímaní autoportrétových fotografií bude zadný fotoaparát automaticky zisťovať tvár a zaostrovať na ňu."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "V režime Panoráma nemožno fotografovať. Nedostatok detailov scenérie."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panoráma"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Vynulovať"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Zvuk spúšte"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Zahrnúť rozlož. odkazov"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Ťukn. fotografujte"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Automatický"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Tlačidlo"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Oblačno"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Denné svetlo"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Zariadenie"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efekty"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Ukončite aplikáciu Fotoaparát. Teplota batérie je príliš vysoká."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Blesk"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Žiarivka"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Režim zaostrovania"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Žiadny"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Žiadny efekt"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Žiadne obrázky v Galérii"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Vyp."
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Zap."
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sépia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Nastavenia"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Časovač"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Žiarovka"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Veľkosť videa"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Hodnota expozície"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Nahrať"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Režim nahrávania"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Na šírku"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Vyváženie bielej"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Aplikácia Fotoaparát sa ukončí."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Snímanie zlyhalo."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Nahrávanie zlyhalo."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Pamäťová karta vybraná."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Nahrávanie sa zastavilo. Nahrávať môžete po ochladení zariadenia."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Politika zabezpečenia obmedzuje použitie fotoaparátu."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "﻿Blesk bol vypnutý. Blesk môžete zapnúť po ochladení zariadenia."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Počas hovoru nemožno nahrávať videá."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Fotoaparát sa nedá spustiť."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Počas hovoru nie je možné spustiť fotoaparát."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Blesk nemožno zapnúť. Skúste to znova po ochladení zariadenia."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Uložiť"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatív"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Nie je k dispozícii"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Tváre"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Fotoaparát"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Vybraté"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Uložiť ako prevrátené"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Priblíženie"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Umiest. úlož. priestoru"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Vynulovať"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Nahrať video"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fotografovať"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Nedostatok pamäte\npre video."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Vynulovať"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Vyradiť"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Upozornenie"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Ťuknite na tlačidlo fotoaparátu a potom pomaly pohybujte zariadením v jednom smere."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Všetky nastavenia aplikácie Fotoaparát sa obnovia na predvolené."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Zariadenie pomaly nakláňajte."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Zariadenie pomaly otáčajte doľava."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Zariadenie pomaly otáčajte doprava."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Nakloňte zariadenie dozadu."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Nakloňte zariadenie dopredu."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Zariadením ste otáčali príliš rýchlo. V režime Široký autoportrét sa nedá fotografovať."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Počas zlučovania fotografií sa vyskytla chyba. Fotografia sa uložila napriek tomu."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Nepodarilo sa nasnímať fotografie v režime Široký autoportrét. Objekt sa nedá rozlíšiť."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "V režime Široké selfie sa nedá fotografovať. Nedostatok svetla."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Pomaly nakláňajte zariadenie doľava alebo doprava."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Ťuknite na tlačidlo fotoaparátu a pomaly nakláňajte zariadenie v jednom smere."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Široké selfie"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Interv. snímka"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Zahodenie fotografií"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Vykoná sa zahodenie %d fotografií."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Nahráva sa cez mikrofón slúchadiel."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Lokal. značky sa nedajú zapnúť"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Ak chcete použiť funkciu Lokalizačné značky, prejdite do menu Nastavenia > Lokalizácia a skontrolujte, či sú zapnuté možnosti GPS a Bezdrôtové siete."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Presun. a uprav. veľkosti rámčeka nastavte polohu tváre. Keď je tvár v rámčeku, fotoap. po %d s pípne a nasníma fotogr."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Obnovili sa predvolené nastavenia aplikácie Fotoaparát."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Táto funkcia priloží, vloží a uloží údaje o zemepisnej polohe do každej nasnímanej fotografie. Pri odosielaní, zdieľaní, distribuovaní, prenášaní alebo kopírovaní týchto fotografií buďte obozretní, pretože obsahujú informácie o mieste ich nasnímania."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Detekcia tváre je zapnutá. Fotoaparát po %d sekundách pípne a nasníma fotografiu."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Dosiahol sa maximálny čas nahrávky."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "V aktuálnom režime sa nedá približovať."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Zapnúť"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Zapnutie lokalizačných značiek"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Lokalizačné značky"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Už nezobrazovať"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Nedá sa nahrať video. Nedostatok pamäte."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Nedá sa fotografovať. Nedostatok pamäte."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "HOTOVO"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ZRUŠIŤ"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Selfie"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Veľkosť fotografie"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Blesk nemožno použiť pri nízkej teplote."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Rýchlo otvoriť fotoaparát"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Stlačením tlačidla Domov dvakrát rýchlo za sebou, otvoríte aplikáciu Fotoaparát."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Uložiť do"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Aplikácia Fotoaparát sa otvorila prostredníctvom funkcie Rýchle spustenie. Stlačili ste tlačidlo domovskej obrazovky dvakrát rýchlo za sebou. Ak chcete vypnúť funkciu Rýchle spustenie, prejdite do menu Nastavenia fotoaparátu a vyberte položku Rýchle spustenie."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Nastavenia fotoaparátu"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Expozícia"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

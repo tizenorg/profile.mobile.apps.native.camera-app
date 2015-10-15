@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Batareya quvvati kam."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Faylni saqlab bo‘lmaydi. Qurilma xotirasi to‘la."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Ovoz tugmasi"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Faylni saqlab bo‘lmaydi. Xotira yetarli emas."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Fleshdan foydalanib bo‘lmaydi. Batareya quvvati kam."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Kul rang shkala"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Selfi (as. Kmr)"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Bajarilmoqda..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Saqlash joyini o‘zgartirish"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD-karta kiritildi. Sukut bo‘yicha saqlanadigan joylashuv SD-kartaga o‘zgartiriladi"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "O‘zgar."
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD-karta"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Past"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Chap"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "O‘ng"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Yuqori"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Bekor qilish"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "To‘xtatib turish"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Avto-fokus bajarilmadi."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Sekin harakatlantirish"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Avto-portretingizni suratga olganingizda, orqa kamera yuzingizni avtomatik ravishda aniqlaydi va fokuslaydi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Panorama rejimida rasmga olib bo‘lmaydi. Sahna tafsilotlari yetarli emas."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Qayta yuklash"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Obyektivning ochilish ovozi"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Yorliq joy.o‘z ichiga ol"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Rasm ol. u-n teg"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Avtomatik"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Tugma"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Bulutli"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Kunduz"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Qurilma"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Effektlar"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Kameradan chiqish. Batareya harorati juda yuqori."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Flesh"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluoressensiya"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokus rejimi"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Hech qaysi"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Effekt yo‘q"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Galereyada rasmlar yo‘q"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "O‘ch."
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Yoq."
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sepiya"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Parametrlar"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Taymer"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Cho‘g‘lanma lampa"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Video o‘lchami"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Defekt qiymati"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Yozib olish"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Yozib olish rejimi"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Gorizontal"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Oq balans"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera yopiladi."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Olib bo‘lmadi."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Yozib bo‘lmadi."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Xotira kartasi olib tashlandi."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Yozib olish to‘xtatildi. Qurilmangiz soviganda, yozib olishingiz mumkin"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Xavfsizlik qonun-qoidalari Kameradan foydalanishni cheklaydi."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Flesh o‘chirilgan. Qurilmangiz soviganda, fleshni yoqishingiz mumkin"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Qo‘ng‘iroq mobaynida video yozib bo‘lmaydi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Kamerani ishga tushirib bo‘lmaydi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Qo‘ng‘iroq mobaynida Kamerani ishga tushirib bo‘lmaydi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Fleshni yoqib bo‘lmaydi. Qurilmangiz soviganda, qayta urinib ko‘ring"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Saqlash"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negativ"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Mavjud emas"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Yuzlar"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Selected"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Teskari holatda saqlash"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Masshtab o‘zgartirish"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Xotira joylashuvi"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Tashlash"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Video yozib olish"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Rasmga olish"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Video uchun xotira yetarli emas."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Qayta yuklash"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Rad etish"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Signal"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Kamera tugmasiga teging, undan so‘ng qurilmani bir yo‘nalishda asta-sekin harakatlantiring."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Barcha Kamera parametrlari birlamchi holatiga qaytariladi."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Qurilmani ohista aylantiring."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Qurilmani chapga ohista aylantiring."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Qurilmani o‘ngga ohista aylantiring."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Qurilmani orqaga og‘diring."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Qurilmani oldinga og‘diring."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Qurilma juda tez aylandi. Keng o‘z-o‘zini rasmga olish rejimida rasmga olib bo‘lmaydi."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Rasmlarni birlashtirayotganda xato yuz berdi. Rasm baribir saqlansin."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Keng o‘zini rasmga olish rejimida rasmga olib bo‘lmadi. Obyektni ajratib bo‘lmaydi."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Keng selfi rejimida rasmga olib bo‘lmaydi. Yorug‘lik yetarli emas."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Qurilmangizni sekin-asta chap yoki o‘ngga aylantiring."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Kamera tugmasiga teging va qurilmani bir yo‘nalishda sekin-asta aylantiring."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Keng selfi"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Intervalli kadr"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Rasmlarni tashlash"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d ta rasm tashlab yuboriladi."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Quloqlik mikrofoni bilan yozib oling."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Joy teglarini yoqib bo‘lmaydi"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Joylashuv teglaridan foydalanish uchun Parametrlar > Joylashuvga o‘ting va GPS hamda Simsiz tarmoqlar yoqilganligiga ishonch hosil qiling."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Yuz hlt-ni sozlash u-n hshya sur. va o‘lch. o‘zgar. Yuz hshya ichidaligida, kmr. sgnl chal. va %d son. so‘ng rasm oladi."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Kamera parametrlari birlamchiga tashlandi."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Orzu kadri"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Ushbu funksiya Siz suratga olgan har bir rasmda geografik joylashuv haqidagi ma’lumotlarni biriktiradi, bog‘laydi va saqlaydi. Ushbu rasmlarni yuborish, ulashish, tarqatish, uzatish yoki ulardan nusxa ko‘chirish vaqtida ehtiyot bo‘ling, chunki ular rasm olingan joy haqidagi ma’lumotga ega."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Yuzni aniqlashni yoqish. Kamera signal chaladi va %d soniyadan so‘ng rasmga oladi."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Maksimal yozib olish vaqtiga yetildi."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Joriy rejimda kattalashtirib bo‘lmaydi."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Yoqish"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Joylashuv teglarini yoqish"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Joylashuv teglari"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Boshqa ko‘rsatilmasin"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Videoni yozib olib bo‘lmaydi. Xotira yetarli emas."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Rasmga olib bo‘lmaydi. Xotira yetarli emas."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "BAJARILDI"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "BEKOR QILISH"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Avtoportret"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Rasm o‘lchami"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Past haroratda fleshdan foydalanib bo‘lmaydi."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Tezkor ishga tushirish"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Asosiy tugmani tezda ikki marta bosish orqali Kamerani oching."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Quyidagiga saqlash"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kamera Tezkor ishga tushirish orqali ochildi. Asosiy tugma tezkor ravishda ikki marta bosildi. Tezkor ishga tushirishni o‘chirish uchun Kamera parametrlariga o‘ting va Tezkor ishga tushirishni tanlang."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kamera parametrlari"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Ko‘rgazmali"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Baterija je slaba."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Nije moguće spremiti datoteku. Memorija uređaja puna."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Tipka za glasnoću"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Nije moguće spremiti datoteku. Nema dovoljno memorije."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Nemoguće koristiti bljeskalicu. Baterija prazna."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Siva skala"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Autop. st. kam."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Procesiranje..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Promijenite mjesto spremanja"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD kartica je umetnuta. Zadano mjesto spremanja promijenjeno je na SD karticu."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Promijeni"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD kartica"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Dolje"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Lijevo"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Desno"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Gore"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Prekid"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "U redu"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pauza"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Greška autofokusa."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Polako pomičite"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Stražnja kamera automatski će prepoznati i fokusirati lica dok snimate autoportrete."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Nemoguće snimiti sliku u načinu Panorama. Nema dovoljno detalja krajolika."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Poništavanje"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Zvuk okidača"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Uključi izgled prečaca"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Dotaknite za foto"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Tipka"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Oblačno"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Dnevna"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Uređaj"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efekti"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Zatvorite fotoaparat. Temperatura baterije previsoka."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Bljeskalica"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluorescentno"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokusiranje"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Ništa"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Bez efekta"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Nema slika u Albumu"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Isključeno"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Uključi"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sephia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Postavke"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Odbrojavanje"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Žarulja"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Veličina videa"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Vrijednost ekspozicije"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Snimi"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Način snimanja"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Pejzaž"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Kor. bijele boje"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera će se zatvoriti."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Snimanje nije uspjelo."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Greška snimanja."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Mem. kartica uklonjena."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Snimanje je prekinuto. Možete snimati kada se uređaj ohladi."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Sigurnosne odredbe ograničavaju korištenje fotoaparata."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Bljeskalica je isključena. Bljeskalicu možete uključiti kada se uređaj ohladi."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Snimanje videozapisa nemoguće tijekom poziva."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Nemoguće pokrenuti kameru."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Nemoguće pokrenuti kameru tijekom poziva."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Nije moguće uključiti bljeskalicu. Pokušajte ponovno kada se uređaj ohladi."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Spremi"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negativ"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Nedostupno"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Lica"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Odabrano"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Spremi kao preokrenuto"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoom"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Mjesto spremanja"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Poništi"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Snimi videozapis"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fotografiranje"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Nedovoljna memorija\nza video."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Poništavanje"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Odbaci"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Obavijest"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Dodirnite tipku kamere pa lagano pomičite uređaj u jednom smjeru."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Sve postavke Kamere vratit će se na zadane."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Polagano zakrenite uređaj."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Polagano zakrenite uređaj ulijevo."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Polagano zakrenite uređaj udesno."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Nagnite uređaj unatrag."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Nagnite uređaj naprijed."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Uređaj je prebrzo zakrenut. Nije moguće snimanje fotografije u načinu Široki autoportret."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Greška tijekom spajanja fotografija. Fotografija je ipak spremljena."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Neuspješno snimanje slike u načinu Široki autoportret. Nije moguće prepoznat subjekt."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Nije moguće fotografiranje u načinu Široki autoportret. Nema dovoljno svjetla."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Zakrenite uređaj polagano ulijevo ili udesno."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Dodirnite gumb Kamere i lagano zakrenite uređaj u jednom smjeru."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Šir. autoportr."
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Snimi interval"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Odbacivanje slika"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Odbacit će se slike (njih %d)."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Snimanje mikrofonom slušalice."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Nemoguće uključiti Lok. oznake"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Za upotrebu Lokacijskih oznaka idite na Postavke > Lokacija i provjerite je li uključen GPS i jesu li omogućene Bežične mreže."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Poveć. i prom. vel. okvira za postav. polož. lica. Kamera će se oglas. i snimiti foto. %d s nakon što je lice u okviru."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Postavke Kamere vratile su se na zadane."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Ova funkcija uz svaku će snimljenu fotografiju priložiti, umetnuti i spremiti podatke o geografskoj lokaciji. Šaljite, dijelite, distribuirajte, prenosite ili kopirajte ove fotografije s oprezom jer sadržavaju podatke o lokaciji na kojoj je slika snimljena."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Uključeno Prepoznavanje lica. Kamera će proizvesti zvuk i snimiti fotografiju nakon %d s."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Dosegnuto je maksimalno vrijeme snimanja."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Nije moguće zumirati u trenutačnom načinu."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Uključi"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Uključivanje Lokacijskih oznaka"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Lokacijske oznake"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ne prikazuj više"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Nemoguće snimiti video. Nedovoljno memorije."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Nemoguće snimiti sliku. Nedovoljno memorije."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "GOTOVO"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ODUSTANI"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Autoportret"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Veličina fotografije"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Nemoguće koristiti bljeskalicu pri niskim temperaturama."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Brzo pokretanje"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Otvorite Kameru tako da dvaput brzo pritisnete početnu tipku."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Spremi u"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Otvorena je Kamera putem Brzog pokretanja. Početna tipka brzo je pritisnuta dva puta zaredom. Da biste isključili Brzo pokretanje, idite u postavke Kamere i odaberite Brzo pokretanje."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Postavke kamere"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Ekspozicija"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

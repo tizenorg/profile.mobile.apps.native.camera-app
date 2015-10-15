@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Aku on tühi."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Faili ei saa salvestada. Seadme mälu on täis."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Helituge-vusnupp"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Faili ei saa salvestada. Mälu pole piisavalt."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Välku ei saa kasutada. Aku on liiga tühi."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Halltoonid"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Tagakaam. self."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Töötlemine..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Muuda mälu asukohta"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD-kaart on paigaldatud. Vaikimisi mälu asukohaks muudetakse SD-kaart."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Muuda"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD-kaart"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Alla"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Vasakule"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Paremale"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Üles"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Tühista"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Paus"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Automaatne fokuseerimine nurjus."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Liigutage aeglaselt"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Tagumine kaamera tuvastab ja fokuseerib teie näo automaatselt, kui teete endast portreepilte."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Panoraamrežiimis ei saa pildistada. Pole piisavalt maastiku üksikasju."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panoraam"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Lähtesta"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Katiku heli"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Kaasa otsetee paigutus"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Toks., et pildist."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto."
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Nupp"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Pilves"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Päevavalgus"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Seade"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efektid"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Sulgege kaamera. Aku temperatuur on liiga kõrge."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Välk"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Kiiskav"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fookuse režiim"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Pole"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Efekti pole"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Galeriis pole pilte"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Väljas"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Sees"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Seepia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Seaded"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Taimer"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Ergav"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Video suurus"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Säritusväärtus"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Salvesta"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Salvestusrežiim"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Rõhtpaigutus"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Valge tasakaal"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kaamera suletakse."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Pildistamine nurjus."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Salvestamine nurjus."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Mälukaart on eemaldatud."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Salvestamine on lõpetatud. Saate salvestada siis, kui seade on jahtunud."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Turvalisuse poliis piirab kaamera kasutuse."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Välk on lülitatud välja. Saate kasutada välku siis, kui seade on jahtunud."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Kõne ajal ei saa videoid salvestada."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Kaamerat ei saa käivitada."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Kõne ajal ei saa kaamerat käivitada."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Välku ei saa sisse lülitada. Proovige uuesti, kui seade on jahtunud."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Salvesta"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatiiv"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Kättesaamatu"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Näod"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kaamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Valitud"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Salvesta ümberpööratuna"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Suumi"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Salvestamise asukoht"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Lähtesta"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Salvesta video"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Pildista"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Video jaoks ei\npiisa mälu."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Lähtesta"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Loobu"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Märguanne"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Toksake kaamera nuppu ja seejärel liigutage seadet aeglaselt ühes suunas."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Kõik kaamera vaikeseaded lähtestatakse."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Pöörake seadet aeglaselt."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Pöörake seadet aeglaselt vasakule."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Pöörake seadet aeglaselt paremale."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Kallutage seadet tahapoole."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Kallutage seadet ettepoole."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Seadet pöörati liiga kiiresti. Laias selfie-režiimis ei saa pildistada."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Piltide ühendamisel ilmnes tõrge. Pilt on salvestatud ikkagi."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Laias selfie-režiimis pildistamine nurjus. Objekti ei ole võimalik eristada."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Laias selfie-režiimis ei saa pildistada. Pole piisavalt valgust."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Pöörake seadet aeglaselt vasakule või paremale."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Toksake kaameranuppu ja pöörake seadet aeglaselt ühes suunas."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Lai selfie"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Intervallivõte"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Loobu piltidest"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d pildist loobutakse."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Salvestamine kõrvaklappide mikrofoniga."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Asukohasilte ei saa aktiv."
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Asukohasiltide kasutamiseks avage menüü Seaded > Asukoht ja kontrollige, kas GPS on sisse lülitatud ja juhtmevabade võrkude kasutamine aktiveeritud."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Lohistage ja muutke raami suurust, et määrata näo asukoht. Kaamera piiksub ja pildistab %d s pärast, kui nägu on raamis."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Kaamera vaikeseaded on lähtestatud."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Unistuste võte"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "See funktsioon lisab ja salvestab igale tehtud pildile selle geograafilise asukoha andmed. Olge nende piltide saatmisel, jagamisel, levitamisel, edastamisel või kopeerimisel ettevaatlik, kuna need sisaldavad teavet jäädvustamise asukoha kohta."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Näotuvastus on aktiveeritud. Kaamera teeb piiksu ja pildistab %d sekundi pärast."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Maksimaalne salvestusaeg on saavutatud."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Praeguses režiimis ei saa suumida."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Aktiveeri"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Aktiveerige asukohasildid"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Asukohasildid"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ära näita enam"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Videot ei saa salvestada. Mälu pole piisavalt."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Ei saa pildistada. Mälu pole piisavalt."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "VALMIS"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "TÜHISTA"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "End. teh. pilt"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Pildi suurus"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Välku ei saa kasutada madalal temperatuuril."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Kiirkäivitus"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Avage kaamera, vajutades kaks korda kiiresti avaekraani klahvi."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Salvestuskoht"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kaamera avati kiirkäivituse kaudu. Avaekraani klahvi vajutati kiirelt kaks korda järjest. Kiirkäivituse desaktiveerimiseks avage kaamera seaded ja valige Kiirkäivitus."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kaamera seaded"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Säritus"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

@@ -1,0 +1,319 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../inc/edc_image_name.h"
+#include "../inc/edc_defines.h"
+#include "cam_funcs.edc"
+
+
+#define SHOOTING_MODE_INFO_WIDTH MAIN_H
+#define SHOOTING_MODE_INFO_HEIGHT 352
+
+#define SHOOTING_MODE_ITEM_WIDTH 376
+#define SHOOTING_MODE_ITEM_HEIGHT 282
+
+collections {
+	group {
+		name:"camera/help_genlist_layout";
+		images {
+			image: CANCEL_BTN_NORMAL_IMAGE COMP;
+			image: CANCEL_BTN_PRESS_IMAGE COMP;
+			image: SETTING_POPUP_BG_2DEPTH_IMAGE COMP;
+			image: SETTING_LINE_IMAGE COMP;
+		}
+
+		parts {
+			part {
+				name : "bg";
+				type: "RECT";
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1{ relative: 0.0 0.0;}
+					rel2{ relative: 1.0 1.0;}
+					color: 0 0 0 0;
+				}
+			}
+			part{
+				name: "bg.image";
+				type: IMAGE;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image {
+						normal : SETTING_POPUP_BG_2DEPTH_IMAGE;
+						border: 18 18 78 18;
+						border_scale: 1;
+					}
+				}
+			}
+
+			part {
+				name: "elm.text.leftpadding";
+				type:  SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 28 78;
+					max: 28 78;
+					fixed: 1 1;
+					align: 0.0 0.0;
+				}
+			}
+			part {
+				name: "elm.text";
+				type:  TEXT;
+				mouse_events:  0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 400 78;
+					max: 400 78;
+					fixed: 1 1;
+					align: 0.0 0.0;
+					rel1 { relative: 1.0 0.0; to: "elm.text.leftpadding"; offset: 0 5;}
+					text {
+						font: FONT_NAME;
+						size: 38;
+						align : 0.0 0.5;
+						text: "Single";
+					}
+				}
+			}
+
+			part {
+				name: "line";
+				type: IMAGE;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 2 60;
+					max: 2 60;
+					fixed: 1 1;
+					align: 1 0;
+					rel1 { relative: 0.0 0.0; offset: -24 15; to_x: "close_icon";}
+					rel2 { relative: 0.0 1.0; offset: -24 0; to_x: "close_icon";}
+					visible: 1;
+					image.normal: SETTING_LINE_IMAGE;
+				}
+			}
+
+			part {
+				name: "close_icon";
+				type: IMAGE;
+				scale: 1;
+				mouse_events:  1;
+				description {
+					state: "default" 0.0;
+					min: 60 60;
+					max: 60 60;
+					fixed: 1 1;
+					align: 1 0;
+					rel1 { relative: 0.0 0.0; offset: 0 15;}
+					rel2 { relative: 1.0 0.0; offset: -24 0;}
+					visible: 1;
+					image.normal: CANCEL_BTN_NORMAL_IMAGE;
+				}
+				description {
+					state: "pressed" 0.0;
+					inherit: "default" 0.0;
+					image.normal: CANCEL_BTN_PRESS_IMAGE;
+				}
+			}
+			part {
+				name: "elm.swallow.box";
+				type: SWALLOW;
+				description {
+					rel1 { relative: 1.0 1.0; to_x: "elm.text.leftpadding"; to_y: "elm.text"; offset: 0 6;}
+					rel2 { offset: -12 -26;}
+				}
+			}
+		}
+
+		programs {
+			program {
+				name: "mouse_down";
+				signal: "mouse,down,1";
+				source: "close_icon";
+				action: STATE_SET "pressed" 0.0;
+				target: "close_icon";
+			}
+			program {
+				name: "mouse_up";
+				signal: "mouse,up,1";
+				source: "close_icon";
+				action: STATE_SET "default" 0.0;
+				target: "close_icon";
+			}
+			program {
+				name: "clicked_close_icon";
+				signal: "mouse,clicked,1";
+				source: "close_icon";
+				action: SIGNAL_EMIT "close_icon_click" "close_icon";
+			}
+		}
+	} /* end of group */
+
+	group {
+		name:"camera/help_genlist_with_icon_layout";
+		images {
+			image: CANCEL_BTN_NORMAL_IMAGE COMP;
+			image: CANCEL_BTN_PRESS_IMAGE COMP;
+			image: SETTING_POPUP_BG_2DEPTH_IMAGE COMP;
+			image: SETTING_LINE_IMAGE COMP;
+		}
+
+		parts {
+			part {
+				name : "bg";
+				type: "RECT";
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1{ relative: 0.0 0.0;}
+					rel2{ relative: 1.0 1.0;}
+					color: 0 0 0 0;
+				}
+			}
+			part{
+				name: "bg.image";
+				type: IMAGE;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image {
+						normal : SETTING_POPUP_BG_2DEPTH_IMAGE;
+						border: 18 18 78 18;
+						border_scale: 1;
+					}
+				}
+			}
+
+			part {
+				name: "elm.text.leftpadding";
+				type:  SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 28 78;
+					max: 28 78;
+					fixed: 1 1;
+					align: 0.0 0.0;
+				}
+			}
+			part {
+				name: "elm.text";
+				type:  TEXT;
+				mouse_events:  0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 400 78;
+					max: 400 78;
+					fixed: 1 1;
+					align: 0.0 0.0;
+					rel1 { relative: 1.0 0.0; to: "elm.text.leftpadding"; offset: 7 5;}
+					text {
+						text_class: "ATO015";
+						align : 0.0 0.5;
+					}
+				}
+			}
+
+			part {
+				name: "line";
+				type: IMAGE;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 2 60;
+					max: 2 60;
+					fixed: 1 1;
+					align: 1 0;
+					rel1 { relative: 0.0 0.0; offset: -24 15; to_x: "close_icon";}
+					rel2 { relative: 0.0 1.0; offset: -24 0; to_x: "close_icon";}
+					visible: 1;
+					image.normal: SETTING_LINE_IMAGE;
+				}
+			}
+
+			part {
+				name: "close_icon";
+				type: IMAGE;
+				scale: 1;
+				mouse_events:  1;
+				description {
+					state: "default" 0.0;
+					min: 60 60;
+					max: 60 60;
+					fixed: 1 1;
+					align: 1 0;
+					rel1 { relative: 0.0 0.0; offset: -7 15;}
+					rel2 { relative: 1.0 0.0; offset: -31 0;}
+					visible: 1;
+					image.normal: CANCEL_BTN_NORMAL_IMAGE;
+				}
+				description {
+					state: "pressed" 0.0;
+					inherit: "default" 0.0;
+					image.normal: CANCEL_BTN_PRESS_IMAGE;
+				}
+			}
+			part {
+				name: "elm.swallow.box";
+				type: SWALLOW;
+				description {
+					rel1 { relative: 1.0 1.0; to_x: "elm.text.leftpadding"; to_y: "elm.text"; offset: 10 20;}
+					rel2 { offset: -12 -26;}
+				}
+			}
+		}
+
+		programs {
+			program {
+				name: "mouse_down";
+				signal: "mouse,down,1";
+				source: "close_icon";
+				action: STATE_SET "pressed" 0.0;
+				target: "close_icon";
+			}
+			program {
+				name: "mouse_up";
+				signal: "mouse,up,1";
+				source: "close_icon";
+				action: STATE_SET "default" 0.0;
+				target: "close_icon";
+			}
+			program {
+				name: "clicked_close_icon";
+				signal: "mouse,clicked,1";
+				source: "close_icon";
+				action: SIGNAL_EMIT "close_icon_click" "close_icon";
+			}
+		}
+	} /* end of group */
+} /* end of collections */

@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Akumuliatoriaus įkrova senka."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Negalima įrašyti failo. Įrenginio atmintis pilna."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Garsumo klavišas"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Negalima įrašyti failo. Nepakanka atminties."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Negalima naudoti blykstės. Akumuliatoriaus įkrova senka."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Pilkų pustonių"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Autopr.gal.fot."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Apdorojama..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Keisti saugyklos vietą"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD kortelė įdėta. Numatytoji saugyklos vieta bus pakeista į SD kortelę."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Keisti"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD kortelė"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Žemyn"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Į kairę"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Į dešinę"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Aukštyn"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Atšaukti"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Gerai"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pauzė"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Nepavyko sufokusuoti automatiškai."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Perkelti lėtai"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Darant autoportreto nuotraukas galinis fotoaparatas automatiškai aptiks ir sufokusuos jūsų veidą."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Negalima fotografuoti panoramos režimu. Nepakanka vaizdo detalių."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Atstatyti"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Fotoap. užrakto garsas"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Pridėti trumpinio maketą"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Baks. ir fotograf."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Automatinis"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Mygtukas"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Debesuota"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Dienos šviesa"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Įrenginys"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efektai"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Išjungti fotoaparatą. Per aukšta akumuliatoriaus temperatūra."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Blykstė"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluorescentinis"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokusavimo režimas"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Nėra"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Jokio efekto"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Galerijoje nėra vaizdų"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Išjungti"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Įjungti"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Tamsiai rusvas"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Nustatymai"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Laikmatis"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Kaitinamoji lempa"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Vaizdo įrašo dydis"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Ekspozicijos vertė"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Įrašyti"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Įrašymo režimas"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Peizažas"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Baltos spalvos balansas"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Fotoaparatas išsijungs."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Nepavyko nufotografuoti."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Įrašyti nepavyko."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Atminties kortelė išimta."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Įrašymas sustabdytas. Galite įrašyti įrenginiui atvėsus."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Saugos strategija riboja naudojimąsi fotoaparatu."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Blykstė išjungta. Blykstę galite įjungti, kai įrenginys atvės."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Skambučio metu negalima įrašyti vaizdo įrašo."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Neįmanoma paleisti fotoaparato."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Pokalbio metu fotoaparato įjungti negalima."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Neįmanoma įjungti blykstės. Bandykite dar kartą, kai atvės įrenginys."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Išsaug."
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatyvas"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Neleistina"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Veidai"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Fotoapar."
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Pasirinkta"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Išsaugoti kaip apverstą"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Mastelis"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Saugojimo vieta"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Atstatyti"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Vaizdo įrašymas"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fotografuoti"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Nepakanka\natminties vaizd. įr."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Atstatyti"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Panaikinti"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Įspėjimas"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Bakstelėkite fotoaparato mygtuką, po to lėtai judinkite įrenginį viena kryptimi."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Bus grąžinti visi numatytieji fotoaparato nustatymai."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Iš lėto pasukite įrenginį."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Iš lėto pasukite įrenginį į kairę."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Iš lėto pasukite įrenginį į dešinę."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Pakreipkite įrenginį atgal."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Pakreipkite įrenginį pirmyn."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Įrenginys pasukamas per greitai. Neįmanoma fotografuoti plataus autoportreto režimu."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Sujungiant nuotraukas įvyko klaida. Nuotrauka vis tiek išsaugota."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Nepavyko nufotografuoti plataus autoportreto režimu. Nepavyko atskirti objekto."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Neįmanoma fotografuoti plataus autoportreto režimu. Nepakanka šviesos."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Lėtai pasukite įrenginį į kairę ar dešinę."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Bakstelėkite fotoaparato mygtuką ir lėtai judinkite įrenginį viena kryptimi."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Plat. autoport."
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Interv. fotogr."
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Panaikinti nuotraukas"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Bus panaikinta nuotraukų: %d."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Įrašoma naudojant ausinių mikrofoną."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Neįmanoma įjungti vietos žymų"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Jei norite naudoti vietų žymas, eikite į skirtuką Nustatymai > Vieta, įsitikinkite, kad įjungta GPS ir belaidžių tinklų funkcijos."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Vilkdami ir keisdami rėmelio dydį nust. veido padėtį. Kai veidas bus rėmelyje, fotoap. pyptelės ir fotograf. po %d sek."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Nustatyti numatytieji fotoaparato nustatymai."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Stebuklingas kadras"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Ši funkcija gali pridėti, įterpti ir išsaugoti duomenis apie geografinę vietą, kurioje padaryta kiekviena nuotrauka. Būkite atsargūs siųsdami, bendrindami, platindami, perduodami ar kopijuodami šias nuotraukas, nes jose nurodoma informacija apie fotografavimo vietą."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Veido aptikimas įjungtas. Fotoaparatas pyptelės ir užfiksuos vaizdą po %d sek."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Pasiektas didžiausias įrašymo laikas."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Neįmanoma padidinti naudojamu režimu."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Įjungti"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Įjungti vietos žymas"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Vietų žymos"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Neberodyti"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Neįmanoma įrašyti vaizdo. Nepakanka atminties."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Neįmanoma fotografuoti. Nepakanka atminties."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "ATLIKTA"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ATŠAUKTI"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Autoportretas"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Nuotraukos dydis"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Esant žemai temperatūrai blykstės naudoti negalima."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Greitas paleidimas"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Greitai du kartus iš eilės paspauskite pradžios mygtuką ir atidarykite fotoaparatą."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Išsaugoti (kur)"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Fotoaparatas atidarytas naudojant greitąjį paleidimą. Pradžios mygtukas buvo paspaustas greitai du kartus iš eilės. Jei norite išjungti greitąjį paleidimą, eikite į fotoaparato nustatymus ir pasirinkite greitąjį paleidimą."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Fotoaparato nustatymai"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Ekspozicija"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+
