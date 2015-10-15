@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "طاقة البطارية منخفضة."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "يتعذّر حفظ الملف. إن وحدة تخزين الجهاز ممتلئة."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "مفتاح الصوت"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "يتعذّر حفظ الملف. ما من مساحة كافية."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "يتعذر استخدام الفلاش. طاقة البطارية منخفضة."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "التدرج الرمادي"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "صورة ذاتية عبر الكاميرا الخلفية"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "جاري المعالجة..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "تغيير موقع التخزين"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "تم إدخال بطاقة SD. سيتم تغيير موقع التخزين الافتراضي إلى بطاقة SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "تغيير"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "بطاقة SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "لأسفل"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "يسار"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "يمين"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "لأعلى"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "إلغاء"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "موافق"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "إيقاف مؤقت"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "فشل ‏‫ضبط البؤرة تلقائيا."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "حركة بطيئة"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "ستكتشف الكاميرا الخلفية تلقائيًّا وجهك وتُركز عليه عند التقاطك صور لنفسك."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "يتعذر التقاط صور في وضع البانوراما. لا تتوفّر تفاصيل كافية حول المشهد."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "بانوراما"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "إرجاع"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "صوت الإلتقاط"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "تضمين مخطط الاختصارات"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "انقر لالتقاط صور"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "تلقائي"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "الزر"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "غائم"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "ضوء النهار"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "الجهاز"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "التأثيرات"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "الخروج، درجة حرارة بطارية الكاميرا مرتفعة للغاية."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "فلاش"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "مشع"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "نمط توضيح الصورة"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "لا شيء"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "بلا تأثير"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "لا توجد صور في الاستوديو‬‬"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "إيقاف تشغيل"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "مفعل"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "بني داكن"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "الضبط"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "المؤقت"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "براق"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "حجم الفيديو"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "قيمة الإضاءة"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "تسجيل"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "نمط التسجيل"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "منظر طبيعي"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "توازن اللون الأبيض"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "سيتم إغلاق الكاميرا."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "فشل الالتقاط."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "فشل التسجيل."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "تم إخراج بطاقة الذاكرة."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "تم إيقاف التسجيل. يمكنك التسجيل عندما يبرد الجهاز."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "سياسة الأمان تقيد استخدام الكاميرا."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "تم إيقاف تشغيل الفلاش. يمكنك تشغيل الفلاش عندما يبرد الجهاز."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "يتعذر تسجيل مقاطع الفيديو أثناء الاتصال."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "يتعذر بدء تشغيل الكاميرا."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "يتعذر بدء الكاميرا أثناء المكالمة."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "يتعذر تشغيل الفلاش. أعد المحاولة عندما يبرد الجهاز."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "حفظ"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "نيجاتيف"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "غير متوفر"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "وجوه"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "الكاميرا"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "تم التحديد"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "حفظ كصورة معكوسة"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "التكبير/التصغير"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "موقع التخزين"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "إرجاع"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "تسجيل فيديو"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "التقاط صورة"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "ذاكرة الفيديو المتبقية غير كافية."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "إرجاع"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "تخلص"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "تنبيه"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "انقر فوق زر الكاميرا، ثم حرك الجهاز ببطء في اتجاه واحد."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "ستتم إعادة ضبط كل ضبط الكاميرا إلى الضبط الافتراضي."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "أدر الجهاز ببطء."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "أدر الجهاز ببطء نحو اليسار."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "أدر الجهاز ببطء نحو اليمين."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "قم بإمالة الجهاز للخلف."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "قم بإمالة الجهاز للأمام."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "تم تدوير الجهاز بسرعة زائدة عن اللزوم. يتعذر التقاط الصورة في وضع صورة ذاتية عريضة."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "حدث خطأ أثناء دمج الصور. تم حفظ الصورة على أي حال."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "فشل التقاط الصور في وضع صورة ذاتية عريضة. يتعذر تمييز العنصر."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "يتعذر التقاط الصور في وضع الصورة الذاتية العريضة. ما من ضوء كافٍ."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "أدر جهازك ببطء نحو اليسار أو اليمين."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "انقر فوق زر الكاميرا وأدر جهازك على ببطء في اتجاه واحد."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "صورة ذاتية عريضة"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "لقطات ذاتية متعددة"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "تجاهل الصور"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "سيتم تجاهل %d من الصور."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "يتم التسجيل بواسطة ميكروفون سماعة الأذن."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "يتعذر تفعيل علامات الموقع"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "لاستخدام علامات الموقع، انتقل إلى الضبط > الموقع، وتأكد من أن تشغيل GPS وتفعيل الشبكات اللاسلكية."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "اسحب الإطار وغيّر حجمه لضبط موضع الوجه. ستصدر الكاميرا إشارة صوتية وستلتقط صورة بعد %d من الثواني عندما يصبح الوجه في الإطار."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "تمت إعادة ضبط ضبط الكاميرا إلى الافتراضي."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "لقطة حلم"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "ستقوم هذه الوظيفة بإرفاق بيانات الموقع الجغرافية وتضمينها وتخزينها ضمن كل صورة تلتقطها. يجب توخي الحذر عند إرسال هذه الصور أو مشاركتها أو توزيعها أو نقلها أو نسخها حيث إنها تحتوي على معلومات حول مكان التقاط الصورة."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "تم تفعيل اكتشاف الوجه. ستصدر الكاميرا إشارة صوتية وستلتقط صورة بعد %d من الثواني."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "تم بلوغ الحد الأقصى لمدة التسجيل."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "يتعذر التكبير في الوضع الحالي."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "تمكين"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "تفعيل علامات الموقع"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "علامات الموقع"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "عدم الإظهار مرة أخرى"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "يتعذر تسجيل الفيديو. ما من ذاكرة كافية."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "يتعذر التقاط الصورة. ما من ذاكرة كافية."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "تم"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "إلغاء"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "صورة ذاتية"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "حجم الصورة"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "لا يمكن استخدام الفلاش في درجات الحرارة المنخفضة."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "تشغيل سريع"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "افتح الكاميرا عبر الضغط على مفتاح الشاشة الرئيسية مرتين متتاليتين بسرعة."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "حفظ إلى"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "تم فتح الكاميرا بواسطة التشغيل السريع. تم الضغط على مفتاح الشاشة الرئيسية مرتين متتاليتين بسرعة. لإلغاء تفعيل التشغيل السريع، انتقل إلى ضبط الكاميرا وحدد التشغيل السريع."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "ضبط الكاميرا"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "التعرض"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

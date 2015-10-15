@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.camera-app" version="0.0.1" install-location="internal-only" api-version="2.4" >
+	<label>Camera</label>
+	<author email="namjin45.kim@samsung.com" href="www.samsung.com">Namjin Kim</author>
+	<author email="sora.hyun@samsung.com" href="www.samsung.com">Sora Hyun</author>
+	<author email="h2.seo@samsung.com" href="www.samsung.com">Hyunho Seo</author>
+	<description>Camera Application</description>
+	<ui-application appid="org.tizen.camera-app" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="false" multiple="false" type="capp" taskmanage="true" mainapp="true" process-pool="true" hw-acceleration="use-GL" indicatordisplay="false" portrait-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png" landscape-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png">
+		<icon>/usr/share/icons/default/small/org.tizen.camera-app.png</icon>
+		<label>Camera</label>
+		<label xml:lang="bn-in">ক্যামেরা</label>
+		<label xml:lang="en-us">Camera</label>
+		<label xml:lang="gu-in">કૅમેરા</label>
+		<label xml:lang="hi-in">कैमरा</label>
+		<label xml:lang="kn-in">ಕ್ಯಾಮರಾ</label>
+		<label xml:lang="ml-in">ക്യാമറ</label>
+		<label xml:lang="si-in">කැමරාව</label>
+		<label xml:lang="ta-in">கேமரா</label>
+		<label xml:lang="te-in">కెమెరా</label>
+		<label xml:lang="ur-in">کیمرہ</label>
+	</ui-application>
+	<ui-application appid="org.tizen.camera-appcontrol" exec="/usr/apps/org.tizen.camera-app/bin/camera-appcontrol" nodisplay="true" multiple="true" type="capp" taskmanage="false" submode="true" submode-mainid="org.tizen.camera-app" process-pool="true" hw-acceleration="use-GL" launch_mode="caller">
+		<icon>/usr/share/icons/default/small/org.tizen.camera-app.png</icon>
+		<label>Camera</label>
+		<label xml:lang="bn-in">ক্যামেরা</label>
+		<label xml:lang="en-us">Camera</label>
+		<label xml:lang="gu-in">કૅમેરા</label>
+		<label xml:lang="hi-in">कैमरा</label>
+		<label xml:lang="kn-in">ಕ್ಯಾಮರಾ</label>
+		<label xml:lang="ml-in">ക്യാമറ</label>
+		<label xml:lang="si-in">කැමරාව</label>
+		<label xml:lang="ta-in">கேமரா</label>
+		<label xml:lang="te-in">కెమెరా</label>
+		<label xml:lang="ur-in">کیمرہ</label>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/create_content" />
+			<mime name="image/jpg" />
+			<mime name="image/jpeg" />
+			<mime name="video/3gp" />
+			<mime name="video/3gpp" />
+		</application-service>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/image_capture" />
+		</application-service>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/video_capture" />
+		</application-service>
+	</ui-application>
+	<privileges>
+		<privilege>http://tizen.org/privilege/location</privilege>
+		<privilege>http://tizen.org/privilege/telephony</privilege>
+		<privilege>http://tizen.org/privilege/camera</privilege>
+	</privileges>
+</manifest>

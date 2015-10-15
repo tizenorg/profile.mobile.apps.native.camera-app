@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Nivel de batería bajo."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "No se puede guardar archivo. Almacen. de dispositivo lleno."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Tecla Volumen"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "No se puede guardar el archivo. Memoria insuficiente."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "No se puede usar flash. Batería baja."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Escala de grises"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Selfie posterior"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Procesando..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Ubicación de almacenamiento"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Se insertó una tarjeta de memoria. La ubicación de almacenamiento predeterminado se cambiará a la tarjeta de memoria."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Cambiar"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Tarjeta de memoria"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Abajo"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Izquierda"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Derecha"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Arriba"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Cancelar"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Aceptar"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pausar"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Error en el enfoque automático."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Mover lentamente"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "La cámara posterior detectará automáticamente y se enfocará en su rostro cuando se capturen imágenes de autorretrato."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "No es posible capturar imágenes en modo Panorámico. No hay suficientes detalles en el paisaje."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorámica"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Restablecer"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Sonido de obturador"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Incluir diseño de atajo"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Pul. para capt. im."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Automático"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Botón"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Nublado"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Luz de día"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Dispositivo"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efectos"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Salir de la cámara. La temperatura de la batería es demasiado elevada."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Flash"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluorescente"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Modo de enfoque"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Ninguno"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Sin efecto"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "No hay imágenes en Galería"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Desactivado"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Activado"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sepia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Ajustes"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Temporizador"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Incandescente"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Tamaño del video"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Valor de exposición"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Grabar"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Modo de grabación"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Panorama"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Balance de blancos"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "La cámara se cerrará"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Error al capturar."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Error de grabación."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Tarjeta de memoria extraída."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Se detuvo la grabación. Puede volver a grabar una vez que su dispositivo se enfríe."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "La política de seguridad restringe el uso de la cámara."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Se desactivó el flash. Puede activarlo una vez que su dispositivo se enfríe."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "No es posible grabar videos durante la llamada."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "No se puede iniciar la cámara."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "No es posible iniciar la cámara durante la llamada."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "No se puede activar el flash. Inténtelo de nuevo una vez que su dispositivo se enfríe."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Guardar"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negativo"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "No disponible"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Rostros"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Cámara"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Seleccionado(s)"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Guardar como volteada"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoom"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Ubicación de almacenam."
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Restablecer"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Grabar video"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Capturar imagen"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Memoria insuficiente para el video."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Restablecer"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Descartar"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Alerta"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pulse el botón de la cámara y, a continuación, mueva el dispositivo lentamente en una dirección."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Toda la configuración de Cámara se restablecerá a los valores predeterminados."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Gire el dispositivo lentamente."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Gire el dispositivo lentamente hacia la izquierda."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Gire el dispositivo lentamente hacia la derecha."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Incline el dispositivo hacia atrás."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Incline el dispositivo hacia adelante."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "El dispositivo se giró demasiado rápido. No se pudo capturar la imagen en el modo Selfie amplia."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Se produjo un error al fusionar imágenes. La imagen se guardó de todos modos."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Error al capturar imágenes en el modo Selfie amplia. No es posible distinguir el objeto."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "No es posible capturar imágenes en el modo Selfie amplia. No hay luz suficiente."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Gire el dispositivo lentamente hacia la izquierda o hacia la derecha."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pulse el botón de la cámara y gire su dispositivo lentamente en una dirección."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Selfie amplia"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Intervalos"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Descartar imágenes"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Se descartarán %d imágenes."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Grabando con el micrófono del auricular."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "No es posible activar"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Para usar Etiquetas de ubicación, vaya a Configuración > Ubicación y compruebe que las opciones GPS y Redes inalámbricas estén activadas."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Arrastre y ajuste el cuadro al rostro. Cámara emite un sonido y captura la imag. a los %d s si el rostro está en cuadro."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "La configuración de Cámara se restableció a los valores predet."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Esta función adjunta, inserta y almacena los datos de la ubicación geográfica dentro de cada imagen capturada. Tenga precaución cuando envíe, comparta, distribuya, transmita o copie estas imágenes, ya que contienen información acerca del lugar en el que fueron capturadas."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Se activó la función Detección de rostro. La cámara emitirá un sonido y capturará la imagen después de %d segundos."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Se alcanzó la duración máxima de la grabación."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "No es posible usar el zoom en el modo actual."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Activar"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Activar Etiquetas de ubicación"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Etiqueta de ubicación"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "No volver a mostrar"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "No es posible grabar el video. No hay memoria suficiente."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "No es posible capturar la imagen. No hay memoria suficiente."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "REALIZADO"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "CANCELAR"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Selfie"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Tamaño de imagen"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "No se puede usar el flash con temperatura baja."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Quick launch"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Abra Cámara presionando la tecla Inicio dos veces en una sucesión rápida."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Guardar en"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Se ha abierto la aplicación Cámara vía Inicio rápido. La tecla Inicio se ha presionado dos veces seguidas rápidamente. Para desactivar Quick launch, vaya a los ajustes de Cámara y seleccione Quick launch."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Ajustes"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Exposición"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

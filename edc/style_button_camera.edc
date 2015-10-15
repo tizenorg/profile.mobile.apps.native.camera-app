@@ -1,0 +1,1005 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../inc/edc_image_name.h"
+#include "../inc/edc_defines.h"
+#include "cam_standby_view_inc.edc"
+
+#define REC_STOP_BTN_W			100
+#define REC_STOP_BTN_H			100
+
+#define REC_PAUSE_BTN_W		88
+#define REC_PAUSE_BTN_H		88
+
+#define COMMON_STOP_BTN_W	100
+#define COMMON_STOP_BTN_H		100
+
+/*note: button */
+#define CAM_BTN_STYLES(style_name, image_normal, image_press, image_dim, image_w, image_h) \
+	group {\
+		name: "elm/button/base/camera/"style_name;\
+		images {\
+			image : image_normal COMP;\
+			image : image_press COMP;\
+			image : image_dim COMP;\
+		}\
+		parts {\
+			part {\
+				name: "button_image";\
+				type: IMAGE;\
+				scale: 1;\
+				description {\
+					state: "default" 0.0;\
+					min: image_w/2 image_h/2; \
+					fixed: 1 1; \
+					align: 0.5 0.5;\
+					visible: 1;\
+					rel1 { relative: 0.0 0.0;}\
+					rel2 { relative: 1.0 1.0;}\
+					image { normal: image_normal; }\
+				}\
+				description {\
+					state: "visible" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+				description {\
+					state: "icononly" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+					rel2.relative: 1.0 1.0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_press; }\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_dim; }\
+				}\
+				description {\
+					state: "focused" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_press; }\
+				}\
+			}\
+			part {\
+				name: "over2";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 0;\
+				ignore_flags: ON_HOLD;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part {\
+				name: "over3";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 1;\
+				description { state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+			part {\
+				name: "disabler";\
+				type: RECT;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+		}\
+		programs {\
+			program {\
+				name: "button_click";\
+				signal: "mouse,down,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,press" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_click_anim";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "button_image";\
+			}\
+			program { name: "button_double_click";\
+				signal: "mouse,down,1,double";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_mouseout_clicked";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "button_unpress";\
+				signal: "mouse,up,1";\
+				source: "over3";\
+				action: SIGNAL_EMIT "elm,action,unpress" "";\
+				after: "button_mouseout_clicked";\
+			}\
+			program {\
+				name: "button_click2";\
+				signal: "mouse,down,1";\
+				source: "over3";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick2";\
+				signal: "mouse,clicked,1";\
+				source: "over3";\
+				action: STATE_SET "default" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick3";\
+				signal: "mouse,clicked,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+			}\
+			program {\
+				name: "icon_show";\
+				signal: "elm,state,icon,visible";\
+				source: "elm";\
+				action:  STATE_SET "visible" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "icon_hide";\
+				signal: "elm,state,icon,hidden";\
+				source: "elm";\
+				action:  STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "disable";\
+				signal: "elm,state,disabled";\
+				source: "elm";\
+				action: STATE_SET "disabled" 0.0;\
+				target: "button_image";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "enable";\
+				signal: "elm,state,enabled";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "focused";\
+				signal: "button,action,focus";\
+				source: "prog";\
+				action: STATE_SET "focused" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "unfocused";\
+				signal: "button,action,unfocus";\
+				source: "prog";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "action_focus";\
+				signal: "elm,action,focus_highlight,show";\
+				source: "elm";\
+				action: STATE_SET "focused" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "action_unfocus";\
+				signal: "elm,action,focus_highlight,hide";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+		}\
+	}
+
+#define CAM_EFFECT_BTN_STYLES(style_name, image_normal, image_press, image_dim, image_w, image_h) \
+	group {\
+		name: "elm/button/base/camera/"style_name;\
+		images {\
+			image : image_normal COMP;\
+			image : image_press COMP;\
+			image : image_dim COMP;\
+		}\
+		parts {\
+			part {\
+				name: "button_image";\
+				type: IMAGE;\
+				scale: 1;\
+				description {\
+					state: "default" 0.0;\
+					min: image_w/2 image_h/2; \
+					fixed: 1 1; \
+					align: 0.5 0.5;\
+					visible: 1;\
+					rel1 { relative: 0.0 0.0;}\
+					rel2 { relative: 1.0 1.0;}\
+					image { normal: image_normal; }\
+				}\
+				description {\
+					state: "visible" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+				description {\
+					state: "icononly" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+					rel2.relative: 1.0 1.0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_press; }\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_dim; }\
+				}\
+				description {\
+					state: "focused" 0.0;\
+					inherit: "default" 0.0;\
+					image { normal: image_press; }\
+				}\
+			}\
+			part {\
+				name: "btn_text";\
+				type: TEXT;\
+				mouse_events: 1;\
+				repeat_events: 1;\
+				description {\
+					state: "default" 0.0;\
+					color: 255 255 255 255;\
+					text {\
+						text: "ABC";\
+						size: 30;\
+						align: 0.5 0.5;\
+					}\
+					min: image_w/2 image_h/2;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part {\
+				name: "over2";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 0;\
+				ignore_flags: ON_HOLD;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part {\
+				name: "over3";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 1;\
+				description { state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+			part {\
+				name: "disabler";\
+				type: RECT;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+		}\
+		programs {\
+			program {\
+				name: "button_click";\
+				signal: "mouse,down,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,press" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_click_anim";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "button_image";\
+			}\
+			program { name: "button_double_click";\
+				signal: "mouse,down,1,double";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_mouseout_clicked";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "button_unpress";\
+				signal: "mouse,up,1";\
+				source: "over3";\
+				action: SIGNAL_EMIT "elm,action,unpress" "";\
+				after: "button_mouseout_clicked";\
+			}\
+			program {\
+				name: "button_click2";\
+				signal: "mouse,down,1";\
+				source: "over3";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick2";\
+				signal: "mouse,clicked,1";\
+				source: "over3";\
+				action: STATE_SET "default" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick3";\
+				signal: "mouse,clicked,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+			}\
+			program {\
+				name: "icon_show";\
+				signal: "elm,state,icon,visible";\
+				source: "elm";\
+				action:  STATE_SET "visible" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "icon_hide";\
+				signal: "elm,state,icon,hidden";\
+				source: "elm";\
+				action:  STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "disable";\
+				signal: "elm,state,disabled";\
+				source: "elm";\
+				action: STATE_SET "disabled" 0.0;\
+				target: "button_image";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "enable";\
+				signal: "elm,state,enabled";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "focused";\
+				signal: "button,action,focus";\
+				source: "prog";\
+				action: STATE_SET "focused" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "unfocused";\
+				signal: "button,action,unfocus";\
+				source: "prog";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "action_focus";\
+				signal: "elm,action,focus_highlight,show";\
+				source: "elm";\
+				action: STATE_SET "focused" 0.0;\
+				target: "button_image";\
+			}\
+			program {\
+				name: "action_unfocus";\
+				signal: "elm,action,focus_highlight,hide";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "button_image";\
+			}\
+		}\
+	}
+
+
+/*note: button */
+#define CAM_MODE_BTN_STYLES(style_name, image_normal, image_press, image_dim, image_w, image_h) \
+         group {\
+                      name: "elm/button/base/camera/"style_name;\
+                      images {\
+                               image : image_normal COMP;\
+                               image : image_press COMP;\
+                               image : image_dim COMP;\
+                      }\
+                      parts {\
+                              part { name: "button_bg";\
+                                     type: SPACER;\
+                                     mouse_events: 0;    \
+                                     repeat_events: 0;    \
+                                     scale: 1;\
+                                     description { state: "default" 0.0;\
+                                               max: 600 -1;\
+                                     }\
+                              }\
+                              part {\
+                                     name: "button_image";\
+                                     type: IMAGE;\
+                                     scale: 1;\
+                                     description {\
+                                               state: "default" 0.0;\
+                                               min: image_w image_h; \
+                                               max: image_w image_h; \
+                                               fixed: 1 1;\
+                                               align: 0.0 0.0;\
+                                               visible: 1;\
+                                               rel1 { relative: 0.0 0.0;}\
+                                               rel2 { relative: 0.0 1.0;}\
+                                               image { normal: image_normal; }\
+                                     }\
+                                     description {\
+                                               state: "visible" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               fixed: 1 0;\
+                                               visible: 1;\
+                                     }\
+                                     description {\
+                                               state: "icononly" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               fixed: 0 0;\
+                                               visible: 1;\
+                                               rel2.relative: 1.0 1.0;\
+                                     }\
+                                     description {\
+                                               state: "clicked" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               image { normal: image_press; }\
+                                     }\
+                                     description {\
+                                               state: "disabled" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               image { normal: image_dim; }\
+                                     }\
+                                     description {\
+                                               state: "focused" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               image { normal: image_press; }\
+                                     }\
+                              }\
+                              part {\
+                                     name: "over2";\
+                                     type: RECT;\
+                                     mouse_events: 1;\
+                                     repeat_events: 0;\
+                                     ignore_flags: ON_HOLD;\
+                                     description {\
+                                               state: "default" 0.0;\
+                                               color: 0 0 0 0;\
+                                     }\
+                                     description {\
+                                               state: "disabled" 0.0;\
+                                               inherit:  "default" 0.0;\
+                                               visible: 0;\
+                                     }\
+                              }\
+                              part {\
+                                     name: "over3";\
+                                     type: RECT;\
+                                     mouse_events: 1;\
+                                     repeat_events: 1;\
+                                     description { state: "default" 0.0;\
+                                               color: 0 0 0 0;\
+                                     }\
+                                     description {\
+                                               state: "clicked" 0.0;\
+                                               inherit:  "default" 0.0;\
+                                               visible: 1;\
+                                     }\
+                              }\
+                              part {\
+                                     name: "disabler";\
+                                     type: RECT;\
+                                     description {\
+                                               state: "default" 0.0;\
+                                               color: 0 0 0 0;\
+                                               visible: 0;\
+                                     }\
+                                     description {\
+                                               state: "disabled" 0.0;\
+                                               inherit: "default" 0.0;\
+                                               visible: 1;\
+                                     }\
+                              }\
+			      part {\
+				      name: "button_icon2";\
+				      type: SWALLOW;\
+				      mouse_events: 0;\
+				      scale: 1;\
+				      description{\
+					      state:"default" 0.0;\
+					      rel1 { relative: 0.0 30/CAMCORDER_BTN_W; }\
+					      rel2 { relative: 1.0 82/CAMCORDER_BTN_W; }\
+				      }\
+			      }\
+                      }\
+                      programs {\
+                              program {\
+                                     name: "button_click";\
+                                     signal: "mouse,down,1";\
+                                     source: "over2";\
+                                     action: SIGNAL_EMIT "elm,action,press" "";\
+                                     after: "button_click_anim";\
+                              }\
+                              program {\
+                                     name: "button_click_anim";\
+                                     action: STATE_SET "clicked" 0.0;\
+                                     target: "button_image";\
+                              }\
+                            program { name: "button_double_click";\
+                               signal: "mouse,down,1,double";\
+                               source: "over2";\
+                               action: SIGNAL_EMIT "elm,action,click" "";\
+                               after: "button_click_anim";\
+                            }\
+                              program {\
+                                     name: "button_mouseout_clicked";\
+                                     action: STATE_SET "default" 0.0;\
+                                     target: "button_image";\
+                              }\
+                            program {\
+                               name: "button_unpress";\
+                              signal: "mouse,up,1";\
+                              source: "over3";\
+                               action: SIGNAL_EMIT "elm,action,unpress" "";\
+                              after: "button_mouseout_clicked";\
+                            }\
+                              program {\
+                                     name: "button_click2";\
+                                     signal: "mouse,down,1";\
+                                     source: "over3";\
+                                     action: STATE_SET "clicked" 0.0;\
+                                     target: "over3";\
+                              }\
+                              program {\
+                                     name: "button_unclick2";\
+                                     signal: "mouse,clicked,1";\
+                                     source: "over3";\
+                                     action: STATE_SET "default" 0.0;\
+                                     target: "over3";\
+                              }\
+                              program {\
+                                     name: "button_unclick3";\
+                                     signal: "mouse,clicked,1";\
+                                     source: "over2";\
+                                     action: SIGNAL_EMIT "elm,action,click" "";\
+                              }\
+                              program {\
+                                     name: "icon_show";\
+                                     signal: "elm,state,icon,visible";\
+                                     source: "elm";\
+                                     action:  STATE_SET "visible" 0.0;\
+                                      target: "button_image";\
+                              }\
+                              program {\
+                                     name: "icon_hide";\
+                                     signal: "elm,state,icon,hidden";\
+                                     source: "elm";\
+                                     action:  STATE_SET "default" 0.0;\
+                                     target: "button_image";\
+                              }\
+                              program {\
+				     name: "disable";\
+				     signal: "elm,state,disabled";\
+				     source: "elm";\
+				     action: STATE_SET "disabled" 0.0;\
+				     target: "button_image";\
+				     target: "over2";\
+				     target: "disabler";\
+			      }\
+                              program {\
+                                     name: "focused";\
+                                     signal: "button,action,focus";\
+                                     source: "prog";\
+                                     action: STATE_SET "focused" 0.0;\
+                                     target: "button_image";\
+                              }\
+                              program {\
+                                     name: "unfocused";\
+                                     signal: "button,action,unfocus";\
+                                     source: "prog";\
+                                     action: STATE_SET "default" 0.0;\
+                                     target: "button_image";\
+                              }\
+                            program { name: "action_focus";\
+                               signal: "elm,action,focus_highlight,show";\
+                               source: "elm";\
+                               action: STATE_SET "focused" 0.0;\
+                               target: "button_image";\
+                            }\
+                            program { name: "action_unfocus";\
+                               signal: "elm,action,focus_highlight,hide";\
+                               source: "elm";\
+                               action: STATE_SET "default" 0.0;\
+                               target: "button_image";\
+                            }\
+                      }\
+		}
+
+#define CAM_SETTING_BTN_STYLES(btn_w, btn_h) \
+	group {\
+		name: "elm/button/base/camera/setting_btn_common";\
+		parts {\
+			part { name: "button_bg";\
+				type: SPACER;\
+				mouse_events: 0;	\
+				repeat_events: 0;	\
+				scale: 1;\
+				description { state: "default" 0.0;\
+					max: 350 350;\
+				}\
+			}\
+			part { name: "elm.icon.normal";\
+				type: SWALLOW;\
+				mouse_events:  0;\
+				description { state: "default" 0.0;\
+					/*min: btn_w btn_h;*/\
+					/*max: btn_w btn_h;*/\
+					visible: 1;\
+					fixed: 1 1;\
+					align: 0.5 0.5;\
+					rel1 {\
+						relative: 0.0 0.0;\
+						to: "button_bg";\
+					}\
+					rel2 {\
+						relative: 1.0 1.0;\
+						to: "button_bg";\
+					}\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "focused" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part { name: "elm.icon.press";\
+				type: SWALLOW;\
+				mouse_events:  0;\
+				description { state: "default" 0.0;\
+					visible: 0;\
+					rel1.to: "elm.icon.normal";\
+					rel2.to: "elm.icon.normal";\
+				}\
+				description {\
+					state: "focused" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part { name: "elm.icon.dim";\
+				type: SWALLOW;\
+				mouse_events:  0;\
+				description { state: "default" 0.0;\
+					visible: 0;\
+					rel1.to: "elm.icon.normal";\
+					rel2.to: "elm.icon.normal";\
+				}\
+				description {\
+					state: "focused" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+			part {\
+				name: "over2";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 0;\
+				ignore_flags: ON_HOLD;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 0;\
+				}\
+			}\
+			part {\
+				name: "over3";\
+				type: RECT;\
+				mouse_events: 1;\
+				repeat_events: 1;\
+				description { state: "default" 0.0;\
+					color: 0 0 0 0;\
+				}\
+				description {\
+					state: "clicked" 0.0;\
+					inherit:  "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+			part {\
+				name: "disabler";\
+				type: RECT;\
+				description {\
+					state: "default" 0.0;\
+					color: 0 0 0 0;\
+					visible: 0;\
+				}\
+				description {\
+					state: "disabled" 0.0;\
+					inherit: "default" 0.0;\
+					visible: 1;\
+				}\
+			}\
+		}\
+		programs {\
+			program {\
+				name: "button_click";\
+				signal: "mouse,down,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,press" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_click_anim";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program { name: "button_double_click";\
+				signal: "mouse,down,1,double";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+				after: "button_click_anim";\
+			}\
+			program {\
+				name: "button_mouseout_clicked";\
+				action: STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program {\
+				name: "button_unpress";\
+				signal: "mouse,up,1";\
+				source: "over3";\
+				action: SIGNAL_EMIT "elm,action,unpress" "";\
+				after: "button_mouseout_clicked";\
+			}\
+			program {\
+				name: "button_click2";\
+				signal: "mouse,down,1";\
+				source: "over3";\
+				action: STATE_SET "clicked" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick2";\
+				signal: "mouse,clicked,1";\
+				source: "over3";\
+				action: STATE_SET "default" 0.0;\
+				target: "over3";\
+			}\
+			program {\
+				name: "button_unclick3";\
+				signal: "mouse,clicked,1";\
+				source: "over2";\
+				action: SIGNAL_EMIT "elm,action,click" "";\
+			}\
+			program {\
+				name: "icon_show";\
+				signal: "elm,state,icon,visible";\
+				source: "elm";\
+				action:  STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program {\
+				name: "icon_hide";\
+				signal: "elm,state,icon,hidden";\
+				source: "elm";\
+				action:  STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program {\
+				name: "disable";\
+				signal: "elm,state,disabled";\
+				source: "elm";\
+				action: STATE_SET "disabled" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "enable";\
+				signal: "elm,state,enabled";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+				target: "over2";\
+				target: "disabler";\
+			}\
+			program {\
+				name: "focused";\
+				signal: "button,action,focus";\
+				source: "prog";\
+				action: STATE_SET "focused" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program {\
+				name: "unfocused";\
+				signal: "button,action,unfocus";\
+				source: "prog";\
+				action: STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program { name: "action_focus";\
+				signal: "elm,action,focus_highlight,show";\
+				source: "elm";\
+				action: STATE_SET "focused" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program { name: "action_unfocus";\
+				signal: "elm,action,focus_highlight,hide";\
+				source: "elm";\
+				action: STATE_SET "default" 0.0;\
+				target: "elm.icon.normal";\
+				target: "elm.icon.press";\
+				target: "elm.icon.dim";\
+			}\
+			program {\
+				name: "disable_press";\
+				signal: "mouse,down,1";\
+				source: "disabler";\
+				action: SIGNAL_EMIT "elm,action,press" "";\
+			}\
+			program {\
+				name: "disable_unpress";\
+				signal: "mouse,up,1";\
+				source: "disabler";\
+				action: SIGNAL_EMIT "elm,action,unpress" "";\
+			}\
+		}\
+	}
+
+collections {
+	/*standby_view buttons*/ 
+	//CAM_BTN_STYLES("setting_button", QUICK_SETTING_SETTING_NORMAL, QUICK_SETTING_SETTING_PRESS, QUICK_SETTING_SETTING_DIM, SETTING_BTN_W, SETTING_BTN_H)
+	CAM_BTN_STYLES("setting_arrow_left", QUICK_SETTING_MORE_LEFT, QUICK_SETTING_MORE_LEFT_PRESS, QUICK_SETTING_MORE_LEFT, QUICK_SETTING_BTN_W, QUICK_SETTING_BTN_H)
+	CAM_BTN_STYLES("setting_arrow_up", QUICK_SETTING_MORE_UP, QUICK_SETTING_MORE_UP_PRESS, QUICK_SETTING_MORE_UP, QUICK_SETTING_BTN_W, QUICK_SETTING_BTN_H)
+	CAM_BTN_STYLES("setting_arrow_down", QUICK_SETTING_MORE_DOWN, QUICK_SETTING_MORE_DOWN_PRESS, QUICK_SETTING_MORE_DOWN, QUICK_SETTING_BTN_W, QUICK_SETTING_BTN_H)
+	CAM_BTN_STYLES("setting_arrow_right", QUICK_SETTING_MORE_RIGHT, QUICK_SETTING_MORE_RIGHT_PRESS, QUICK_SETTING_MORE_RIGHT, QUICK_SETTING_BTN_W, QUICK_SETTING_BTN_H)
+	CAM_EFFECT_BTN_STYLES("effect_button", MODE_BTN_BG, MODE_BTN_BG_PRESS, MODE_BTN_BG, SETTING_BTN_W, SETTING_BTN_H)
+
+	CAM_BTN_STYLES("setting_back_button", BUTTON_BG_BACK_NORMAL, BUTTON_BG_BACK_NORMAL, BUTTON_BG_BACK_NORMAL, SETTING_BACK_BTN_W, SETTING_BACK_BTN_H)
+	CAM_BTN_STYLES("mode_button", QUICK_SETTING_MODE_NORMAL, QUICK_SETTING_MODE_PRESS, QUICK_SETTING_MODE_DIM, SETTING_BTN_W, SETTING_BTN_H)
+	CAM_BTN_STYLES("self_portrait_button_back", SELF_PORTRAIT_FRONT_NORMAL_IMAGE, SELF_PORTRAIT_FRONT_PRESS_IMAGE, SELF_PORTRAIT_FRONT_DIM_IMAGE, SETTING_BTN_W, SETTING_BTN_H)
+	CAM_BTN_STYLES("self_portrait_button_front", SELF_PORTRAIT_FRONT_NORMAL_IMAGE, SELF_PORTRAIT_FRONT_PRESS_IMAGE, SELF_PORTRAIT_FRONT_DIM_IMAGE, SETTING_BTN_W, SETTING_BTN_H)
+	CAM_BTN_STYLES("camcorder_button", CAMCORDER_BTN_NORMAL_IMAGE, CAMCORDER_BTN_PRESS_IMAGE, CAMCORDER_BTN_DIM_IMAGE, CAMCORDER_BTN_W, CAMCORDER_BTN_H)
+	CAM_BTN_STYLES("camera_button", CAMERA_BTN_NORMAL_IMAGE, CAMERA_BTN_PRESS_IMAGE, CAMERA_BTN_DIM_IMAGE, CAMERA_BTN_W, CAMERA_BTN_H)
+	CAM_BTN_STYLES("mode_arrow_button", MODE_ARROW_BTN_NORMAL, MODE_ARROW_BTN_NORMAL, MODE_ARROW_BTN_NORMAL, MODE_ARROW_BTN_W, MODE_ARROW_BTN_H)
+	CAM_BTN_STYLES("mode_arrow_down_button", MODE_ARROW_BTN_DOWN_NORMAL, MODE_ARROW_BTN_DOWN_NORMAL, MODE_ARROW_BTN_DOWN_NORMAL, MODE_ARROW_BTN_W, MODE_ARROW_BTN_H)
+
+	CAM_SETTING_BTN_STYLES(SETTING_BTN_W, SETTING_BTN_H)
+
+        /*record_view buttons*/
+	CAM_BTN_STYLES("rec_stop_button", REC_BTN_STOP_NORMAL_IMAGE, REC_BTN_STOP_PRESS_IMAGE, REC_BTN_STOP_DIM_IMAGE, REC_STOP_BTN_W, REC_STOP_BTN_H)
+	CAM_BTN_STYLES("recording_view_rec_pause_button", REC_BTN_PAUSE_NORMAL_IMAGE, REC_BTN_PAUSE_PRESS_IMAGE, REC_BTN_PAUSE_DIM_IMAGE, REC_PAUSE_BTN_W, REC_PAUSE_BTN_H)
+	CAM_BTN_STYLES("recording_view_rec_resume_button", REC_BTN_REC_NORMAL_IMAGE, REC_BTN_REC_PRESS_IMAGE, REC_BTN_REC_NORMAL_IMAGE, REC_PAUSE_BTN_W, REC_PAUSE_BTN_H)
+	CAM_BTN_STYLES("common_stop_button", REC_BTN_STOP_NORMAL_IMAGE, REC_BTN_STOP_PRESS_IMAGE, REC_BTN_STOP_DIM_IMAGE, COMMON_STOP_BTN_W, COMMON_STOP_BTN_W)
+}//end collection
+
+//end file

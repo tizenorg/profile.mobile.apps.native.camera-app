@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Az akkumulátor töltöttsége alacsony."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Nem lehet menteni a fájlt. Az eszköz tárhelye megtelt."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "A hangerőgomb"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Nem lehet menteni a fájlt. Kevés a memória."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Nem használható a vaku. Az akkumulátor töltöttsége alacsony."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Szürkeárnyalatos"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Hátsó önarckép"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Feldolgozás folyamatban"
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Mentési hely módosítása"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD-kártyát helyezett be. Az SD-kártya lesz az alapértelmezett tárhely."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Módosít"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD-kártya"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Le"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Balra"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Jobbra"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Fel"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Mégse"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Szünet"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Az automatikus fókuszálás sikertelen."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Lassan mozogjon"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Önarckép készítésekor a hátsó fényképező automatikusan észleli és fókuszba állítja az arcát."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Nem lehet panoráma módban fényképezni. Kevés a részlet a tájban."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panoráma"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Visszaállítás"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Exponálás hang"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Parancsikon-elrendezés is"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Fénykép készítése"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto."
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Gomb"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Felhős"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Nappali fény"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Eszköz"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Effektek"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Zárja be a Kamera alkalmazást. Az akkumulátor hőmérséklete túl magas."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Mobilfény"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fénycső"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fókuszmód"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Nincs"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Effektus nélkül"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Nincs kép a Galériában"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Ki"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Be"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Szépia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Beállítások"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Időzítő"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Lámpafény"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Videó mérete"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Fényérték"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Videofelvétel"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Felvételmód"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Tájkép"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Fehéregyensúly"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "A Fényképező bezáródik."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Képrögzítés sikertelen."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "A felvétel nem sikerült."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Memóriakártya eltávolítva."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "A rögzítés leállt. Az eszköz lehűlése után újból rögzíthet."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "A biztonsági irányelv korlátozza a Kamera használatát."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "A vaku kikapcsolt. Az eszköz lehűlése után újból bekapcsolhatja."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Hívás közben nem lehet videót rögzíteni."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Nem indítható el a Kamera."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Hívás közben a Kamera nem indítható el."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Nem lehet bekapcsolni a vakut. Hagyja lehűlni az eszközt, és próbálja újra."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Ment"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatív"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Nem elérhető"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Arcok"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Fényképező"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Kiválasztva"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Mentés tükrözve"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoom"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Mentési hely"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Visszaállít"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Videofelvétel"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Kép készítése"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Videó számára\nnincs elég memória."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Visszaállítás"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Elvetés"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Jelzés"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Érintse meg a Fényképező gombot, majd mozgassa az eszközt lassan egy irányba."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Visszaállnak a Fényképező alapértelmezett beállításai."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Lassan forgassa el az eszközt."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Lassan forgassa el az eszközt balra."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Lassan forgassa el az eszközt jobbra."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Billentse az eszközt hátrafelé."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Billentse az eszközt előre."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Nem sikerült Széles önarckép módban fényképezni, mert túl gyorsan forgatta el az eszközt."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "A képek egyesítése során hiba történt. Az eszköz ennek ellenére mentette a képet."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Nem sikerült Széles önarckép módban fényképezni. Nem lehet megkülönböztetni az alanyt."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Nem lehet Széles önarckép módban fényképezni. Kevés a fény."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Lassan forgassa el az eszközt balra vagy jobbra."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Érintse meg a Fényképező gombot, és lassan forgassa el az eszközt egy irányba."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Széles önarckép"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Időközi felv."
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Képek elvetése"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Elvet %d képet."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Rögzítés a fülhallgató mikrofonjával."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Nem kapcsolh. be a helycímkék"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "A helycímkék használatához a Beállítások > Hely lehetőség kiválasztása után kapcsolja be a GPS és a Vezeték nélküli hálózatok funkciót."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Húzza és méretezze a keretet az arcra. Amint ez megtörtént, a fényképező hangjelzést ad, és %d mp múlva elkészül a kép."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Visszaálltak a Fényképező alapértelmezett beállításai."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "A funkció minden elkészített képhez csatolja, beágyazza és vele együtt menti a földrajzi hely adatait. Legyen körültekintő az ilyen képek küldésekor, megosztásakor, terjesztésekor, átadásakor vagy másolásakor, mivel ezek tartalmazzák a felvétel helyszínének adatait."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Bekapcsolt az arcészlelés. A fényképező hangjelzést ad, és %d másodperc múlva elkészíti a képet."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Elérte a maximális felvételi időt."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "A jelenlegi módban a zoom nem használható."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Engedélyez"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Helycímkék bekapcsolása"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Helycímkék"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ne jelenjen meg újra"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Nem lehet videót rögzíteni. Kevés a memória."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Nem lehet fényképezni. Kevés a memória."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "KÉSZ"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "MÉGSE"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Önarckép"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Képméret"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Alacsony hőmérsékleten a vaku nem használható."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Gyorsindítás"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "A Kezdőlap gomb két gyors megnyomásával megnyitható a Fényképező alkalmazás."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Mentés helye"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Megnyitotta a Fényképező alkalmazást a gyorsindítás funkcióval. Kétszer egymás után gyorsan megnyomta a Kezdőlap gombot. A gyorsindítás funkció kikapcsolásához válassza ki a Gyorsindítás lehetőséget a Fényképező beállításaiban."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Fényképező beállítások"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Expozíció"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

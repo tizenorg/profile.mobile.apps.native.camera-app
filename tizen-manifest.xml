@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.camera-app" version="1.0.0">
+    <profile name="mobile"/>
+    <ui-application appid="org.tizen.camera-app" exec="camera-app" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <icon>camera-app.png</icon>
+        <label>Camera</label>
+		<label xml:lang="bn-in">ক্যামেরা</label>
+		<label xml:lang="en-us">Camera</label>
+		<label xml:lang="gu-in">કૅમેરા</label>
+		<label xml:lang="hi-in">कैमरा</label>
+		<label xml:lang="kn-in">ಕ್ಯಾಮರಾ</label>
+		<label xml:lang="ml-in">ക്യാമറ</label>
+		<label xml:lang="si-in">කැමරාව</label>
+		<label xml:lang="ta-in">கேமரா</label>
+		<label xml:lang="te-in">కెమెరా</label>
+		<label xml:lang="ur-in">کیمرہ</label>
+    </ui-application>
+    <privileges>
+		<privilege>http://tizen.org/privilege/location</privilege>
+		<privilege>http://tizen.org/privilege/telephony</privilege>
+		<privilege>http://tizen.org/privilege/camera</privilege>
+	</privileges>
+</manifest>

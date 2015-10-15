@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Η ισχύς της μπαταρίας είναι χαμηλή."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Αδύν. η αποθ. του αρχ. Ο χώρος αποθ. της συσκ. είναι πλήρης."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Το πλήκτρο έντασης"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Δεν είναι δυνατή η αποθήκευση του αρχείου. Ανεπαρκής μνήμη."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Δεν είναι δυνατή η χρήση του φλας. Χαμηλή στάθμη μπαταρίας."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Κλίμακα του γκρι"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Selfie(Πίσω καμ.)"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Επεξεργασία..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Αλλαγή θέσης αποθήκευσης"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Τοποθετήθηκε κάρτα SD. Η προεπιλεγμένη θέση αποθήκευσης θα αλλάξει σε κάρτα SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Αλλαγή"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Κάρτα SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Κάτω"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Αριστ"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Δεξιά"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Πάνω"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Ακύρωση"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Παύση"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Η αυτόματη εστίαση απέτυχε."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Κινηθείτε αργά"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Η πίσω κάμερα θα εντοπίσει και θα εστιάσει αυτόματα στο πρόσωπό σας κατά τη λήψη μιας φωτογραφίας του εαυτού σας."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Δεν είναι δυνατή η λήψη φωτογραφιών στη λειτουργία πανοράματος. Δεν υπάρχουν αρκετές λεπτομέρειες στο τοπίο."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Πανόραμα"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Επαναφορά"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Ήχος διαφράγματος"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Να συμπ. η διάτ. συντόμ."
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Πατ. για λήψη φωτ."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Κουμπί"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Συννεφιά"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Φως ημέρας"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Συσκευή"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Εφέ"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Έξοδος από κάμερα. Η θερμοκρασία της μπαταρίας είναι πολύ υψηλή."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Φλας"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Φθορισμού"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Λειτουργία εστίασης"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Κανένα"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Χωρίς εφέ"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Δεν υπάρχουν εικόνες στη Συλλογή"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Ανενεργό"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Ενεργό"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Σέπια"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Ρυθμίσεις"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Χρονομετρητής"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Πυρακτώσεως"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Μέγεθος βίντεο"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Τιμή έκθεσης"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Εγγραφή"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Λειτουργία εγγραφής"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Οριζόντια"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Εξισορρόπηση λευκού"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Η κάμερα θα κλείσει."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Αποτυχία καταγραφής."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Αποτυχία εγγραφής."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Η κάρτα μνήμης αφαιρέθηκε."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Η εγγραφή σταμάτησε. Μπορείτε να επανεκκινήσετε την εγγραφή μόλις μειωθεί η θερμοκρασία της συσκευής σας."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Η πολιτική ασφαλείας περιορίζει τη χρήση της κάμερας."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Το φλας απενεργοποιήθηκε. Μπορείτε να ενεργοποιήσετε ξανά το φλας μόλις μειωθεί η θερμοκρασία της συσκευής σας."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Δεν είναι δυνατή η εγγραφή βίντεο κατά την κλήση."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Δεν είναι δυνατή η έναρξη της Κάμερας."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Δεν είναι δυνατή η εκκίνηση κάμερας κατά την κλήση."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του φλας. Δοκιμάστε ξανά μόλις μειωθεί η θερμοκρασία της συσκευής σας."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Αποθ/ση"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Αρνητικό"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Μη διαθέσιμο"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Πρόσωπα"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Κάμερα"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Επιλεγμένο"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Αποθήκευση ως ανεστραμμένης εικόνας"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Ζουμ"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Θέση αποθήκευσης"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Μηδενισμός"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Εγγραφή βίντεο"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Λήψη φωτογραφίας"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Ανεπαρκής μνήμη\nγια το βίντεο."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Επαναφορά"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Απόρριψη"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Ειδοποίηση"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Πατήστε το πλήκτρο της κάμερας και, στη συνέχεια, μετακινήστε τη συσκευή αργά προς μια κατεύθυνση."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Θα γίνει επαναφορά όλων των ρυθμίσεων της κάμερας στις προεπιλογές."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Περιστρέψτε τη συσκευή αργά."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Περιστρέψτε τη συσκευή αργά προς τα αριστερά."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Περιστρέψτε τη συσκευή αργά προς τα δεξιά."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Δώστε στη συσκευή κλίση προς τα πίσω."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Δώστε στη συσκευή κλίση προς τα εμπρός."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Περιστρέψατε πολύ γρήγορα τη συσκευή. Δεν είναι δυνατή η λήψη φωτογραφίας στη λειτουργία Ευρεία selfie."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Παρουσιάστηκε σφάλμα κατά τη συγχώνευση εικόνων. Η εικόνα αποθηκεύτηκε."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Η λήψη εικόνων στη λειτουργία «Ευρεία selfie» απέτυχε. Δεν είναι δυνατός ο εντοπισμός του θέματος."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Δεν είναι δυνατή η λήψη εικόνων στη λειτουργία «Ευρεία selfie». Το φως δεν επαρκεί."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Στρέψτε τη συσκευή σας αργά προς τα αριστερά ή τα δεξιά."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Πατήστε το πλήκτρο της Κάμερας και στρέψτε τη συσκευή σας αργά προς μία κατεύθυνση."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Ευρεία selfie"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Λήψη κατά διασ."
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Απόρριψη εικόνων"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Θα απορριφθούν %d εικόνες."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Ηχογράφηση με το μικρόφωνο των ακουστικών."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Αδύν. η ενεργ. των Ετ. τοποθ."
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Για τη χρήση των Ετικετών τοποθεσίας, μεταβείτε στις Ρυθμίσεις > Τοποθεσία και βεβαιωθείτε ότι το GPS και το Ασύρματα δίκτυα είναι ενεργοποιημένα."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Σύρετε και αλλ.το μέγ.πλαισ.για ρυθ.θέσης προσ. Μετά τον ήχο θα γίνει λήψη σε %d δευτ.όταν το πρόσ.είναι μέσα στο πλαίσ."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Έγινε επαναφορά της κάμερας στις προεπιλεγμένες ρυθμίσεις."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Αυτή η λειτουργία θα επισυνάψει, θα ενσωματώσει και θα αποθηκεύσει δεδομένα γεωγραφικής θέσης σε κάθε φωτογραφία που τραβάτε. Να είστε προσεκτικοί όταν στέλνετε, κάνετε κοινή χρήση, διανέμετε, μεταδίδετε ή αντιγράφετε αυτές τις εικόνες γιατί περιέχουν πληροφορίες σχετικά με την τοποθεσία στην οποία έγινε η λήψη της φωτογραφίας."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Ο εντοπισμός προσώπου ενεργοποιήθηκε. Θα ακουστεί ένας ήχος και η κάμερα θα τραβήξει μια φωτογραφία μετά από %d δευτερόλεπτα."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Συμπληρώθηκε το μέγιστο όριο διάρκειας εγγραφής."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Δεν είναι δυνατό το ζουμ στην τρέχουσα λειτουργία."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Ενεργοπ."
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Ενεργοποίηση ετικετών τοποθεσίας"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Ετικέτες τοποθεσίας"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Να μην εμφανιστεί ξανά"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Δεν είναι δυνατή η εγγραφή βίντεο. Η μνήμη δεν επαρκεί."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Δεν είναι δυνατή η λήψη φωτογραφίας. Η μνήμη δεν επαρκεί."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "ΤΕΛΟΣ"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ΑΚΥΡΟ"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Selfie"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Μέγεθος εικόνας"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Δεν είναι δυνατή η χρήση φλας σε χαμηλή θερμοκρασία."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Γρήγορη εκκίνηση"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Ανοίξτε την Κάμερα πιέζοντας δύο φορές το κεντρικό πλήκτρο γρήγορα και διαδοχικά."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Αποθήκευση σε"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Η Κάμερα άνοιξε μέσω της Γρήγορης εκκίνησης. Το κεντρικό πλήκτρο πατήθηκε δύο φορές γρήγορα και διαδοχικά. Για να απενεργοποιήσετε τη Γρήγορη εκκίνηση, μεταβείτε στις ρυθμίσεις της Κάμερας και επιλέξτε «Γρήγορη εκκίνηση»."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Ρυθμίσεις κάμερας"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Έκθεση"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

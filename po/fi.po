@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Akkuvirta vähissä."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Tiedostoa ei voi tallentaa. Laitteen muisti on täynnä."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Voimakkuus-näppäin"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Tiedostoa ei voi tallentaa. Muisti ei riitä."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Salamaa ei voi käyttää. Akun virta on vähissä."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Harmaasävy"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Omakuva takak."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Käsitellään..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Vaihda tallennussijainti"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Laitteeseen on asetettu SD-kortti. Oletustallennuspaikaksi vaihdetaan SD-kortti."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Muuta"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD-kortti"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Alas"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Vasemmalle"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Oikealle"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Ylös"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Peruuta"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Tauko"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Automaattinen tarkennus epäonnistui."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Liiku hitaasti"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Takakamera tunnistaa kasvosi ja tarkentaa niihin automaattisesti, kun otat omakuvia."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Panoraamatilassa ei voi ottaa kuvia. Maisema ei ole riittävän yksityiskohtainen."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panoraama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Nollaa"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Suljinääni"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Lisää pikakuv. asettelu"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Ota kuvia napautt."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Painike"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Pilvinen"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Päivänvalo"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Laite"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Tehosteet"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Sammuta kamera. Akun lämpötila on liian korkea."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Salama"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Loistevalo"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Tarkennustila"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Ei mitään"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Ei tehostetta"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Galleriassa ei ole kuvia"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Pois"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Päällä"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Seepia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Asetukset"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Ajastin"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Hehkulampun valo"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Videon koko"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Valotusarvo"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Tallenna"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Tallennustila"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Maisema"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Valkotasapaino"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera suljetaan."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Kuvan otto epäonnistui."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Tallennus epäonnistui."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Muistikortti poistettu."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Tallennus on pysäytetty. Voit tallentaa, kun laite on jäähtynyt."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Suojauskäytäntö estää kameran käytön."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Salama on poistettu käytöstä. Voit ottaa salaman käyttöön, kun laite on jäähtynyt."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Puhelun aikana ei voi tallentaa videoita."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Kameraa ei voi käynnistää."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Kameraa ei voi käyttää puhelun aikana."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Salamaa ei voi ottaa käyttöön. Yritä uudelleen, kun laite on jäähtynyt."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Tallenna"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatiivi"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Ei käytettävissä"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Kasvot"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Valittu"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Tallenna käännettynä"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoomaus"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Tallennuspaikka"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Nollaa"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Tallenna video"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Ota kuva"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Muisti ei\nriitä videolle."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Nollaa"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Hylkää"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Hälytys"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Napauta kameranäppäintä ja liikuta sitten laitetta hitaasti yhteen suuntaan."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Kaikki kameran asetukset palautetaan niiden oletusarvoihin."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Käännä laitetta hitaasti."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Käännä laitetta hitaasti vasemmalle."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Käännä laitetta hitaasti oikealle."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Kallista laitetta taaksepäin."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Kallista laitetta eteenpäin."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Laitetta käännettiin liian nopeasti. Laaja omakuva -tilassa ei voi ottaa kuvaa."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Kuvia yhdistettäessä tapahtui virhe. Kuva on silti tallennettu."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Kuvien ottaminen Laaja omakuva -tilassa epäonnistui. Kohde ei erotu."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Laaja omakuva -tilassa ei voi ottaa kuvia. Valoa ei ole tarpeeksi."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Käännä laitetta hitaasti vasemmalle tai oikealle."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Napauta Kamera-painiketta ja käännä laitetta hitaasti yhteen suuntaan."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Laaja omakuva"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Aikavälikuvaus"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Hylkää kuvat"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d kuvaa hylätään."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Tallennetaan kuulokemikrofonilla."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Sijaintitunnisteet ei käytett."
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Jos haluat käyttää Sijaintitunnisteet-toimintoa, valitse Asetukset > Sijainti ja varmista, että GPS ja Langattomat verkot -toiminto ovat käytössä."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Määritä kasvojen paikka vetämällä kehystä ja muuttamalla sen kokoa. Kamera antaa äänimerkin ja ottaa kuvan %d s kuluttua."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Kameran oletusasetukset palautettu."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Tämä toiminto liittää, upottaa ja tallentaa jokaiseen otettuun kuvaan maantieteellisiä sijaintitietoja. Ole varovainen, kun lähetät, jaat, jakelet, siirrät tai kopioit tällaisia kuvia, sillä ne sisältävät tietoja siitä, missä kuva on otettu."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Kasvontunnistus käytössä. Kamera antaa äänimerkin ja ottaa kuvan %d sekunnin kuluttua."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Enimmäistallennusaika on saavutettu."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Nykyisessä tilassa ei voi zoomata."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Ota käytt."
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Ota Sijaintitunnisteet-toiminto käyttöön"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Sijaintitunnisteet"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Älä näytä uudelleen"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Videota ei voi tallentaa. Muisti ei riitä."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Kuvaa ei voi ottaa. Muisti ei riitä."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "VALMIS"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "PERUUTA"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Omakuva"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Kuvakoko"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Salamaa ei voi käyttää matalassa lämpötilassa."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Pikakäynnistys"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Avaa Kamera painamalla kotinäppäintä nopeasti kaksi kertaa peräkkäin."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Tallenna kohteeseen"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kamera on avattu Pikakäynnistys-toiminnolla. Kotinäppäintä on painettu nopeasti kaksi kertaa peräkkäin. Voit poistaa Pikakäynnistys-toiminnon käytöstä siirtymällä Kameran asetuksiin ja valitsemalla Pikakäynnistys."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kameran asetukset"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Valotus"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

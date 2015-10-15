@@ -1,0 +1,677 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "cam_funcs.edc"
+#include "../inc/edc_image_name.h"
+#include "../inc/edc_defines.h"
+
+#define EXPOSE_VAL_BG_W		42
+#define EXPOSE_VAL_BG_H		402
+#define EXPOSE_VAL_BG_X		(GENGRID_POPUP_Y+500)
+#define EXPOSE_VAL_BG_Y		((MAIN_H-EXPOSE_VAL_BG_H)/2)
+
+#define EXPOSE_VAL_ICON_WIDTH		46
+#define EXPOSE_VAL_ICON_HEIGHT	46
+#define EXPOSE_VAL_ICON_LEFT_PADDING		((EXPOSE_VAL_BG_W - EXPOSE_VAL_ICON_WIDTH)/2)
+#define EXPOSE_VAL_ICON_TOP_PADDING		14
+#define EXPOSE_VAL_ICON_BOTTOM_PADDING	14
+
+#define EXPOSE_VAL_SLIDER_Y			(EXPOSE_VAL_ICON_TOP_PADDING+EXPOSE_VAL_ICON_HEIGHT)
+
+#define EXPOSE_VAL_TEXT_1_X	149
+#define EXPOSE_VAL_TEXT_1_Y	51
+#define EXPOSE_VAL_TEXT_2_X	81
+
+#define EXPOSE_VAL_ARROW_X	94
+#define EXPOSE_VAL_ARROW_Y	292
+
+
+#define EXPOSE_VAL_IMAGE_PART_DESCRIPTION(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "landscape" 0.0;	\
+		inherit: "default" 0.0; \
+		visible: 1;\
+	}	\
+	description {	\
+		state: "portrait" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: (1 - y2) x1; to: to_part;}	\
+		rel2 { relative: (1 - y1) x2; to: to_part;}	\
+		visible: 1;\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		visible: 1;\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: y1 (1 - x2); to: to_part;}	\
+		rel2 { relative: y2 (1 - x1); to: to_part;}	\
+		visible: 1;\
+	}
+
+
+images {
+	image: EXPOSURE_MIUS_ICON COMP;
+	image: EXPOSURE_MIUS_PRESS_ICON COMP;
+	image: EXPOSURE_PLUS_ICON COMP;
+	image: EXPOSURE_PLUS_PRESS_ICON COMP;
+	image: SETTING_POPUP_BG COMP;
+	image: CTXPOPUP_LEFT_ARROW_IMAGE COMP;
+	image: CTXPOPUP_RIGHT_ARROW_IMAGE COMP;
+	image: CTXPOPUP_TOP_ARROW_IMAGE COMP;
+	image: CTXPOPUP_BOTTOM_ARROW_IMAGE COMP;
+}
+
+collections {
+	group {
+		name: "main";
+		script {
+			public orientation = 0;
+		}
+
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+				}
+			}
+			part {
+				name: "exposure_text";
+				type: SWALLOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					//visible: 1;
+					rel1 { relative: 0.0 0.0;to:"bg";}
+					rel2 { relative: 1.0 1.0;to:"bg";}
+					//color:0 0 0 0;
+				}
+			}
+
+#define EXPOSE_VAL_SLIDER_BG_REL_X1 EXPOSE_VAL_BG_X/MAIN_W
+#define EXPOSE_VAL_SLIDER_BG_REL_Y1 EXPOSE_VAL_BG_Y/MAIN_H
+#define EXPOSE_VAL_SLIDER_BG_REL_X2 (EXPOSE_VAL_BG_X+EXPOSE_VAL_BG_W)/MAIN_W
+#define EXPOSE_VAL_SLIDER_BG_REL_Y2 (EXPOSE_VAL_BG_Y+EXPOSE_VAL_BG_H)/MAIN_H
+			part {
+				name: "slider_bg";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 	EXPOSE_VAL_BG_W EXPOSE_VAL_BG_H;
+					max: 	EXPOSE_VAL_BG_W EXPOSE_VAL_BG_H;
+					fixed:  1  1 ;
+					visible: 0;
+					rel1 { relative: EXPOSE_VAL_SLIDER_BG_REL_X1 EXPOSE_VAL_SLIDER_BG_REL_Y1;to: "bg";}
+					rel2 { relative: EXPOSE_VAL_SLIDER_BG_REL_X2 EXPOSE_VAL_SLIDER_BG_REL_Y2;to: "bg";}
+					image { normal: SETTING_POPUP_BG;}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: 1-EXPOSE_VAL_SLIDER_BG_REL_X2 1-EXPOSE_VAL_SLIDER_BG_REL_Y2;to:"bg";}
+					rel2 { relative: 1-EXPOSE_VAL_SLIDER_BG_REL_X1 1-EXPOSE_VAL_SLIDER_BG_REL_Y1;to:"bg";}
+					visible: 0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					min: 	EXPOSE_VAL_BG_H EXPOSE_VAL_BG_W ;
+					max: 	EXPOSE_VAL_BG_H EXPOSE_VAL_BG_W ;
+					rel1 { relative: 1-EXPOSE_VAL_SLIDER_BG_REL_Y2 EXPOSE_VAL_SLIDER_BG_REL_X1;to:"bg";}
+					rel2 { relative: 1-EXPOSE_VAL_SLIDER_BG_REL_Y1 EXPOSE_VAL_SLIDER_BG_REL_X2;to:"bg";}
+					visible: 0;
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "portrait" 0.0;
+					rel1 { relative: EXPOSE_VAL_SLIDER_BG_REL_Y1 1-EXPOSE_VAL_SLIDER_BG_REL_X2;to:"bg";}
+					rel2 { relative: EXPOSE_VAL_SLIDER_BG_REL_Y2 1-EXPOSE_VAL_SLIDER_BG_REL_X1;to:"bg";}
+					visible: 0;
+				}
+			}
+
+#define EXPOSE_VAL_ICON_MINUS_REL_X1 EXPOSE_VAL_ICON_LEFT_PADDING/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_ICON_MINUS_REL_Y1 (1-(EXPOSE_VAL_ICON_BOTTOM_PADDING+EXPOSE_VAL_ICON_HEIGHT)/EXPOSE_VAL_BG_H)
+#define EXPOSE_VAL_ICON_MINUS_REL_X2 (EXPOSE_VAL_ICON_LEFT_PADDING+EXPOSE_VAL_ICON_WIDTH)/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_ICON_MINUS_REL_Y2 (1-EXPOSE_VAL_ICON_BOTTOM_PADDING/EXPOSE_VAL_BG_H)
+			part {
+				name: "icon_minus";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: EXPOSE_VAL_ICON_MINUS_REL_X1 EXPOSE_VAL_ICON_MINUS_REL_Y1; to: "slider_bg"; }
+					rel2 { relative: EXPOSE_VAL_ICON_MINUS_REL_X2 EXPOSE_VAL_ICON_MINUS_REL_Y2; to: "slider_bg"; }
+					min: EXPOSE_VAL_ICON_WIDTH EXPOSE_VAL_ICON_HEIGHT;
+					max: EXPOSE_VAL_ICON_WIDTH EXPOSE_VAL_ICON_HEIGHT;
+					fixed:  1  1 ;
+					image { normal: EXPOSURE_MIUS_ICON; }
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (1 - EXPOSE_VAL_ICON_MINUS_REL_Y2) EXPOSE_VAL_ICON_MINUS_REL_X1; to: slider_bg;}
+					rel2 { relative: (1 - EXPOSE_VAL_ICON_MINUS_REL_Y1) EXPOSE_VAL_ICON_MINUS_REL_X2; to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (1 - EXPOSE_VAL_ICON_MINUS_REL_X2) (1 - EXPOSE_VAL_ICON_MINUS_REL_Y2); to: slider_bg;}
+					rel2 { relative: (1 - EXPOSE_VAL_ICON_MINUS_REL_X1) (1 - EXPOSE_VAL_ICON_MINUS_REL_Y1); to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: EXPOSE_VAL_ICON_MINUS_REL_Y1 (1 - EXPOSE_VAL_ICON_MINUS_REL_X2); to: slider_bg;}
+					rel2 { relative: EXPOSE_VAL_ICON_MINUS_REL_Y2 (1 - EXPOSE_VAL_ICON_MINUS_REL_X1); to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "press_land" 0.0;
+					inherit: "landscape" 0.0;
+					image { normal: EXPOSURE_MIUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_land_inv" 0.0;
+					inherit: "landscape_inverse" 0.0;
+					image { normal: EXPOSURE_MIUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_port" 0.0;
+					inherit: "portrait" 0.0;
+					image { normal: EXPOSURE_MIUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_port_inv" 0.0;
+					inherit: "portrait_inverse" 0.0;
+					image { normal: EXPOSURE_MIUS_PRESS_ICON; }
+					visible: 0;
+				}
+			}
+
+#define EXPOSE_VAL_ICON_PLUS_REL_X1 EXPOSE_VAL_ICON_LEFT_PADDING/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_ICON_PLUS_REL_Y1 EXPOSE_VAL_ICON_TOP_PADDING/EXPOSE_VAL_BG_H
+#define EXPOSE_VAL_ICON_PLUS_REL_X2 (EXPOSE_VAL_ICON_LEFT_PADDING+EXPOSE_VAL_ICON_WIDTH)/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_ICON_PLUS_REL_Y2 (EXPOSE_VAL_ICON_TOP_PADDING+EXPOSE_VAL_ICON_WIDTH)/EXPOSE_VAL_BG_H
+			part {
+				name: "icon_plus";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: EXPOSE_VAL_ICON_PLUS_REL_X1 EXPOSE_VAL_ICON_PLUS_REL_Y1; to: "slider_bg"; }
+					rel2 { relative: EXPOSE_VAL_ICON_PLUS_REL_X2 EXPOSE_VAL_ICON_PLUS_REL_Y2; to: "slider_bg"; }
+					min: EXPOSE_VAL_ICON_WIDTH EXPOSE_VAL_ICON_HEIGHT;
+					max: EXPOSE_VAL_ICON_WIDTH EXPOSE_VAL_ICON_HEIGHT;
+					fixed:  1  1 ;
+					image { normal: EXPOSURE_PLUS_ICON; }
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (1 - EXPOSE_VAL_ICON_PLUS_REL_Y2) EXPOSE_VAL_ICON_PLUS_REL_X1; to: slider_bg;}
+					rel2 { relative: (1 - EXPOSE_VAL_ICON_PLUS_REL_Y1) EXPOSE_VAL_ICON_PLUS_REL_X2; to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (1 - EXPOSE_VAL_ICON_PLUS_REL_X2) (1 - EXPOSE_VAL_ICON_PLUS_REL_Y2); to: slider_bg;}
+					rel2 { relative: (1 - EXPOSE_VAL_ICON_PLUS_REL_X1) (1 - EXPOSE_VAL_ICON_PLUS_REL_Y1); to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: EXPOSE_VAL_ICON_PLUS_REL_Y1 (1 - EXPOSE_VAL_ICON_PLUS_REL_X2); to: slider_bg;}
+					rel2 { relative: EXPOSE_VAL_ICON_PLUS_REL_Y2 (1 - EXPOSE_VAL_ICON_PLUS_REL_X1); to: slider_bg;}
+					visible: 0;
+				}
+				description {
+					state: "press_land" 0.0;
+					inherit: "default" 0.0;
+					image { normal: EXPOSURE_PLUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_land_inv" 0.0;
+					inherit: "landscape_inverse" 0.0;
+					image { normal: EXPOSURE_PLUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_port" 0.0;
+					inherit: "portrait" 0.0;
+					image { normal: EXPOSURE_PLUS_PRESS_ICON; }
+					visible: 0;
+				}
+				description {
+					state: "press_port_inv" 0.0;
+					inherit: "portrait_inverse" 0.0;
+					image { normal: EXPOSURE_PLUS_PRESS_ICON; }
+					visible: 0;
+				}
+			}
+
+#define EXPOSE_VAL_SLIDER_X1 EXPOSE_VAL_ICON_LEFT_PADDING/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_SLIDER_Y1 (EXPOSE_VAL_SLIDER_Y)/EXPOSE_VAL_BG_H
+#define EXPOSE_VAL_SLIDER_X2 (EXPOSE_VAL_ICON_LEFT_PADDING+EXPOSE_VAL_ICON_WIDTH)/EXPOSE_VAL_BG_W
+#define EXPOSE_VAL_SLIDER_Y2 (1.0-EXPOSE_VAL_SLIDER_Y/EXPOSE_VAL_BG_H)
+			part {
+				name: "slider";
+				type: SWALLOW;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1 { relative: EXPOSE_VAL_SLIDER_X1 EXPOSE_VAL_SLIDER_Y1; to: "slider_bg"; }
+					rel2 { relative: EXPOSE_VAL_SLIDER_X2 EXPOSE_VAL_SLIDER_Y2; to: "slider_bg"; }
+					fixed:  1  1 ;
+				}
+
+				EXPOSE_VAL_IMAGE_PART_DESCRIPTION(
+					EXPOSE_VAL_SLIDER_X1,
+					EXPOSE_VAL_SLIDER_Y1,
+					EXPOSE_VAL_SLIDER_X2,
+					EXPOSE_VAL_SLIDER_Y2,
+					"slider_bg"
+				)
+			}
+
+#define EXPOSE_VAL_ARROW_REL_X1 EXPOSE_VAL_ARROW_X/MAIN_W
+#define EXPOSE_VAL_ARROW_REL_Y1 EXPOSE_VAL_ARROW_Y/MAIN_H
+#define EXPOSE_VAL_ARROW_REL_X2 (EXPOSE_VAL_ARROW_X+CTXPOPUP_CAMERA_ARROW_WIDTH)/MAIN_W
+#define EXPOSE_VAL_ARROW_REL_Y2 (EXPOSE_VAL_ARROW_Y+CTXPOPUP_CAMERA_ARROW_HEIGHT)/MAIN_H
+			part {
+				name: "arrow_image";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					visible: 0;
+					align: 0.0 0.5;
+					rel1 { relative: EXPOSE_VAL_ARROW_REL_X1 EXPOSE_VAL_ARROW_REL_Y1; to: "bg";}
+					rel2 { relative: EXPOSE_VAL_ARROW_REL_X2 EXPOSE_VAL_ARROW_REL_Y2; to: "bg";}
+					image {
+						normal: CTXPOPUP_LEFT_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					visible: 0;
+					align: 0.0 0.5;
+					rel1 { relative: EXPOSE_VAL_ARROW_REL_X1 EXPOSE_VAL_ARROW_REL_Y1; to: "bg";}
+					rel2 { relative: EXPOSE_VAL_ARROW_REL_X2 EXPOSE_VAL_ARROW_REL_Y2; to: "bg";}
+					image {
+						normal: CTXPOPUP_LEFT_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					visible: 0;
+		 		  	align: 1.0 0.5;
+					rel1 { relative: 1-EXPOSE_VAL_ARROW_REL_X2 1-EXPOSE_VAL_ARROW_REL_Y2 ;to:"bg";}
+					rel2 { relative: 1-EXPOSE_VAL_ARROW_REL_X1 1-EXPOSE_VAL_ARROW_REL_Y1; to:"bg";}
+					image {
+						normal: CTXPOPUP_RIGHT_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "portrait" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					visible: 0;
+					align: 0.5 0.0;
+					rel1 { relative: 1-EXPOSE_VAL_ARROW_REL_Y2 EXPOSE_VAL_ARROW_REL_X1; to:"bg";}
+					rel2 { relative: 1-EXPOSE_VAL_ARROW_REL_Y1 EXPOSE_VAL_ARROW_REL_X2; to:"bg";}
+					image {
+						normal: CTXPOPUP_TOP_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					visible: 0;
+					align: 0.5 1.0;
+					rel1 { relative: EXPOSE_VAL_ARROW_REL_Y1 1-EXPOSE_VAL_ARROW_REL_X2; to:"bg";}
+					rel2 { relative: EXPOSE_VAL_ARROW_REL_Y2 1-EXPOSE_VAL_ARROW_REL_X1; to:"bg";}
+					image {
+						normal: CTXPOPUP_BOTTOM_ARROW_IMAGE;
+					}
+				}
+			}
+		}
+
+		programs {
+			program {
+				name : "ev,set,landscape";
+				source: "ev";
+				signal: "landscape";
+				script: {
+					set_state(PART:"arrow_image", "landscape", 0.0);
+					set_state(PART:"slider_bg", "landscape", 0.0);
+					set_state(PART:"icon_minus", "landscape", 0.0);
+					set_state(PART:"icon_plus", "landscape", 0.0);
+					set_state(PART:"slider", "landscape", 0.0);
+					set_int(orientation,0);
+				}
+			}
+			program {
+				name : "ev,set,landscape_inverse";
+				source: "ev";
+				signal: "landscape_inverse";
+				script: {
+					set_state(PART:"arrow_image", "landscape_inverse", 0.0);
+					set_state(PART:"slider_bg", "landscape_inverse", 0.0);
+					set_state(PART:"icon_minus", "landscape_inverse", 0.0);
+					set_state(PART:"icon_plus", "landscape_inverse", 0.0);
+					set_state(PART:"slider", "landscape_inverse", 0.0);
+					set_int(orientation,2);
+				}
+			}
+			program {
+				name : "ev,set,portrait";
+				source: "ev";
+				signal: "portrait";
+				script: {
+					set_state(PART:"arrow_image", "portrait", 0.0);
+					set_state(PART:"slider_bg", "portrait", 0.0);
+					set_state(PART:"icon_minus", "portrait", 0.0);
+					set_state(PART:"icon_plus", "portrait", 0.0);
+					set_state(PART:"slider", "portrait", 0.0);
+					set_int(orientation,1);
+				}
+			}
+			program {
+				name : "ev,set,portrait_inverse";
+				source: "ev";
+				signal: "portrait_inverse";
+				script: {
+					set_state(PART:"arrow_image", "portrait_inverse", 0.0);
+					set_state(PART:"slider_bg", "portrait_inverse", 0.0);
+					set_state(PART:"icon_minus", "portrait_inverse", 0.0);
+					set_state(PART:"icon_plus", "portrait_inverse", 0.0);
+					set_state(PART:"slider", "portrait_inverse", 0.0);
+					set_int(orientation,3);
+				}
+			}
+			program {
+				name: "icon_minus_press";
+				signal: "mouse,down,1";
+				source: "icon_minus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"icon_minus", "press_port", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"icon_minus", "press_land_inv", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"icon_minus", "press_port_inv", 0.0);
+					}
+					else
+					{
+						set_state(PART:"icon_minus", "press_land", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_minus_release";
+				signal: "mouse,up,1";
+				source: "icon_minus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"icon_minus", "portrait", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"icon_minus", "landscape_inverse", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"icon_minus", "portrait_inverse", 0.0);
+					}
+					else
+					{
+						set_state(PART:"icon_minus", "landscape", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_minus_clicked";
+				signal: "mouse,clicked,1";
+				source: "icon_minus";
+				action: SIGNAL_EMIT "icon_minus,clicked" "ev_icon_signal";
+			}
+			program {
+				name: "icon_plus_press";
+				signal: "mouse,down,1";
+				source: "icon_plus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"icon_plus", "press_port", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"icon_plus", "press_land_inv", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"icon_plus", "press_port_inv", 0.0);
+					}
+					else
+					{
+						set_state(PART:"icon_plus", "press_land", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_plus_release";
+				signal: "mouse,up,1";
+				source: "icon_plus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"icon_plus", "portrait", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"icon_plus", "landscape_inverse", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"icon_plus", "portrait_inverse", 0.0);
+					}
+					else
+					{
+						set_state(PART:"icon_plus", "landscape", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_plus_clicked";
+				signal: "mouse,clicked,1";
+				source: "icon_plus";
+				action: SIGNAL_EMIT "icon_plus,clicked" "ev_icon_signal";
+			}
+		}
+	}
+
+	group {
+		name: "exposure_text";
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					align: 0.5 0.5;
+					rel1 { relative: 0 0;}
+					rel2 { relative: 1 1;}
+					color: 0 0 0 0;
+				  }
+			}
+			part {
+				name: "exposure.txt.1.bg";
+				type: RECT;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					min: EXPOSE_VAL_TEXT_1_X EXPOSE_VAL_TEXT_1_Y;
+					max: EXPOSE_VAL_TEXT_1_X EXPOSE_VAL_TEXT_1_Y;
+					fixed:1 1;
+					align: 0.5 0.5;
+					rel1 { relative: 0 0;  to:"bg";}
+					rel2 { relative: 1 1; to:"bg";}
+				  }
+			}
+			part {
+				name: "exposure.txt.2.bg";
+				type: RECT;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					min: EXPOSE_VAL_TEXT_2_X 0;
+					max: EXPOSE_VAL_TEXT_2_X 99;
+					fixed:1 0;
+					align: 0.25 0.5;
+					rel1 { relative: 0.0 0.0; to: "exposure.txt.1.bg";}
+					rel2 { relative: 0.0 1.0; to: "exposure.txt.1.bg";}
+				  }
+			}
+			part {
+				name: "exposure.txt.1";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: 0.0 0.0; to:"exposure.txt.1.bg";}
+					rel2 { relative: 1.0 1.0; to:"exposure.txt.1.bg";}
+					text {
+						size: 61;
+						align:    0.5 0.5;
+					}
+					color:245 245 245 255;
+				 }
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+			part {
+				name: "exposure.txt.2";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: 0.0 0.0; to:"exposure.txt.2.bg";}
+					rel2 { relative: 1.0 1.0; to:"exposure.txt.2.bg";}
+					text {
+						size: 63;
+						align:    0.5 0.5;
+					}
+					color:245 245 245 255;
+				}
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+		    }
+		}
+		programs {
+				program {
+				 	name: "exposure_txt_display";
+		            signal: "exposure,text,display";
+		            source: "*";
+		            action: STATE_SET "default" 0.0;
+		            target: "exposure.txt.1";
+		            target: "exposure.txt.2";
+		        }
+				 program {
+				 	name: "exposure_txt_hide";
+		            signal: "exposure,text,hide";
+		            source: "*";
+		            action: STATE_SET "hide" 0.0;
+		            target: "exposure.txt.1";
+		            target: "exposure.txt.2";
+		        }
+			}
+	}
+}
+//end files

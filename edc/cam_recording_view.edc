@@ -1,0 +1,810 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "cam_funcs.edc"
+#include "cam_recording_view_inc.edc"
+
+
+collections {
+	group {
+		name: "recording_view";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+
+			part { name: "battery_indicator_area";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0; //landscape is default
+					rel1 { relative: BATTERY_INDICATOR_X/MAIN_W BATTERY_INDICATOR_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (BATTERY_INDICATOR_X+BATTERY_INDICATOR_W)/MAIN_W (BATTERY_INDICATOR_Y+BATTERY_INDICATOR_H)/MAIN_H; to: "bg";}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					rel1 { relative: BATTERY_INDICATOR_X_V/MAIN_H BATTERY_INDICATOR_Y_V/MAIN_W; to: "bg";}
+					rel2 { relative: (BATTERY_INDICATOR_X_V+BATTERY_INDICATOR_W)/MAIN_H (BATTERY_INDICATOR_Y_V+BATTERY_INDICATOR_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					rel1 { relative: (1 - (BATTERY_INDICATOR_X+BATTERY_INDICATOR_W)/MAIN_W) (1 - (BATTERY_INDICATOR_Y+BATTERY_INDICATOR_H-BATTERY_INDICATOR_TEXT_H)/MAIN_H); to: "bg";}
+					rel2 { relative: (1 - BATTERY_INDICATOR_X/MAIN_W) (1 - (BATTERY_INDICATOR_Y-BATTERY_INDICATOR_TEXT_H)/MAIN_H); to: "bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					rel1 { relative: (1-(BATTERY_INDICATOR_X_V+BATTERY_INDICATOR_W)/MAIN_H) (1 - (BATTERY_INDICATOR_Y_V+BATTERY_INDICATOR_H-BATTERY_INDICATOR_TEXT_H)/MAIN_W); to: "bg";}
+					rel2 { relative: (1-BATTERY_INDICATOR_X_V/MAIN_H) (1 - (BATTERY_INDICATOR_Y_V-BATTERY_INDICATOR_TEXT_H)/MAIN_W); to: "bg";}
+				}
+			}
+
+			part { name: "recording_icon";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: REC_ICON_AREA_X/MAIN_W REC_ICON_AREA_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (REC_ICON_AREA_X+REC_ICON_AREA_W)/MAIN_W (REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_H; to: "bg";}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					rel1 { relative: VER_REC_ICON_AREA_X/MAIN_H VER_REC_ICON_AREA_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_REC_ICON_AREA_X+REC_ICON_AREA_W)/MAIN_H (VER_REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					rel1 { relative: INVERSE_REC_ICON_AREA_X/MAIN_W INVERSE_REC_ICON_AREA_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (INVERSE_REC_ICON_AREA_X+REC_ICON_AREA_W)/MAIN_W (INVERSE_REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_H; to: "bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					rel1 { relative: VER_INVERSE_REC_ICON_AREA_X/MAIN_H VER_INVERSE_REC_ICON_AREA_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_INVERSE_REC_ICON_AREA_X+REC_ICON_AREA_W)/MAIN_H (VER_INVERSE_REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "portrait_when_memory_limited" 0.0;
+					rel1 { relative: (VER_REC_ICON_AREA_X_WHEN_MEM_LMTD)/MAIN_H VER_REC_ICON_AREA_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_REC_ICON_AREA_X_WHEN_MEM_LMTD+REC_ICON_AREA_W)/MAIN_H (VER_REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "landscape_inverse_when_memory_limited" 0.0;
+					rel1 { relative: INVERSE_REC_ICON_AREA_X_WHEN_MEM_LMTD/MAIN_W INVERSE_REC_ICON_AREA_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (INVERSE_REC_ICON_AREA_X_WHEN_MEM_LMTD+REC_ICON_AREA_W)/MAIN_W (INVERSE_REC_ICON_AREA_Y+REC_ICON_AREA_H)/MAIN_H; to: "bg";}
+				}
+
+
+			}
+
+			part { name: "recording_time";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: REC_TIME_X/MAIN_W REC_TIME_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (REC_TIME_X+REC_TIME_W)/MAIN_W (REC_TIME_Y+REC_TIME_H)/MAIN_H; to: "bg";}
+					color:245 245 245 255;
+					text {
+						size: 13;
+						align: 0.0 0.5;
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_REC_TIME_X/MAIN_H VER_REC_TIME_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_REC_TIME_X+REC_TIME_W)/MAIN_H (VER_REC_TIME_Y+REC_TIME_H)/MAIN_W; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: INVERSE_REC_TIME_X/MAIN_W INVERSE_REC_TIME_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (INVERSE_REC_TIME_X+REC_TIME_W)/MAIN_W (INVERSE_REC_TIME_Y+REC_TIME_H)/MAIN_H; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_INVERSE_REC_TIME_X/MAIN_H VER_INVERSE_REC_TIME_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_INVERSE_REC_TIME_X+REC_TIME_W)/MAIN_H (VER_INVERSE_REC_TIME_Y+REC_TIME_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "invisible" 0.0;
+					inherit: "default" 0.0;
+					visible : 0;
+				}
+				description {
+					state: "landscape_when_memory_limited" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: REC_TIME_X/MAIN_W REC_TIME_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (REC_TIME_X+REC_TIME_W_WHEN_MEM_LMTD)/MAIN_W (REC_TIME_Y+REC_TIME_H)/MAIN_H; to: "bg";}
+					text {
+						align: 0.0 0.5;
+					}
+				}
+				description {
+					state: "portrait_when_memory_limited" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (VER_REC_TIME_X_WHEN_MEM_LMTD)/MAIN_H VER_REC_TIME_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_REC_TIME_X_WHEN_MEM_LMTD+REC_TIME_W_WHEN_MEM_LMTD)/MAIN_H (VER_REC_TIME_Y+REC_TIME_H)/MAIN_W; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "landscape_inverse_when_memory_limited" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: INVERSE_REC_TIME_X_WHEN_MEM_LMTD/MAIN_W INVERSE_REC_TIME_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (INVERSE_REC_TIME_X_WHEN_MEM_LMTD+REC_TIME_W_WHEN_MEM_LMTD)/MAIN_W (INVERSE_REC_TIME_Y+REC_TIME_H)/MAIN_H; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "portrait_inverse_when_memory_limited" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_INVERSE_REC_TIME_X/MAIN_H VER_INVERSE_REC_TIME_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_INVERSE_REC_TIME_X+REC_TIME_W_WHEN_MEM_LMTD)/MAIN_H (VER_INVERSE_REC_TIME_Y+REC_TIME_H)/MAIN_W; to: "bg";}
+				}
+			}
+
+			part { name: "recording_size";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: REC_SIZE_X/MAIN_W REC_SIZE_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (REC_SIZE_X+REC_SIZE_W)/MAIN_W (REC_SIZE_Y+REC_SIZE_H)/MAIN_H; to: "bg";}
+					color:245 245 245 255;
+					text {
+						size: 13;
+						align: 0.0 0.5;
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_REC_SIZE_X/MAIN_H VER_REC_SIZE_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_REC_SIZE_X+REC_SIZE_W)/MAIN_H (VER_REC_SIZE_Y+REC_SIZE_H)/MAIN_W; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: INVERSE_REC_SIZE_X/MAIN_W  INVERSE_REC_SIZE_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (INVERSE_REC_SIZE_X+REC_SIZE_W)/MAIN_W (INVERSE_REC_SIZE_Y+REC_TIME_H)/MAIN_H; to: "bg";}
+					text {
+						align: 1.0 0.5;
+					}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_INVERSE_REC_SIZE_X/MAIN_H VER_INVERSE_REC_SIZE_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_INVERSE_REC_SIZE_X+REC_SIZE_W)/MAIN_H (VER_INVERSE_REC_SIZE_Y+REC_SIZE_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "invisible" 0.0;
+					inherit: "default";
+					visible: 0.0;
+				}
+			}
+
+			part { name: "rec_stop_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(REC_STOP_BTN_X/MAIN_W, REC_STOP_BTN_Y/MAIN_H,
+											(REC_STOP_BTN_X+REC_STOP_BTN_W)/MAIN_W, (REC_STOP_BTN_Y+REC_STOP_BTN_H)/MAIN_H, "bg");
+			}
+
+			part { name: "snapshot_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(SNAPSHOT_BTN_X/MAIN_W, SNAPSHOT_BTN_Y/MAIN_H,
+														(SNAPSHOT_BTN_X+SNAPSHOT_BTN_W)/MAIN_W, (SNAPSHOT_BTN_Y+SNAPSHOT_BTN_H)/MAIN_H, "bg");
+			}
+
+			part { name: "rec_pause_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(REC_PAUSE_BTN_X/MAIN_W, REC_PAUSE_BTN_Y/MAIN_H,
+														(REC_PAUSE_BTN_X+REC_PAUSE_BTN_W)/MAIN_W, (REC_PAUSE_BTN_Y+REC_PAUSE_BTN_H)/MAIN_H, "bg");
+			}
+
+			part { name: "rec_resume_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(REC_PAUSE_BTN_X/MAIN_W, REC_PAUSE_BTN_Y/MAIN_H,
+														(REC_PAUSE_BTN_X+REC_PAUSE_BTN_W)/MAIN_W, (REC_PAUSE_BTN_Y+REC_PAUSE_BTN_H)/MAIN_H, "bg");
+			description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+
+			part { name: "rec_focus_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(REC_PAUSE_BTN_X/MAIN_W, REC_PAUSE_BTN_Y/MAIN_H,
+														(REC_PAUSE_BTN_X+REC_PAUSE_BTN_W)/MAIN_W, (REC_PAUSE_BTN_Y+REC_PAUSE_BTN_H)/MAIN_H, "bg");
+			}
+
+			part { name: "progressbar_area";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.75; to: "bg";}
+					rel2 { relative: 1.0 0.8; to: "bg";}
+				}
+				description {
+					state: "landscape" 0.0;
+					rel1 { relative: 0.2 0.7; to: "bg";}
+					rel2 { relative: 0.8 0.8; to: "bg";}
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "invisible" 0.0;
+					inherit: "default";
+					visible: 0.0;
+				}
+/*				description {
+					state: "default" 0.0;
+					rel1 { relative: PROGRESS_BAR_AREA_X/MAIN_W PROGRESS_BAR_AREA_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (PROGRESS_BAR_AREA_X+PROGRESS_BAR_AREA_W)/MAIN_W (PROGRESS_BAR_AREA_Y+PROGRESS_BAR_AREA_H)/MAIN_H; to: "bg";}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					rel1 { relative: VER_PROGRESS_BAR_AREA_X/MAIN_H VER_PROGRESS_BAR_AREA_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_PROGRESS_BAR_AREA_X+PROGRESS_BAR_AREA_W)/MAIN_H (VER_PROGRESS_BAR_AREA_Y+PROGRESS_BAR_AREA_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "invisible" 0.0;
+					inherit: "default";
+					visible: 0.0;
+				}*/
+			}
+		}/*end parts*/
+		programs {
+			program {
+				name : "recording_view,set,landscape";
+				source: "recording_view";
+				signal: "landscape";
+				script: {
+					set_state(PART:"battery_indicator_area", "landscape", 0.0);
+					set_state(PART:"recording_icon", "landscape", 0.0);
+					set_state(PART:"recording_time", "landscape", 0.0);
+					set_state(PART:"recording_size", "landscape", 0.0);
+					set_state(PART:"rec_stop_button", "landscape", 0.0);
+					set_state(PART:"rec_pause_button", "landscape", 0.0);
+					set_state(PART:"rec_resume_button", "landscape", 0.0);
+					set_state(PART:"rec_focus_button", "landscape", 0.0);
+					set_state(PART:"progressbar_area", "landscape", 0.0);
+					set_state(PART:"snapshot_button", "landscape", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,portrait";
+				source: "recording_view";
+				signal: "portrait";
+				script: {
+					set_state(PART:"battery_indicator_area", "portrait", 0.0);
+					set_state(PART:"recording_icon", "portrait", 0.0);
+					set_state(PART:"recording_time", "portrait", 0.0);
+					set_state(PART:"recording_size", "portrait", 0.0);
+					set_state(PART:"rec_stop_button", "portrait", 0.0);
+					set_state(PART:"rec_pause_button", "portrait", 0.0);
+					set_state(PART:"rec_resume_button", "portrait", 0.0);
+					set_state(PART:"rec_focus_button", "portrait", 0.0);
+					set_state(PART:"progressbar_area", "portrait", 0.0);
+					set_state(PART:"snapshot_button", "portrait", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,landscape_inverse";
+				source: "recording_view";
+				signal: "landscape_inverse";
+				script: {
+					set_state(PART:"battery_indicator_area", "landscape_inverse", 0.0);
+					set_state(PART:"recording_icon", "landscape_inverse", 0.0);
+					set_state(PART:"recording_time", "landscape_inverse", 0.0);
+					set_state(PART:"recording_size", "landscape_inverse", 0.0);
+					set_state(PART:"rec_stop_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_pause_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_resume_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_focus_button", "landscape_inverse", 0.0);
+					set_state(PART:"progressbar_area", "landscape", 0.0);
+					set_state(PART:"snapshot_button", "landscape_inverse", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,portrait_inverse";
+				source: "recording_view";
+				signal: "portrait_inverse";
+				script: {
+					set_state(PART:"battery_indicator_area", "portrait_inverse", 0.0);
+					set_state(PART:"recording_icon", "portrait_inverse", 0.0);
+					set_state(PART:"recording_time", "portrait_inverse", 0.0);
+					set_state(PART:"recording_size", "portrait_inverse", 0.0);
+					set_state(PART:"rec_stop_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_pause_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_resume_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_focus_button", "portrait_inverse", 0.0);
+					set_state(PART:"progressbar_area", "portrait", 0.0);
+					set_state(PART:"snapshot_button", "portrait_inverse", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,portrait_when_memory_limited";
+				source: "recording_view";
+				signal: "portrait_when_memory_limited";
+				script: {
+					set_state(PART:"battery_indicator_area", "portrait", 0.0);
+					set_state(PART:"recording_icon", "portrait_when_memory_limited", 0.0);
+					set_state(PART:"recording_time", "portrait_when_memory_limited", 0.0);
+					set_state(PART:"recording_size", "portrait", 0.0);
+					set_state(PART:"rec_stop_button", "portrait", 0.0);
+					set_state(PART:"rec_pause_button", "portrait", 0.0);
+					set_state(PART:"rec_resume_button", "portrait", 0.0);
+					set_state(PART:"rec_focus_button", "portrait", 0.0);
+					set_state(PART:"progressbar_area", "portrait", 0.0);
+					set_state(PART:"snapshot_button", "portrait", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,landscape_when_memory_limited";
+				source: "recording_view";
+				signal: "landscape_when_memory_limited";
+				script: {
+					set_state(PART:"battery_indicator_area", "landscape", 0.0);
+					set_state(PART:"recording_icon", "landscape", 0.0);
+					set_state(PART:"recording_time", "landscape_when_memory_limited", 0.0);
+					set_state(PART:"recording_size", "landscape", 0.0);
+					set_state(PART:"rec_stop_button", "landscape", 0.0);
+					set_state(PART:"rec_pause_button", "landscape", 0.0);
+					set_state(PART:"rec_resume_button", "landscape", 0.0);
+					set_state(PART:"rec_focus_button", "landscape", 0.0);
+					set_state(PART:"progressbar_area", "landscape", 0.0);
+					set_state(PART:"snapshot_button", "landscape", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,landscape_inverse_when_memory_limited";
+				source: "recording_view";
+				signal: "landscape_inverse_when_memory_limited";
+				script: {
+					set_state(PART:"battery_indicator_area", "landscape_inverse", 0.0);
+					set_state(PART:"recording_icon", "landscape_inverse_when_memory_limited", 0.0);
+					set_state(PART:"recording_time", "landscape_inverse_when_memory_limited", 0.0);
+					set_state(PART:"recording_size", "landscape_inverse", 0.0);
+					set_state(PART:"rec_stop_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_pause_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_resume_button", "landscape_inverse", 0.0);
+					set_state(PART:"rec_focus_button", "landscape_inverse", 0.0);
+					set_state(PART:"progressbar_area", "landscape", 0.0);
+					set_state(PART:"snapshot_button", "landscape_inverse", 0.0);
+				}
+			}
+			program {
+				name : "recording_view,set,portrait_inverse_when_memory_limited";
+				source: "recording_view";
+				signal: "portrait_inverse_when_memory_limited";
+				script: {
+					set_state(PART:"battery_indicator_area", "portrait_inverse", 0.0);
+					set_state(PART:"recording_icon", "portrait_inverse", 0.0);
+					set_state(PART:"recording_time", "portrait_inverse_when_memory_limited", 0.0);
+					set_state(PART:"recording_size", "portrait_inverse", 0.0);
+					set_state(PART:"rec_stop_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_pause_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_resume_button", "portrait_inverse", 0.0);
+					set_state(PART:"rec_focus_button", "portrait_inverse", 0.0);
+					set_state(PART:"progressbar_area", "portrait", 0.0);
+					set_state(PART:"snapshot_button", "portrait_inverse", 0.0);
+				}
+			}
+
+			program {
+				name: "rec_resume_button_hide";
+				source: "prog";
+				signal: "rec_resume_button,hide";
+				script: {
+					set_state(PART:"rec_resume_button", "hide", 0.0);
+					}
+				}
+
+			program {
+				name: "rec_resume_button_show";
+				source: "prog";
+				signal: "rec_resume_button,show";
+				script: {
+					set_state(PART:"rec_resume_button", "default", 0.0);
+				}
+			}
+		}/*end programs*/
+	}/*end group : recording_view*/
+
+	group {
+		name: "recording_icon";
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				mouse_events: 1;
+				description{
+					state:"default" 0.0;
+					color: 0 0 0 0;
+				}
+			}
+			part {
+				name: "recording_image";
+				type: IMAGE;
+					description {
+					state: "default" 0.0;
+					min: RECORDING_IMAGE_W RECORDING_IMAGE_H;
+					max: RECORDING_IMAGE_W RECORDING_IMAGE_H;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: RECORDING_IMAGE_W/REC_ICON_AREA_W RECORDING_IMAGE_H/REC_ICON_AREA_H; to: "bg";}
+					image { normal: REC_ICON_RECORDING_IMAGE; }
+				}
+				description {
+					state: "pause_landscape" 0.0;
+					inherit: "default" 0.0;
+					image { normal: REC_ICON_PAUSE_IMAGE; }
+				}
+				description {
+					state: "pause_landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					align: 1.0 0.5;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image {	normal: REC_ICON_PAUSE_IMAGE; }
+				}
+				description {
+					state: "pause_portrait" 0.0;
+					inherit: "default" 0.0;
+					align: 1.0 0.5;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image { normal: REC_ICON_PAUSE_IMAGE; }
+				}
+				description {
+					state: "pause_portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					align: 0.0 0.5;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image { normal: REC_ICON_PAUSE_IMAGE; }
+				}
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+			/*
+			part {
+				name: "recording_text";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: (RECORDING_IMAGE_W+4)/REC_ICON_AREA_W 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					text {
+						size: 24;
+						align: 0.0 0.5;
+						text : "REC";
+					}
+					color: 245 10 14 255;
+				}
+				description {
+					state: "pause" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+			*/
+		}/*end parts*/
+		programs {
+			program {
+				name: "recording_icon_recording";
+				source: "prog";
+				signal: "recording_icon,recording";
+				script: {
+					set_state(PART:"recording_image", "default", 0.0);
+					//set_state(PART:"recording_text", "default", 0.0);
+				}
+			}
+			program {
+				name: "recording_icon_pause_landscape";
+				source: "prog";
+				signal: "recording_icon,pause,landscape";
+				script: {
+					set_state(PART:"recording_image", "pause_landscape", 0.0);
+					//set_state(PART:"recording_text", "pause", 0.0);
+				}
+			}
+			program {
+				name: "recording_icon_pause_landscape_inverse";
+				source: "prog";
+				signal: "recording_icon,pause,landscape_inverse";
+				script: {
+					set_state(PART:"recording_image", "pause_landscape_inverse", 0.0);
+					//set_state(PART:"recording_text", "pause", 0.0);
+				}
+			}
+			program {
+				name: "recording_icon_pause_portrait";
+				source: "prog";
+				signal: "recording_icon,pause,portrait";
+				script: {
+					set_state(PART:"recording_image", "pause_portrait", 0.0);
+					//set_state(PART:"recording_text", "pause", 0.0);
+				}
+			}
+			program {
+				name: "recording_icon_pause_portrait_inverse";
+				source: "prog";
+				signal: "recording_icon,pause,portrait_inverse";
+				script: {
+					set_state(PART:"recording_image", "pause_portrait_inverse", 0.0);
+					//set_state(PART:"recording_text", "pause", 0.0);
+				}
+			}
+			program {
+				name: "recording_icon_hide";
+				source: "prog";
+				signal: "recording_icon,hide";
+				script: {
+					set_state(PART:"recording_image", "hide", 0.0);
+				}
+			}
+		}/*end programs*/
+	}/*end group : recording_icon*/
+
+	group {
+		name: "progressbar";
+		parts {
+/*			part {
+				name: "left_text";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; }
+					rel2 { relative: PROGRESS_BAR_TEXT_W/PROGRESS_BAR_AREA_W 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 12;
+						align: 1.0 0.5;
+					}
+				}
+			}
+			part {
+				name: "right_text";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: (1 - PROGRESS_BAR_TEXT_W/PROGRESS_BAR_AREA_W) 0.0; }
+					rel2 { relative: 1.0 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 24;
+						align: 0.0 0.5;
+					}
+				}
+			}
+			part {
+				name: "left_top_padding";
+				type: SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: PROGRESS_BAR_PADDING_W PROGRESS_BAR_PADDING_H;
+					max: PROGRESS_BAR_PADDING_W PROGRESS_BAR_PADDING_H;
+					rel1 { to:"left_text"; relative: 1 0;}
+					align: 0 0;
+				}
+			}
+			part {
+				name: "right_bottom_padding";
+				type: SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: PROGRESS_BAR_PADDING_W PROGRESS_BAR_PADDING_H;
+					max: PROGRESS_BAR_PADDING_W PROGRESS_BAR_PADDING_H;
+					rel2 { to:"right_text"; relative: 0 1;}
+					align: 1 1;
+				}
+			}
+			part {
+				name: "progressbar";
+				type: SWALLOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { to:"left_top_padding"; relative: 1 1;}
+					rel2 { to:"right_bottom_padding"; relative: 0 0;}
+					align: 0.5 0.5;
+				}
+			}
+			part {
+				name: "left_text_val";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 {to:"progressbar"; relative: 0.0 1.0; }
+					rel2 { relative: 0.42 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 12;
+						align: 1.0 0.5;
+					}
+				}
+			}
+			part {
+				name: "slash";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { to:"left_text_val"; relative: 1.0 0.0; }
+					rel2 { relative: 0.45 1.0; }
+					color:245 245 245 255;
+					text {
+						text:"/";
+						size: 12;
+					}
+				}
+			}
+			part {
+				name: "right_text_val";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { to:"slash"; relative: 1.0 0.0; }
+					rel2 { relative: 0.58 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 12;
+					}
+				}
+			}*/
+			part {
+				name: "progressbar_rect";
+				type:RECT;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color:0 0 0 0;
+				}
+			}
+			part {
+				name: "progressbar";
+				type: SWALLOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.2 0.0;}
+					rel2 { relative: 0.8 1.0;}
+				}
+			}
+		part {
+				name: "left_text_val";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { to:"progressbar_rect"; relative: 0.0 0.0; }
+					rel2 { to:"progressbar_rect"; relative: 0.15 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 12;
+						align: 1.0 0.5;
+					}
+				}
+			}
+			part {
+				name: "right_text_val";
+				type: TEXT;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { to:"progressbar_rect"; relative: 0.85 0.0; }
+					rel2 { to:"progressbar_rect"; relative: 1.0 1.0; }
+					color:245 245 245 255;
+					text {
+						size: 12;
+						align: 0.0 0.5;
+					}
+				}
+			}
+		}/*end parts*/
+	}/*end group : progressbar*/
+}
+//endfile

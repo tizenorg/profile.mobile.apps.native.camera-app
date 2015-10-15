@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Nivelul bateriei este redus."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Fişierul nu poate fi salvat. Memorie dispozitiv plină."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Tasta de volum"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Fişierul nu poate fi salvat. Memorie insuficientă."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Nu se poate utiliza bliţul. Nivelul bateriei este redus."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Tonuri de gri"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Autoportret cam. spate"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Se procesează..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Modificaţi locaţia de stocare"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "A fost introdus un card SD. Locaţia implicită de stocare va fi modificată la cardul SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Schimb."
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Cartelă SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Jos"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Stânga"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Dreapta"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Sus"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Anulare"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pauză"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Focalizarea automată nu a reuşit."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Mişcare lentă"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Camera foto din spate vă va detecta automat faţa şi se va focaliza pe aceasta atunci când faceţi fotografii autoportret."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Nu se pot realiza fotografii modul Panoramic. Nu există suficiente detalii de peisaj."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panoramă"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Reiniţializare"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Sunet obiectiv"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Incl. aspect comandă rap."
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Atingeţi pt. foto"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Automat"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Buton"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Înnorat"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Lumina zilei"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Dispozitiv"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efecte"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Opriţi camera foto. Temperatura bateriei este prea ridicată."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Bliţ"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluorescent"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Mod focalizare"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Nici unul"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Niciun efect"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Nu există imagini în Galerie"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Oprit"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Pornit"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sepia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Setări"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Temporizator"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Incandescent"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Dimensiune videoclip"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Valoare expunere"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Înregistrare"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Mod înregistrare"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Peisaj"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Balans de alb"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Camera foto se va închide."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Captura nu a reuşit."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Înregistrarea nu a reuşit."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Cartelă de memorie scoasă"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Înregistrarea s-a oprit. Puteţi înregistra când temperatura dispozitivului scade."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Politica de securitate restricţionează utilizarea camerei foto."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Bliţul a fost oprit. Puteţi porni bliţul când temperatura dispozitivului scade."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Imposibil de înregistrat videoclipuri în timpul unui apel"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Imposibil de pornit Camera"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Imposibil de pornit aparat foto în timpul apelului"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Bliţul nu poate fi pornit. Încercaţi din nou după ce temperatura dispozitivului scade."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Salvare"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negativ"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Indisponibil"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Feţe"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Cameră foto"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Selectat"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Salvare ca oglindit"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoom"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Locaţie stocare"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Reiniţial."
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Înregistrare videoclip"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fotografiere"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Memorie insuficientă\npentru videoclip"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Reiniţializare"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Renunţare"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Avertizare"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Atingeţi butonul pentru camera foto, apoi mişcaţi dispozitivul încet, într-o singură direcţie."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Toate setările Camerei foto vor fi reiniţializate la valorile implicite."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Rotiţi dispozitivul încet."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Rotiţi uşor dispozitivul spre stânga."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Rotiţi uşor dispozitivul spre dreapta."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Înclinaţi dispozitivul în spate."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Înclinaţi dispozitivul în faţă."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Dispozitivul a fost rotit prea rapid. Nu s-au putut realiza fotografii în modul Autoportret panoramic."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "A apărut o eroare la îmbinarea imaginilor. Imaginea a fost totuşi salvată."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Nu s-au putut realiza fotografii în modul Autoportret panoramic. Subiectul nu poate fi distins."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Nu se pot realiza fotografii în modul Autoportret panoramic. Lumina este insuficientă."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Rotiţi uşor dispozitivul spre stânga sau spre dreapta."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Atingeţi butonul Cameră foto şi rotiţi uşor dispozitivul într-o singură direcţie."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Autoportr. pan."
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Foto. interval"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Renunţaţi la imagini"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d imagini vor fi eliminate."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Se înregistrează cu microfonul căştilor."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Etichete loc. nu se pot activa"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Pentru a utiliza Etichete locaţie, deschideţi meniul Setări > Locaţie şi asiguraţi-vă că GPS-ul este pornit şi că opţiunea Reţele wireless este activată."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Trageţi/redimens. cadrul pt. a seta poziţia feţei. Camera va face bip şi va foto. la %d sec. după ce faţa este în cadru."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Setările Camerei foto vor fi restabilite la valorile implicite."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Această funcţie va ataşa, integra şi stoca datele cu privire la locaţia geografică în cadrul fiecărei fotografii realizate. Fiţi prudent când trimiteţi, partajaţi, distribuiţi, transmiteţi sau copiaţi aceste fotografii, întrucât conţin informaţii despre locul în care a fost realizată fotografia."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Opţiunea Detectare faţă a fost activată. Camera foto va emite un semnal sonor şi va realiza fotografia după %d secunde."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "S-a atins durata maximă de înregistrare."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Nu se poate face zoom în modul actual."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Activare"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Activare Etichete locaţie"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Etichete de locaţie"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Nu mai afişa"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Nu se poate înregistra videoclipul. Memorie insuficientă."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Fotografia nu poate fi realizată. Memorie insuficientă."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "EFECTUAT"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ANULARE"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Autoportret"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Dimensiune fotografie"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Nu se poate utiliza bliţul la temperaturi joase."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Lansare rapidă"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Deschideţi Camera foto apăsând rapid de două ori tasta Acasă."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Salvare în"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Camera foto s-a deschis prin Lansare rapidă. Tasta Acasă a fost apăsată rapid de două ori. Pentru a dezactiva Lansarea rapidă, accesaţi setările Camerei foto şi selectaţi Lansare rapidă."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Setări aparat foto"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Expunere"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

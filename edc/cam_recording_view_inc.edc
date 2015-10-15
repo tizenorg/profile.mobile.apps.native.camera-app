@@ -1,0 +1,129 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../inc/edc_image_name.h"
+
+images {
+	image: REC_ICON_RECORDING_IMAGE COMP;
+	image: REC_ICON_PAUSE_IMAGE COMP;
+}
+
+#define BATTERY_INDICATOR_X		450
+#define BATTERY_INDICATOR_Y		9
+#define BATTERY_INDICATOR_W		30
+#define BATTERY_INDICATOR_H		30
+#define BATTERY_INDICATOR_X_V	326
+#define BATTERY_INDICATOR_Y_V	440
+#define BATTERY_INDICATOR_TEXT_H	12
+
+#define REC_PAUSE_BTN_X		690
+#define REC_PAUSE_BTN_Y		54
+#define REC_PAUSE_BTN_W		88
+#define REC_PAUSE_BTN_H		88
+
+#define REC_STOP_BTN_X		685
+#define REC_STOP_BTN_Y		190
+#define REC_STOP_BTN_W		100
+#define REC_STOP_BTN_H		100
+
+#define SNAPSHOT_BTN_X		690
+#define SNAPSHOT_BTN_Y		340
+#define SNAPSHOT_BTN_W		88
+#define SNAPSHOT_BTN_H		88
+
+/* recording icon + "REC" text */
+#define REC_ICON_AREA_X		15
+#define REC_ICON_AREA_Y		15
+#define REC_ICON_AREA_W		35
+#define REC_ICON_AREA_H		27
+#define VER_REC_ICON_AREA_X	370
+#define VER_REC_ICON_AREA_Y 15
+#define INVERSE_REC_ICON_AREA_X	685
+#define INVERSE_REC_ICON_AREA_Y 411
+#define VER_INVERSE_REC_ICON_AREA_X 15
+#define VER_INVERSE_REC_ICON_AREA_Y 731
+
+#define VER_REC_ICON_AREA_X_WHEN_MEM_LMTD   300
+#define INVERSE_REC_ICON_AREA_X_WHEN_MEM_LMTD 620
+
+#define REC_TEXT_X	46
+#define REC_TEXT_Y	15
+#define REC_TEXT_W	48
+#define REC_TEXT_H	27
+#define VER_REC_TEXT_X 15
+#define VER_REC_TEXT_Y 15
+
+#define RECORDING_IMAGE_W	27
+#define RECORDING_IMAGE_H	27
+
+#define TIMER_ICON_X		106
+#define TIMER_ICON_Y		4
+#define TIMER_ICON_W		22
+#define TIMER_ICON_H		22
+
+
+/* 00:00 recording time */
+#define REC_TIME_X			45
+#define REC_TIME_Y			15
+#define REC_TIME_W			100
+#define REC_TIME_H			27
+#define VER_REC_TIME_X			365
+#define VER_REC_TIME_Y			15
+#define INVERSE_REC_TIME_X		685
+#define INVERSE_REC_TIME_Y		411
+#define VER_INVERSE_REC_TIME_X		45
+#define VER_INVERSE_REC_TIME_Y		731
+
+#define REC_TIME_W_WHEN_MEM_LMTD           160
+#define VER_REC_TIME_X_WHEN_MEM_LMTD       305
+#define INVERSE_REC_TIME_X_WHEN_MEM_LMTD   625
+
+
+/* 0M recording size */
+#define REC_SIZE_X			45
+#define REC_SIZE_Y			42
+#define REC_SIZE_W			200
+#define REC_SIZE_H			27
+#define VER_REC_SIZE_X			265
+#define VER_REC_SIZE_Y			42
+#define INVERSE_REC_SIZE_X		585
+#define INVERSE_REC_SIZE_Y		438
+#define VER_INVERSE_REC_SIZE_X		45
+#define VER_INVERSE_REC_SIZE_Y		758
+
+
+
+#define REC_REMAIN_TIME_X		344
+#define REC_REMAIN_TIME_Y		10
+#define REC_REMAIN_TIME_W		74
+#define REC_REMAIN_TIME_H		14
+#define VER_REC_REMAIN_TIME_X	188
+#define VER_REC_REMAIN_TIME_Y	398
+
+#define PROGRESS_BAR_AREA_X		200
+#define PROGRESS_BAR_AREA_Y		400
+#define PROGRESS_BAR_AREA_W		400
+#define PROGRESS_BAR_AREA_H		26
+
+#define VER_PROGRESS_BAR_AREA_X	40
+#define VER_PROGRESS_BAR_AREA_Y	600
+
+#define PROGRESS_BAR_PADDING_W	6
+#define PROGRESS_BAR_PADDING_H	2
+#define PROGRESS_BAR_TEXT_W		100
+
+//endfiles

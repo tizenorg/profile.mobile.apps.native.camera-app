@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Bateria baxu dago."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Ezin da fitxategia gorde. Gailuaren biltegia beteta dago."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Bolumen tekla"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Ezin da fitxategia gorde. Ez dago nahikoa memoriarik."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Ezin da flasha erabili. Bateria gutxi."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Gris eskala"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Atz. kam. selfiea"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Prozesatzen..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Aldatu biltegiratze kokapena"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD txartel bat txertatu da. Lehenetsitako memoria kokapena SD txartelera aldatuko da."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Aldatu"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD txartela"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Behera"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Ezkerrera"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Eskuinera"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Gora"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Ezeztatu"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Ados"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Eten"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Autofokuak huts egin du"
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Mugitu poliki"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Aurreko kamerak automatikoki hautemango eta fokatuko du zure aurpegia, autorretratuak ateratzen dituzunean."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Ezin da argazkirik atera modu panoramikoan. Eszenak ez du nahikoa xehetasun."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Berrezarri"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Obturadorearen soinua"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Gehitu last. mar. atzealdea"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Ukitu arg. ateratz."
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Botoia"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Lainotua"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Egun-argia"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Gailua"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efektuak"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Irten kameratik. Bateriaren tenperatura altuegia."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Flasha"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluoreszentea"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokatze modua"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Bat ere ez"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Efekturik ez"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Ez dago irudirik Galerian"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Desaktibatuta"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Aktibatuta"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sepia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Ezarpenak"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Tenporizadorea"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Goritasunezkoa"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Bideoaren neurria"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Irekidura balioa"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Grabatu"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Grabaketa modua"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Horizontala"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Zuri-balantzea"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera itxiko da"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Errorea argazkia ateratzean"
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Grabaketa errorea"
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Memoria txartela aterata"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Grabaketa eten da. Zure gailua hozten denean has zaitezke berriz grabatzen."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Segurtasun politikak Kameraren erabilera mugatzen du"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Flasha itzali da. Zure gailua hozten denean piztu dezakezu flasha berriz."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Ezin dira bideoak grabatu deian zehar"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Ezin da kamera abiarazi"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Ezin da kamera abiarazi deian zehar"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Ezin da flasha piztu. Saiatu berriz gailua hoztu bezain laster."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Gorde"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatiboa"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Ez dago eskuragarri"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Aurpegiak"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Aukeratuta"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Gorde itzulitako gisa"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zooma"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Biltegiratze kokapena"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Berrezarri"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Grabatu bideoa"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Argazkia atera"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Ez dago bideoarentzako memoria nahikoa"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Berrezarri"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Baztertu"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Abisua"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Ukitu kameraren botoia eta mugitu gailua poliki norabide bakarrean."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Kamera ezarpen guztiak lehenetsitakoekin berrezarriko dira."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Biratu gailua poliki."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Biratu gailua poliki ezkerrerantz."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Biratu gailua poliki eskuinerantz."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Inklinatu gailua atzerantz."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Inklinatu gailua aurrerantz."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Gailua azkarregi biratu da. Ezin da argazkirik atera Selfie zabala moduan."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Errorea gertatu da argazkiak batzean. Argazkia gorde da dena den."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Ezin da argazkirik atera Selfie zabala moduan. Ezin da subjektua bereizi."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Ezin da argazkirik atera selfie zabala moduan. Ez dago nahikoa argi."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Biratu gailua poliki ezkerrerantz edo eskuinerantz."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Ukitu Kameraren botoia eta biratu zure gailua poliki norabide bakarrean."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Selfie zabala"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Tartekako argazk."
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Baztertu argazkiak"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d argazki baztertuko dira."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Aurikularren mikrofonoarekin grabatzea."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Ezin izan dira Kokapen etiketak gaitu"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Kokapen etiketak erabiltzeko, egin Ezarpenak > Kokapena eta egiaztatu GPSa piztuta dagoela eta Hari gabeko sareak gaituta daudela."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Arrastatu eta aldatu neurriz aurpegi lekua ezartzeko. Biparen eta %d s ostean argazkia aterako du, aur. markoan badago."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Kamera ezarpenak lehenetsira berrezarrita daude."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Funtzio honek ateratzen duzun argazki bakoitzean kokapen geografikoaren datuak erantsi, txertatu eta bilduko ditu. Kontuz ibili argazkiak bidaltzen, partekatzen, banatzen, transmititzen edo kopiatzen dituzunean, argazkia non atera den adierazten baitu."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Aurpegi hautematea gaitu da. Kamerak bip egingo du eta %d segundoren ostean argazkia aterako du."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Gehieneko grabaketa denborara iritsi zara."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Ezin izan da modu honetan zoom erabili."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Gaitu"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Gaitu Kokapen etiketak"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Kokapen etiketak"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ez erakutsi berriz"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Ezin da bideoa grabatu. Ez dago nahikoa memoria."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Ezin da argazkia atera. Ez dago nahikoa memoria."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "EGINA"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "UTZI"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Selfie"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Argazkiaren neurria"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Ezin da flash erabili tenperatura baxuetan"
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Abiarazte azkarra"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Ireki Kamera Tekla nagusia bi aldiz jarraian azkar sakatuta."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Gorde hemen"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kamera ireki da Abiarazte azkarra erabilita. Tekla nagusia bi aldiz sakatu da jarraian. Abiarazte azkarra desgaitzeko, zoaz Kameraren ezarpenetara eta hautatu Abiarazte azkarra."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kameraren konfigurazioa"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Esposizioa"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "電池電量低。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "無法儲存檔案。裝置儲存已滿。"
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "音量鍵"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "無法儲存檔案。記憶體不足。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "無法使用閃光燈。電池電量低。"
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "黑白"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "自拍提示"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "正在處理..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "變更儲存位置"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "已插入 SD 卡。預設儲存位置將變更為 SD 卡。"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "更改"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD 卡"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "下"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "左"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "右"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "上"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "取消"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "確定"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "暫停"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "自動對焦失敗。"
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "緩慢移動"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "拍攝自拍照時，後置相機將自動偵測並對焦您的臉孔。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "無法在全景模式中拍照。場景細節不足。"
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "全景"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "重設"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "快門音"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "包含捷徑版面"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "輕觸以拍照"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "自動"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "按鍵"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "陰天"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "白天"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "裝置"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "效果"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "離開相機。電池溫度過高。"
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "閃光燈"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "螢光燈"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "對焦模式"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "無"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "無效果"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "媒體瀏覽器中沒有圖像"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "關"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "開啟"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "褐色"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "設定"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "計時器"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "白熾燈"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "影片大小"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "曝光值"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "錄製"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "錄製模式"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "風景"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "白平衡"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "相機將關閉。"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "拍攝失敗。"
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "錄製失敗。"
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "已移除記憶卡"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "錄影已停止。可在裝置降溫後開始錄影。"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "由於安全政策，使用相機被限制。"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "閃光燈已關閉。可在裝置降溫後開啟閃光燈。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "通話時無法錄製視訊。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "無法啟動相機。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "通話期間無法啟動相機。"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "無法開啟閃光燈。可在裝置降溫後重試。"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "儲存"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "負片"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "無法使用"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "面孔"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "相機"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "已選擇"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "儲存為翻轉"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "縮放"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "儲存裝置位置"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "重設"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "錄影"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "拍照"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "影片記憶體不足"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "重設"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "捨棄"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "提醒"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "輕觸相機按鍵，然後朝一個方向緩慢移動裝置。"
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "所有相機設定將重置為預設。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "緩慢旋轉裝置。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "將裝置緩慢向左旋轉。"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "將裝置緩慢向右旋轉。"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "向後傾斜裝置。"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "向前傾斜裝置。"
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "裝置旋轉過快。無法在廣角自拍模式中拍照。"
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "合併相片時發生錯誤，相片仍已儲存。"
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "無法在廣角自拍模式中拍照。無法辨別拍攝對象。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "無法在廣角自拍模式中拍照。光線不足。"
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "將您的裝置慢慢向左或向右旋轉。"
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "輕觸相機按鈕並朝一個方向慢慢旋轉裝置。"
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "廣角自拍"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "間隔拍攝"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "捨棄相片"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "將捨棄 %d 張相片。"
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "以耳機麥克風錄音。"
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "無法啟用位置標籤"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "若要使用位置標籤，請前往設定 > 定位，並確認 GPS 已開啟且無線網路已啟用。"
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "拖曳並調整方框大小來設定臉部位置。臉部出現在框內時，相機將發出嗶聲並在 %d 秒後拍照。"
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "相機設定重置為預設。"
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "唯美模式"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "此功能將附加、嵌入並儲存每張所拍攝相片的地理位置資料。傳送、分享、發佈、傳輸或複製這些相片時請謹慎使用，因其包含拍攝地點的相關資訊。"
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "臉部偵測已啟用。相機將發出嗶聲並在 %d 秒後拍照。"
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "已達錄製時間上限。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "無法在目前模式中放大。"
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "啟用"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "啟用位置標籤"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "位置標籤"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "不再顯示"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "無法錄影。記憶體不足。"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "無法拍照。記憶體不足。"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "完成"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "取消"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "自拍"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "相片大小"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "低溫環境無法使用閃光燈。"
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "雙擊快啟"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "快速連按兩下首頁鍵來開啟相機。"
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "儲存至"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "相機已透過快速啟動開啟。已快速連續按兩下首頁鍵。若要停用快速啟動，請前往相機設定並選擇快速啟動。"
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "相機設定"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "曝光"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

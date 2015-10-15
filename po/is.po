@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Lítil hleðsla á rafhlöðu."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Ekki er hægt að vista skrána. Geymsla tækisins er full."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Hljóðst.-takkinn"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Ekki er hægt að vista skrána. Of lítið minni."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Ekki er hægt að nota flass. Lítil hleðsla er á rafhlöðu."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Grátónn"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Sjálfsmynd aft."
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Vinnsla í gangi..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Skipta um vistunarstað"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD-kort var sett í. SD-kortið verður gert að sjálfgefinni geymslustaðsetningu."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Breyta"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD-kort"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Niður"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Vinstri"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Hægri"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Upp"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Hætta v."
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Í lagi"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Hlé"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Sjálfvirkur fókus virkar ekki."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Færa hægt"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Aftari myndavélin greinir sjálfkrafa andlit þitt og stillir fókus á það þegar þú tekur sjálfsmyndir."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Ekki er hægt að taka myndir með víðmyndastillingu. Ekki eru næg smáatriði í myndbyggingu."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Víðmynd"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Endurstilla"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Lokarahljóð"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Hafa flýtileiðaupps. með"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Pikka til að taka"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Sjálfvirkt"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Hnappur"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Skýjað"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Dagsbirta"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Tæki"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Brellur"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Loka myndavél. Rafhlaðan er of heit."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Flass"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Flúrljós"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fókus"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Enginn"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Engin áhrif"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Engar myndir í Galleríi"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Slökkt"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Kveikt"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Brúnlitt"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Stillingar"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Niðurteljari"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Venjuleg pera"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Stærð myndskeiðs"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Ljósgildi"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Taka upp"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Upptaka"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Langsnið"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Ljósgjafi"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Myndavélin lokast."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Mistókst að taka mynd."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Upptakan mistókst."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Minniskort tekið úr."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Upptakan var stöðvuð. Þú getur tekið upp þegar tækið hefur kólnað."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Öryggisreglur takmarka notkun myndavélar."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Slökkt var á flassinu. Þú getur kveikt á flassinu þegar tækið hefur kólnað."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Mistókst að taka upp myndskeið í símtali."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Mistókst að opna myndavél."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Ekki er hægt að ræsa myndavél meðan á símtali stendur."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Ekki er hægt að kveikja á flassinu. Reyndu aftur þegar tækið hefur kólnað."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Vista"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatífa"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Ekki til staðar"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Andlit"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Myndavél"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Valið"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Vista velt"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Aðdráttur"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Geymslustaður"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Endurstilla"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Taka upp myndskeið"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Taka mynd"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Ekki er nægt\nminni fyrir vídeó."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Endurstilla"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Henda"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Áminning"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pikkaðu á myndavélarhnappinn og færðu síðan tækið rólega í eina átt."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Allar myndavélarstillingar verða endurstilltar á sjálfgefin gildi."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Færðu tækið hægt til hliðar."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Færðu tækið hægt til vinstri."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Færðu tækið hægt til hægri."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Hallaðu tækinu aftur."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Hallaðu tækinu fram."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Tæki var sveiflað of hratt. Ekki var hægt að taka víðsjálfsmynd."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Villa kom upp við sameiningu mynda. Myndin var samt vistuð."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Mistókst að taka víðsjálfsmynd. Ekki er hægt að bera kennsl á myndefni."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Ekki er hægt að taka víðsjálfsmynd. Lýsing er of lítil."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Snúðu tækinu hægt til vinstri eða hægri."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Pikkaðu á myndavélarhnappinn og snúðu tækinu rólega í eina átt."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Víðsjálfsmynd"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Millibilstaka"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Henda myndum"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d myndum verður fleygt."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Upptaka með hljóðnema heyrnartóla."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Ekki hægt að virkja merki"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Til að nota staðsetningarmerki skaltu fara í Stillingar > Staðsetning og ganga úr skugga um að kveikt sé á GPS og þráðlausum netum."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Dragðu og breyttu rammanum til að velja andlit. Myndavél pípir og tekur mynd eftir %d sek. þegar andlit er í rammanum."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Myndavél endurstillt á sjálfgefnar stillingar."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Með þessum eiginleika verða landfræðilegar upplýsingar hengdar við og vistaðar með hverri mynd sem þú tekur. Sýndu aðgát þegar þú deilir, dreifir, sendir eða afritar þessar myndir þar sem þær innihalda upplýsingar um staðinn þar sem myndin var tekin."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Kveikt á andlitskennslum. Myndavélin gefur frá sér hljóð og tekur mynd eftir %d sekúndur."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Hámarksupptökutíma náð."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Ekki er hægt að breyta aðdrætti í þessari stillingu."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Kveikja"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Kveikja á staðsetningarmerkjum"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Staðsetningarmerki"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ekki sýna aftur"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Ekki er hægt að taka upp myndskeið. Ekki er nægt minni."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Ekki er hægt að taka mynd. Ekki er nægt minni."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "LOKIÐ"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "HÆTTA VIÐ"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Sjálfsmynd"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Myndastærð"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Ekki er hægt að nota flass við lágt hitastig."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Flýtiræsing"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Opnaðu myndavélina með því að ýta tvisvar á heimatakkann í röð."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Vista í"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Myndavélin var opnuð með flýtiopnun. Ýtt var tvisvar sinnum hratt á heimatakkann. Slökkt er á flýtiopnun með því að opna stillingar myndavélarinnar og velja „Flýtiopnun“."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Myndavélarstillingar"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Lýsing"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

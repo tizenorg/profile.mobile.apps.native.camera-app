@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Bateria baixa."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "No es pot desar el fitxer. L'emmagat del disposit està ple."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "La tecla de volum"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "No es pot desar el fitxer. No hi ha prou memòria."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "No es pot utilitzar el flaix. Hi ha poca bateria."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Escala grisos"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Autof càm post"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Processant..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Canviar ubicació emmagatzemat"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "S'ha inserit una targeta SD. La ubicació d'emmagatzematge predeterminada es canviarà a la targeta SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Canviar"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Targeta SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Avall"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Esquerra"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Dreta"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Amunt"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Cancel"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "Acceptar"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Pausa"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Error d'enfocament automàtic"
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Moure lentament"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "La càmera posterior detectarà i enfocarà automàticament la seva cara quan faci fotos d'autoretrat."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "No es poden fer fotos en mode Panoràmica. No hi ha prou detall d'escenes."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Panorama"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Restablir"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "So de l'obturador"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Incloure disseny d'accés directe"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Toqui per fer fotos (activa/desactiva)"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Auto"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Botó"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Ennuvolat"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Llum diürna"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Dispositiu"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Efectes"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Sortir de la càmera. La temperatura de la bateria és massa alta."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Flaix"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluorescent"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Mode d'enfocament"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Cap"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Cap efecte"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "No hi ha imatges a la Galeria"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Desactivat"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Activat"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sèpia"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Ajustaments"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Temporitzador"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Incandescent"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Mida de vídeo"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Valor d'exposició"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Gravar"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Mode de gravació"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Horitzontal"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Balanç de blancs"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Es tancarà la càmera"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Error en capturar"
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Error de gravació"
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "S'ha extret la targeta de memòria"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "S'ha aturat la gravació. Pot gravar quan el dispositiu s'hagi refredat."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "La política de seguretat restringeix l'ús de la càmera"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "S'ha apagat el flaix. Pot activar el flaix quan s'hagi refredat el dispositiu."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "No es poden gravar vídeos durant una trucada"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "No es pot iniciar la Càmera"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "No es pot iniciar la càmera durant la trucada"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "No es pot activar el flaix. Torni-ho a intentar quan s'hagi refredat el dispositiu."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Desar"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Negatiu"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "No disponible"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Cares"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Càmera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Seleccionat"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Desar com a invertit"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zoom"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Ubicació d'emmagatzematge"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Restablir"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Gravar vídeo"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Fer foto"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "No hi ha prou memòria per a vídeo"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Restablir"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Descartar"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Alerta"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Toqui el botó de càmera i, després, mogui el dispositiu lentament en una direcció."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Es restabliran tots els ajustaments de Càmera als valors predeterminats."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Giri el dispositiu lentament."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Giri el dispositiu lentament cap a l'esquerra."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Giri el dispositiu lentament cap a la dreta."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Inclini el dispositiu cap enrere."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Inclini el dispositiu cap endavant."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "El dispositiu ha girat massa ràpid. No es pot fer la foto en mode Autofoto ampla."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "S'ha produït un error en fusionar fotos. Foto desada igualment."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Error en fer fotos en mode Autofoto ampla. No es pot distingir el subjecte."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "No es poden fer fotos en mode Autofoto ampla. No hi ha prou llum."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Giri el dispositiu lentament cap a esquerra o dreta."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Toqui el botó Càmera i mogui el dispositiu lentament en una direcció."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Autofoto ampla"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Dispar interval"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Descartar fotos"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Es descartaran %d imatges."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Gravar amb el micròfon dels auriculars."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Error act Etiquetes d'ubicació"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Per utilitzar Etiquetes d'ubicació, vagi a Ajustaments > Ubicació, i asseguri's que tant el GPS com les xarxes sense fils estiguin activats."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Arrossegui i ajusti el fotograma a la cara. Un cop fet, la càmera emetrà un bip i farà una foto en %d segons."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Els ajustaments de Càmera es restabliran als valors predeterminats."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Aquesta funció adjuntarà, incrustarà i emmagatzemarà dades d'ubicació geogràfica a cada foto que faci. Vagi amb compte quan enviï, comparteixi, distribueixi, transmeti o copiï aquestes fotos perquè contindran informació sobre la ubicació on es van fer."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Detecció de cares habilitada. La Càmera emetrà un bip i farà una foto en %d segons."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "S'ha assolit el temps màxim de gravació."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "No es pot ampliar en el mode actual."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Habilitar"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Habilitar Etiquetes d'ubicació"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Etiquetes d'ubicació"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "No tornar a mostrar"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "No es pot gravar vídeo. No hi ha prou memòria."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "No es pot fer la foto. No hi ha prou memòria."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "REALITZAT"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "CANCEL·LAR"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Autofoto"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Mida de la foto"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "No es pot utilitzar el flaix a baixa temperatura"
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Execució ràpida"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Obri la Càmera prement la tecla d'inici dos cops ràpidament."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Desar a"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "S'ha obert la Càmera mitjançant Quick launch. La tecla d'Inici s'ha premut ràpidament dos cops. Per deshabilitar Quick launch, vagi als ajustaments de la Càmera i seleccioni Quick launch."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Ajustaments de càmera"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Exposició"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

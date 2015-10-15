@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Cumhacht cheallra lag."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Ní féidir an comhad a shábháil. Stóras an ghléis lán."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "An eochair airde"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Ní féidir an comhad a shábháil. Easpa cuimhne."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Ní féidir an splanc a úsáid. Cumhacht ceallra íseal."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Liathscála"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Cúlcheam-f.phic"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Ag próiseáil..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Athraigh an suíomh stórais"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "Ionsádh cárta SD. Athrófar an suíomh stórála réamhshocraithe go cárta SD."
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Athraigh"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "Cárta SD"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Síos"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Clé"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Deis"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Suas"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Cealaigh"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Cuir ar sos"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Theip ar uathfhocású."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Bog go mall"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Braithfidh an ceamara cúil d'aghaidh go huathoibríoch agus déanfaidh fócasú air agus pictiúir féinphortráide á nglacadh agat."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Ní féidir pictiúr a ghlacadh i Mód lánléargais. Easpa sonraí radharcra."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Lánléargas"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Athshocraigh"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Fuaim comhla"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Áirigh aicearra an leagain amach"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Tapáil le glacadh"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Uath-"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Cnaipe"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Scamallach"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Solas an Lae"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Gléas"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Maisíochtaí"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Scoir Ceamara. Tá teocht an cheallra ró-ard."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Splanc"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Fluaraiseach"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Mód fócais"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Dada"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Gan mhaisíocht"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Níl íomhánna ann sa Ghailearaí"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "As"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Air"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Dúch cudail"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Socruithe"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Amadóir"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Gealbhruthach"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Méid an fhíseáin"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Luach nochta"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Taifead"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Mód taifeadta"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Tírdhreach"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Leibhéal bán"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Dúnfar an ceamara"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Theip ar ghabháil."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Theip ar thaifeadadh."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Cárta cuimhne bainte."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Scoireadh taifeadadh. Is féidir leat taifeadadh nuair a bheidh do ghléas fuaraithe."
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Cuireann an beartas slándála srian ar úsáid an Cheamara"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Casadh an splanc as. Is féidir leat an splanc a chasadh air nuair a bheidh do ghléas fuaraithe."
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Ní féidir físeanna a thaifeadadh le linn glao."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Ní féidir Ceamara a thosú."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Ní féidir Ceamara a thosú le linn glao."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Ní féidir an splanc a chasadh air. Triail arís nuair a bheidh do ghléas fuaraithe."
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Sábháil"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Claonchló"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Níl sé ar fáil"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Aghaidheanna"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Ceamara"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Roghnaithe"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Sábháil mar smeachta"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Zúmáil"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Suíomh stórais"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Athshocraigh"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Taifead físeán"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Glac pictiúr"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Easpa cuimhne d'fhíseán."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Athshocraigh"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "Cuileáil"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Foláireamh"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Tapáil an cnaipe Ceamara, ansin bog an gléas go mall i dtreo amháin."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Fillfear gach socrú Ceamara ar na réamhshocruithe."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Sclóin an gléas go mall."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Sclóin an gléas go mall ar chlé."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Sclóin an gléas go mall ar dheis."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Claon an gléas siar."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Claon an gléas aniar."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Gléas sclóinte róthapa. Níorbh fhéidir grianghraf a ghlacadh i Mód féinphic leathain."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Tharla earráid agus pictiúir á gcumasc. Pictiúr sábháilte ar aon nós."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Theip ar ghlacadh grianghraf i Mód féinphic leathain. Níorbh féidir an tsuibiacht a aithint."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Ní féidir pictiúir a ghlacadh i Mód féinphic leathain. Easpa solais."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Sclóin do ghléas ar chlé nó ar dheis go mall."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Tapáil an cnaipe Ceamara agus tiontaigh do ghléas go mall i dtreo amháin."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Féinphic leath."
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "Seat eatramhach"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Cuileáil pictiúir"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "Cuileálfar %d pictiúr."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Taifeadadh le micreafón na gcluasán."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Cumasú Clib. suímh dodhéanta"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Le Clibeanna suímh a úsáid, gabh chuig Socruithe > Suíomh, agus cinntigh go bhfuil GPS casta air agus Líonraí gan sreang cumasaithe."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Tarr. & athmhéid. an fráma le suíomh na haghaidhe a shocrú. Déanfaidh Ceamara bíp agus glacfar pictiúr tar éis %d soic."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Socruithe Ceamara fillte ar na réamhshocruithe."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Dream shot"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Déanfar leis an bhfeidhm seo sonraí suímh gheografaigh a cheangal, a leabú, agus a stóráil laistigh de gach pictiúr a ghlacann tú. Bí cúramach nuair atá tú ag seoladh, ag comhroinnt, ag scaipeadh, nó ag cóipeáil na bpictiúr seo toisc go bhfuil iontu faisnéis faoin áit ar glacadh iad."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Brath aghaidhe cumasaithe. Déanfaidh Ceamara bíp agus glacfar pictiúr tar éis %d soicind."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Uas-am taifeadta bainte amach."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Zúmáil dodhéanta sa mhód reatha."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Cumasaigh"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Cumasaigh Clibeanna suímh"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Clibeanna suímh"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Ná taispeáin arís"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Ní féidir físeán a thaifeadadh. Easpa cuimhne."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Ní féidir pictiúr a ghlacadh. Easpa cuimhne."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "DÉANTA"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "CUIR AR CEAL"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Féinphic"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Méid pictiúir"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Ní féidir splanc a úsáid i dteocht íseal."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Lainseáil thapa"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Oscail Ceamara tríd an eochair Baile a bhrú faoi dhó go tapa i ndiaidh a chéile."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Sábháil chuig"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Osclaíodh Ceamara trí Mhearlainseáil. Brúdh an eochair Baile faoi dhó go tapa i ndiaidh a chéile. Le Mearlainseáil a dhíchumasú, gabh chuig socruithe Ceamara agus roghnaigh Mearlainseáil."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Socruithe ceamara"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Nochtadh"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

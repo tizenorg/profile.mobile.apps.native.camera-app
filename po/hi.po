@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "बैटरी पॉवर कम।"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "फाइल सुरक्षित करने में असमर्थ। डिवाइस स्टोरेज भर गया।"
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "वॉल्यूम कुंजी"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "फाइल सुरक्षित करने में असमर्थ। पर्याप्त मेमोरी नहीं।"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "फ्लैश का उपयोग करने में असमर्थ। बैटरी पॉवर कम है।"
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "ग्रेस्केल"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "रियर-कैम सेल्फी"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "प्रक्रिया हो रही है..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "स्टोरेज स्थान बदलें"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "कोई SD कार्ड डाला गया है। डिफॉल्ट स्टोरेज स्थान SD कार्ड में बदल दिया जाएगा।"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "बदलें"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD कार्ड"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "नीचें"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "बाएँ"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "दाएँ"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "ऊपर"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "रद्द"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "ओके"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "विराम"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "स्वतः फोकस विफल।"
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "धीमे-धीमे जाएँ"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "जब आप सेल्फ-पोर्ट्रेट तस्वीर लेते हैं, तो पिछला कैमरा स्वचालित रूप से आपके चेहरे का पता लगाता है और उस पर फोकस करता है।"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "पैनोरमा मोड में तस्वीरें लेने में अक्षम। पर्याप्त दृश्य विवरण नहीं है।"
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "पैनोरमा"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "रीसेट"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "शटर ध्वनि"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "शॉर्टकट लेआउट शामिल करें"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "तस्वीरें लेने के लिए टैप करें"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "स्वतः"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "बटन"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "धुंधला"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "डेलाइट"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "डिवाइस"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "प्रभाव"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "कैमरे से बाहर निकलें। बैटरी तापमान बहुत उच्च है।"
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "फ्लैश"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "फ्लौरिसैंट"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "केंद्रित मोड"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "कुछ नहीं"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "कोई प्रभाव नहीं"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "गैलरी में कोई छवि नहीं"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "बंद"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "चालू"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "सेपिया"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "सेटिंग्स"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "टाइमर"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "उज्‍ज्वल"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "वीडियो आकार"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "एक्सपोजर मान"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "रिकॉर्ड करें"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "रिकॉर्डिंग मोड"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "लैंडस्केप"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "व्हाइट बैलेंस"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "कैमरा बंद हो जाएगा"
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "कैप्‍चर विफल।"
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "रिकॉर्डिंग विफल।"
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "मेमोरी कार्ड हटाया गया।"
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "रिकॉर्डिंग रुक गई है। जब आपका डिवाइस ठंडा हो जाए तब आप रिकॉर्ड कर सकते हैं।"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "सुरक्षा नीति कैमरा के उपयोग को प्रतिबंधित करती है।"
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "फ्लैश बंद कर दिया गया है। जब आपका डिवाइस ठंडा हो जाए तब आप फ्लैश चालू कर सकते हैं।"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "कॉल के दौरान वीडियो रिकॉर्ड करने में अक्षम।"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "कैमरा चालू करने में असमर्थ।"
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "कॉल के दौरान कैमरा चालू करने में असमर्थ।"
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "फ्लैश चालू करने में असमर्थ। आपका डिवाइस ठंडा हो जाने पर फिर से प्रयास करें।"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "सुरक्षित"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "नकारात्मक"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "अनुपलब्ध"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "चेहरे"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "कैमरा"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "चयनित"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "फ्लिप के जैसे सुरक्षित करें"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "जूम"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "संग्रहण स्‍थान"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "रीसेट करें"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "वीडियो रिकॉर्ड करें"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "तस्वीर लें"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "वीडियो के लिए पर्याप्त मेमोरी नहीं।"
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "रीसेट"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "निरस्त करें"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "सतर्क"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "कैमरा बटन पर टैप करें, फिर डिवाइस को धीरे से एक दिशा में ले जाएँ।"
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "सभी कैमरा सेटिंग्स उनके डिफॉल्ट्स पर रीसेट की जाएँगी।"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "डिवाइस को धीरे से घुमाएँ।"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "डिवाइस को बाईं ओर धीरे से घुमाएँ।"
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "डिवाइस को दाईं ओर धीरे से घुमाएँ।"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "डिवाइस को पीछे की ओर झुकाएँ।"
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "डिवाइस को आगे की ओर झुकाएँ।"
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "डिवाइस अत्यधिक तेजी से घुमाया गया। वाइड सेल्फी मोड में तस्वीर लेने में असमर्थ।"
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "तस्वीरें मिलाते समय त्रुटि उत्पन्न हुई। तस्वीर फिर भी सुरक्षित हो गई है।"
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "वाइड सेल्फी मोड में तस्वीरें लेना विफल। विषय का अंतर स्पष्ट करने में असमर्थ।"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "वाइड सेल्फी मोड में तस्वीरें लेने में असमर्थ। पर्याप्‍त प्रकाश नहीं है।"
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "अपना डिवाइस धीरे-धीरे बाएँ या दाएँ घुमाएँ।"
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "कैमरा बटन टैप करें और अपने डिवाइस को धीरे-धीरे एक दिशा में घुमाएँ।"
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "वाइड सेल्फी"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "अंतराल शॉट"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "तस्वीरें निरस्त करें"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d तस्वीरें निरस्त की जाएँगी।"
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "इयरफोन माइक्रोफोन के साथ रिकॉर्ड करना।"
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "स्थान टैग्स सक्षम करना असमर्थ"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "स्थान टैग्स का उपयोग करने के लिए, सेटिंग्स > स्थान पर जाएँ और यह सुनिश्चित करें कि GPS चालू है और वायरलेस नेटवर्क्स सक्षम किया गया है।"
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "चेहरे की स्थिति सेट करने हेतु फ्रेम ड्रैग करें और आकार बदलें। चेहरा फ्रेम में होने पर कैमरा बीप करेगा और %d सेकंड बाद तस्वीर लेगा।"
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "कैमरा सेटिंग्स डिफॉल्ट्स पर रीसेट हुईं।"
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "ड्रीम शॉट"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "यह फंक्शन आपके द्वारा ली जाने वाली प्रत्येक तस्वीर में भौगोलिक स्थान डाटा संलग्न, एम्बेड और स्टोर कर सकता है। इन नोट्स को भेजने, साझा करने, वितरण करने, संचारित करने या कॉपी करने के दौरान सावधानी रखें क्योंकि इनमें तस्वीर लेने के स्थान के बारे में जानकारी शामिल होती है।"
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "चेहरा पहचान सक्षम किया गया। कैमरा बीप करेगा और %d सेकंड के बाद में तस्वीर खींचेगा।"
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "अधिकतम रिकॉर्डिंग समय तक पहुँच गया।"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "वर्तमान मोड जूम इन करने में असमर्थ।"
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "सक्षम करें"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "स्थान टैग्स सक्षम करें"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "स्थान टैग्स"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "दोबारा न दिखाएँ"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "वीडियो रिकॉर्ड करने में असमर्थ। पर्याप्‍त मेमोरी नहीं।"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "तस्वीर लेने में असमर्थ। पर्याप्‍त मेमोरी नहीं।"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "पूर्ण"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "रद्द करें"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "सेल्फी"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "तस्वीर आकार"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "कम तापमान में फ्लैश का उपयोग नहीं कर सकते।"
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "शीघ्र लॉन्च"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "होम कुंजी को दो बार तेजी से लगातार दबाकर कैमरा खोलें।"
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "इसमें सुरक्षित करें"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "शीघ्र लॉन्च के माध्यम से कैमरा खोला गया। होम कुंजी को शीघ्रता से लगातार दो बार दबाया गया। शीघ्र लॉन्च को अक्षम करने के लिए, कैमरा सेटिंग्स में जाएँ और शीघ्र लॉन्च चुनें।"
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "कैमरा सेटिंग्स"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "प्रदर्शन"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+

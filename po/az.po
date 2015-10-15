@@ -1,0 +1,375 @@
+msgid "IDS_CAM_TPOP_BATTERY_POWER_LOW"
+msgstr "Batareya zəifdir."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_DEVICE_STORAGE_FULL_ABB"
+msgstr "Faylı saxlamaq olmadı. Cihazın yaddaşı doludur."
+
+msgid "IDS_CAM_BUTTON2_VOLUME_KEY_ABB2"
+msgstr "Səs düyməsi"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_SAVE_FILE_NOT_ENOUGH_MEMORY_ABB"
+msgstr "Faylı saxlamaq olmadı. Kifayət qədər yaddaş yoxdur."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_USE_FLASH_BATTERY_POWER_LOW"
+msgstr "Fleşdən istifadə etmək mümkün deyil. Batareya zəifdir."
+
+msgid "IDS_CAM_BODY_GREYSCALE"
+msgstr "Boz şkala"
+
+msgid "IDS_CAM_BODY_REAR_CAM_SELFIE_ABB"
+msgstr "Arxa kam selfi"
+
+msgid "IDS_CAM_BODY_PROCESSING_ING"
+msgstr "Emal edilir..."
+
+msgid "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"
+msgstr "Yaddaşın yerini dəyiş"
+
+msgid "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"
+msgstr "SD kart daxil edilib. Susmaya görə saxlama yeri SD karta dəyişdiriləcək"
+
+msgid "IDS_CAM_SK_CHANGE"
+msgstr "Dəyişdir"
+
+msgid "IDS_CAM_OPT_SD_CARD_ABB"
+msgstr "SD kartı"
+
+msgid "IDS_CAM_BODY_DOWN_T_CAMERA"
+msgstr "Aşağı"
+
+msgid "IDS_CAM_BODY_LEFT_T_CAMERA"
+msgstr "Sol"
+
+msgid "IDS_CAM_BODY_RIGHT_T_CAMERA"
+msgstr "Sağ"
+
+msgid "IDS_CAM_BODY_UP_T_CAMERA"
+msgstr "Yuxarı"
+
+msgid "IDS_CAM_BUTTON_CANCEL"
+msgstr "Ləğv et"
+
+msgid "IDS_CAM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_CAM_OPT_PAUSE"
+msgstr "Fasilə"
+
+msgid "IDS_CAM_POP_AUTO_FOCUS_FAILED"
+msgstr "Avto fokus alınmadı."
+
+msgid "IDS_CAM_POP_MOVE_SLOWLY"
+msgstr "Daha zəif"
+
+msgid "IDS_CAM_POP_THE_REAR_CAMERA_WILL_AUTOMATICALLY_DETECT_AND_FOCUS_ON_YOUR_FACE_WHEN_YOU_TAKE_SELF_PORTRAIT_PICTURES"
+msgstr "Özünüzün portret şəklinizi çəkən zaman arxa kamera avtomatik olaraq üzünüzü müəyyən edəcək və fokusa alacaq."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TAKE_PICTURES_IN_PANORAMA_MODE_NOT_ENOUGH_SCENERY_DETAIL"
+msgstr "Panorama rejimində şəkil çəkmək mümkün deyil. Kifayət səhnə təfərrüatı yoxdur."
+
+msgid "IDS_CAM_OPT_PANORAMA"
+msgstr "Mənzərə"
+
+msgid "IDS_CAM_BODY_RESET_SETTINGS_RESET"
+msgstr "Sıfırlansın"
+
+msgid "IDS_CAM_BODY_SETTINGS_SHUTTER_SOUND"
+msgstr "Çəkiliş səsi"
+
+msgid "IDS_CAM_MBODY_INCLUDE_SHORTCUT_LAYOUT"
+msgstr "Qısayol düzümü daxil et"
+
+msgid "IDS_CAM_OPT_TAP_TO_TAKE_PICS_ABB"
+msgstr "Şəkil çkmk üçn vur"
+
+msgid "IDS_CAM_BODY_AUTO"
+msgstr "Avtomatik"
+
+msgid "IDS_CAM_BODY_BUTTON_T_TTS"
+msgstr "Düymə"
+
+msgid "IDS_CAM_BODY_CLOUDY"
+msgstr "Buludlu"
+
+msgid "IDS_CAM_BODY_DAYLIGHT"
+msgstr "Gündüz"
+
+msgid "IDS_CAM_BODY_DEVICE"
+msgstr "Cihaz"
+
+msgid "IDS_CAM_BODY_EFFECTS"
+msgstr "Effektlər"
+
+msgid "IDS_CAM_BODY_EXIT_CAMERA_BATTERY_TEMPERATURE_TOO_HIGH"
+msgstr "Kameradan çıx. Batareyanın temperaturu çox yüksəkdir."
+
+msgid "IDS_CAM_BODY_FLASH"
+msgstr "Parlaq işıq"
+
+msgid "IDS_CAM_BODY_FLUORESCENT"
+msgstr "Flüoresent"
+
+msgid "IDS_CAM_BODY_FOCUS_MODE"
+msgstr "Fokus rejimi"
+
+msgid "IDS_CAM_BODY_NONE"
+msgstr "Heç biri"
+
+msgid "IDS_CAM_BODY_NO_EFFECT_ABB"
+msgstr "Effekt yoxdur"
+
+msgid "IDS_CAM_BODY_NO_IMAGES_IN_GALLERY"
+msgstr "Qalereyada şəkil yoxdur"
+
+msgid "IDS_CAM_BODY_OFF"
+msgstr "Söndür"
+
+msgid "IDS_CAM_BODY_ON"
+msgstr "Qoş"
+
+msgid "IDS_CAM_BODY_SEPIA"
+msgstr "Sepya"
+
+msgid "IDS_CAM_BODY_SETTINGS"
+msgstr "Parametrlər"
+
+msgid "IDS_CAM_BODY_TIMER"
+msgstr "Taymer"
+
+msgid "IDS_CAM_BODY_WHITEBALANCE_INCANDESCENT"
+msgstr "Közərmə"
+
+msgid "IDS_CAM_MBODY_VIDEO_SIZE"
+msgstr "Video ölçüsü"
+
+msgid "IDS_CAM_OPT_EXPOSURE_VALUE"
+msgstr "Foto-ekspozisiya müddəti"
+
+msgid "IDS_CAM_OPT_RECORD"
+msgstr "Yazılma"
+
+msgid "IDS_CAM_OPT_RECORDING_MODE"
+msgstr "Yazıya alma rejimi"
+
+msgid "IDS_CAM_OPT_SCENE_LANDSCAPE"
+msgstr "Mənzərə"
+
+msgid "IDS_CAM_OPT_WHITE_BALANCE"
+msgstr "Ağın balansı"
+
+msgid "IDS_CAM_POP_CAMERA_WILL_CLOSE"
+msgstr "Kamera bağlanacaq."
+
+msgid "IDS_CAM_POP_CAPTURE_FAILED"
+msgstr "Fiksasiya alınmadı."
+
+msgid "IDS_CAM_POP_ERROR_RECORDING_FAIL"
+msgstr "Yazma alınmadı."
+
+msgid "IDS_CAM_POP_MEMORY_CARD_REMOVED"
+msgstr "Yaddaş kartı çıxarıldı."
+
+msgid "IDS_CAM_POP_RECORDING_HAS_STOPPED_YOU_CAN_RECORD_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Çəkiliş dayandırılıb. Cihaz soyuduqdan sonra çəkilişə başlaya bilərsiniz"
+
+msgid "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"
+msgstr "Təhlükəsizlik siyasəti Kameradan istifadəni məhdudlaşdırır."
+
+msgid "IDS_CAM_POP_THE_FLASH_HAS_BEEN_TURNED_OFF_YOU_CAN_TURN_ON_THE_FLASH_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Flaş söndürülüb. Cihaz soyuduqdan sonra flaşı yandıra bilərsiniz"
+
+msgid "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"
+msgstr "Zəng zamanı videoları yazmaq olmur."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA"
+msgstr "Kameranı başlatmaq mümkün deyil."
+
+msgid "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"
+msgstr "Zəng ərzində kameranı başlatmaq mümkün deyil."
+
+msgid "IDS_CAM_POP_UNABLE_TO_TURN_ON_THE_FLASH_TRY_AGAIN_WHEN_YOUR_DEVICE_HAS_COOLED_DOWN"
+msgstr "Flaşı yandırmağı aktiv et. Cihaz soyuduqdan sonra yenidən cəhd edin"
+
+msgid "IDS_CAM_SK_SAVE"
+msgstr "Yaddaşa yaz"
+
+msgid "IDS_CAM_BODY_NEGATIVE_M_EFFECT"
+msgstr "Neqativ"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "İstifadəsi mümkün deyil"
+
+msgid "IDS_CAM_OPT_FACES"
+msgstr "Üzlər"
+
+msgid "IDS_CAM_BODY_CAMERA"
+msgstr "Kamera"
+
+msgid "IDS_CAM_BODY_SELECTED_T_TTS"
+msgstr "Seçildi"
+
+msgid "IDS_CAM_BODY_SAVE_AS_FLIPPED"
+msgstr "Çevrilmiş saxla"
+
+msgid "IDS_CAM_OPT_ZOOM"
+msgstr "Miqyas"
+
+msgid "IDS_CAM_MBODY_STORAGE_LOCATION"
+msgstr "Yaddaş yeri"
+
+msgid "IDS_COM_BODY_RESET_A"
+msgstr "Sıfırla"
+
+msgid "IDS_CAM_BODY_RECORD_VIDEO_ABB"
+msgstr "Video yaz"
+
+msgid "IDS_CAM_OPT_TAKE_PICTURE_ABB"
+msgstr "Şəkil çək"
+
+msgid "IDS_CAM_POP_VIDEOMEMORYFULL"
+msgstr "Video üçün\nyaddaş kifayət etmir."
+
+msgid "IDS_COM_BODY_RESET"
+msgstr "Sıfırlansın"
+
+msgid "IDS_CAM_BODY_DISCARD"
+msgstr "At"
+
+msgid "IDS_COM_HEADER_ALERT"
+msgstr "Xəbərdarlıq zəngi"
+
+msgid "IDS_CAM_TPOP_TAP_THE_CAMERA_BUTTON_THEN_MOVE_THE_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Kamera düyməsinə vurun və sonra cihazı bir istiqamətdə yavaşca hərəkət etdirin."
+
+msgid "IDS_CAM_POP_ALL_CAMERA_SETTINGS_WILL_BE_RESET_TO_THEIR_DEFAULTS"
+msgstr "Bütün Kamera param. defolt vəziyyətə sıfırlanacaq."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY"
+msgstr "Cihazı yavaşca sürüşdürün."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_LEFT"
+msgstr "Cihazı yavaşca sola sürüşdürün."
+
+msgid "IDS_CAM_POP_SWIVEL_THE_DEVICE_SLOWLY_TO_THE_RIGHT"
+msgstr "Cihazı yavaşca sağa sürüşdürün."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_BACKWARDS"
+msgstr "Cihazı geriyə dartın."
+
+msgid "IDS_CAM_POP_TILT_THE_DEVICE_FORWARDS"
+msgstr "Cihazı önə dartın."
+
+msgid "IDS_CAM_TPOP_DEVICE_SWIVELLED_TOO_FAST_UNABLE_TO_TAKE_PICTURE_IN_WIDE_SELFIE_MODE"
+msgstr "Cihaz çox sürətlə sürüşdürülmüşdür. Geniş selfi ekranında şəkil çəkmək mümkün olmadı."
+
+msgid "IDS_CAM_TPOP_ERROR_OCCURRED_WHILE_MERGING_PICTURES_PICTURE_SAVED_ANYWAY"
+msgstr "Şəkilləri birləşdirən zaman xəta baş verdi. Şəkil istənilən anda saxlandı."
+
+msgid "IDS_CAM_TPOP_FAILED_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_UNABLE_TO_DISTINGUISH_SUBJECT"
+msgstr "Geniş selfi rejimində şəkil çəkmək mümkün olmadı. Mövzunu ayırd etmək olmadı."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURES_IN_WIDE_SELFIE_MODE_NOT_ENOUGH_LIGHT_ABB"
+msgstr "Geniş selfi rejimində şəkillər çəkmək olmadı. Kifayət qədər işıq yoxdur."
+
+msgid "IDS_CAM_BODY_SWIVEL_YOUR_DEVICE_SLOWLY_TO_THE_LEFT_OR_RIGHT"
+msgstr "Cihazınızı ehtiyatla sola və ya sağa sürüşdürün."
+
+msgid "IDS_CAM_BODY_TAP_THE_CAMERA_BUTTON_AND_SWIVEL_YOUR_DEVICE_SLOWLY_IN_ONE_DIRECTION"
+msgstr "Kamera düyməsinə vurun və cihazınızı ehtiyatla bir istiqamətdə çevirin."
+
+msgid "IDS_CAM_BUTTON_WIDE_SELFIE_ABB"
+msgstr "Geniş selfi"
+
+msgid "IDS_CAM_BUTTON_INTERVAL_SHOT_ABB"
+msgstr "İnterval kadrı"
+
+msgid "IDS_CAM_HEADER_DISCARD_PICTURES_ABB"
+msgstr "Şəkilləri sil"
+
+msgid "IDS_CAM_POP_PD_PICTURES_WILL_BE_DISCARDED"
+msgstr "%d şəkil silinəcək."
+
+msgid "IDS_CAM_TPOP_RECORDING_WITH_EARPHONE_MICROPHONE"
+msgstr "Qulaqlıq mikrofonla yazı."
+
+msgid "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"
+msgstr "Məkan teqlərini aktivlş olmadı"
+
+msgid "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"
+msgstr "Məkan teqlərindən istifadə etmək üçün Parametrlər > Məkan seçin və GPS-in yanılı və Naqilsiz şəbəkənin aktiv olduğundan əmin olun."
+
+msgid "IDS_CAM_TPOP_DRAG_AND_RESIZE_FRAME_TO_SET_POSITION_OF_FACE_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS_WHEN_FACE_IN_FRAME_ABB"
+msgstr "Üzün mövq qurm üçün çərç dart və ölç dəyiş. Kamera bip səs çıxaracaq və üz çərç olduqda %d saniyə sonra şəkil çəkiləcək."
+
+msgid "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"
+msgstr "Kamera parametrləri defolt kimi sıfırlandı."
+
+msgid "IDS_CAM_BODY_DREAM_SHOT_M_MODE"
+msgstr "Yuxu çəkilişi"
+
+msgid "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"
+msgstr "Bu funksiya çəkdiyiniz hər bir şəkildə coğrafi yer barədə məlumatı əlavə edə, həkk edə və saxlaya bilər. Bu şəkilləri göndərərkən, paylaşarkən, yayarkən, köçürərkən və ya kopyalayarkən ehtiyatlı olun, belə ki, onlara çəkildikləri yerə dair məlumat daxildir."
+
+msgid "IDS_CAM_TPOP_FACE_DETECTION_ENABLED_CAMERA_WILL_BEEP_AND_TAKE_PICTURE_AFTER_PD_SECONDS"
+msgstr "Üz aşkarlanması aktivdir. Kamera bip səsi çıxaracaq və %d saniyə sonra şəkil çəkəcək."
+
+msgid "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"
+msgstr "Yazılış vaxtı maksimuma çatıb."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"
+msgstr "Cari rejimdə miqyası dəyişmək olmadı."
+
+msgid "IDS_CAM_BUTTON_ENABLE_ABB"
+msgstr "Aktiv edin"
+
+msgid "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"
+msgstr "Məkan teqlərini aktivləşdir"
+
+msgid "IDS_CAM_MBODY_LOCATION_TAGS"
+msgstr "Məkan leyblləri"
+
+msgid "IDS_CAM_OPT_DO_NOT_SHOW_AGAIN_ABB2"
+msgstr "Bir daha göstərmə"
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_RECORD_VIDEO_NOT_ENOUGH_MEMORY"
+msgstr "Video çəkmək mümkün deyil. Kifayət yaddaş yoxdur."
+
+msgid "IDS_CAM_TPOP_UNABLE_TO_TAKE_PICTURE_NOT_ENOUGH_MEMORY"
+msgstr "Şəkil çəkmək mümkün deyil. Kifayət yaddaş yoxdur."
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "HAZIR"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "LƏĞV ET"
+
+msgid "IDS_CAM_OPT_SELFIE_ABB"
+msgstr "Selfi"
+
+msgid "IDS_CAM_HEADER_PICTURE_SIZE_ABB2"
+msgstr "Şəkil ölçüsü"
+
+msgid "IDS_CAM_POP_CANNOT_USE_FLASH_IN_LOW_TEMPERATURE"
+msgstr "Aşağı temperaturda flaşdan istifadə mümkün deyil."
+
+msgid "IDS_CAM_MBODY_QUICK_LAUNCH"
+msgstr "Cəld başlama"
+
+msgid "IDS_CAM_BODY_OPEN_CAMERA_BY_PRESSING_THE_HOME_KEY_TWICE_IN_QUICK_SUCCESSION_TTS"
+msgstr "Cəld hərəkətlə Əsas ekran düyməsinə iki dəfə vuraraq Kamera düyməsini açın."
+
+msgid "IDS_CAM_MBODY_SAVE_TO"
+msgstr "Saxlama yeri"
+
+msgid "IDS_CAM_POP_CAMERA_HAS_BEEN_OPENED_VIA_QUICK_LAUNCH_THE_HOME_KEY_HAS_BEEN_PRESSED_TWICE_IN_QUICK_SUCCESSION_TO_DISABLE_QUICK_LAUNCH_GO_TO_CAMERA_SETTINGS_AND_SELECT_QUICK_LAUNCH"
+msgstr "Kamera Cəld buraxıcı ilə açıldı. Əsas ekran düyməsi cəld sessiyada iki dəfə vuruldu. Cəld buraxıcını söndürmək üçün Kamera parametrlərinə keçin və Cəld buraxıcı seçin."
+
+msgid "IDS_CAM_BODY_CAMERA_SETTINGS"
+msgstr "Kamera parametrləri"
+
+msgid "IDS_IMGE_BODY_EXPOSURE_ABB"
+msgstr "Ekspozisiya"
+
+msgid "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"
+msgstr "Recording using earphone mic"
+
