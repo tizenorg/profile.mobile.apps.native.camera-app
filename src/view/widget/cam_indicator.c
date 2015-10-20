@@ -404,7 +404,7 @@ static void __indicator_update_shots()
 	CamAppData *camapp = ad->camapp_handle;;
 	cam_retm_if(camapp == NULL, "camapp_handle is NULL");
 	const char *image_file = NULL;
-	__indicator_update_image_by_type(CAM_INDI_SHOTS_REMAIN, !image_file, CAM_MENU_SHOTS);
+	__indicator_update_image_by_type(CAM_INDI_SHOTS_REMAIN, image_file, CAM_MENU_SHOTS);
 	__indicator_tts_update(CAM_INDI_SHOTS_REMAIN, CAM_MENU_SHOTS);
 }
 

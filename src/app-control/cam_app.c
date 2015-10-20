@@ -129,7 +129,7 @@ static gboolean __cam_app_need_show_focus_guide(void *data);
 static Eina_Bool __cam_app_start_record_idler(void *data);
 static gboolean __cam_app_set_shooting_fps();
 
-static Eina_Bool __cam_app_client_message_cb(void *data, int type, void *event);
+/*static Eina_Bool __cam_app_client_message_cb(void *data, int type, void *event);*/
 static void __cam_app_join_thread(void *data, int index);
 static void __cam_app_indicator_flick_cb(void *data, Evas_Object *obj, void *event_info);
 static void __cam_app_db_updated_cb(media_content_error_e error,
@@ -4147,7 +4147,6 @@ void cam_gallery_layout_mouse_move_cb(void *data, Evas* evas, Evas_Object *obj, 
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retm_if(camapp == NULL, "camapp is NULL");
 
-	Evas_Object *gal_img = NULL; /*gallery_image evas object*/
 	Evas_Event_Mouse_Down *md = (Evas_Event_Mouse_Down *)event_info;
 	int screen_width = 0;
 	int screen_height = 0;
@@ -8430,7 +8429,7 @@ gboolean cam_app_check_record_condition(void *data)
 
 	return TRUE;
 }
-
+/*
 static Eina_Bool __cam_app_client_message_cb(void *data, int type, void *event)
 {
 	cam_retvm_if(data == NULL, ECORE_CALLBACK_PASS_ON, "data is NULL");
@@ -8465,10 +8464,10 @@ static Eina_Bool __cam_app_client_message_cb(void *data, int type, void *event)
 	}
 #endif
 
-	/*TODO: Temporary remove,  this api call only for indicator on case, but there no indicator_on message now, wait for window manager support later*/
+	//TODO: Temporary remove,  this api call only for indicator on case, but there no indicator_on message now, wait for window manager support later
 	return ECORE_CALLBACK_PASS_ON;
 }
-
+*/
 static void __cam_app_indicator_flick_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	struct appdata *ad = (struct appdata *)data;

@@ -1039,11 +1039,11 @@ void cam_recording_view_display_max_record_time_with_rec_time_and_blink(char *ti
 	/*Blinking*/
 	if (min == 1 && sec == 0) {
 		/*once 1 minute before maximum time*/
-		snprintf(time_text, TIME_FORMAT_MAX_LEN, "", "");
+		snprintf(time_text, TIME_FORMAT_MAX_LEN, "%s", "");
 	} else if (min == 0 && sec <= 10) {
 		/*start blinking 10 seconds before maximum time*/
 		if (sec % 2 == 0) {
-			snprintf(time_text, TIME_FORMAT_MAX_LEN, "", "");
+			snprintf(time_text, TIME_FORMAT_MAX_LEN, "%s", "");
 		} else {
 			snprintf(time_text, TIME_FORMAT_MAX_LEN, "%s", recandmax_time);
 		}

@@ -1658,7 +1658,6 @@ void cam_standby_view_effects_button_cb(void *data, Evas_Object *obj, void *even
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	Cam_Standby_View *standby_view = (Cam_Standby_View *)data;
 	cam_retm_if(standby_view == NULL, "standby_view is NULL");
-	CamAppData *camapp = ad->camapp_handle;;
 
 	if (cam_shot_is_capturing(ad)) {
 		cam_warning(LOG_UI, "ignore event while capturing");
@@ -2244,7 +2243,6 @@ void cam_standby_view_destroy()
 void cam_standby_view_rotate(Evas_Object *parent, struct appdata *ad)
 {
 	cam_retm_if(standby_view == NULL, "standby_view is NULL");
-	CamAppData *camapp = ad->camapp_handle;
 
 	int shooting_mode = standby_view->param.shooting_mode;
 	CamStandbyViewType view_type = standby_view->view_type;
