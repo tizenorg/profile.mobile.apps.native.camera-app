@@ -47,6 +47,9 @@
 #define SETTING_BTN_W			54
 #define SETTING_BTN_H			54
 
+#define SETTING_BACK_BTN_W			56
+#define SETTING_BACK_BTN_H			56
+
 #define MODE_BTN_X			22
 #define MODE_BTN_Y			354
 #define MODE_BTN_W			46
