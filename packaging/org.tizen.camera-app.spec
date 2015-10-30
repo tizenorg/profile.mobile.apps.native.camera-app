@@ -82,7 +82,7 @@ make %{?jobs:-j%jobs}
 rm -rf %{buildroot}
 
 %make_install
-execstack -c %{buildroot}%{_appdir}/bin/camera
+#execstack -c %{buildroot}%{_appdir}/bin/camera
 %define tizen_sign 1
 %define tizen_sign_base /usr/apps/org.tizen.camera-app
 %define tizen_sign_level platform
