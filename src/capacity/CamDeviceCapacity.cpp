@@ -73,16 +73,16 @@ CCamDeviceCapacity::ResetCaps()
 CCamDeviceCapacity*
 CCamDeviceCapacity::GetInstance()
 {
-	if(m_pInstance == NULL)
+	if (m_pInstance == NULL) {
 		m_pInstance = new CCamDeviceCapacity;
+	}
 	return m_pInstance;
 }
 
 void
 CCamDeviceCapacity::Destroy()
 {
-	if(m_pInstance)
-	{
+	if (m_pInstance) {
 		delete m_pInstance;
 		m_pInstance = NULL;
 	}
@@ -102,15 +102,17 @@ CCamDeviceCapacity::GetCamDevFuncCaps(unsigned int *uCapacity, void *user_data)
 	unsigned int uCaps = 0;
 
 	int deviceType = 0;
-	if(camapp->self_portrait)
+	if (camapp->self_portrait) {
 		deviceType = CAM_DEVICE_FRONT;
-	else
+	} else {
 		deviceType = CAM_DEVICE_REAR;
+	}
 
 	if (m_uFuncCaps == CAM_CP_FUNC_UNMARKED) {
-		for(int i = 0; i < CAM_CP_FUNC_COUNT; i++) {
-			if (IsSupported(uSearchCaps, (CamDeviceType)deviceType, user_data))
+		for (int i = 0; i < CAM_CP_FUNC_COUNT; i++) {
+			if (IsSupported(uSearchCaps, (CamDeviceType)deviceType, user_data)) {
 				uCaps |= uSearchCaps;
+			}
 
 			uSearchCaps *= 2;
 		}
@@ -136,10 +138,11 @@ CCamDeviceCapacity::GetCamDevSceneModeCaps(unsigned int* uCapacity, void *user_d
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Scene.bSupported = TRUE;
-		else
+		} else {
 			m_Scene.bSupported = FALSE;
+		}
 
 		m_Scene.bChecked = TRUE;
 		m_Scene.unCaps = uCaps;
@@ -164,10 +167,11 @@ CCamDeviceCapacity::GetCamDevWBCaps(unsigned int* uCapacity, void *user_data)
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_WB.bSupported = TRUE;
-		else
+		} else {
 			m_WB.bSupported = FALSE;
+		}
 
 		m_WB.bChecked = TRUE;
 		m_WB.unCaps = uCaps;
@@ -193,10 +197,11 @@ CCamDeviceCapacity::GetCamDevEffectCaps(unsigned int* uCapacity, void *user_data
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Effect.bSupported = TRUE;
-		else
+		} else {
 			m_Effect.bSupported = FALSE;
+		}
 
 		m_Effect.bChecked = TRUE;
 		m_Effect.unCaps = uCaps;
@@ -220,13 +225,15 @@ CCamDeviceCapacity::GetCamDevFocusCaps(unsigned int* uCapacity, void *user_data)
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Focus.bSupported = TRUE;
-		else
+		} else {
 			m_Focus.bSupported = FALSE;
+		}
 
-		if (cam_mm_is_supported_face_detection())
+		if (cam_mm_is_supported_face_detection()) {
 			uCaps |= CAM_CP_FOCUS_FACE_DETECTION;
+		}
 
 		m_Focus.bChecked = TRUE;
 		m_Focus.unCaps = uCaps;
@@ -244,10 +251,10 @@ CCamDeviceCapacity::GetCamDevShotModeCaps(unsigned int *uCapacity, void *user_da
 
 	*uCapacity = 0;
 #ifdef CAMERA_MACHINE_I686
-		m_Shot.unCaps = 0;
-		m_Shot.bSupported = TRUE;
-		m_Shot.bChecked = TRUE;
-		m_Shot.unCaps |= CAM_CP_SHOT_MODE_AUTO;
+	m_Shot.unCaps = 0;
+	m_Shot.bSupported = TRUE;
+	m_Shot.bChecked = TRUE;
+	m_Shot.unCaps |= CAM_CP_SHOT_MODE_AUTO;
 #else
 	if (!m_Shot.bChecked) {
 		m_Shot.unCaps = 0;
@@ -273,8 +280,8 @@ CCamDeviceCapacity::GetCamDevRecModeCaps(unsigned int *uCapacity, void *user_dat
 
 	*uCapacity = 0;
 #ifdef CAMERA_MACHINE_I686
-		m_Shot.bSupported = FALSE;
-		m_Shot.bChecked = TRUE;
+	m_Shot.bSupported = FALSE;
+	m_Shot.bChecked = TRUE;
 #else
 	if (!m_RecMode.bChecked) {
 		m_RecMode.unCaps = 0;
@@ -305,10 +312,11 @@ CCamDeviceCapacity::GetCamDevCamResolutionCaps(unsigned int* uCapacity, void *us
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_CamRes.bSupported = TRUE;
-		else
+		} else {
 			m_CamRes.bSupported = FALSE;
+		}
 
 		m_CamRes.bSupported = TRUE;
 		m_CamRes.bChecked = TRUE;
@@ -333,10 +341,11 @@ CCamDeviceCapacity::GetCamDevISOCaps(unsigned int* uCapacity, void *user_data)
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_ISO.bSupported = TRUE;
-		else
+		} else {
 			m_ISO.bSupported = FALSE;
+		}
 
 		m_ISO.bChecked = TRUE;
 		m_ISO.unCaps = uCaps;
@@ -360,10 +369,11 @@ CCamDeviceCapacity::GetCamDevMeteringCaps(unsigned int* uCapacity, void *user_da
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Metering.bSupported = TRUE;
-		else
+		} else {
 			m_Metering.bSupported = FALSE;
+		}
 
 		m_Metering.bChecked = TRUE;
 		m_Metering.unCaps = uCaps;
@@ -387,10 +397,11 @@ CCamDeviceCapacity::GetCamDevFlashCaps(unsigned int* uCapacity, void *user_data)
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Flash.bSupported = TRUE;
-		else
+		} else {
 			m_Flash.bSupported = FALSE;
+		}
 
 		m_Flash.bChecked = TRUE;
 		m_Flash.unCaps = uCaps;
@@ -414,10 +425,11 @@ CCamDeviceCapacity::GetCamDevRecResolutionCaps(unsigned int* uCapacity, void *us
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_RecRes.bSupported = TRUE;
-		else
+		} else {
 			m_RecRes.bSupported = FALSE;
+		}
 
 		m_RecRes.bChecked = TRUE;
 		m_RecRes.unCaps = uCaps;
@@ -443,10 +455,11 @@ CCamDeviceCapacity::GetCamDevFpsCaps(unsigned int *uCapacity, void *user_data)
 			return FALSE;
 		}
 
-		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED)
+		if (cam_mm_get_caps_cb_cnt() > CAM_ATTR_NOT_SUPPORTED) {
 			m_Fps.bSupported = TRUE;
-		else
+		} else {
 			m_Fps.bSupported = FALSE;
+		}
 
 		m_Fps.bChecked = TRUE;
 		m_Fps.bChecked = TRUE;
@@ -471,10 +484,11 @@ CCamDeviceCapacity::GetCamDevZoomCaps(int *min, int *max)
 			return FALSE;
 		}
 
-		if ((nMin == 0) && (nMax == 0))
+		if ((nMin == 0) && (nMax == 0)) {
 			m_Zoom.bSupported = FALSE;
-		else
+		} else {
 			m_Zoom.bSupported = TRUE;
+		}
 
 		m_Zoom.bChecked = TRUE;
 		m_Zoom.nMin = nMin;
@@ -499,10 +513,11 @@ CCamDeviceCapacity::GetCamDevEvCaps(int *min, int *max)
 			return FALSE;
 		}
 
-		if ((nMin == 0) && (nMax == 0))
+		if ((nMin == 0) && (nMax == 0)) {
 			m_Ev.bSupported = FALSE;
-		else
+		} else {
 			m_Ev.bSupported = TRUE;
+		}
 
 		m_Ev.bChecked = TRUE;
 		m_Ev.nMin = nMin;
@@ -527,10 +542,11 @@ CCamDeviceCapacity::GetCamDevBrCaps(int *min, int *max)
 			return FALSE;
 		}
 
-		if ((nMin == 0) && (nMax == 0))
+		if ((nMin == 0) && (nMax == 0)) {
 			m_Br.bSupported = FALSE;
-		else
+		} else {
 			m_Br.bSupported = TRUE;
+		}
 
 		m_Br.bChecked = TRUE;
 		m_Br.nMin = nMin;
@@ -551,183 +567,181 @@ CCamDeviceCapacity::IsSupported(unsigned int type, CamDeviceType deviceType, voi
 	unsigned int uCaps = 0;
 	int min, max = 0;
 
-	switch(type) {
-	case CAM_CP_FUNC_FPS:
-		{
-			if (GetCamDevFpsCaps(&uCaps, user_data))
-				ret = m_Fps.bSupported;
+	switch (type) {
+	case CAM_CP_FUNC_FPS: {
+		if (GetCamDevFpsCaps(&uCaps, user_data)) {
+			ret = m_Fps.bSupported;
 		}
-		break;
-	case CAM_CP_FUNC_CAM_RESOLUTION:
-		{
-			if (GetCamDevCamResolutionCaps(&uCaps, user_data))
-				ret = m_CamRes.bSupported;
+	}
+	break;
+	case CAM_CP_FUNC_CAM_RESOLUTION: {
+		if (GetCamDevCamResolutionCaps(&uCaps, user_data)) {
+			ret = m_CamRes.bSupported;
 		}
-		break;
-	case CAM_CP_FUNC_REC_RESOLUTION:
-		{
-			if (GetCamDevRecResolutionCaps(&uCaps, user_data))
-				ret = m_RecRes.bSupported;
+	}
+	break;
+	case CAM_CP_FUNC_REC_RESOLUTION: {
+		if (GetCamDevRecResolutionCaps(&uCaps, user_data)) {
+			ret = m_RecRes.bSupported;
 		}
-		break;
-	case CAM_CP_FUNC_FLASH_MODE:
-		{
-			if (GetCamDevFlashCaps(&uCaps, user_data))
-				ret = m_Flash.bSupported;
+	}
+	break;
+	case CAM_CP_FUNC_FLASH_MODE: {
+		if (GetCamDevFlashCaps(&uCaps, user_data)) {
+			ret = m_Flash.bSupported;
 		}
-		break;
-	case CAM_CP_FUNC_SHOT_MODE:
-		{
-			if (GetCamDevShotModeCaps(&uCaps, user_data))
-				ret = m_Shot.bSupported;
+	}
+	break;
+	case CAM_CP_FUNC_SHOT_MODE: {
+		if (GetCamDevShotModeCaps(&uCaps, user_data)) {
+			ret = m_Shot.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_REC_MODE:
-		{
-			if (GetCamDevRecModeCaps(&uCaps, user_data))
-				ret = m_RecMode.bSupported;
+	case CAM_CP_FUNC_REC_MODE: {
+		if (GetCamDevRecModeCaps(&uCaps, user_data)) {
+			ret = m_RecMode.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_SCENE_MODE:
-		{
-			if (GetCamDevSceneModeCaps(&uCaps, user_data))
-				ret = m_Scene.bSupported;
+	case CAM_CP_FUNC_SCENE_MODE: {
+		if (GetCamDevSceneModeCaps(&uCaps, user_data)) {
+			ret = m_Scene.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_FOCUS_MODE:
-		{
-			if (GetCamDevFocusCaps(&uCaps, user_data))
-				ret = m_Focus.bSupported;
+	case CAM_CP_FUNC_FOCUS_MODE: {
+		if (GetCamDevFocusCaps(&uCaps, user_data)) {
+			ret = m_Focus.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_EFFECT_MODE:
-		{
-			if (GetCamDevEffectCaps(&uCaps, user_data))
-				ret = m_Effect.bSupported;
+	case CAM_CP_FUNC_EFFECT_MODE: {
+		if (GetCamDevEffectCaps(&uCaps, user_data)) {
+			ret = m_Effect.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_WHITE_BALANCE:
-		{
-			if (GetCamDevWBCaps(&uCaps, user_data))
-				ret = m_WB.bSupported;
+	case CAM_CP_FUNC_WHITE_BALANCE: {
+		if (GetCamDevWBCaps(&uCaps, user_data)) {
+			ret = m_WB.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_ISO:
-		{
-			if (GetCamDevISOCaps(&uCaps, user_data))
-				ret = m_ISO.bSupported;
+	case CAM_CP_FUNC_ISO: {
+		if (GetCamDevISOCaps(&uCaps, user_data)) {
+			ret = m_ISO.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_METERING:
-		{
-			if (GetCamDevMeteringCaps(&uCaps, user_data))
-				ret = m_Metering.bSupported;
+	case CAM_CP_FUNC_METERING: {
+		if (GetCamDevMeteringCaps(&uCaps, user_data)) {
+			ret = m_Metering.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_AUTO_CONTRAST:		// not supported mmfw
-		{
-		#ifdef CAMERA_MACHINE_I686
-			ret = FALSE;
-		#else
-			if (deviceType == CAM_DEVICE_REAR)
-				m_AutoContrast.bSupported = TRUE;
-			else
-				m_AutoContrast.bSupported = FALSE;
-				ret = m_AutoContrast.bSupported;
-		#endif
+	case CAM_CP_FUNC_AUTO_CONTRAST: {	// not supported mmfw
+#ifdef CAMERA_MACHINE_I686
+		ret = FALSE;
+#else
+		if (deviceType == CAM_DEVICE_REAR) {
+			m_AutoContrast.bSupported = TRUE;
+		} else {
+			m_AutoContrast.bSupported = FALSE;
 		}
-		break;
+		ret = m_AutoContrast.bSupported;
+#endif
+	}
+	break;
 
-	case CAM_CP_FUNC_ZOOM:
-		{
-			if (GetCamDevZoomCaps(&min, &max))
-				ret = m_Zoom.bSupported;
+	case CAM_CP_FUNC_ZOOM: {
+		if (GetCamDevZoomCaps(&min, &max)) {
+			ret = m_Zoom.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_BRIGHTNESS:
-		{
-			if (GetCamDevBrCaps(&min, &max))
-				ret = m_Br.bSupported;
+	case CAM_CP_FUNC_BRIGHTNESS: {
+		if (GetCamDevBrCaps(&min, &max)) {
+			ret = m_Br.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_EXPOSURE:
-		{
-			if (GetCamDevEvCaps(&min, &max))
-				ret = m_Ev.bSupported;
+	case CAM_CP_FUNC_EXPOSURE: {
+		if (GetCamDevEvCaps(&min, &max)) {
+			ret = m_Ev.bSupported;
 		}
-		break;
+	}
+	break;
 
-	case CAM_CP_FUNC_CAM_ANS:
-		{
-			if (cam_mm_is_support_anti_hand_shake())
-				ret = TRUE;
-		}
-		break;
-	case CAM_CP_FUNC_REC_ANS:
-		{
-			if (cam_mm_is_support_video_stabilization())
-				ret = TRUE;
-		}
-		break;
-	case CAM_CP_FUNC_SELF_MODE:
-		{
-		#ifdef CAMERA_MACHINE_I686
-			ret = FALSE;
-		#else
+	case CAM_CP_FUNC_CAM_ANS: {
+		if (cam_mm_is_support_anti_hand_shake()) {
 			ret = TRUE;
-		#endif
 		}
-		break;
+	}
+	break;
+	case CAM_CP_FUNC_REC_ANS: {
+		if (cam_mm_is_support_video_stabilization()) {
+			ret = TRUE;
+		}
+	}
+	break;
+	case CAM_CP_FUNC_SELF_MODE: {
+#ifdef CAMERA_MACHINE_I686
+		ret = FALSE;
+#else
+		ret = TRUE;
+#endif
+	}
+	break;
 	case CAM_CP_FUNC_TAP_SHOT:
 		ret = TRUE;
 		break;
 	case CAM_CP_FUNC_STORAGE:
-	case CAM_CP_FUNC_GPS:
-		{
-		#ifdef CAMERA_MACHINE_I686
-			ret = FALSE;
-		#else
-			ret = TRUE;
-		#endif
-		}
-		break;
+	case CAM_CP_FUNC_GPS: {
+#ifdef CAMERA_MACHINE_I686
+		ret = FALSE;
+#else
+		ret = TRUE;
+#endif
+	}
+	break;
 	case CAM_CP_FUNC_BURST_SHOT_MODE:
 		ret = FALSE;
 		break;
 	case CAM_CP_FUNC_CAPTURE_VOICE:
 		ret = TRUE;
 		break;
-	case CAM_CP_FUNC_SAVE_AS_FLIP:
-		{
-			#ifdef CAMERA_MACHINE_I686
-				ret = FALSE;
-			#else
-				int device = 0;
-				cam_mm_get_video_device(&device);
-				cam_secure_debug(LOG_UI,"video_dev = %d",device);
-				if (device == CAM_DEVICE_FRONT)
-					ret = TRUE;
-				else
-					ret= FALSE;
-			#endif
+	case CAM_CP_FUNC_SAVE_AS_FLIP: {
+#ifdef CAMERA_MACHINE_I686
+		ret = FALSE;
+#else
+		int device = 0;
+		cam_mm_get_video_device(&device);
+		cam_secure_debug(LOG_UI, "video_dev = %d", device);
+		if (device == CAM_DEVICE_FRONT) {
+			ret = TRUE;
+		} else {
+			ret = FALSE;
 		}
-		break;
-	case CAM_CP_FUNC_FACE_DETECTION:
-		{
-			if (cam_mm_is_supported_face_detection())
-				ret = TRUE;
+#endif
+	}
+	break;
+	case CAM_CP_FUNC_FACE_DETECTION: {
+		if (cam_mm_is_supported_face_detection()) {
+			ret = TRUE;
 		}
-		break;
+	}
+	break;
 	default:
 		break;
 	}

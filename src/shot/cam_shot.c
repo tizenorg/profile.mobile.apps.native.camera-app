@@ -80,7 +80,7 @@ static Eina_Bool __run_image_viewer(void *data)
 		} else {
 			cam_secure_debug(LOG_UI, "The review file is not existed,try the %d nums, file %s", g_review_image_check_count, review_filename);
 			g_review_image_check_count++;
-			sleep(THUMBNAIL_UPDATE_WAIT_TIME/1000000);
+			sleep(THUMBNAIL_UPDATE_WAIT_TIME / 1000000);
 			IF_FREE(review_thumbnail);
 		}
 	} while (cam_file_check_exists(review_thumbnail) == FALSE);
@@ -141,7 +141,7 @@ static void *__image_viewer_thread_run(void *data)
 			cam_critical(LOG_UI, "waiting too long time here!");
 			break;
 		}
-		sleep(IMAGE_REVIEW_WAIT_TIME/1000000);
+		sleep(IMAGE_REVIEW_WAIT_TIME / 1000000);
 		retry_times++;
 	}
 
@@ -167,7 +167,7 @@ gboolean cam_shot_update_thumbnail_using_thumbnail_data(struct appdata *ad)
 	}
 
 	if (camapp->shooting_mode == CAM_SINGLE_MODE ||
-		camapp->shooting_mode == CAM_SELF_SINGLE_MODE) {
+	        camapp->shooting_mode == CAM_SELF_SINGLE_MODE) {
 		return TRUE;
 	}
 
@@ -219,8 +219,9 @@ static void __shot_capture_on_recording_cb(camera_image_data_s *image, camera_im
 		IF_FREE(filename);
 
 		if (ad->secure_mode == TRUE) {
-			if (camapp->filename != NULL)
+			if (camapp->filename != NULL) {
 				camapp->secure_filename_list = eina_list_append(camapp->secure_filename_list, CAM_STRDUP(camapp->filename));
+			}
 		}
 
 		cam_secure_debug(LOG_SYS, "#########camapp->filename=%s", camapp->filename);
@@ -305,7 +306,7 @@ void cam_shot_capture_cb(camera_image_data_s *image, camera_image_data_s *postvi
 	int shot_direction = ad->target_direction;
 
 	if (cam_shot_update_thumbnail_using_thumbnail_data(ad) &&
-		thumbnail != NULL && thumbnail->data != NULL) {
+	        thumbnail != NULL && thumbnail->data != NULL) {
 		camera_image_data_s *temp_buffer = (camera_image_data_s *)CAM_CALLOC(1, sizeof(camera_image_data_s));
 		if (temp_buffer == NULL) {
 			cam_critical(LOG_UI, "temp_buffer allocate fail");
@@ -341,7 +342,7 @@ void cam_shot_capture_cb(camera_image_data_s *image, camera_image_data_s *postvi
 
 		if (camapp->gps) {
 			if (!cam_exif_update_exif_in_jpeg(cam_get_image_orient_value_by_direction(ad, shot_direction), image->data, image->size,
-								&write_data, &write_size)) {
+			                                  &write_data, &write_size)) {
 				ret = fwrite(image->data, image->size, 1, fp);
 				if (ret != 1) {
 					cam_critical(LOG_SYS, "File write error!! - [%d], [%d]", ret, errno);
@@ -385,8 +386,9 @@ void cam_shot_capture_cb(camera_image_data_s *image, camera_image_data_s *postvi
 		IF_FREE(filename);
 
 		if (ad->secure_mode == TRUE) {
-			if (camapp->filename != NULL)
+			if (camapp->filename != NULL) {
 				camapp->secure_filename_list = eina_list_append(camapp->secure_filename_list, CAM_STRDUP(camapp->filename));
+			}
 		}
 
 	} else {
@@ -462,7 +464,7 @@ gboolean cam_shot_capture(void *data)
 	}
 	/*check app_state*/
 	if (ad->app_state == CAM_APP_TERMINATE_STATE
-		|| ad->app_state == CAM_APP_PAUSE_STATE) {
+	        || ad->app_state == CAM_APP_PAUSE_STATE) {
 		cam_critical(LOG_MM, "ignor because app_state %d", ad->app_state);
 		return FALSE;
 	}
@@ -508,8 +510,9 @@ gboolean cam_shot_capture(void *data)
 		ret = cam_mm_capture_start(camapp->capture_cb, camapp->capture_completed_cb, (void *)ad);
 		if (!ret) {
 			cam_debug(LOG_MM, "cam_mm_capture_start failed");
-			if (cam_mm_get_error() != CAMERA_ERROR_DEVICE_BUSY)
+			if (cam_mm_get_error() != CAMERA_ERROR_DEVICE_BUSY) {
 				cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_CAPTURE_FAILED"), NULL);
+			}
 		} else {
 			cam_start_capture_animation(ad);
 		}
@@ -563,9 +566,9 @@ void cam_shot_capture_completed_cb(void *user_data)
 	cam_retm_if(camapp == NULL, "cam_handle is NULL");
 
 	if (camapp->shooting_mode == CAM_SINGLE_MODE
-		|| camapp->shooting_mode == CAM_SELF_SINGLE_MODE
-		|| camapp->shooting_mode == CAM_SELFIE_ALARM_MODE
-		|| camapp->shooting_mode == CAM_PX_MODE) {
+	        || camapp->shooting_mode == CAM_SELF_SINGLE_MODE
+	        || camapp->shooting_mode == CAM_SELFIE_ALARM_MODE
+	        || camapp->shooting_mode == CAM_PX_MODE) {
 		cam_shot_capture_complete(ad);
 		if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL) {
 			cam_warning(LOG_UI, "Return result to caller");
@@ -591,8 +594,9 @@ void cam_shot_capture_completed_cb(void *user_data)
 		cam_app_gallery_edje_destroy(ad);
 	}
 	ret = cam_app_after_shot_edje_create(ad);
-	if (!ret)
+	if (!ret) {
 		cam_critical(LOG_CAM, "Unable to make after shot effects");
+	}
 
 	cam_warning(LOG_UI, "end");
 
@@ -715,7 +719,7 @@ Eina_Bool cam_shot_capture_complete(void *data)
 		}
 	}
 	cam_indicator_update();
-return ECORE_CALLBACK_CANCEL;
+	return ECORE_CALLBACK_CANCEL;
 }
 
 void cam_shot_stop_capture(void *data)
@@ -754,8 +758,8 @@ gboolean  cam_shot_is_capturing(void *data)
 	cam_debug(LOG_UI, "mm_state = %d", mm_state);
 
 	if ((mm_state == CAMERA_STATE_CAPTURING) || (mm_state == CAMERA_STATE_CAPTURED)) {
-	   cam_warning(LOG_UI, "current state is capturing");
-	   return TRUE;
+		cam_warning(LOG_UI, "current state is capturing");
+		return TRUE;
 	}
 
 	if (camapp->review == TRUE) {
@@ -771,7 +775,7 @@ gboolean  cam_shot_is_capturing(void *data)
 	}
 	/*standby capture view*/
 	if ((ad->main_view_type == CAM_VIEW_STANDBY) &&
-		(cam_standby_view_get_viewtype() == CAM_STANDBY_VIEW_BURST_PANORAMA_CAPTURE)) {
+	        (cam_standby_view_get_viewtype() == CAM_STANDBY_VIEW_BURST_PANORAMA_CAPTURE)) {
 		cam_debug(LOG_UI, "capturing...");
 		return TRUE;
 	}

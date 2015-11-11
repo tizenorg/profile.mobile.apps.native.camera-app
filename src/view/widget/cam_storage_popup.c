@@ -31,20 +31,18 @@ static void __set_value_storage(CAM_MENU_ITEM item)
 	cam_debug(LOG_CAM, "");
 	GValue value = {0};
 	switch (item) {
-	case CAM_MENU_STORAGE_PHONE:
-		{
-			CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
-			cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, CAM_STORAGE_INTERNAL);
-			cam_handle_value_set(ad, PROP_STORAGE, &value);
-		}
-		break;
-	case CAM_MENU_STORAGE_MMC:
-		{
-			CAM_GVALUE_SET_INT(value, CAM_STORAGE_EXTERNAL);
-			cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, CAM_STORAGE_EXTERNAL);
-			cam_handle_value_set(ad, PROP_STORAGE, &value);
-		}
-		break;
+	case CAM_MENU_STORAGE_PHONE: {
+		CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
+		cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, CAM_STORAGE_INTERNAL);
+		cam_handle_value_set(ad, PROP_STORAGE, &value);
+	}
+	break;
+	case CAM_MENU_STORAGE_MMC: {
+		CAM_GVALUE_SET_INT(value, CAM_STORAGE_EXTERNAL);
+		cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, CAM_STORAGE_EXTERNAL);
+		cam_handle_value_set(ad, PROP_STORAGE, &value);
+	}
+	break;
 	default:
 		break;
 	}
@@ -89,9 +87,9 @@ void cam_storage_location_popup_create(struct appdata *ad)
 	cam_standby_view_destroy_popups_for_storage_popup();
 
 	cam_popup_select_create(ad, dgettext(PACKAGE, "IDS_CAM_HEADER_CHANGE_STORAGE_LOCATION_ABB"), dgettext(PACKAGE, "IDS_CAM_SK_CHANGE"),
-								dgettext(PACKAGE, "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"),
-								__storage_popup_button2_selected_cb,
-								__storage_popup_button1_selected_cb);
+	                        dgettext(PACKAGE, "IDS_CAM_POP_AN_SD_CARD_HAS_BEEN_INSERTED_THE_DEFAULT_STORAGE_LOCATION_WILL_BE_CHANGED_TO_SD_CARD"),
+	                        __storage_popup_button2_selected_cb,
+	                        __storage_popup_button1_selected_cb);
 }
 
 

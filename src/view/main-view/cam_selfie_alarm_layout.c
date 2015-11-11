@@ -117,7 +117,7 @@ static gboolean __selfie_camera_layout_get_preview_size(void *data, CamRectangle
 		break;
 	}
 	cam_secure_debug(LOG_UI, "target_direction %d, preview x %d, y %d, w %d, h %d,",
-		ad->target_direction, preview->x, preview->y, preview->width, preview->height);
+	                 ad->target_direction, preview->x, preview->y, preview->width, preview->height);
 
 	return TRUE;
 }
@@ -215,21 +215,21 @@ static void __selfie_camera_layout_resize_get_delta(double scale, CamRectangle *
 	weight = ABS(cal_w); /*weight > 0*/
 	height = ABS(cal_h); /*height > 0*/
 
-	 if (DUAL_LAYOUT_LEFT_TOP == selfie_camera_layout->selfie_camera_pressed_type
-		 || DUAL_LAYOUT_LEFT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
-		 *is_w_bigger = (cal_w < 0) ? TRUE : FALSE;
-	 } else if (DUAL_LAYOUT_RIGHT_TOP == selfie_camera_layout->selfie_camera_pressed_type
-		 || DUAL_LAYOUT_RIGHT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
-		 *is_w_bigger = (cal_w > 0) ? TRUE : FALSE;
-	 } else {
-		 cam_critical(LOG_UI, "Error move point: %d", selfie_camera_layout->selfie_camera_pressed_type);
-	 }
+	if (DUAL_LAYOUT_LEFT_TOP == selfie_camera_layout->selfie_camera_pressed_type
+	        || DUAL_LAYOUT_LEFT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
+		*is_w_bigger = (cal_w < 0) ? TRUE : FALSE;
+	} else if (DUAL_LAYOUT_RIGHT_TOP == selfie_camera_layout->selfie_camera_pressed_type
+	           || DUAL_LAYOUT_RIGHT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
+		*is_w_bigger = (cal_w > 0) ? TRUE : FALSE;
+	} else {
+		cam_critical(LOG_UI, "Error move point: %d", selfie_camera_layout->selfie_camera_pressed_type);
+	}
 
-	 if (DUAL_LAYOUT_LEFT_TOP == selfie_camera_layout->selfie_camera_pressed_type
-		|| DUAL_LAYOUT_RIGHT_TOP == selfie_camera_layout->selfie_camera_pressed_type) {
+	if (DUAL_LAYOUT_LEFT_TOP == selfie_camera_layout->selfie_camera_pressed_type
+	        || DUAL_LAYOUT_RIGHT_TOP == selfie_camera_layout->selfie_camera_pressed_type) {
 		*is_h_bigger = (cal_h < 0) ? TRUE : FALSE;
 	} else if (DUAL_LAYOUT_LEFT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type
-		|| DUAL_LAYOUT_RIGHT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
+	           || DUAL_LAYOUT_RIGHT_BOTTOM == selfie_camera_layout->selfie_camera_pressed_type) {
 		*is_h_bigger = (cal_h > 0) ? TRUE : FALSE;
 	} else {
 		cam_critical(LOG_UI, "Error move point: %d", selfie_camera_layout->selfie_camera_pressed_type);
@@ -272,7 +272,7 @@ static void __selfie_camera_layout_resize_adjust_delta_by_bg(void *data, double 
 	case DUAL_LAYOUT_RIGHT_TOP:
 	case DUAL_LAYOUT_RIGHT_BOTTOM:
 		if (selfie_camera_layout->frame_down.x + selfie_camera_layout->frame_down.width + dw >
-				(preview.width + preview.x)) {
+		        (preview.width + preview.x)) {
 			dw = preview.width + preview.x - selfie_camera_layout->frame_down.x - selfie_camera_layout->frame_down.width;
 			cam_secure_debug(LOG_UI, "x right dw %d dh %d", dw, dh);
 		}
@@ -375,10 +375,10 @@ static void __selfie_camera_layout_resize(void *data, Evas_Event_Mouse_Move *eve
 	Cam_Selfie_Layout *selfie_camera_layout = __selfie_camera_layout_data_get();
 
 	scale = (double)(selfie_camera_layout->frame_down.width) /
-		(double)(selfie_camera_layout->frame_down.height);
+	        (double)(selfie_camera_layout->frame_down.height);
 
 	cam_secure_debug(LOG_UI, "frame_down Rectangle(%d %d %d %d) scale %f", selfie_camera_layout->frame_down.x, selfie_camera_layout->frame_down.y,
-		selfie_camera_layout->frame_down.width, selfie_camera_layout->frame_down.height, scale);
+	                 selfie_camera_layout->frame_down.width, selfie_camera_layout->frame_down.height, scale);
 
 	__selfie_camera_layout_resize_get_delta(scale, &delta_rect, ev, &is_w_bigger, &is_h_bigger);
 
@@ -427,7 +427,7 @@ static void __selfie_camera_layout_move(void *data, Evas_Event_Mouse_Move *event
 	Evas_Event_Mouse_Move *ev = (Evas_Event_Mouse_Move *) event_info;
 
 	cam_secure_debug(LOG_UI, "frame_down(%d,%d,%d,%d)", selfie_camera_layout->frame_down.x, selfie_camera_layout->frame_down.y,
-		selfie_camera_layout->frame_down.width, selfie_camera_layout->frame_down.height);
+	                 selfie_camera_layout->frame_down.width, selfie_camera_layout->frame_down.height);
 
 	int dx = ev->cur.canvas.x - selfie_camera_layout->canvas_down.x;
 	int dy = ev->cur.canvas.y - selfie_camera_layout->canvas_down.y;
@@ -456,30 +456,30 @@ static void __selfie_camera_mouse_down_region(CamRectangle *frame_down, Evas_Eve
 
 	/*four corner are larger than point for touch easier*/
 	if ((ev->canvas.x >= frame_down->x - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.x <= frame_down->x + SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.y >= frame_down->y - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y <= frame_down->y + SELFIE_ALARM_POINT_SIZE * 3)) {
+	        (ev->canvas.x <= frame_down->x + SELFIE_ALARM_POINT_SIZE * 3) &&
+	        (ev->canvas.y >= frame_down->y - SELFIE_ALARM_POINT_SIZE) &&
+	        (ev->canvas.y <= frame_down->y + SELFIE_ALARM_POINT_SIZE * 3)) {
 		/*left top*/
 		selfie_camera_layout->selfie_camera_pressed_type = DUAL_LAYOUT_LEFT_TOP;
 		cam_edje_object_signal_emit(_EDJ(selfie_camera_layout->selfie_camera_point_left_top), "point_left_top,press", "prog");
 	} else if ((ev->canvas.x >= frame_down->x + frame_down->width - SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.x <= frame_down->x + frame_down->width + SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y >= frame_down->y - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y <= frame_down->y + SELFIE_ALARM_POINT_SIZE * 3)) {
+	           (ev->canvas.x <= frame_down->x + frame_down->width + SELFIE_ALARM_POINT_SIZE) &&
+	           (ev->canvas.y >= frame_down->y - SELFIE_ALARM_POINT_SIZE) &&
+	           (ev->canvas.y <= frame_down->y + SELFIE_ALARM_POINT_SIZE * 3)) {
 		/*right top*/
 		selfie_camera_layout->selfie_camera_pressed_type = DUAL_LAYOUT_RIGHT_TOP;
 		cam_edje_object_signal_emit(_EDJ(selfie_camera_layout->selfie_camera_point_right_top), "point_right_top,press", "prog");
 	} else if ((ev->canvas.x >= frame_down->x - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.x <= frame_down->x + SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.y >= frame_down->y + frame_down->height - SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.y <= frame_down->y + frame_down->height + SELFIE_ALARM_POINT_SIZE)) {
+	           (ev->canvas.x <= frame_down->x + SELFIE_ALARM_POINT_SIZE * 3) &&
+	           (ev->canvas.y >= frame_down->y + frame_down->height - SELFIE_ALARM_POINT_SIZE * 3) &&
+	           (ev->canvas.y <= frame_down->y + frame_down->height + SELFIE_ALARM_POINT_SIZE)) {
 		/*left bottom*/
 		selfie_camera_layout->selfie_camera_pressed_type = DUAL_LAYOUT_LEFT_BOTTOM;
 		cam_edje_object_signal_emit(_EDJ(selfie_camera_layout->selfie_camera_point_left_bottom), "point_left_bottom,press", "prog");
 	} else if ((ev->canvas.x >= frame_down->x + frame_down->width - SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.x <= frame_down->x + frame_down->width + SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y >= frame_down->y + frame_down->height - SELFIE_ALARM_POINT_SIZE * 3) &&
-		(ev->canvas.y <= frame_down->y + frame_down->height + SELFIE_ALARM_POINT_SIZE)) {
+	           (ev->canvas.x <= frame_down->x + frame_down->width + SELFIE_ALARM_POINT_SIZE) &&
+	           (ev->canvas.y >= frame_down->y + frame_down->height - SELFIE_ALARM_POINT_SIZE * 3) &&
+	           (ev->canvas.y <= frame_down->y + frame_down->height + SELFIE_ALARM_POINT_SIZE)) {
 		/*right top*/
 		selfie_camera_layout->selfie_camera_pressed_type = DUAL_LAYOUT_RIGHT_BOTTOM;
 		cam_edje_object_signal_emit(_EDJ(selfie_camera_layout->selfie_camera_point_right_bottom), "point_right_bottom,press", "prog");
@@ -489,7 +489,7 @@ static void __selfie_camera_mouse_down_region(CamRectangle *frame_down, Evas_Eve
 		cam_edje_object_signal_emit(_EDJ(selfie_camera_layout->selfie_camera_point_line), "line,press", "prog");
 	}
 	cam_secure_debug(LOG_UI, "ev->canvas.x=%d ev->canvas.y=%d type %d ", ev->canvas.x, ev->canvas.y,
-		selfie_camera_layout->selfie_camera_pressed_type);
+	                 selfie_camera_layout->selfie_camera_pressed_type);
 	cam_secure_debug(LOG_UI, "frame_down ret1(%d,%d,%d,%d)", frame_down->x, frame_down->y, frame_down->width, frame_down->height);
 	cam_secure_debug(LOG_UI, "frame_down ret2(%d,%d)", frame_down->x + frame_down->width, frame_down->y + frame_down->height);
 	return;
@@ -503,7 +503,7 @@ void selfie_alarm_camera_save_rect()
 	cam_retm_if(selfie_camera_layout == NULL, "selfie_camera_layout is not exist");
 
 	if (selfie_camera_layout->selfie_camera_frame == NULL ||
-		selfie_camera_layout->frame_rect.width == 0 || selfie_camera_layout->frame_rect.height == 0) {
+	        selfie_camera_layout->frame_rect.width == 0 || selfie_camera_layout->frame_rect.height == 0) {
 		return;
 	}
 
@@ -512,17 +512,17 @@ void selfie_alarm_camera_save_rect()
 		save_rect.y = selfie_camera_layout->frame_rect.y;
 		save_rect.width = selfie_camera_layout->frame_rect.width;
 		save_rect.height = selfie_camera_layout->frame_rect.height ;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
 		save_rect.y = MAIN_H - selfie_camera_layout->frame_rect.x - selfie_camera_layout->frame_rect.width;
 		save_rect.x = selfie_camera_layout->frame_rect.y;
 		save_rect.width = selfie_camera_layout->frame_rect.height;
 		save_rect.height = selfie_camera_layout->frame_rect.width;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 		save_rect.x = MAIN_W - selfie_camera_layout->frame_rect.x - selfie_camera_layout->frame_rect.width;
 		save_rect.y = MAIN_H - selfie_camera_layout->frame_rect.y - selfie_camera_layout->frame_rect.height;
 		save_rect.width = selfie_camera_layout->frame_rect.width;
 		save_rect.height = selfie_camera_layout->frame_rect.height ;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE) {
 		save_rect.x = MAIN_W - selfie_camera_layout->frame_rect.y - selfie_camera_layout->frame_rect.height;
 		save_rect.y = selfie_camera_layout->frame_rect.x;
 		save_rect.width = selfie_camera_layout->frame_rect.height;
@@ -543,17 +543,17 @@ static void __selfie_camera_get_rect()
 		selfie_camera_layout->frame_rect.y = save_rect.y;
 		selfie_camera_layout->frame_rect.width = save_rect.width;
 		selfie_camera_layout->frame_rect.height = save_rect.height ;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
 		selfie_camera_layout->frame_rect.y = save_rect.x;
 		selfie_camera_layout->frame_rect.x = MAIN_H - save_rect.y - save_rect.height;
 		selfie_camera_layout->frame_rect.width = save_rect.height;
 		selfie_camera_layout->frame_rect.height = save_rect.width ;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 		selfie_camera_layout->frame_rect.x = MAIN_W - save_rect.x - save_rect.width;
 		selfie_camera_layout->frame_rect.y = MAIN_H - save_rect.y - save_rect.height;
 		selfie_camera_layout->frame_rect.width = save_rect.width;
 		selfie_camera_layout->frame_rect.height = save_rect.height ;
-	} else if  (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE) {
+	} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE) {
 		selfie_camera_layout->frame_rect.x =  save_rect.y;
 		selfie_camera_layout->frame_rect.y = MAIN_W - save_rect.x - save_rect.width;
 		selfie_camera_layout->frame_rect.width = save_rect.height;
@@ -680,9 +680,9 @@ void cam_selfie_alarm_layout_mouse_up_cb(void *data, Evas * evas, Evas_Object *o
 		cam_reset_focus_coordinate(ad);
 	} else {
 		if ((ev->canvas.x >= selfie_camera_layout->frame_rect.x) &&
-			(ev->canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
-			(ev->canvas.y >= selfie_camera_layout->frame_rect.y) &&
-			(ev->canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
+		        (ev->canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
+		        (ev->canvas.y >= selfie_camera_layout->frame_rect.y) &&
+		        (ev->canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
 			cam_reset_focus_mode(ad);
 		} else {
 			if (cam_is_enabled_menu(ad, CAM_MENU_FOCUS_MODE) == TRUE) {
@@ -709,9 +709,9 @@ void cam_selfie_alarm_layout_mouse_down_cb(void *data, Evas *evas, Evas_Object *
 
 	/*it is larger than point for touch easier*/
 	if ((ev->canvas.x >= selfie_camera_layout->frame_rect.x - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width + SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y >= selfie_camera_layout->frame_rect.y - SELFIE_ALARM_POINT_SIZE) &&
-		(ev->canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height + SELFIE_ALARM_POINT_SIZE)) {
+	        (ev->canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width + SELFIE_ALARM_POINT_SIZE) &&
+	        (ev->canvas.y >= selfie_camera_layout->frame_rect.y - SELFIE_ALARM_POINT_SIZE) &&
+	        (ev->canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height + SELFIE_ALARM_POINT_SIZE)) {
 		selfie_camera_layout->canvas_down.x = ev->canvas.x;
 		selfie_camera_layout->canvas_down.y = ev->canvas.y;
 		selfie_camera_layout->frame_down.x = selfie_camera_layout->frame_rect.x;
@@ -747,9 +747,9 @@ void cam_selfie_alarm_layout_mouse_move_cb(void *data, Evas * evas, Evas_Object 
 		}
 	} else {
 		if ((ev->cur.canvas.x >= selfie_camera_layout->frame_rect.x) &&
-			(ev->cur.canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
-			(ev->cur.canvas.y >= selfie_camera_layout->frame_rect.y) &&
-			(ev->cur.canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
+		        (ev->cur.canvas.x <= selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
+		        (ev->cur.canvas.y >= selfie_camera_layout->frame_rect.y) &&
+		        (ev->cur.canvas.y <= selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
 			HIDE_EVAS_OBJECT(ad->focus_edje);
 		} else {
 			cam_single_layout_mouse_move_cb(data, evas, obj, event_info);
@@ -824,8 +824,8 @@ static Eina_Bool __cam_selfie_layout_catch_face_timer_cb(void *data)
 	Cam_Selfie_Layout *selfie_camera_layout = __selfie_camera_layout_data_get();
 
 	if (selfie_camera_layout == NULL ||
-		camapp->camera_mode != CAM_CAMERA_MODE ||
-		!selfie_camera_layout->face_caught) {
+	        camapp->camera_mode != CAM_CAMERA_MODE ||
+	        !selfie_camera_layout->face_caught) {
 		cam_sound_stop();
 		ad->cam_timer[CAM_TIMER_SELFIE_COUNTDOWN] = NULL;
 		selfie_camera_layout->capturing = FALSE;
@@ -864,8 +864,8 @@ static gboolean __cam_selfie_alarm_layout_stop_face_check()
 	}
 
 	if (ad->main_view_type != CAM_VIEW_STANDBY ||
-		ad->popup != NULL ||
-		ad->app_state == CAM_APP_PAUSE_STATE || ad->app_state == CAM_APP_TERMINATE_STATE) {
+	        ad->popup != NULL ||
+	        ad->app_state == CAM_APP_PAUSE_STATE || ad->app_state == CAM_APP_TERMINATE_STATE) {
 		return FALSE;
 	}
 
@@ -901,11 +901,11 @@ static gboolean __cam_selfie_alarm_face_detection_cal_multi_face_rect(CamRectang
 		if (more_than_4) {
 			total_x -= all_rects[smallest_index].x;
 			total_y -= all_rects[smallest_index].y;
-			get_multi_rect->x = total_x/4;
-			get_multi_rect->y = total_y/4;
+			get_multi_rect->x = total_x / 4;
+			get_multi_rect->y = total_y / 4;
 		} else {
-			get_multi_rect->x = total_x/face_num;
-			get_multi_rect->y = total_y/face_num;
+			get_multi_rect->x = total_x / face_num;
+			get_multi_rect->y = total_y / face_num;
 		}
 		get_multi_rect->width = 20;
 		get_multi_rect->height = 20;
@@ -979,19 +979,19 @@ void cam_selfie_alarm_layout_check_face_area(camera_preview_data_s *preview_fram
 	__cam_selfie_alarm_detect_faces(preview_frame, &cal_face);
 
 	if (cal_face.width > 0 && cal_face.height > 0 &&
-		cal_face.x >= selfie_camera_layout->frame_rect.x &&
-		cal_face.y >= selfie_camera_layout->frame_rect.y &&
-		(cal_face.x + cal_face.width) <= (selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
-		(cal_face.y + cal_face.height) <= (selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
+	        cal_face.x >= selfie_camera_layout->frame_rect.x &&
+	        cal_face.y >= selfie_camera_layout->frame_rect.y &&
+	        (cal_face.x + cal_face.width) <= (selfie_camera_layout->frame_rect.x + selfie_camera_layout->frame_rect.width) &&
+	        (cal_face.y + cal_face.height) <= (selfie_camera_layout->frame_rect.y + selfie_camera_layout->frame_rect.height)) {
 		selfie_camera_layout->face_caught = TRUE;
 	} else {
 		selfie_camera_layout->face_caught = FALSE;
 	}
 
 	if (!__cam_selfie_alarm_layout_stop_face_check() ||
-		camapp->review_selfie ||
-		selfie_camera_layout->capturing ||
-		cam_mm_get_cam_state() == CAMERA_STATE_CAPTURING) {
+	        camapp->review_selfie ||
+	        selfie_camera_layout->capturing ||
+	        cam_mm_get_cam_state() == CAMERA_STATE_CAPTURING) {
 		return;
 	}
 

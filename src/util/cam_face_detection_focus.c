@@ -61,8 +61,9 @@ static gboolean is_face_zoom = FALSE; /*note: the flag: now is in face zoom stat
 static CamFaceInfo face_info;
 static int keep_drawing = 0;
 static int face_type[MAX_FACE_AREA] = {FACE_POSITION_LEFT_TOP, FACE_POSITION_CENTER_TOP, FACE_POSITION_RIGHT_TOP,
-									FACE_POSITION_LEFT_CENTER, FACE_POSITION_CENTER_CENTER, FACE_POSITION_RIGHT_CENTER,
-									FACE_POSITION_LEFT_BOTTOM, FACE_POSITION_CENTER_BOTTOM, FACE_POSITION_BOTTOM_BOTTOM};
+                                       FACE_POSITION_LEFT_CENTER, FACE_POSITION_CENTER_CENTER, FACE_POSITION_RIGHT_CENTER,
+                                       FACE_POSITION_LEFT_BOTTOM, FACE_POSITION_CENTER_BOTTOM, FACE_POSITION_BOTTOM_BOTTOM
+                                      };
 static int keep_pos_type = -1;
 static int last_face_num = -1;
 
@@ -79,9 +80,9 @@ static gboolean __check_point_whether_in_rect(int point_x,
 {
 
 	if (point_x > (rect.x - correction_value)
-		&& point_y > (rect.y - correction_value)
-		&& point_x < (rect.w + rect.x + correction_value)
-		&& point_y < (rect.h + rect.y + correction_value)) {
+	        && point_y > (rect.y - correction_value)
+	        && point_x < (rect.w + rect.x + correction_value)
+	        && point_y < (rect.h + rect.y + correction_value)) {
 		cam_debug(LOG_CAM, "point is in rect");
 		return TRUE;
 	}
@@ -147,15 +148,15 @@ static int __face_detection_get_position_type(int x, int y)
 		return -1;
 	}
 
-	long divide_width = preview_w/DIVIDE_PART;
-	long divide_height = preview_h/DIVIDE_PART;
+	long divide_width = preview_w / DIVIDE_PART;
+	long divide_height = preview_h / DIVIDE_PART;
 
-	i = (x)/divide_width;
-	j = (y)/divide_height;
+	i = (x) / divide_width;
+	j = (y) / divide_height;
 
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
-		index = i + j*DIVIDE_PART;
+		index = i + j * DIVIDE_PART;
 		break;
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
 		index = (DIVIDE_PART - 1 - i) + (DIVIDE_PART - 1 - j) * DIVIDE_PART;
@@ -208,65 +209,74 @@ static void __cam_single_face_detection_screen_reader(int type)
 	case FACE_POSITION_LEFT_TOP:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_UPPER_LEFT_SIDE_OF_THE_SCREEN_T_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_CENTER_TOP:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_IN_THE_CENTRE_AT_THE_TOP_OF_THE_SCREEN_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_RIGHT_TOP:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_UPPER_RIGHT_SIDE_OF_THE_SCREEN_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_LEFT_CENTER:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_LEFT_HAND_SIDE_OF_THE_SCREEN");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_CENTER_CENTER:
 		strID = CAM_STRDUP(dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_IN_THE_CENTRE_OF_THE_SCREEN"));
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 			IF_FREE(strID);
 		}
 		break;
 	case FACE_POSITION_RIGHT_CENTER:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_RIGHT_HAND_SIDE_OF_THE_SCREEN");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_LEFT_BOTTOM:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_LOWER_LEFT_SIDE_OF_THE_SCREEN_T_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_CENTER_BOTTOM:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_IN_THE_CENTRE_AT_THE_BOTTOM_OF_THE_SCREEN_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	case FACE_POSITION_BOTTOM_BOTTOM:
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_1_FACE_HAS_BEEN_DETECTED_AND_IS_LOCATED_ON_THE_LOWER_RIGHT_SIDE_OF_THE_SCREEN_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(position, strID, strlen(strID));
+			}
 		}
 		break;
 	default:
@@ -313,30 +323,36 @@ static void __cam_multi_3_faces_detection(int number)
 	if (biggest_index == smallest_x_index) {
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_PD_FACES_HAVE_BEEN_DETECTED_FOCUS_IS_ON_FACE_ON_LEFT_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(temp_string, strID, strlen(strID));
+			}
 		}
-		if (strlen(sr_string) + strlen(temp_string) + 1 <= 512)
+		if (strlen(sr_string) + strlen(temp_string) + 1 <= 512) {
 			snprintf(sr_string, 512, temp_string, face_info.count);
+		}
 	} else if (biggest_index == biggest_x_index) {
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_PD_FACES_HAVE_BEEN_DETECTED__FOCUS_IS_ON_FACE_ON_RIGHT_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(temp_string, strID, strlen(strID));
+			}
 		}
-		if (strlen(sr_string)+strlen(temp_string)+1 <= 512)
+		if (strlen(sr_string) + strlen(temp_string) + 1 <= 512) {
 			snprintf(sr_string, 512, temp_string, face_info.count);
+		}
 	} else {
 		if (face_info.count == 2) {
 			cam_warning(LOG_UI, "this case %d is impossible", face_info.count);
 		} else {
 			strID = dgettext(PACKAGE, "IDS_CAM_BODY_PD_FACES_HAVE_BEEN_DETECTED_FOCUS_IS_ON_THE_FACE_IN_CENTRE_TTS");
 			if (strID) {
-				if (strlen(strID) + 1 <= 512)
+				if (strlen(strID) + 1 <= 512) {
 					strncpy(temp_string, strID, strlen(strID));
+				}
 			}
-			if (strlen(sr_string) + strlen(temp_string) + 1 <= 512)
+			if (strlen(sr_string) + strlen(temp_string) + 1 <= 512) {
 				snprintf(sr_string, 512, temp_string, face_info.count);
+			}
 		}
 	}
 	cam_debug(LOG_UI, "multifaces, choose : %d , biggest is %d, smallest is %d", biggest_index, biggest_x_index, smallest_x_index);
@@ -351,15 +367,18 @@ static void __cam_multi_face_detection_screen_reader(int number)
 	if (number > 1 && number <= 3) {
 		__cam_multi_3_faces_detection(number);
 	} else {
-		if (last_face_num > 3)
+		if (last_face_num > 3) {
 			return;
+		}
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_MORE_THAN_PD_FACES_HAVE_BEEN_DETECTED_TTS");
 		if (strID) {
-			if (strlen(strID) + 1 <= 512)
+			if (strlen(strID) + 1 <= 512) {
 				strncpy(temp_string, strID, strlen(strID));
+			}
 		}
-		if (strlen(sr_string)+strlen(temp_string) + 1 <= 512)
+		if (strlen(sr_string) + strlen(temp_string) + 1 <= 512) {
 			snprintf(sr_string, 512, temp_string, number);
+		}
 
 	}
 	cam_utils_sr_text_say(sr_string);
@@ -377,8 +396,8 @@ void cam_face_detection_voide_guide()
 	} else {
 		int center_x = 0;
 		int center_y = 0;
-		center_x = face_info.faces[0].x + face_info.faces[0].width/2;
-		center_y = face_info.faces[0].y + face_info.faces[0].height/2;
+		center_x = face_info.faces[0].x + face_info.faces[0].width / 2;
+		center_y = face_info.faces[0].y + face_info.faces[0].height / 2;
 		int pos_type = __face_detection_get_position_type(center_x, center_y);
 		if (keep_pos_type != pos_type) {
 			keep_pos_type = pos_type;
@@ -456,8 +475,9 @@ void cam_common_set_mouse_double_click_xy(Evas_Coord x, Evas_Coord y)
 	if (is_face_zoom) {
 
 		cam_warning(LOG_CAM, "cancel face zoom");
-		if (cam_mm_camera_cancel_face_zoom())
-		is_face_zoom = FALSE;
+		if (cam_mm_camera_cancel_face_zoom()) {
+			is_face_zoom = FALSE;
+		}
 		return;
 	}
 

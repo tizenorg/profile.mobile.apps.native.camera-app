@@ -39,7 +39,7 @@
 #define EDIT_BOX_DRAG_TIMEOUT 		(0.3)
 #define EDIT_BOX_DRAG_ANIM_TIME 	(0.5)
 
-typedef struct __Cam_Edit_Box{
+typedef struct __Cam_Edit_Box {
 	/* private: */
 	Evas_Object 	*parent;
 	Evas_Object 	*base;
@@ -168,51 +168,53 @@ static char *__cam_edit_box_sr_text_set(CAM_MENU_ITEM button_type, char *tts_str
 	char item_stringID[128] = {0};
 
 	item = cam_convert_setting_value_to_menu_item(button_type);
-	int length=strlen(dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_BY_P2SD_TTS"));
-	if (length + 1 <= 128)
+	int length = strlen(dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_BY_P2SD_TTS"));
+	if (length + 1 <= 128) {
 		strncpy(temp_string, dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_BY_P2SD_TTS"), length);
+	}
 
 	switch (item) {
-	/*case CAM_MENU_PHOTO_RESOLUTION_3264x2448:
-		sprintf(tts_str, temp_string, 3264,2448);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_3264x1836:
-		sprintf(tts_str, temp_string, 3264,1836);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_2432x2432:
-		sprintf(tts_str, temp_string, 2432,2432);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_2048x1152:
-		sprintf(tts_str, temp_string, 2048,1152);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_1920x1080:
-		sprintf(tts_str, temp_string, 1920,1080);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_1056x1056:
-		sprintf(tts_str, temp_string, 1056,1056);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_1440x1080:
-		sprintf(tts_str, temp_string, 1440,1080);
-		break;
-	case CAM_MENU_PHOTO_RESOLUTION_640x480:
-		sprintf(tts_str, temp_string, 640,480);
-		break;
-	case CAM_MENU_VIDEO_RESOLUTION_FULLHD:
-		sprintf(tts_str, temp_string, 1920,1080);
-		break;
-	case CAM_MENU_VIDEO_RESOLUTION_HD:
-		sprintf(tts_str, temp_string, 1280,720);
-		break;
-	case CAM_MENU_VIDEO_RESOLUTION_QVGA:
-		sprintf(tts_str, temp_string, 320,240);
-		break;
-	case CAM_MENU_VIDEO_RESOLUTION_1440x1080:
-		sprintf(tts_str, temp_string, 1440,1080);
-		break;*/
+		/*case CAM_MENU_PHOTO_RESOLUTION_3264x2448:
+			sprintf(tts_str, temp_string, 3264,2448);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_3264x1836:
+			sprintf(tts_str, temp_string, 3264,1836);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_2432x2432:
+			sprintf(tts_str, temp_string, 2432,2432);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_2048x1152:
+			sprintf(tts_str, temp_string, 2048,1152);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_1920x1080:
+			sprintf(tts_str, temp_string, 1920,1080);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_1056x1056:
+			sprintf(tts_str, temp_string, 1056,1056);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_1440x1080:
+			sprintf(tts_str, temp_string, 1440,1080);
+			break;
+		case CAM_MENU_PHOTO_RESOLUTION_640x480:
+			sprintf(tts_str, temp_string, 640,480);
+			break;
+		case CAM_MENU_VIDEO_RESOLUTION_FULLHD:
+			sprintf(tts_str, temp_string, 1920,1080);
+			break;
+		case CAM_MENU_VIDEO_RESOLUTION_HD:
+			sprintf(tts_str, temp_string, 1280,720);
+			break;
+		case CAM_MENU_VIDEO_RESOLUTION_QVGA:
+			sprintf(tts_str, temp_string, 320,240);
+			break;
+		case CAM_MENU_VIDEO_RESOLUTION_1440x1080:
+			sprintf(tts_str, temp_string, 1440,1080);
+			break;*/
 	default:
 		cam_get_menu_item_text(item, item_stringID, TRUE);
-		if (strlen(dgettext(PACKAGE, item_stringID)) + 1 <= strlen(tts_str))
+		if (strlen(dgettext(PACKAGE, item_stringID)) + 1 <= strlen(tts_str)) {
 			strncpy(tts_str, dgettext(PACKAGE, item_stringID), strlen(dgettext(PACKAGE, item_stringID)));
+		}
 		break;
 	}
 	return tts_str;
@@ -246,11 +248,11 @@ static Evas_Object *__cam_edit_box_button_create(CAM_MENU_ITEM button_type)
 
 		elm_object_disabled_set(btn, EINA_TRUE);
 		cam_debug(LOG_MM, "disable %d", button_type);
-	} else{
+	} else {
 		cam_utils_sr_obj_set(btn, ELM_ACCESS_STATE, item_str);
 
 		if (edit_box_instance->tts_switch_menu_id != CAM_MENU_EMPTY
-			&& edit_box_instance->tts_switch_menu_id == button_type) {
+		        && edit_box_instance->tts_switch_menu_id == button_type) {
 			cam_utils_sr_obj_highlight_set(btn);
 			edit_box_instance->tts_switch_menu_id = CAM_MENU_EMPTY;
 		}
@@ -356,52 +358,52 @@ static Cam_Menu_Type __cam_edit_box_get_menu_type(CAM_MENU_ITEM item)
 	/*please check setting gengrid case too. __setting_view_gengrid_item_selected*/
 	switch (item) {
 		/*show sub genlist popup*/
-		case CAM_MENU_VOLUME_KEY:
-		case CAM_MENU_RECORDING_MODE:
-		case CAM_MENU_SCENE_MODE:
-		case CAM_MENU_FOCUS_MODE:
-		case CAM_MENU_PHOTO_RESOLUTION:
-		case CAM_MENU_VIDEO_RESOLUTION:
-		case CAM_MENU_WHITE_BALANCE:
-		case CAM_MENU_ISO:
-		case CAM_MENU_METERING:
-		case CAM_MENU_STORAGE:
-			menu_type = CAM_MENU_TYPE_GENLIST_POPUP;
-			break;
+	case CAM_MENU_VOLUME_KEY:
+	case CAM_MENU_RECORDING_MODE:
+	case CAM_MENU_SCENE_MODE:
+	case CAM_MENU_FOCUS_MODE:
+	case CAM_MENU_PHOTO_RESOLUTION:
+	case CAM_MENU_VIDEO_RESOLUTION:
+	case CAM_MENU_WHITE_BALANCE:
+	case CAM_MENU_ISO:
+	case CAM_MENU_METERING:
+	case CAM_MENU_STORAGE:
+		menu_type = CAM_MENU_TYPE_GENLIST_POPUP;
+		break;
 
 		/*show sub gengrid popup*/
-		case CAM_MENU_EFFECTS:
-			menu_type = CAM_MENU_TYPE_GENGRID_POPUP;
-			break;
-		case CAM_MENU_TIMER:
-			menu_type = CAM_MENU_TYPE_SWITCH;
-			break;
+	case CAM_MENU_EFFECTS:
+		menu_type = CAM_MENU_TYPE_GENGRID_POPUP;
+		break;
+	case CAM_MENU_TIMER:
+		menu_type = CAM_MENU_TYPE_SWITCH;
+		break;
 
 		/*show new popup and close setting view*/
-		case CAM_MENU_EXPOSURE_VALUE:
-		case CAM_MENU_RESET:
-			menu_type = CAM_MENU_TYPE_POPUP;
-			break;
+	case CAM_MENU_EXPOSURE_VALUE:
+	case CAM_MENU_RESET:
+		menu_type = CAM_MENU_TYPE_POPUP;
+		break;
 
 		/*change directly*/
-		case CAM_MENU_FLASH:
-		case CAM_MENU_TAP_SHOT:
-		case CAM_MENU_VIDEO_STABILIZATION:
-		case CAM_MENU_SAVE_AS_FLIP:
-		case CAM_MENU_REVIEW:
-		case CAM_MENU_FACE_DETECTION:
-		case CAM_MENU_SHUTTER_SOUND:
-			menu_type = CAM_MENU_TYPE_SWITCH;
-			break;
+	case CAM_MENU_FLASH:
+	case CAM_MENU_TAP_SHOT:
+	case CAM_MENU_VIDEO_STABILIZATION:
+	case CAM_MENU_SAVE_AS_FLIP:
+	case CAM_MENU_REVIEW:
+	case CAM_MENU_FACE_DETECTION:
+	case CAM_MENU_SHUTTER_SOUND:
+		menu_type = CAM_MENU_TYPE_SWITCH;
+		break;
 
 		/*create setting view*/
-		case CAM_MENU_SETTING:
-		case CAM_MENU_MORE:
-			menu_type = CAM_MENU_TYPE_SETTING;
-			break;
-		default:
-			cam_warning(LOG_CAM, "invalid type %d", item);
-			break;
+	case CAM_MENU_SETTING:
+	case CAM_MENU_MORE:
+		menu_type = CAM_MENU_TYPE_SETTING;
+		break;
+	default:
+		cam_warning(LOG_CAM, "invalid type %d", item);
+		break;
 	}
 
 	cam_debug(LOG_UI, "menu item index = %d, menu type = %d", item, menu_type);
@@ -471,70 +473,65 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 	Cam_Menu_Type menu_type = __cam_edit_box_get_menu_type(menu_item);
 
 	switch (menu_type) {
-		case CAM_MENU_TYPE_GENLIST_POPUP:
-		case CAM_MENU_TYPE_GENGRID_POPUP:
-		{
-			cam_sound_play_touch_sound();
-			__cam_edit_box_popup_create(obj, menu_item);
+	case CAM_MENU_TYPE_GENLIST_POPUP:
+	case CAM_MENU_TYPE_GENGRID_POPUP: {
+		cam_sound_play_touch_sound();
+		__cam_edit_box_popup_create(obj, menu_item);
 
-			if (ad->main_view_type != CAM_VIEW_STANDBY) {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-			break;
+		if (ad->main_view_type != CAM_VIEW_STANDBY) {
+			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
 		}
-		case CAM_MENU_TYPE_POPUP:
-		{
-			if (ad->main_view_type != CAM_VIEW_STANDBY) {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-
-			__cam_edit_box_set_value_popup_cb(menu_item);
-			break;
+		break;
+	}
+	case CAM_MENU_TYPE_POPUP: {
+		if (ad->main_view_type != CAM_VIEW_STANDBY) {
+			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
 		}
-		case CAM_MENU_TYPE_SWITCH:
-		{
-			if (is_cam_edit_box_sub_help_popup_exist()) {
-				cam_edit_box_sub_help_popup_destroy();
-			}
 
-			if (ad->main_view_type != CAM_VIEW_MODE) {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-
-			cam_sound_play_touch_sound();
-			cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
-			if (edit_box_instance->selected_done_cb) {
-				edit_box_instance->selected_done_cb(ad);
-			}
-
-			edit_box_instance->tts_switch_menu_id = menu_item;
-			cam_edit_box_update();
-			break;
+		__cam_edit_box_set_value_popup_cb(menu_item);
+		break;
+	}
+	case CAM_MENU_TYPE_SWITCH: {
+		if (is_cam_edit_box_sub_help_popup_exist()) {
+			cam_edit_box_sub_help_popup_destroy();
 		}
-		case CAM_MENU_TYPE_HELP_POPUP:
-		{
-			cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
-			if (edit_box_instance->selected_done_cb) {
-				edit_box_instance->selected_done_cb(ad);
-			}
-			cam_edit_box_update();
-			__cam_edit_box_sub_help_popup_create(menu_item);
-			break;
-		}
-		case CAM_MENU_TYPE_SETTING:
-		{
-			cam_sound_play_touch_sound();
 
-			if (ad->main_view_type == CAM_VIEW_STANDBY) {
-				cam_app_create_main_view(ad, CAM_VIEW_SETTING, NULL);
-			} else {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-			break;
+		if (ad->main_view_type != CAM_VIEW_MODE) {
+			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
 		}
-		default:
-			cam_warning(LOG_CAM, "invalid type %d", menu_item);
-			break;
+
+		cam_sound_play_touch_sound();
+		cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
+		if (edit_box_instance->selected_done_cb) {
+			edit_box_instance->selected_done_cb(ad);
+		}
+
+		edit_box_instance->tts_switch_menu_id = menu_item;
+		cam_edit_box_update();
+		break;
+	}
+	case CAM_MENU_TYPE_HELP_POPUP: {
+		cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
+		if (edit_box_instance->selected_done_cb) {
+			edit_box_instance->selected_done_cb(ad);
+		}
+		cam_edit_box_update();
+		__cam_edit_box_sub_help_popup_create(menu_item);
+		break;
+	}
+	case CAM_MENU_TYPE_SETTING: {
+		cam_sound_play_touch_sound();
+
+		if (ad->main_view_type == CAM_VIEW_STANDBY) {
+			cam_app_create_main_view(ad, CAM_VIEW_SETTING, NULL);
+		} else {
+			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
+		}
+		break;
+	}
+	default:
+		cam_warning(LOG_CAM, "invalid type %d", menu_item);
+		break;
 	}
 
 	return;
@@ -566,7 +563,7 @@ static Eina_Bool __cam_edit_box_popup_selected_idler(void *data)
 		if (menu_item == item) {
 			cam_edit_box_popup_destroy();
 		}
-	} else{
+	} else {
 		cam_edit_box_popup_destroy();
 	}
 
@@ -582,22 +579,22 @@ static void __cam_edit_box_popup_selected_cb(Evas_Object *pos_obj, CAM_MENU_ITEM
 
 	switch (menu_item) {
 		/*show sub gengrid popup*/
-		case CAM_MENU_RECORDING_MODE_FAST:
-		case CAM_MENU_RECORDING_MODE_SLOW:
-			__cam_edit_box_sub_popup_create(pos_obj, menu_item);
-			break;
+	case CAM_MENU_RECORDING_MODE_FAST:
+	case CAM_MENU_RECORDING_MODE_SLOW:
+		__cam_edit_box_sub_popup_create(pos_obj, menu_item);
+		break;
 		/*popup_destroy*/
-		case CAM_MENU_EMPTY:
-			if (edit_box_instance->selected_done_cb) {
-				edit_box_instance->selected_done_cb(edit_box_instance->ad);
-			}
-			cam_edit_box_update();
-			cam_edit_box_popup_destroy();
-			break;
+	case CAM_MENU_EMPTY:
+		if (edit_box_instance->selected_done_cb) {
+			edit_box_instance->selected_done_cb(edit_box_instance->ad);
+		}
+		cam_edit_box_update();
+		cam_edit_box_popup_destroy();
+		break;
 		/*set value*/
-		default:
-			REMOVE_TIMER(edit_box_instance->box_popup_timer);
-			edit_box_instance->box_popup_timer = ecore_timer_add(0.1, __cam_edit_box_popup_selected_idler, (void *)menu_item);
+	default:
+		REMOVE_TIMER(edit_box_instance->box_popup_timer);
+		edit_box_instance->box_popup_timer = ecore_timer_add(0.1, __cam_edit_box_popup_selected_idler, (void *)menu_item);
 	}
 
 
@@ -673,9 +670,9 @@ static void __cam_edit_box_popup_create(Evas_Object *obj, int menu_item)
 	}
 
 	edit_box_instance->box_popup = cam_gengrid_popup_create(obj,
-										menu_item,
-										__cam_edit_box_popup_selected_cb,
-										cam_edit_box_popup_destroy);
+	                               menu_item,
+	                               __cam_edit_box_popup_selected_cb,
+	                               cam_edit_box_popup_destroy);
 	cam_retm_if(edit_box_instance->box_popup == NULL, "edit_box_instance is NULL");
 	cam_debug(LOG_CAM, "end");
 }
@@ -780,9 +777,9 @@ void __cam_edit_box_sub_popup_create(Evas_Object *pos_obj, int menu_item)
 	}
 
 	edit_box_instance->box_sub_popup = cam_gengrid_popup_create(NULL,
-											menu_item,
-											__cam_edit_box_sub_popup_selected_cb,
-											cam_edit_box_sub_popup_destroy);
+	                                   menu_item,
+	                                   __cam_edit_box_sub_popup_selected_cb,
+	                                   cam_edit_box_sub_popup_destroy);
 	cam_retm_if(edit_box_instance->box_sub_popup == NULL, "box_popup is null");
 	cam_debug(LOG_CAM, "end");
 }
@@ -871,7 +868,7 @@ __cam_edit_box_dnd_icon_create(Evas_Object *icon, Evas_Object *win, Evas_Coord *
 
 	evas_object_resize(drag_icon, w, h);
 	cam_debug(LOG_CAM, "drag_icon %x, orgxy(%d,%d), xywh(%d,%d,%d,%d)",
-		drag_icon, xm, ym, *xoff, *yoff, w, h);
+	          drag_icon, xm, ym, *xoff, *yoff, w, h);
 
 	return drag_icon;
 }
@@ -988,7 +985,7 @@ void __cam_edit_box_dnd_box_empty_item_pos_cb(void *data, Evas_Object *obj, Evas
 	btn_x = btn_y = btn_w = btn_h = 0;
 	evas_object_geometry_get(edit_box_instance->dnd_empty_button, &btn_x, &btn_y, &btn_w, &btn_h);
 	if (edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE
-	|| edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+	        || edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 		if (y > btn_y && y < (btn_y + btn_h)) {
 			cam_debug(LOG_CAM, "y keep same");
 			return;
@@ -1009,16 +1006,16 @@ void __cam_edit_box_dnd_box_empty_item_pos_cb(void *data, Evas_Object *obj, Evas
 		evas_object_geometry_get(loop_button, &btn_x, &btn_y, &btn_w, &btn_h);
 		button_type = (CAM_MENU_ITEM)evas_object_data_get(loop_button, "button_type");
 		cam_debug(LOG_CAM, "button_type %d, xywh(%d,%d,%d,%d), xy(%d,%d) xw,yh(%d,%d)",
-			button_type, btn_x, btn_y, btn_w, btn_h, (btn_x + btn_w), (btn_y + btn_h));
+		          button_type, btn_x, btn_y, btn_w, btn_h, (btn_x + btn_w), (btn_y + btn_h));
 
 		if (edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE
-		|| edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
-			if (y < (btn_y + btn_h/2)) {
+		        || edit_box_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+			if (y < (btn_y + btn_h / 2)) {
 				cam_debug(LOG_CAM, "y pack before %d", button_type);
 				break;
 			}
 		} else {
-			if (x < (btn_x + btn_w/2)) {
+			if (x < (btn_x + btn_w / 2)) {
 				cam_debug(LOG_CAM, "x pack before %d", button_type);
 				break;
 			}
@@ -1102,8 +1099,8 @@ static void __cam_edit_box_dnd_box_item_drag_start(void *data)
 	cam_debug(LOG_UI, "drag_data %s", drag_data);
 
 	elm_drag_start(btn, ELM_SEL_FORMAT_TEXT, drag_data, ELM_XDND_ACTION_COPY,
-		__cam_edit_box_dnd_box_item_icon_create, btn,
-		NULL, NULL, NULL, NULL, __cam_edit_box_dnd_box_item_dragdone, btn);
+	               __cam_edit_box_dnd_box_item_icon_create, btn,
+	               NULL, NULL, NULL, NULL, __cam_edit_box_dnd_box_item_dragdone, btn);
 	IF_FREE(drag_data);
 
 	/*change button to empty button*/
@@ -1203,7 +1200,7 @@ void __cam_edit_box_dnd_box_full_item_pos_cb(void *data, Evas_Object *obj, Evas_
 		button_type = (CAM_MENU_ITEM)evas_object_data_get(loop_button, "button_type");
 
 		cam_debug(LOG_CAM, "button_type %d, xywh(%d,%d,%d,%d), xy(%d,%d) xw,yh(%d,%d)",
-			button_type, btn_x, btn_y, btn_w, btn_h, (btn_x + btn_w), (btn_y + btn_h));
+		          button_type, btn_x, btn_y, btn_w, btn_h, (btn_x + btn_w), (btn_y + btn_h));
 
 		if (x >= btn_x && x <= btn_x + btn_w && y >= btn_y && y <= btn_y + btn_h) {
 			cam_debug(LOG_CAM, "full_item_enter button_type %d", button_type);
@@ -1253,11 +1250,11 @@ static gboolean __cam_edit_box_dnd_check_status()
 	cam_debug(LOG_CAM, "START");
 
 	if (edit_box_instance->drag_icon
-		|| edit_box_instance->dnd_empty_button
-		|| edit_box_instance->dnd_full_target) {
+	        || edit_box_instance->dnd_empty_button
+	        || edit_box_instance->dnd_full_target) {
 		cam_debug(LOG_CAM, "drag now... drag_icon %x, dnd_empty_button %x, dnd_full_target %x",
-			edit_box_instance->drag_icon, edit_box_instance->dnd_empty_button,
-			edit_box_instance->dnd_full_target);
+		          edit_box_instance->drag_icon, edit_box_instance->dnd_empty_button,
+		          edit_box_instance->dnd_full_target);
 		return TRUE;
 	}
 
@@ -1280,10 +1277,10 @@ static gboolean __cam_edit_box_dnd_destroy()
 
 	/*drop item into box*/
 	elm_drop_target_del(edit_box_instance->dnd_drop_layout, ELM_SEL_FORMAT_TEXT,
-			__cam_edit_box_dnd_box_enter_cb, NULL,
-			__cam_edit_box_dnd_box_leave_cb, NULL,
-			__cam_edit_box_dnd_box_pos_cb, NULL,
-			__cam_edit_box_dnd_box_drop_cb, NULL);
+	                    __cam_edit_box_dnd_box_enter_cb, NULL,
+	                    __cam_edit_box_dnd_box_leave_cb, NULL,
+	                    __cam_edit_box_dnd_box_pos_cb, NULL,
+	                    __cam_edit_box_dnd_box_drop_cb, NULL);
 
 	DEL_EVAS_OBJECT(edit_box_instance->dnd_empty_button);
 	return TRUE;
@@ -1298,10 +1295,10 @@ static gboolean __cam_edit_box_dnd_create(Cam_Edit_Box *edit_box_instance)
 
 	/*drop item into box*/
 	elm_drop_target_add(edit_box_instance->dnd_drop_layout, ELM_SEL_FORMAT_TEXT,
-			__cam_edit_box_dnd_box_enter_cb, NULL,
-			__cam_edit_box_dnd_box_leave_cb, NULL,
-			__cam_edit_box_dnd_box_pos_cb, NULL,
-			__cam_edit_box_dnd_box_drop_cb, NULL);
+	                    __cam_edit_box_dnd_box_enter_cb, NULL,
+	                    __cam_edit_box_dnd_box_leave_cb, NULL,
+	                    __cam_edit_box_dnd_box_pos_cb, NULL,
+	                    __cam_edit_box_dnd_box_drop_cb, NULL);
 
 	return TRUE;
 }
@@ -1321,8 +1318,8 @@ gboolean cam_edit_box_select_recreate(int select_item, int sub_popup_type, int s
 
 
 	if (CAM_MENU_TYPE_GENLIST_POPUP == select_type
-		|| CAM_MENU_TYPE_SUB_GENLIST_POPUP == select_type
-		|| CAM_MENU_TYPE_GENGRID_POPUP == select_type) {
+	        || CAM_MENU_TYPE_SUB_GENLIST_POPUP == select_type
+	        || CAM_MENU_TYPE_GENGRID_POPUP == select_type) {
 		cam_debug(LOG_UI, "recreate box gengrid");
 		REMOVE_TIMER(edit_box_instance->show_sub_timer);
 		edit_box_instance->show_sub_timer = ecore_timer_add(0.3, __cam_edit_box_show_popup_timer, (void *)select_obj);
@@ -1396,7 +1393,7 @@ gboolean cam_edit_box_create(Evas_Object *parent, void *data, box_selected_done_
 		cam_standby_view_mode_text_destroy();
 	}
 
-/*	cam_standby_view_effects_button_destroy();*/
+	/*	cam_standby_view_effects_button_destroy();*/
 	edit_box_instance->parent = edit_box_instance->ad->main_layout;
 	edit_box_instance->selected_done_cb = func;
 	edit_box_instance->tts_switch_menu_id = CAM_MENU_EMPTY;
@@ -1517,7 +1514,7 @@ void cam_edit_box_update_by_config()
 	CAM_MENU_ITEM box_item_type = CAM_MENU_EMPTY;
 	Evas_Object *new_btn = NULL;
 	int i = 0;
-	char buf[16+1] = { '\0', };
+	char buf[16 + 1] = { '\0', };
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
 	cam_retm_if(ad == NULL, "ad is NULL");
 
@@ -1626,14 +1623,17 @@ int cam_edit_box_get_selected_menu_type()
 	cam_retvm_if(edit_box_instance == NULL, 0, "edit_box_instance is NULL");
 	cam_retvm_if(edit_box_instance->edit_box == NULL, 0, "edit_box is NULL");
 
-	if (is_cam_edit_box_sub_popup_exist())
+	if (is_cam_edit_box_sub_popup_exist()) {
 		return CAM_MENU_TYPE_SUB_GENLIST_POPUP;
+	}
 
-	if (is_cam_edit_box_popup_exist())
+	if (is_cam_edit_box_popup_exist()) {
 		return CAM_MENU_TYPE_GENGRID_POPUP;
+	}
 
-	if (is_cam_edit_box_sub_help_popup_exist())
+	if (is_cam_edit_box_sub_help_popup_exist()) {
 		return CAM_MENU_TYPE_HELP_POPUP;
+	}
 
 	return CAM_MENU_TYPE_MAX;
 }

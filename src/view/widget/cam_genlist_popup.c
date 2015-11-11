@@ -78,10 +78,12 @@ char *__cam_genlist_popup_gl_text_sr_cb(void *data, Evas_Object *obj)
 	char get_stringID[128] = {0};
 	int length_1 = strlen(dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_BY_P2SD_TTS"));
 	int length_2 = strlen(dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_TO_P2SD_RATIO_TTS"));
-	if (length_1 + 1 <= 256)
+	if (length_1 + 1 <= 256) {
 		strncpy(temp_string_1, dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_BY_P2SD_TTS"), length_1);
-	if (length_2 + 1 <= 256)
+	}
+	if (length_2 + 1 <= 256) {
 		strncpy(temp_string_2, dgettext(PACKAGE, "IDS_CAM_OPT_P1SD_TO_P2SD_RATIO_TTS"), length_2);
+	}
 	switch (genlist_item->type) {
 	case CAM_MENU_PHOTO_RESOLUTION_1600x1200:
 		snprintf(sr_string_1, 256, temp_string_1, 1600, 1200);
@@ -101,8 +103,9 @@ char *__cam_genlist_popup_gl_text_sr_cb(void *data, Evas_Object *obj)
 	default:
 		cam_get_menu_item_text(genlist_item->type, get_stringID, FALSE);
 		int length_3 = strlen(dgettext(PACKAGE, get_stringID));
-		if (length_3 + 1 <= 256)
+		if (length_3 + 1 <= 256) {
 			strncpy(tts_str, dgettext(PACKAGE, get_stringID), length_3);
+		}
 		break;
 	}
 
@@ -112,16 +115,16 @@ char *__cam_genlist_popup_gl_text_sr_cb(void *data, Evas_Object *obj)
 static char *__cam_genlist_popup_gl_text_get(void *data, Evas_Object *obj, const char *part)
 {
 	cam_genlist_popup_item *genlist_item = (cam_genlist_popup_item *)data;
-		cam_retvm_if(genlist_item == NULL, NULL, "genlist_popup_instance is NULL");
+	cam_retvm_if(genlist_item == NULL, NULL, "genlist_popup_instance is NULL");
 
-		char get_stringID[128] = {0};
+	char get_stringID[128] = {0};
 
-		if (!strcmp(part, "elm.text.main.left")) {
-			cam_get_menu_item_text(genlist_item->type, get_stringID, FALSE);
-			return elm_entry_utf8_to_markup(dgettext(PACKAGE, get_stringID));
-		}
+	if (!strcmp(part, "elm.text.main.left")) {
+		cam_get_menu_item_text(genlist_item->type, get_stringID, FALSE);
+		return elm_entry_utf8_to_markup(dgettext(PACKAGE, get_stringID));
+	}
 
-		return NULL;
+	return NULL;
 }
 
 static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj, const char *part)
@@ -152,22 +155,21 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 		evas_object_size_hint_align_set(radio, EVAS_HINT_FILL, EVAS_HINT_FILL);
 		elm_layout_content_set(content, "elm.swallow.content", radio);
 	} else if (!strcmp(part, "elm.icon.1")) {
-		if((genlist_item->genlist_popup_instance->menu_type)!=CAM_MENU_VOLUME_KEY)
-		{
-		char icon_name[1024+1] = { '\0', };
-		char *get_incon_name = NULL;
-		Evas_Object *icon = NULL;
+		if ((genlist_item->genlist_popup_instance->menu_type) != CAM_MENU_VOLUME_KEY) {
+			char icon_name[1024 + 1] = { '\0', };
+			char *get_incon_name = NULL;
+			Evas_Object *icon = NULL;
 
-		content = elm_layout_add(obj);
-		elm_layout_theme_set(content, "layout", "list/B/type.3", "default");
+			content = elm_layout_add(obj);
+			elm_layout_theme_set(content, "layout", "list/B/type.3", "default");
 
-		get_incon_name = (char *)cam_get_menu_item_image(genlist_item->type, CAM_MENU_STATE_NORMAL);
-		cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
-		strncpy(icon_name, get_incon_name, sizeof(icon_name)-1);
+			get_incon_name = (char *)cam_get_menu_item_image(genlist_item->type, CAM_MENU_STATE_NORMAL);
+			cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
+			strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
 
-		icon = elm_image_add(content);
-		elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
-		elm_layout_content_set(content, "elm.swallow.content", icon);
+			icon = elm_image_add(content);
+			elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
+			elm_layout_content_set(content, "elm.swallow.content", icon);
 		}
 	}
 
@@ -241,10 +243,11 @@ static Eina_Bool __cam_genlist_popup_gl_load_items(Cam_Genlist_Popup *genlist_po
 		genlist_item->type = *menu_item;
 		genlist_item->index = index;
 		genlist_item->item = elm_genlist_item_append(genlist_popup_instance->genlist, &(genlist_popup_instance->genlist_itc), (void *)genlist_item,
-									NULL, ELM_GENLIST_ITEM_NONE, __cam_genlist_popup_gl_selected_cb, (void *)genlist_item);
+		                     NULL, ELM_GENLIST_ITEM_NONE, __cam_genlist_popup_gl_selected_cb, (void *)genlist_item);
 #ifdef CAMERA_MACHINE_I686
-		if((genlist_item->type == CAM_MENU_VOLUME_KEY_ZOOM)&&(genlist_item->index == 0))
+		if ((genlist_item->type == CAM_MENU_VOLUME_KEY_ZOOM) && (genlist_item->index == 0)) {
 			elm_object_item_disabled_set(genlist_item->item, EINA_TRUE);
+		}
 #endif
 		/*if((genlist_item->index==0)&&(size==1))
 			elm_object_item_disabled_set(genlist_item->item, EINA_TRUE);*/

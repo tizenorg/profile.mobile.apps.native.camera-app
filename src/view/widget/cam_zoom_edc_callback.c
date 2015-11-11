@@ -35,7 +35,7 @@ static Ecore_Timer *zoom_destroy_timer = NULL;
 static Ecore_Timer *zoom_pressing_timer = NULL;
 
 
-static int zoom_value[CAM_ZOOM_VALUE_MAX+1] = { 0 };
+static int zoom_value[CAM_ZOOM_VALUE_MAX + 1] = { 0 };
 
 static Eina_Bool __zoom_destroy_timer_cb(void *data);
 static void __set_zoom_value(struct appdata *data, int zoom_level);
@@ -191,7 +191,7 @@ static void __zoom_plus_pressed_up_cb(void *data, Evas *e, Evas_Object *obj, voi
 
 	if (zoom_destroy_timer) {
 		ecore_timer_reset(zoom_destroy_timer);
-	
+
 	}
 }
 
@@ -509,18 +509,20 @@ gboolean cam_zoom_in(struct appdata *ad, gboolean is_zoom_in, int zoom_gap)
 	zoom_value = camapp->zoom_mode;
 
 	if (is_zoom_in) {
-		if (zoom_value < camapp->zoom_max)
+		if (zoom_value < camapp->zoom_max) {
 			zoom_value += zoom_gap;
+		}
 	} else {
-		if (zoom_value > camapp->zoom_min)
+		if (zoom_value > camapp->zoom_min) {
 			zoom_value -= zoom_gap;
+		}
 	}
 	cam_debug(LOG_CAM, "zoom_value = %d", zoom_value);
 
 	__set_zoom_value(ad, zoom_value);
 
 	if (ad->zoom_edje == NULL &&
-		((ad->main_view_type == CAM_VIEW_STANDBY) || (ad->main_view_type == CAM_VIEW_RECORD))) {
+	        ((ad->main_view_type == CAM_VIEW_STANDBY) || (ad->main_view_type == CAM_VIEW_RECORD))) {
 		cam_zoom_load_edje(ad);
 	} else {
 		cam_zoom_update(ad);
@@ -583,7 +585,7 @@ static void __set_gauge_focus(struct appdata *data)
 	};
 
 	if ((camapp->zoom_mode >= camapp->zoom_min)
-		&& (camapp->zoom_mode <= camapp->zoom_max)) {
+	        && (camapp->zoom_mode <= camapp->zoom_max)) {
 		cam_elm_object_signal_emit(ad->pinch_edje, part_name[camapp->zoom_mode], "prog");
 	} else {
 		cam_debug(LOG_CAM, "NOTE: error zoom mode");

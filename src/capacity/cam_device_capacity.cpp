@@ -19,7 +19,7 @@
 
 extern "C" {
 
-void	ResetCaps()
+void ResetCaps()
 {
 	CCamDeviceCapacity::GetInstance()->ResetCaps();
 }

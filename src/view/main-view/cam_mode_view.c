@@ -258,8 +258,8 @@ static void __cam_mode_view_auto_mode_image_create_layout(Evas_Object *parent)
 	cam_debug(LOG_CAM, "START");
 
 	Evas_Object *layout = cam_app_load_edj(parent,
-							CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
-							"shooting_mode/automode/layout");
+	                                       CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
+	                                       "shooting_mode/automode/layout");
 
 	elm_object_part_content_set(parent, "auto_mode_image", layout);
 

@@ -366,8 +366,9 @@ static bool __cam_file_get_cam_file_thumbnail_path_cb(media_info_h item, void *u
 {
 	char **thumbnail_path = (char **) user_data;
 
-	if (thumbnail_path == NULL)
+	if (thumbnail_path == NULL) {
 		return FALSE;
+	}
 
 	if (media_info_get_thumbnail_path(item, thumbnail_path) != MEDIA_CONTENT_ERROR_NONE) {
 		cam_critical(LOG_CAM, "get thumbnail path error");
@@ -409,8 +410,8 @@ char *cam_file_get_cam_storage_folder_id(const gchar *storage_root)
 
 	char *folder_uuid = NULL;
 	ret = media_folder_foreach_folder_from_db(filter,
-						__cam_file_get_storage_folder_id_cb,
-						&folder_uuid);
+	        __cam_file_get_storage_folder_id_cb,
+	        &folder_uuid);
 	if (ret != MEDIA_CONTENT_ERROR_NONE) {
 		goto ERROR_THROW;
 	}
@@ -426,8 +427,9 @@ char *cam_file_get_cam_storage_folder_id(const gchar *storage_root)
 	}
 
 ERROR_THROW:
-	if (filter)
+	if (filter) {
 		media_filter_destroy(filter);
+	}
 	filter = NULL;
 	return NULL;
 }
@@ -549,11 +551,12 @@ gchar *cam_file_get_next_filename(const gchar *storage_root,
 	}
 
 	snprintf(target, sizeof(target), "%s/%04i%02i%02i-%02i%02i%02i",
-		 storage_root,
-		 tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
-		 tm.tm_hour, tm.tm_min, tm.tm_sec);
-	if (strlen(target) + strlen(suffix) + 1 <= CAM_FILE_PATH_MAX)
+	         storage_root,
+	         tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+	         tm.tm_hour, tm.tm_min, tm.tm_sec);
+	if (strlen(target) + strlen(suffix) + 1 <= CAM_FILE_PATH_MAX) {
 		strncat(target, suffix, strlen(suffix));
+	}
 
 	while (bFinal == FALSE) {
 		if (!cam_file_check_exists(target)) {
@@ -561,11 +564,12 @@ gchar *cam_file_get_next_filename(const gchar *storage_root,
 		} else {
 			cnt++;
 			snprintf(target, sizeof(target), "%s/%04i%02i%02i-%02i%02i%02i_%d",
-				 storage_root,
-				 tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
-				 tm.tm_hour, tm.tm_min, tm.tm_sec, cnt);
-			if (strlen(target) + strlen(suffix) + 1 <= CAM_FILE_PATH_MAX)
+			         storage_root,
+			         tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+			         tm.tm_hour, tm.tm_min, tm.tm_sec, cnt);
+			if (strlen(target) + strlen(suffix) + 1 <= CAM_FILE_PATH_MAX) {
 				strncat(target, suffix, strlen(suffix));
+			}
 			bFinal = FALSE;
 		}
 	}

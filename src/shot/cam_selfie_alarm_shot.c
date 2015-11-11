@@ -60,7 +60,7 @@ static gboolean __selfie_shot_face_beauty_init()
 {
 	cam_debug(LOG_UI,  "start");
 
-        gboolean ret = FALSE;
+	gboolean ret = FALSE;
 	if (cam_ext_face_beauty_api_handle != NULL) {
 		__selfie_shot_face_beauty_destroy();
 	}
@@ -73,15 +73,15 @@ static gboolean __selfie_shot_face_beauty_destroy()
 	cam_debug(LOG_UI,  "start");
 	gboolean ret = FALSE;
 
-	if(cam_ext_face_beauty_api_handle == NULL) {
-		cam_warning(LOG_UI,  "cam_ext_face_beauty_api_handle is null" );
+	if (cam_ext_face_beauty_api_handle == NULL) {
+		cam_warning(LOG_UI,  "cam_ext_face_beauty_api_handle is null");
 		return FALSE;
 	}
 
 
 	if (ret == FALSE) {
 		cam_critical(LOG_SYS, "cam_beauty_face_engine_destroy fail");
-		
+
 	}
 	return FALSE;
 
@@ -125,7 +125,7 @@ static gboolean  __selfie_photo_shot_write_file(void *data, int size, int index,
 	int ret = 0;
 	if (fd == NULL) {
 		char *local_path = camapp->storage == CAM_STORAGE_INTERNAL ? SELFIE_PHOTO_INTERNAL_FILE_PATH : SELFIE_PHOTO_EXTERNAL_FILE_PATH;
-		if (mkdir(local_path, S_IRUSR | S_IWUSR | S_IXUSR)<0) {
+		if (mkdir(local_path, S_IRUSR | S_IWUSR | S_IXUSR) < 0) {
 			cam_critical(LOG_FILE, "mkdir(for origin) is failed");
 		}
 		local_path = camapp->storage == CAM_STORAGE_INTERNAL ? SELFIE_PHOTO_INTERNAL_FILE_THUMB_PATH : SELFIE_PHOTO_EXTERNAL_FILE_THUMB_PATH;
@@ -261,9 +261,9 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 	unsigned char *destBuffer = NULL;
 
 	gchar *thumbnail_filename = cam_file_get_next_filename_for_multishot(camapp->storage == CAM_STORAGE_INTERNAL ? SELFIE_PHOTO_INTERNAL_FILE_THUMB_PATH : SELFIE_PHOTO_EXTERNAL_FILE_THUMB_PATH,
-								(const gchar *)thumbnail_first_filename,
-								(const gint)index,
-								(const gchar *)"_bestshot.jpg");
+	                            (const gchar *)thumbnail_first_filename,
+	                            (const gint)index,
+	                            (const gchar *)"_bestshot.jpg");
 	if (thumbnail_filename == NULL) {
 		cam_critical(LOG_UI, "thumbnail_filename get failed");
 		if (selfie_photo_thumbnail_buffer[index] != NULL) {
@@ -274,7 +274,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 	}
 
 	if (direction == CAM_TARGET_DIRECTION_LANDSCAPE) {
-		if(__selfie_photo_shot_write_file(data, size, index, thumbnail_filename)) {
+		if (__selfie_photo_shot_write_file(data, size, index, thumbnail_filename)) {
 			thumbnail_names[index] = thumbnail_filename;
 		}
 		if (selfie_photo_thumbnail_buffer[index] != NULL) {
@@ -305,15 +305,17 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 	switch (direction) {
 	case CAM_TARGET_DIRECTION_PORTRAIT:
 		if (camapp->save_as_flip == TRUE) {
-			if (camapp->self_portrait == TRUE)
+			if (camapp->self_portrait == TRUE) {
 				source_degree = IMAGE_UTIL_ROTATION_90;
-			else
+			} else {
 				source_degree = IMAGE_UTIL_ROTATION_270;
+			}
 		} else {
-			if (camapp->self_portrait == TRUE)
+			if (camapp->self_portrait == TRUE) {
 				source_degree = IMAGE_UTIL_ROTATION_270;
-			else
+			} else {
 				source_degree = IMAGE_UTIL_ROTATION_90;
+			}
 		}
 		break;
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
@@ -321,15 +323,17 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
 		if (camapp->save_as_flip == TRUE) {
-			if (camapp->self_portrait == TRUE)
+			if (camapp->self_portrait == TRUE) {
 				source_degree = IMAGE_UTIL_ROTATION_270;
-			else
+			} else {
 				source_degree = IMAGE_UTIL_ROTATION_90;
+			}
 		} else {
-			if (camapp->self_portrait == TRUE)
+			if (camapp->self_portrait == TRUE) {
 				source_degree = IMAGE_UTIL_ROTATION_90;
-			else
+			} else {
 				source_degree = IMAGE_UTIL_ROTATION_270;
+			}
 		}
 		break;
 	default:
@@ -347,7 +351,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 	}
 	void * get_buf = NULL;
 	ret = image_util_encode_jpeg_to_memory(destBuffer, dest_width, dest_height,  IMAGE_UTIL_COLORSPACE_RGB888, 90, (unsigned char **)&get_buf, (unsigned int*)(&dest_size));
-	if (ret != 0 ) {
+	if (ret != 0) {
 		cam_critical(LOG_UI, "image_util_encode_jpeg failed %d", ret);
 		IF_FREE(destBuffer);
 		IF_FREE(tempBuffer);
@@ -386,9 +390,9 @@ gboolean cam_selfie_alarm_shot_complete(void *data)
 		IF_FREE(final_images[index]);
 		if (selfie_photo_image_buffer[index] != NULL && selfie_photo_image_buffer[index]->data != NULL) {
 			final_images[index] = cam_file_get_next_filename_for_multishot(camapp->storage == CAM_STORAGE_INTERNAL ? SELFIE_PHOTO_INTERNAL_FILE_PATH : SELFIE_PHOTO_EXTERNAL_FILE_PATH,
-										(const gchar *)thumbnail_first_filename,
-										(const gint)index,
-										(const gchar *)".jpg");
+			                      (const gchar *)thumbnail_first_filename,
+			                      (const gint)index,
+			                      (const gchar *)".jpg");
 			cam_secure_debug(LOG_SYS, "#########camapp->filename=%s, %d", final_images[index], index);
 			__selfie_photo_shot_write_file(selfie_photo_image_buffer[index]->data, selfie_photo_image_buffer[index]->size, 0, final_images[index]);
 		}
@@ -399,7 +403,7 @@ gboolean cam_selfie_alarm_shot_complete(void *data)
 			}
 			if (image_direction != CAM_TARGET_DIRECTION_LANDSCAPE && selfie_photo_thumbnail_buffer[index] != NULL) {
 				__selfie_photo_shot_write_file(selfie_photo_thumbnail_buffer[index]->data,  selfie_photo_thumbnail_buffer[index]->size,
-					index, thumbnail_names[index]);
+				                               index, thumbnail_names[index]);
 				IF_FREE(selfie_photo_thumbnail_buffer[index]->data);
 				IF_FREE(selfie_photo_thumbnail_buffer[index]);
 			}
@@ -464,7 +468,7 @@ void cam_selfie_alarm_shot_capture_callback(camera_image_data_s *image,
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retm_if(camapp == NULL, "camapp is NULL");
 	if (ad->app_state == CAM_APP_TERMINATE_STATE
-		|| ad->app_state == CAM_APP_PAUSE_STATE) {
+	        || ad->app_state == CAM_APP_PAUSE_STATE) {
 		cam_critical(LOG_CAM, "ERROR - camera is paused");
 		return;
 	}
