@@ -53,7 +53,7 @@ gboolean cam_video_record_start(void *data)
 		cam_critical(LOG_MM, "cam_mm_set_tag_video_orient failed");
 	}
 
-/* flash on */
+	/* flash on */
 	if (camapp->flash == CAM_FLASH_ON) {
 		if (!cam_mm_set_flash(CAM_FLASH_MOVIE_ON)) {
 			cam_critical(LOG_MM, "cam_mm_set_flash failed");
@@ -64,10 +64,10 @@ gboolean cam_video_record_start(void *data)
 		}
 	}
 
-/* set sound path for recording MIC */
+	/* set sound path for recording MIC */
 	cam_sound_set_mic();
 
-/* mm rec */
+	/* mm rec */
 	if (!cam_mm_rec_start()) {
 		cam_critical(LOG_MM, "cam_mm_rec_start failed");
 		if (cam_mm_get_error() == RECORDER_ERROR_OUT_OF_STORAGE) {
@@ -78,7 +78,7 @@ gboolean cam_video_record_start(void *data)
 		return FALSE;
 	}
 
-/* set recording state */
+	/* set recording state */
 	ad->is_recording = TRUE;
 	camapp->rec_elapsed = 0;
 	camapp->rec_filesize = 0;
@@ -134,8 +134,9 @@ gboolean cam_video_record_pause(void *data)
 	cam_warning(LOG_UI, "record pause");
 	gint flash = camapp->flash;
 
-	if (flash == CAM_FLASH_ON)
+	if (flash == CAM_FLASH_ON) {
 		flash = CAM_FLASH_OFF;
+	}
 
 	if (!cam_mm_set_flash(flash)) {
 		cam_critical(LOG_UI, "cam_mm_set_flash failed");
@@ -201,16 +202,16 @@ gboolean cam_video_record_cancel(void *data)
 	camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
-/*mm stop rec */
+	/*mm stop rec */
 	if (!cam_mm_rec_cancel()) {
 		cam_critical(LOG_MM, "cam_mm_rec_cancel failed");
 	}
 
 	/* change to camera mode*/
-		/*
-		*	TODO: if for any reason, not run here, there will be caused now now recording, but in record mode
-		*	So: I suggest while click capture button: judge now state and whether recording.
-		*/
+	/*
+	*	TODO: if for any reason, not run here, there will be caused now now recording, but in record mode
+	*	So: I suggest while click capture button: judge now state and whether recording.
+	*/
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_NORMAL) {
 		if (ad->app_state != CAM_APP_PAUSE_STATE) {/*if now is pause state, so do not set mode, just set while resume*/
@@ -264,8 +265,9 @@ gboolean cam_rec_save_and_register_video_file(void *data)
 
 		int ret = 0;
 		ret = rename(tmp_file, filename);
-		if ( ret != 0)
+		if (ret != 0) {
 			cam_critical(LOG_FILE, "rename is error %d", ret);
+		}
 
 		sync();
 		IF_FREE(camapp->filename);
@@ -349,13 +351,13 @@ Eina_Bool cam_video_capture_handle(void *data)
 		break;
 	case CAM_REC_STOP_MAX_SIZE:
 		cam_popup_toast_popup_create(ad,
-				dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
-				NULL);
+		                             dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
+		                             NULL);
 		break;
 	case CAM_REC_STOP_TIME_LIMIT:
 		cam_popup_toast_popup_create(ad,
-						dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
-						NULL);
+		                             dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
+		                             NULL);
 		break;
 	case CAM_REC_STOP_NO_SPACE:
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_VIDEOMEMORYFULL"), NULL);

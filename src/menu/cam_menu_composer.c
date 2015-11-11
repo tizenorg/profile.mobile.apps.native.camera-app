@@ -25,73 +25,78 @@
 #include <storage.h>
 
 const CAM_MENU_ITEM setting_rear[] = { CAM_MENU_PHOTO_RESOLUTION,
-					CAM_MENU_VIDEO_RESOLUTION,
-					CAM_MENU_TAP_SHOT,
-					CAM_MENU_GPS_TAG,
-					CAM_MENU_STORAGE,
-					CAM_MENU_VOLUME_KEY,
-					CAM_MENU_RESET
-				};
+                                       CAM_MENU_VIDEO_RESOLUTION,
+                                       CAM_MENU_TAP_SHOT,
+                                       CAM_MENU_GPS_TAG,
+                                       CAM_MENU_STORAGE,
+                                       CAM_MENU_VOLUME_KEY,
+                                       CAM_MENU_RESET
+                                     };
 
 const CAM_MENU_ITEM setting_front[] = {	CAM_MENU_PHOTO_RESOLUTION,
-					CAM_MENU_VIDEO_RESOLUTION,
-				};
+                                        CAM_MENU_VIDEO_RESOLUTION,
+                                      };
 
 const CAM_MENU_ITEM scene_mode[] = {CAM_MENU_SCENE_AUTO		, CAM_MENU_SCENE_PORTRAIT	, CAM_MENU_SCENE_LANDSCAPE	, CAM_MENU_SCENE_NIGHT	, CAM_MENU_SCENE_SPORTS
-								, CAM_MENU_SCENE_PARTY		, CAM_MENU_SCENE_BEACHSNOW	, CAM_MENU_SCENE_SUNSET		, CAM_MENU_SCENE_DUSKDAWN, CAM_MENU_SCENE_FALL
-								, CAM_MENU_SCENE_FIREWORK	, CAM_MENU_SCENE_TEXT		, CAM_MENU_SCENE_CANDLELIGHT, CAM_MENU_SCENE_BACKLIGHT, CAM_MENU_SCENE_SHOW_WINDOW};
+                                    , CAM_MENU_SCENE_PARTY		, CAM_MENU_SCENE_BEACHSNOW	, CAM_MENU_SCENE_SUNSET		, CAM_MENU_SCENE_DUSKDAWN, CAM_MENU_SCENE_FALL
+                                    , CAM_MENU_SCENE_FIREWORK	, CAM_MENU_SCENE_TEXT		, CAM_MENU_SCENE_CANDLELIGHT, CAM_MENU_SCENE_BACKLIGHT, CAM_MENU_SCENE_SHOW_WINDOW
+                                   };
 
 const CAM_MENU_ITEM shooting_mode[] = { CAM_MENU_SHOOTING_SINGLE,
-										CAM_MENU_SHOOTING_SOUND,
-										CAM_MENU_SHOOTING_PX,			/*10*/
-										CAM_MENU_SHOOTING_AUTO_PORTRAIT,
-										CAM_MENU_SHOOTING_SPORTS,
-										CAM_MENU_SHOOTING_AUTO,		/*15*/
-										CAM_MENU_SHOOTING_SELF_SINGLE,
-										CAM_MENU_SHOOTING_SELF_AUTO,
-										CAM_MENU_SHOOTING_SELF_SOUND,
-										};
+                                        CAM_MENU_SHOOTING_SOUND,
+                                        CAM_MENU_SHOOTING_PX,			/*10*/
+                                        CAM_MENU_SHOOTING_AUTO_PORTRAIT,
+                                        CAM_MENU_SHOOTING_SPORTS,
+                                        CAM_MENU_SHOOTING_AUTO,		/*15*/
+                                        CAM_MENU_SHOOTING_SELF_SINGLE,
+                                        CAM_MENU_SHOOTING_SELF_AUTO,
+                                        CAM_MENU_SHOOTING_SELF_SOUND,
+                                      };
 
 const CAM_MENU_ITEM recording_mode[] = {CAM_MENU_RECORDING_MODE_NORMAL,			CAM_MENU_RECORDING_MODE_LIMIT,		CAM_MENU_RECORDING_MODE_SLOW,	CAM_MENU_RECORDING_MODE_FAST,
-										CAM_MENU_RECORDING_MODE_SELF_NORMAL,	CAM_MENU_RECORDING_MODE_SELF_LIMIT};
+                                        CAM_MENU_RECORDING_MODE_SELF_NORMAL,	CAM_MENU_RECORDING_MODE_SELF_LIMIT
+                                       };
 
 const CAM_MENU_ITEM photo_resolution[] = {
-					CAM_MENU_PHOTO_RESOLUTION_3264x2448, /*0*/
-					CAM_MENU_PHOTO_RESOLUTION_3264x1836,
-					CAM_MENU_PHOTO_RESOLUTION_2560x1920,
-					CAM_MENU_PHOTO_RESOLUTION_2560x1440,
-					CAM_MENU_PHOTO_RESOLUTION_2448x2448,
-					CAM_MENU_PHOTO_RESOLUTION_2048x1536, /*5*/
-					CAM_MENU_PHOTO_RESOLUTION_2048x1232,
-					CAM_MENU_PHOTO_RESOLUTION_2048x1152,
-					CAM_MENU_PHOTO_RESOLUTION_1920x1080,
-					CAM_MENU_PHOTO_RESOLUTION_1600x1200,
-					CAM_MENU_PHOTO_RESOLUTION_1600x960	,/*10*/
-					CAM_MENU_PHOTO_RESOLUTION_1392x1392,
-					CAM_MENU_PHOTO_RESOLUTION_1280x960,
-					CAM_MENU_PHOTO_RESOLUTION_1280x720,
-					CAM_MENU_PHOTO_RESOLUTION_1056x1056,
-					CAM_MENU_PHOTO_RESOLUTION_720x480,  /*15*/
-					CAM_MENU_PHOTO_RESOLUTION_640x480,
-					CAM_MENU_PHOTO_RESOLUTION_800x450,
-					CAM_MENU_PHOTO_RESOLUTION_800x480};
+	CAM_MENU_PHOTO_RESOLUTION_3264x2448, /*0*/
+	CAM_MENU_PHOTO_RESOLUTION_3264x1836,
+	CAM_MENU_PHOTO_RESOLUTION_2560x1920,
+	CAM_MENU_PHOTO_RESOLUTION_2560x1440,
+	CAM_MENU_PHOTO_RESOLUTION_2448x2448,
+	CAM_MENU_PHOTO_RESOLUTION_2048x1536, /*5*/
+	CAM_MENU_PHOTO_RESOLUTION_2048x1232,
+	CAM_MENU_PHOTO_RESOLUTION_2048x1152,
+	CAM_MENU_PHOTO_RESOLUTION_1920x1080,
+	CAM_MENU_PHOTO_RESOLUTION_1600x1200,
+	CAM_MENU_PHOTO_RESOLUTION_1600x960	,/*10*/
+	CAM_MENU_PHOTO_RESOLUTION_1392x1392,
+	CAM_MENU_PHOTO_RESOLUTION_1280x960,
+	CAM_MENU_PHOTO_RESOLUTION_1280x720,
+	CAM_MENU_PHOTO_RESOLUTION_1056x1056,
+	CAM_MENU_PHOTO_RESOLUTION_720x480,  /*15*/
+	CAM_MENU_PHOTO_RESOLUTION_640x480,
+	CAM_MENU_PHOTO_RESOLUTION_800x450,
+	CAM_MENU_PHOTO_RESOLUTION_800x480
+};
 
 const CAM_MENU_ITEM video_resolution[] = {CAM_MENU_VIDEO_RESOLUTION_FULLHD, /*0*/
-										CAM_MENU_VIDEO_RESOLUTION_1440x1080,
-										CAM_MENU_VIDEO_RESOLUTION_1056x1056,
-										CAM_MENU_VIDEO_RESOLUTION_1080x1080,
-										CAM_MENU_VIDEO_RESOLUTION_HD,
-										CAM_MENU_VIDEO_RESOLUTION_WVGA, /*5*/
-										CAM_MENU_VIDEO_RESOLUTION_VGA,
-										CAM_MENU_VIDEO_RESOLUTION_QVGA,
-										CAM_MENU_VIDEO_RESOLUTION_QCIF};
+        CAM_MENU_VIDEO_RESOLUTION_1440x1080,
+        CAM_MENU_VIDEO_RESOLUTION_1056x1056,
+        CAM_MENU_VIDEO_RESOLUTION_1080x1080,
+        CAM_MENU_VIDEO_RESOLUTION_HD,
+        CAM_MENU_VIDEO_RESOLUTION_WVGA, /*5*/
+        CAM_MENU_VIDEO_RESOLUTION_VGA,
+        CAM_MENU_VIDEO_RESOLUTION_QVGA,
+        CAM_MENU_VIDEO_RESOLUTION_QCIF
+                                         };
 
 const CAM_MENU_ITEM wb[] = {CAM_MENU_WB_AWB	, CAM_MENU_WB_DAYLIGHT	, CAM_MENU_WB_CLOUDY	, CAM_MENU_WB_INCANDESCENT	, CAM_MENU_WB_FLUORESCENT};
 
 const CAM_MENU_ITEM effect[] = {CAM_MENU_EFFECT_NONE,
-								CAM_MENU_EFFECT_GREY,
-								CAM_MENU_EFFECT_SEPIA,
-								CAM_MENU_EFFECT_NEGATIVE};
+                                CAM_MENU_EFFECT_GREY,
+                                CAM_MENU_EFFECT_SEPIA,
+                                CAM_MENU_EFFECT_NEGATIVE
+                               };
 
 const CAM_MENU_ITEM focus_mode[] = {CAM_MENU_FOCUS_AUTO	,	CAM_MENU_FOCUS_MACRO	,	CAM_MENU_FOCUS_FACE_DETECTION	};
 
@@ -99,8 +104,9 @@ const CAM_MENU_ITEM flash[] = {CAM_MENU_FLASH_OFF	,	CAM_MENU_FLASH_ON	,	CAM_MENU
 
 const CAM_MENU_ITEM metering[] = {CAM_MENU_METERING_CENTER_WEIGHTED	, CAM_MENU_METERING_MATRIX	, CAM_MENU_METERING_SPOT	};
 
-const CAM_MENU_ITEM iso[] = {CAM_MENU_ISO_AUTO	,	CAM_MENU_ISO_50		,CAM_MENU_ISO_100, 	CAM_MENU_ISO_200
-						,CAM_MENU_ISO_400	,	CAM_MENU_ISO_80O,	CAM_MENU_ISO_1600,	CAM_MENU_ISO_320O};
+const CAM_MENU_ITEM iso[] = {CAM_MENU_ISO_AUTO	,	CAM_MENU_ISO_50		, CAM_MENU_ISO_100, 	CAM_MENU_ISO_200
+                             , CAM_MENU_ISO_400	,	CAM_MENU_ISO_80O,	CAM_MENU_ISO_1600,	CAM_MENU_ISO_320O
+                            };
 
 const CAM_MENU_ITEM shutter_sound[] = {CAM_MENU_SHUTTER_SOUND_OFF,	CAM_MENU_SHUTTER_SOUND_ON};
 
@@ -162,86 +168,85 @@ static void __cam_push_mode_into_array(int mode, cam_menu_composer* composer, in
 unsigned int __get_capacity_mask_by_menu_type(CAM_MENU_ITEM menu_item)
 {
 	unsigned int capacity_mask = CAM_CP_FUNC_NOT_SUPPORT;
-	switch (menu_item)
-	{
-		case CAM_MENU_SELF_PORTRAIT:
-			capacity_mask = CAM_CP_FUNC_SELF_MODE;
-			break;
-		case CAM_MENU_FLASH:
-			capacity_mask = CAM_CP_FUNC_FLASH_MODE;
-			break;
-		case CAM_MENU_SHOOTING_MODE:
-			capacity_mask = CAM_CP_FUNC_SHOT_MODE;
-			break;
-		case CAM_MENU_RECORDING_MODE:
-			capacity_mask = CAM_CP_FUNC_REC_MODE;
-			break;
-		case CAM_MENU_SCENE_MODE:
-			capacity_mask = CAM_CP_FUNC_SCENE_MODE;
-			break;
-		case CAM_MENU_EXPOSURE_VALUE:
-			capacity_mask = CAM_CP_FUNC_EXPOSURE;
-			break;
-		case CAM_MENU_FOCUS_MODE:
-			capacity_mask = CAM_CP_FUNC_FOCUS_MODE;
-			break;
-		case CAM_MENU_EFFECTS:
-			capacity_mask = CAM_CP_FUNC_EFFECT_MODE;
-			break;
-		case CAM_MENU_PHOTO_RESOLUTION:
-			capacity_mask = CAM_CP_FUNC_CAM_RESOLUTION;
-			break;
-		case CAM_MENU_VIDEO_RESOLUTION:
-			capacity_mask = CAM_CP_FUNC_REC_RESOLUTION;
-			break;
-		case CAM_MENU_WHITE_BALANCE:
-			capacity_mask = CAM_CP_FUNC_WHITE_BALANCE;
-			break;
-		case CAM_MENU_ISO:
-			capacity_mask = CAM_CP_FUNC_ISO;
-			break;
-		case CAM_MENU_METERING:
-			capacity_mask = CAM_CP_FUNC_METERING;
-			break;
-		case CAM_MENU_ANTI_SHAKE:
-			capacity_mask = CAM_CP_FUNC_CAM_ANS;
-			break;
-		case CAM_MENU_VIDEO_STABILIZATION:
-			capacity_mask = CAM_CP_FUNC_REC_ANS;
-			break;
-		case CAM_MENU_AUTO_CONTRAST:
-			capacity_mask = CAM_CP_FUNC_AUTO_CONTRAST;
-			break;
-		case CAM_MENU_TAP_SHOT:
-			capacity_mask = CAM_CP_FUNC_TAP_SHOT;
-			break;
-		case CAM_MENU_GPS_TAG:
-			capacity_mask = CAM_CP_FUNC_SUPPORT;
-			break;
-		case CAM_MENU_STORAGE:
-			capacity_mask = CAM_CP_FUNC_SUPPORT;
-			break;
-		case CAM_MENU_FACE_DETECTION:
-			capacity_mask = CAM_CP_FUNC_FACE_DETECTION;
-			break;
-		case CAM_MENU_SHUTTER_SOUND:
-			capacity_mask = CAM_CP_FUNC_NOT_SUPPORT;
-			break;
-		case CAM_MENU_SHORTCUTS:
-		case CAM_MENU_VOLUME_KEY:
-		case CAM_MENU_TIMER:
-		case CAM_MENU_SAVE_AS_FLIP:
-		case CAM_MENU_RESET:
-		case CAM_MENU_REVIEW:
-		case CAM_MENU_MORE_HELP:
-			/* is support, special mask */
-			capacity_mask = CAM_CP_FUNC_SUPPORT;
-			break;
-		default:
-			/* not support, special mask */
-			cam_critical(LOG_CAM, "could not find menu_item %d", menu_item);
-			capacity_mask = CAM_CP_FUNC_NOT_SUPPORT;
-			break;
+	switch (menu_item) {
+	case CAM_MENU_SELF_PORTRAIT:
+		capacity_mask = CAM_CP_FUNC_SELF_MODE;
+		break;
+	case CAM_MENU_FLASH:
+		capacity_mask = CAM_CP_FUNC_FLASH_MODE;
+		break;
+	case CAM_MENU_SHOOTING_MODE:
+		capacity_mask = CAM_CP_FUNC_SHOT_MODE;
+		break;
+	case CAM_MENU_RECORDING_MODE:
+		capacity_mask = CAM_CP_FUNC_REC_MODE;
+		break;
+	case CAM_MENU_SCENE_MODE:
+		capacity_mask = CAM_CP_FUNC_SCENE_MODE;
+		break;
+	case CAM_MENU_EXPOSURE_VALUE:
+		capacity_mask = CAM_CP_FUNC_EXPOSURE;
+		break;
+	case CAM_MENU_FOCUS_MODE:
+		capacity_mask = CAM_CP_FUNC_FOCUS_MODE;
+		break;
+	case CAM_MENU_EFFECTS:
+		capacity_mask = CAM_CP_FUNC_EFFECT_MODE;
+		break;
+	case CAM_MENU_PHOTO_RESOLUTION:
+		capacity_mask = CAM_CP_FUNC_CAM_RESOLUTION;
+		break;
+	case CAM_MENU_VIDEO_RESOLUTION:
+		capacity_mask = CAM_CP_FUNC_REC_RESOLUTION;
+		break;
+	case CAM_MENU_WHITE_BALANCE:
+		capacity_mask = CAM_CP_FUNC_WHITE_BALANCE;
+		break;
+	case CAM_MENU_ISO:
+		capacity_mask = CAM_CP_FUNC_ISO;
+		break;
+	case CAM_MENU_METERING:
+		capacity_mask = CAM_CP_FUNC_METERING;
+		break;
+	case CAM_MENU_ANTI_SHAKE:
+		capacity_mask = CAM_CP_FUNC_CAM_ANS;
+		break;
+	case CAM_MENU_VIDEO_STABILIZATION:
+		capacity_mask = CAM_CP_FUNC_REC_ANS;
+		break;
+	case CAM_MENU_AUTO_CONTRAST:
+		capacity_mask = CAM_CP_FUNC_AUTO_CONTRAST;
+		break;
+	case CAM_MENU_TAP_SHOT:
+		capacity_mask = CAM_CP_FUNC_TAP_SHOT;
+		break;
+	case CAM_MENU_GPS_TAG:
+		capacity_mask = CAM_CP_FUNC_SUPPORT;
+		break;
+	case CAM_MENU_STORAGE:
+		capacity_mask = CAM_CP_FUNC_SUPPORT;
+		break;
+	case CAM_MENU_FACE_DETECTION:
+		capacity_mask = CAM_CP_FUNC_FACE_DETECTION;
+		break;
+	case CAM_MENU_SHUTTER_SOUND:
+		capacity_mask = CAM_CP_FUNC_NOT_SUPPORT;
+		break;
+	case CAM_MENU_SHORTCUTS:
+	case CAM_MENU_VOLUME_KEY:
+	case CAM_MENU_TIMER:
+	case CAM_MENU_SAVE_AS_FLIP:
+	case CAM_MENU_RESET:
+	case CAM_MENU_REVIEW:
+	case CAM_MENU_MORE_HELP:
+		/* is support, special mask */
+		capacity_mask = CAM_CP_FUNC_SUPPORT;
+		break;
+	default:
+		/* not support, special mask */
+		cam_critical(LOG_CAM, "could not find menu_item %d", menu_item);
+		capacity_mask = CAM_CP_FUNC_NOT_SUPPORT;
+		break;
 	}
 	return capacity_mask;
 }
@@ -277,8 +282,8 @@ void cam_compose_menu_common(void *data, cam_menu_composer* composer, CAM_MENU_I
 	for (list_index = 0; list_index < list_cnt; list_index++) {
 		capacity_mask = __get_capacity_mask_by_menu_type(menu_list[list_index]);
 
-		if((CAM_CP_FUNC_SUPPORT == capacity_mask)
-			|| (capacity & capacity_mask)) {
+		if ((CAM_CP_FUNC_SUPPORT == capacity_mask)
+		        || (capacity & capacity_mask)) {
 			eina_array_push(composer->array, (void*)&menu_list[list_index]);
 		}
 	}
@@ -312,8 +317,7 @@ void cam_compose_menu_without_getcaps(void *data, cam_menu_composer* composer, C
 
 	eina_array_step_set(composer->array, sizeof(*(composer->array)), 5);
 
-	for (list_index = 0; list_index < list_cnt; list_index++)
-	{
+	for (list_index = 0; list_index < list_cnt; list_index++) {
 		eina_array_push(composer->array, (void*)&menu_list[list_index]);
 		cam_debug(LOG_CAM, "composer type %d", menu_list[list_index]);
 	}
@@ -330,96 +334,95 @@ void cam_compose_list_menu(void *data, int menu_type, cam_menu_composer* compose
 
 	cam_retm_if(composer == NULL, "composer is NULL");
 
-	switch ((CAM_MENU_ITEM)menu_type)
-	{
-		case CAM_MENU_VOLUME_KEY:
-			cam_compose_menu_volume_key(data, composer);
-			break;
-		case CAM_MENU_SHOOTING_MODE:
-			cam_compose_menu_shooting_mode(data, composer);
-			break;
-		case CAM_MENU_FLASH:
-			cam_compose_menu_flash(data, composer);
-			break;
-		case CAM_MENU_RECORDING_MODE:
-			cam_compose_menu_recording_mode(data, composer);
-			break;
-		case CAM_MENU_PHOTO_RESOLUTION:
-			cam_compose_menu_photo_resolution(data, composer);
-			break;
-		case CAM_MENU_VIDEO_RESOLUTION:
-			cam_compose_menu_video_resolution(data, composer);
-			break;
-		case CAM_MENU_ISO:
-			cam_compose_menu_iso(data, composer);
-			break;
-		case CAM_MENU_FOCUS_MODE:
-			cam_compose_menu_focus_mode(data, composer);
-			break;
-		case CAM_MENU_TIMER:
-			cam_compose_menu_timer_mode(data, composer);
-			break;
-		case CAM_MENU_SCENE_MODE:
-			cam_compose_menu_scene_mode(data, composer);
-			break;
-		case CAM_MENU_WHITE_BALANCE:
-			cam_compose_menu_wb(data, composer);
-			break;
-		case CAM_MENU_EFFECTS:
-			cam_compose_menu_effect(data, composer);
-			break;
-		case CAM_MENU_METERING:
-			cam_compose_menu_metering(data, composer);
-			break;
-		case CAM_MENU_SHUTTER_SOUND:
-			cam_compose_menu_shutter_sound(data, composer);
-			break;
-		case CAM_MENU_STORAGE:
-			cam_compose_menu_storage(data, composer);
-			break;
-		case CAM_MENU_ANTI_SHAKE:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)anti_shake, sizeof(anti_shake)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_VIDEO_STABILIZATION:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)video_stabilization, sizeof(video_stabilization)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_AUTO_CONTRAST:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)auto_contrast, sizeof(auto_contrast)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_SAVE_AS_FLIP:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)save_as_flip, sizeof(save_as_flip)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_TAP_SHOT:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)tap_shot, sizeof(tap_shot)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_GPS_TAG:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)gps, sizeof(gps)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_REVIEW:
-			cam_compose_menu_without_getcaps(data, composer,
-				(CAM_MENU_ITEM *)review, sizeof(review)/sizeof(CAM_MENU_ITEM));
-			break;
-		case CAM_MENU_SHARE:
-			cam_compose_menu_share(data, composer);
-			break;
-		case CAM_MENU_FACE_DETECTION:
-			cam_compose_menu_face_detection(data, composer);
-			break;
-		case CAM_MENU_FAST_MOTION:
-			cam_compose_menu_fast_motion(data, composer);
-			break;
-		case CAM_MENU_SLOW_MOTION:
-			cam_compose_menu_slow_motion(data, composer);
-			break;
-		default:
-			cam_debug(LOG_UI, "invalid menu type");
-			break;
+	switch ((CAM_MENU_ITEM)menu_type) {
+	case CAM_MENU_VOLUME_KEY:
+		cam_compose_menu_volume_key(data, composer);
+		break;
+	case CAM_MENU_SHOOTING_MODE:
+		cam_compose_menu_shooting_mode(data, composer);
+		break;
+	case CAM_MENU_FLASH:
+		cam_compose_menu_flash(data, composer);
+		break;
+	case CAM_MENU_RECORDING_MODE:
+		cam_compose_menu_recording_mode(data, composer);
+		break;
+	case CAM_MENU_PHOTO_RESOLUTION:
+		cam_compose_menu_photo_resolution(data, composer);
+		break;
+	case CAM_MENU_VIDEO_RESOLUTION:
+		cam_compose_menu_video_resolution(data, composer);
+		break;
+	case CAM_MENU_ISO:
+		cam_compose_menu_iso(data, composer);
+		break;
+	case CAM_MENU_FOCUS_MODE:
+		cam_compose_menu_focus_mode(data, composer);
+		break;
+	case CAM_MENU_TIMER:
+		cam_compose_menu_timer_mode(data, composer);
+		break;
+	case CAM_MENU_SCENE_MODE:
+		cam_compose_menu_scene_mode(data, composer);
+		break;
+	case CAM_MENU_WHITE_BALANCE:
+		cam_compose_menu_wb(data, composer);
+		break;
+	case CAM_MENU_EFFECTS:
+		cam_compose_menu_effect(data, composer);
+		break;
+	case CAM_MENU_METERING:
+		cam_compose_menu_metering(data, composer);
+		break;
+	case CAM_MENU_SHUTTER_SOUND:
+		cam_compose_menu_shutter_sound(data, composer);
+		break;
+	case CAM_MENU_STORAGE:
+		cam_compose_menu_storage(data, composer);
+		break;
+	case CAM_MENU_ANTI_SHAKE:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)anti_shake, sizeof(anti_shake) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_VIDEO_STABILIZATION:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)video_stabilization, sizeof(video_stabilization) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_AUTO_CONTRAST:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)auto_contrast, sizeof(auto_contrast) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_SAVE_AS_FLIP:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)save_as_flip, sizeof(save_as_flip) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_TAP_SHOT:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)tap_shot, sizeof(tap_shot) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_GPS_TAG:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)gps, sizeof(gps) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_REVIEW:
+		cam_compose_menu_without_getcaps(data, composer,
+		                                 (CAM_MENU_ITEM *)review, sizeof(review) / sizeof(CAM_MENU_ITEM));
+		break;
+	case CAM_MENU_SHARE:
+		cam_compose_menu_share(data, composer);
+		break;
+	case CAM_MENU_FACE_DETECTION:
+		cam_compose_menu_face_detection(data, composer);
+		break;
+	case CAM_MENU_FAST_MOTION:
+		cam_compose_menu_fast_motion(data, composer);
+		break;
+	case CAM_MENU_SLOW_MOTION:
+		cam_compose_menu_slow_motion(data, composer);
+		break;
+	default:
+		cam_debug(LOG_UI, "invalid menu type");
+		break;
 	}
 }
 
@@ -431,7 +434,7 @@ static void __cam_push_mode_into_array(int mode, cam_menu_composer* composer, in
 		mode_property = &(mode_data->shot_property);
 		if (mode_property != NULL && (capacity & mode_data->shot_cp_value)) {
 			cam_debug(LOG_UI, "__cam_push_mode_into_array pushes %d now", mode_property->property_index);
-			eina_array_push(composer->array, (void*)&(mode_property->property_index));
+			eina_array_push(composer->array, (void*) & (mode_property->property_index));
 		}
 	}
 }
@@ -461,7 +464,7 @@ void cam_compose_menu_shooting_mode(void *data, cam_menu_composer* composer)
 		int mode = CAM_SHOT_NORMAL_MODE_BEGIN;
 		for (mode = CAM_SHOT_NORMAL_MODE_BEGIN; mode < CAM_SHOT_NORMAL_MODE_NUM; mode++) {
 			if (ad->launching_mode != CAM_LAUNCHING_MODE_NORMAL &&
-				(mode == CAM_SINGLE_MODE)) {
+			        (mode == CAM_SINGLE_MODE)) {
 				__cam_push_mode_into_array(mode, composer, capacity);
 			} else if (ad->launching_mode == CAM_LAUNCHING_MODE_NORMAL) {
 				__cam_push_mode_into_array(mode, composer, capacity);
@@ -472,7 +475,7 @@ void cam_compose_menu_shooting_mode(void *data, cam_menu_composer* composer)
 		int mode = CAM_SHOT_SELF_MODE_BEGIN;
 		for (mode = CAM_SHOT_SELF_MODE_BEGIN; mode < CAM_SHOT_SELF_MODE_END; mode++) {
 			if (ad->launching_mode != CAM_LAUNCHING_MODE_NORMAL &&
-				(mode == CAM_SELF_SINGLE_MODE)) {
+			        (mode == CAM_SELF_SINGLE_MODE)) {
 				__cam_push_mode_into_array(mode, composer, capacity);
 			} else if (ad->launching_mode == CAM_LAUNCHING_MODE_NORMAL) {
 				__cam_push_mode_into_array(mode, composer, capacity);
@@ -576,34 +579,34 @@ void cam_compose_menu_photo_resolution(void *data, cam_menu_composer* composer)
 	GetCamDevCamResolutionCaps(&capacity, data);
 
 	if (camapp->self_portrait == FALSE) {
-/*		if (capacity & CAM_CP_SIZE_3264X2448) {
-			eina_array_push(composer->array, (void*)&photo_resolution[0]);
-		}
+		/*		if (capacity & CAM_CP_SIZE_3264X2448) {
+					eina_array_push(composer->array, (void*)&photo_resolution[0]);
+				}
 
-		if (capacity & CAM_CP_SIZE_3264X1836) {
-			eina_array_push(composer->array, (void*)&photo_resolution[1]);
-		}
+				if (capacity & CAM_CP_SIZE_3264X1836) {
+					eina_array_push(composer->array, (void*)&photo_resolution[1]);
+				}
 
-		if (capacity & CAM_CP_SIZE_2448X2448) {
-			eina_array_push(composer->array, (void*)&photo_resolution[4]);
-		}
-*/
+				if (capacity & CAM_CP_SIZE_2448X2448) {
+					eina_array_push(composer->array, (void*)&photo_resolution[4]);
+				}
+		*/
 		if (capacity & CAM_CP_SIZE_2048X1536) {
 			eina_array_push(composer->array, (void*)&photo_resolution[5]);
 		}
-/*
-		if (capacity & CAM_CP_SIZE_2048X1232) {
-			eina_array_push(composer->array, (void*)&photo_resolution[6]);
-		}
+		/*
+				if (capacity & CAM_CP_SIZE_2048X1232) {
+					eina_array_push(composer->array, (void*)&photo_resolution[6]);
+				}
 
-		if (capacity & CAM_CP_SIZE_2048X1152) {
-			eina_array_push(composer->array, (void*)&photo_resolution[7]);
-		}
+				if (capacity & CAM_CP_SIZE_2048X1152) {
+					eina_array_push(composer->array, (void*)&photo_resolution[7]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1600X1200) {
-			eina_array_push(composer->array, (void*)&photo_resolution[9]);
-		}
-*/
+				if (capacity & CAM_CP_SIZE_1600X1200) {
+					eina_array_push(composer->array, (void*)&photo_resolution[9]);
+				}
+		*/
 		if (capacity & CAM_CP_SIZE_640X480) {
 			eina_array_push(composer->array, (void*)&photo_resolution[16]);
 		}
@@ -614,7 +617,7 @@ void cam_compose_menu_photo_resolution(void *data, cam_menu_composer* composer)
 	}
 
 	int size = eina_array_count(composer->array);
-	cam_debug(LOG_MM, "size %d capacity 0x%x",size, capacity);
+	cam_debug(LOG_MM, "size %d capacity 0x%x", size, capacity);
 }
 
 void cam_compose_menu_video_resolution(void *data, cam_menu_composer* composer)
@@ -636,26 +639,26 @@ void cam_compose_menu_video_resolution(void *data, cam_menu_composer* composer)
 	GetCamDevRecResolutionCaps(&capacity, data);
 
 	if (camapp->self_portrait == FALSE) {
-/*		if (capacity & CAM_CP_SIZE_1920X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[0]);
-		}
+		/*		if (capacity & CAM_CP_SIZE_1920X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[0]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1440X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[1]);
-		}
+				if (capacity & CAM_CP_SIZE_1440X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[1]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1080X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[3]);
-		}
+				if (capacity & CAM_CP_SIZE_1080X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[3]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1280X720) {
-			eina_array_push(composer->array, (void*)&video_resolution[4]);
-		}
+				if (capacity & CAM_CP_SIZE_1280X720) {
+					eina_array_push(composer->array, (void*)&video_resolution[4]);
+				}
 
-		if (capacity & CAM_CP_SIZE_800X480) {
-			eina_array_push(composer->array, (void*)&video_resolution[5]);
-		}
-*/
+				if (capacity & CAM_CP_SIZE_800X480) {
+					eina_array_push(composer->array, (void*)&video_resolution[5]);
+				}
+		*/
 		if (capacity & CAM_CP_SIZE_640X480) {
 			eina_array_push(composer->array, (void*)&video_resolution[6]);
 		}
@@ -664,22 +667,22 @@ void cam_compose_menu_video_resolution(void *data, cam_menu_composer* composer)
 			eina_array_push(composer->array, (void*)&video_resolution[7]);
 		}
 	} else {
-/*		if (capacity & CAM_CP_SIZE_1920X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[0]);
-		}
+		/*		if (capacity & CAM_CP_SIZE_1920X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[0]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1440X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[1]);
-		}
+				if (capacity & CAM_CP_SIZE_1440X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[1]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1080X1080) {
-			eina_array_push(composer->array, (void*)&video_resolution[2]);
-		}
+				if (capacity & CAM_CP_SIZE_1080X1080) {
+					eina_array_push(composer->array, (void*)&video_resolution[2]);
+				}
 
-		if (capacity & CAM_CP_SIZE_1280X720) {
-			eina_array_push(composer->array, (void*)&video_resolution[4]);
-		}
-*/
+				if (capacity & CAM_CP_SIZE_1280X720) {
+					eina_array_push(composer->array, (void*)&video_resolution[4]);
+				}
+		*/
 		if (capacity & CAM_CP_SIZE_640X480) {
 			eina_array_push(composer->array, (void*)&video_resolution[6]);
 		}
@@ -690,7 +693,7 @@ void cam_compose_menu_video_resolution(void *data, cam_menu_composer* composer)
 	}
 
 	int size = eina_array_count(composer->array);
-	cam_warning(LOG_MM, "size %d ",size );
+	cam_warning(LOG_MM, "size %d ", size);
 }
 
 void cam_compose_menu_effect(void *data, cam_menu_composer* composer)
@@ -698,7 +701,7 @@ void cam_compose_menu_effect(void *data, cam_menu_composer* composer)
 	cam_retm_if(composer == NULL, "composer is NULL");
 	unsigned int loop = 0;
 	/*the array effect's size may change in the future, so calculate a dynamic value.*/
-	composer->array = eina_array_new(sizeof(effect)/sizeof(CAM_MENU_ITEM));
+	composer->array = eina_array_new(sizeof(effect) / sizeof(CAM_MENU_ITEM));
 	if (!(composer->array)) {
 		cam_critical(LOG_CAM, "could not create new eina array");
 		return;
@@ -711,8 +714,7 @@ void cam_compose_menu_effect(void *data, cam_menu_composer* composer)
 //	unsigned int effect_mask = 0;
 //	GetCamDevEffectCaps(&capacity, data);
 
-	for (loop = 0; loop < sizeof(effect)/sizeof(CAM_MENU_ITEM); loop++)
-	{
+	for (loop = 0; loop < sizeof(effect) / sizeof(CAM_MENU_ITEM); loop++) {
 //		effect_mask = cam_effect_cam_convert_caps(cam_convert_menu_item_to_setting_value(effect[loop]));
 
 #ifdef CAMERA_MACHINE_I686
@@ -791,7 +793,7 @@ void cam_compose_menu_focus_mode(void *data, cam_menu_composer* composer)
 	}
 
 	if (!(ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE)) {
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE)) {
 		if (capacity & CAM_CP_FOCUS_FACE_DETECTION) {
 			eina_array_push(composer->array, (void*)&focus_mode[2]);
 		}
@@ -934,7 +936,7 @@ void cam_compose_menu_flash(void *data, cam_menu_composer* composer)
 		eina_array_push(composer->array, (void*)&flash[1]);
 	}
 
-	if(camapp->camera_mode == CAM_CAMERA_MODE) {
+	if (camapp->camera_mode == CAM_CAMERA_MODE) {
 		if (capacity & CAM_CP_FLASH_AUTO) {
 			eina_array_push(composer->array, (void*)&flash[2]);
 		}
@@ -1099,70 +1101,70 @@ gboolean cam_is_enabled_menu(void *data, const CAM_MENU_ITEM item)
 	cam_retv_if(ad == NULL, FALSE);
 
 	switch (item) {
-		case CAM_MENU_SHORTCUTS:
-			return TRUE;
-		case CAM_MENU_SELF_PORTRAIT:
-			return __is_enabled_self_mode((void*)ad);
-		case CAM_MENU_FLASH:
-			return __is_enabled_flash((void*)ad);
-		case CAM_MENU_TAP_SHOT:
-			return __is_enabled_tap_shot_shot((void*)ad);
-		case CAM_MENU_SHOOTING_MODE:
-			return __is_enabled_shooting_mode((void*)ad);
-		case CAM_MENU_RECORDING_MODE:
-			return __is_enabled_recording_mode((void*)ad);
-		case CAM_MENU_SCENE_MODE:
-			return __is_enabled_scene_mode((void*)ad);
-		case CAM_MENU_EXPOSURE_VALUE:
-			return __is_enabled_exposure_value((void*)ad);
-		case CAM_MENU_FOCUS_MODE:
-			return __is_enabled_focus_mode((void*)ad);
-		case CAM_MENU_TIMER:
-			return __is_enabled_timer((void*)ad);
-		case CAM_MENU_EFFECTS:
-			return __is_enabled_effects((void*)ad);
-		case CAM_MENU_PHOTO_RESOLUTION:
-			return __is_enabled_photo_resolution((void*)ad);
-		case CAM_MENU_VIDEO_RESOLUTION:
-			return __is_enabled_video_resolution((void*)ad);
-		case CAM_MENU_WHITE_BALANCE:
-			return __is_enabled_white_balance((void*)ad);
-		case CAM_MENU_ISO:
-			return __is_enabled_iso((void*)ad);
-		case CAM_MENU_METERING:
-			return __is_enabled_metering((void*)ad);
-		case CAM_MENU_ANTI_SHAKE:
-			return __is_enabled_anti_shake((void*)ad);
-		case CAM_MENU_VIDEO_STABILIZATION:
-			return __is_enabled_video_stabilization((void*)ad);
-		case CAM_MENU_AUTO_CONTRAST:
-			return __is_enabled_auto_contrast((void*)ad);
-		case CAM_MENU_SAVE_AS_FLIP:
-			return __is_enabled_save_as_flip((void*)ad);
-		case CAM_MENU_GPS_TAG:
-			return __is_enabled_gps_tag((void*)ad);
-		case CAM_MENU_SHUTTER_SOUND:
-			return __is_enabled_shutter_sound((void*)ad);
-		case CAM_MENU_STORAGE:
-			return __is_enabled_storage((void*)ad);
-		case CAM_MENU_SHOTS:
-			return TRUE;
-		case CAM_MENU_RESET:
-			return __is_enabled_reset((void*)ad);
-		case CAM_MENU_REVIEW:
-			return __is_enabled_review((void*)ad);
-		case CAM_MENU_SHARE:
-			return __is_enabled_buddy_photo_share((void*)ad);
-		case CAM_MENU_SHARE_BUDDY_PHOTO:
-			return __is_enabled_buddy_photo_share((void*)ad);
-		case CAM_MENU_FACE_DETECTION:
-			return __is_enabled_face_detection((void*)ad);
-		case CAM_MENU_VOLUME_KEY:
-			return __is_enabled_volume_key((void*)ad);
-		default:
-			cam_debug(LOG_UI, "invalid item [%d]", item);
-			break;
-		}
+	case CAM_MENU_SHORTCUTS:
+		return TRUE;
+	case CAM_MENU_SELF_PORTRAIT:
+		return __is_enabled_self_mode((void*)ad);
+	case CAM_MENU_FLASH:
+		return __is_enabled_flash((void*)ad);
+	case CAM_MENU_TAP_SHOT:
+		return __is_enabled_tap_shot_shot((void*)ad);
+	case CAM_MENU_SHOOTING_MODE:
+		return __is_enabled_shooting_mode((void*)ad);
+	case CAM_MENU_RECORDING_MODE:
+		return __is_enabled_recording_mode((void*)ad);
+	case CAM_MENU_SCENE_MODE:
+		return __is_enabled_scene_mode((void*)ad);
+	case CAM_MENU_EXPOSURE_VALUE:
+		return __is_enabled_exposure_value((void*)ad);
+	case CAM_MENU_FOCUS_MODE:
+		return __is_enabled_focus_mode((void*)ad);
+	case CAM_MENU_TIMER:
+		return __is_enabled_timer((void*)ad);
+	case CAM_MENU_EFFECTS:
+		return __is_enabled_effects((void*)ad);
+	case CAM_MENU_PHOTO_RESOLUTION:
+		return __is_enabled_photo_resolution((void*)ad);
+	case CAM_MENU_VIDEO_RESOLUTION:
+		return __is_enabled_video_resolution((void*)ad);
+	case CAM_MENU_WHITE_BALANCE:
+		return __is_enabled_white_balance((void*)ad);
+	case CAM_MENU_ISO:
+		return __is_enabled_iso((void*)ad);
+	case CAM_MENU_METERING:
+		return __is_enabled_metering((void*)ad);
+	case CAM_MENU_ANTI_SHAKE:
+		return __is_enabled_anti_shake((void*)ad);
+	case CAM_MENU_VIDEO_STABILIZATION:
+		return __is_enabled_video_stabilization((void*)ad);
+	case CAM_MENU_AUTO_CONTRAST:
+		return __is_enabled_auto_contrast((void*)ad);
+	case CAM_MENU_SAVE_AS_FLIP:
+		return __is_enabled_save_as_flip((void*)ad);
+	case CAM_MENU_GPS_TAG:
+		return __is_enabled_gps_tag((void*)ad);
+	case CAM_MENU_SHUTTER_SOUND:
+		return __is_enabled_shutter_sound((void*)ad);
+	case CAM_MENU_STORAGE:
+		return __is_enabled_storage((void*)ad);
+	case CAM_MENU_SHOTS:
+		return TRUE;
+	case CAM_MENU_RESET:
+		return __is_enabled_reset((void*)ad);
+	case CAM_MENU_REVIEW:
+		return __is_enabled_review((void*)ad);
+	case CAM_MENU_SHARE:
+		return __is_enabled_buddy_photo_share((void*)ad);
+	case CAM_MENU_SHARE_BUDDY_PHOTO:
+		return __is_enabled_buddy_photo_share((void*)ad);
+	case CAM_MENU_FACE_DETECTION:
+		return __is_enabled_face_detection((void*)ad);
+	case CAM_MENU_VOLUME_KEY:
+		return __is_enabled_volume_key((void*)ad);
+	default:
+		cam_debug(LOG_UI, "invalid item [%d]", item);
+		break;
+	}
 
 	return TRUE;
 
@@ -1183,10 +1185,10 @@ static gboolean __is_enabled_flash(void* data)
 	}
 
 	if (!(camapp->scene_mode == CAM_SCENE_NONE
-		|| camapp->scene_mode == CAM_SCENE_PORTRAIT
-		|| camapp->scene_mode == CAM_SCENE_BACKLIGHT
-		|| camapp->scene_mode == CAM_SCENE_PARTY
-		|| camapp->scene_mode == CAM_SCENE_TEXT) ) {
+	        || camapp->scene_mode == CAM_SCENE_PORTRAIT
+	        || camapp->scene_mode == CAM_SCENE_BACKLIGHT
+	        || camapp->scene_mode == CAM_SCENE_PARTY
+	        || camapp->scene_mode == CAM_SCENE_TEXT)) {
 		return FALSE;
 	}
 
@@ -1232,12 +1234,12 @@ static gboolean __is_enabled_recording_mode(void* data)
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->allow_switch == FALSE) {
+	        && ad->exe_args->allow_switch == FALSE) {
 		return FALSE;
 	}
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->resolution == CAM_RESOLUTION_QCIF) {
+	        && ad->exe_args->resolution == CAM_RESOLUTION_QCIF) {
 		return FALSE;
 	}
 
@@ -1263,13 +1265,13 @@ static gboolean __is_enabled_scene_mode(void* data)
 	}
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->allow_switch == FALSE
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
+	        && ad->exe_args->allow_switch == FALSE
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
 		return FALSE;
 	}
 
 	if (camapp->camera_mode == CAM_CAMERA_MODE &&
-		(camapp->shooting_mode == CAM_PX_MODE)) {
+	        (camapp->shooting_mode == CAM_PX_MODE)) {
 		return FALSE;
 	}
 
@@ -1320,7 +1322,7 @@ static gboolean __is_enabled_focus_mode(void* data)
 	unsigned int capacity;
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
-	if(!(capacity & CAM_CP_FUNC_FOCUS_MODE)) {
+	if (!(capacity & CAM_CP_FUNC_FOCUS_MODE)) {
 		return FALSE;
 	}
 
@@ -1356,7 +1358,7 @@ static gboolean __is_enabled_effects(void* data)
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
 #ifdef CAMERA_MACHINE_I686
-		capacity = 0;
+	capacity = 0;
 #endif
 
 	if (!(capacity & CAM_CP_FUNC_SUPPORT)) {
@@ -1373,7 +1375,7 @@ static gboolean __is_enabled_effects(void* data)
 	}
 
 	if (camapp->recording_mode != CAM_RECORD_NORMAL
-			&& camapp->recording_mode != CAM_RECORD_SELF) {
+	        && camapp->recording_mode != CAM_RECORD_SELF) {
 		return FALSE;
 	}
 
@@ -1395,9 +1397,9 @@ static gboolean __is_enabled_photo_resolution(void* data)
 		return FALSE;
 	}
 
-	if(ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->allow_switch == FALSE
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
+	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
+	        && ad->exe_args->allow_switch == FALSE
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
 		return FALSE;
 	}
 
@@ -1418,9 +1420,9 @@ static gboolean __is_enabled_video_resolution(void* data)
 	unsigned int capacity;
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
-	if(camapp->recording_mode == CAM_RECORD_MMS
-		|| camapp->recording_mode == CAM_RECORD_SELF_MMS
-		|| camapp->recording_mode == CAM_RECORD_SLOW) {
+	if (camapp->recording_mode == CAM_RECORD_MMS
+	        || camapp->recording_mode == CAM_RECORD_SELF_MMS
+	        || camapp->recording_mode == CAM_RECORD_SLOW) {
 		return FALSE;
 	}
 
@@ -1430,9 +1432,9 @@ static gboolean __is_enabled_video_resolution(void* data)
 	}
 
 
-	if(ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->allow_switch == FALSE
-		&& ad->exe_args->cam_mode == CAM_CAMERA_MODE) {
+	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
+	        && ad->exe_args->allow_switch == FALSE
+	        && ad->exe_args->cam_mode == CAM_CAMERA_MODE) {
 		return FALSE;
 	}
 
@@ -1449,11 +1451,11 @@ static gboolean __is_enabled_white_balance(void* data)
 	unsigned int capacity;
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
-	if(!(capacity & CAM_CP_FUNC_WHITE_BALANCE)) {
+	if (!(capacity & CAM_CP_FUNC_WHITE_BALANCE)) {
 		return FALSE;
 	}
 
-	if(camapp->scene_mode != CAM_SCENE_NONE) {
+	if (camapp->scene_mode != CAM_SCENE_NONE) {
 		return FALSE;
 	}
 
@@ -1493,7 +1495,7 @@ static gboolean __is_enabled_iso(void* data)
 	}
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
 		return FALSE;
 	}
 
@@ -1514,16 +1516,16 @@ static gboolean __is_enabled_metering(void* data)
 	unsigned int capacity;
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
-	if(!(capacity & CAM_CP_FUNC_METERING)) {
+	if (!(capacity & CAM_CP_FUNC_METERING)) {
 		return FALSE;
 	}
 
-	if(camapp->scene_mode != CAM_SCENE_NONE) {
+	if (camapp->scene_mode != CAM_SCENE_NONE) {
 		return FALSE;
 	}
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
 		return FALSE;
 	}
 
@@ -1617,11 +1619,11 @@ static gboolean __is_enabled_auto_contrast(void* data)
 	unsigned int capacity;
 	GetCamDevFuncCaps(&capacity, (void*)ad);
 
-	if(!(capacity & CAM_CP_FUNC_AUTO_CONTRAST)) {
+	if (!(capacity & CAM_CP_FUNC_AUTO_CONTRAST)) {
 		return FALSE;
 	}
 
-	if(camapp->scene_mode != CAM_SCENE_NONE) {
+	if (camapp->scene_mode != CAM_SCENE_NONE) {
 		return FALSE;
 	}
 
@@ -1660,8 +1662,8 @@ static gboolean __is_enabled_tap_shot_shot(void* data)
 	}
 
 	if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-		&& ad->exe_args->allow_switch == FALSE
-		&& ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
+	        && ad->exe_args->allow_switch == FALSE
+	        && ad->exe_args->cam_mode == CAM_CAMCORDER_MODE) {
 		return FALSE;
 	}
 
@@ -1797,8 +1799,8 @@ static gboolean __is_enabled_buddy_photo_share(void* data)
 	}
 
 	if (!(camapp->camera_mode == CAM_CAMERA_MODE &&
-		(camapp->shooting_mode == CAM_SINGLE_MODE
-		|| camapp->shooting_mode == CAM_SELF_SINGLE_MODE))) {
+	        (camapp->shooting_mode == CAM_SINGLE_MODE
+	         || camapp->shooting_mode == CAM_SELF_SINGLE_MODE))) {
 		return FALSE;
 	}
 
@@ -1861,11 +1863,11 @@ void cam_compose_list_get(CamSettingTabType tab_type, CAM_MENU_ITEM** list, int*
 	switch (tab_type) {
 	case CAM_SETTING_REAR:
 		ret_list = (CAM_MENU_ITEM*)setting_rear;
-		list_cnt = sizeof(setting_rear)/sizeof(CAM_MENU_ITEM);
+		list_cnt = sizeof(setting_rear) / sizeof(CAM_MENU_ITEM);
 		break;
 	case CAM_SETTING_FRONT:
 		ret_list = (CAM_MENU_ITEM*)setting_front;
-		list_cnt = sizeof(setting_front)/sizeof(CAM_MENU_ITEM);
+		list_cnt = sizeof(setting_front) / sizeof(CAM_MENU_ITEM);
 		break;
 	default:
 		ret_list = NULL;

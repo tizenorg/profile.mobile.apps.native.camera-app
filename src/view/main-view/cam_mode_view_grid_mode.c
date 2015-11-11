@@ -201,25 +201,25 @@ static Eina_Bool __shoot_mode_item_each_cb(const void *container, void *data, vo
 	Elm_Object_Item *object_item = NULL;
 
 	switch (grid_view->ad->target_direction) {
-		case CAM_TARGET_DIRECTION_LANDSCAPE:
-		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-			object_item = elm_gengrid_item_prepend(grid_view->gengrid,
-							&gic,
-							(void *)item_data,
-							__gengrid_item_sel_cb,
-							(void *)item_data);
-			break;
-		case CAM_TARGET_DIRECTION_PORTRAIT:
-		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-			object_item = elm_gengrid_item_append(grid_view->gengrid,
-							&gic,
-							(void *)item_data,
-							__gengrid_item_sel_cb,
-							(void *)item_data);
-			break;
-		default:
-			cam_critical(LOG_UI, "invalid target direction [%d]", grid_view->ad->target_direction);
-			break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE:
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
+		object_item = elm_gengrid_item_prepend(grid_view->gengrid,
+		                                       &gic,
+		                                       (void *)item_data,
+		                                       __gengrid_item_sel_cb,
+		                                       (void *)item_data);
+		break;
+	case CAM_TARGET_DIRECTION_PORTRAIT:
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
+		object_item = elm_gengrid_item_append(grid_view->gengrid,
+		                                      &gic,
+		                                      (void *)item_data,
+		                                      __gengrid_item_sel_cb,
+		                                      (void *)item_data);
+		break;
+	default:
+		cam_critical(LOG_UI, "invalid target direction [%d]", grid_view->ad->target_direction);
+		break;
 	}
 
 	item_data->object_item = object_item;
@@ -310,16 +310,18 @@ static void __grid_mode_create_mode_items_style(Evas_Object *gengrid, Elm_Gengri
 	Cam_Shooting_Mode_Grid_View *grid_view = __get_shooting_mode_grid_view_instance();
 
 	if (grid_view->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE
-		|| grid_view->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+	        || grid_view->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 		elm_gengrid_item_size_set(gengrid, SHOOT_MODE_GENGRID_ITEM_WIDTH, SHOOT_MODE_GENGRID_ITEM_HEIGHT);
-		if (grid_view->ad->slider_y > 0)
+		if (grid_view->ad->slider_y > 0) {
 			grid_view->ad->slider_y = SHOOT_MODE_GENGRID_SLIDER_Y_LANDSPACE;
+		}
 		grid_view->ad->slider_w = SHOOT_MODE_GENGRID_SLIDER_W_LANDSPACE;
 		grid_view->ad->slider_h = SHOOT_MODE_GENGRID_SLIDER_H_LANDSPACE;
 	} else {
 		elm_gengrid_item_size_set(gengrid, SHOOT_MODE_GENGRID_ITEM_WIDTH_VERTICAL, SHOOT_MODE_GENGRID_ITEM_HEIGHT_VERTICAL);
-		if (grid_view->ad->slider_y > 0)
+		if (grid_view->ad->slider_y > 0) {
 			grid_view->ad->slider_y = SHOOT_MODE_GENGRID_SLIDER_Y_VERTICAL;
+		}
 		grid_view->ad->slider_w = SHOOT_MODE_GENGRID_SLIDER_W_VERTICAL;
 		grid_view->ad->slider_h = SHOOT_MODE_GENGRID_SLIDER_H_VERTICAL;
 	}
@@ -392,8 +394,8 @@ static void __cam_mode_view_grid_mode_create_layout()
 	Cam_Shooting_Mode_Grid_View *grid_view = __get_shooting_mode_grid_view_instance();
 
 	Evas_Object *layout = cam_app_load_edj(grid_view->parent,
-							CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
-							"shooting_mode/grid/layout");
+	                                       CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
+	                                       "shooting_mode/grid/layout");
 
 	grid_view->layout = layout;
 	elm_object_part_content_set(grid_view->parent, "grid_view", layout);
@@ -436,9 +438,9 @@ void cam_mode_view_grid_mode_create(Evas_Object *parent, struct appdata *ad)
 	__cam_mdoe_get_gkeyfile_param();
 
 	cam_debug(LOG_UI, "index: type is %d, 1st string is [%s], 2nd string is [%s].",
-		grid_view->gkeyfile_conf_param.cur_config_type,
-		grid_view->gkeyfile_conf_param.countKeyString,
-		grid_view->gkeyfile_conf_param.otherKeyString);
+	          grid_view->gkeyfile_conf_param.cur_config_type,
+	          grid_view->gkeyfile_conf_param.countKeyString,
+	          grid_view->gkeyfile_conf_param.otherKeyString);
 
 	int shot_mode_count = __cam_mode_read_gengrid_order_from_file();
 	cam_debug(LOGUI, "shot_mode_count = %d", shot_mode_count);
@@ -484,8 +486,8 @@ void __cam_mode_save_mode_gengrid_order()
 
 	/*save mode count to gkeyfile*/
 	cam_config_set_int(grid_view->gkeyfile_conf_param.cur_config_type,
-						grid_view->gkeyfile_conf_param.countKeyString,
-						grid_view->item_count);
+	                   grid_view->gkeyfile_conf_param.countKeyString,
+	                   grid_view->item_count);
 
 	if (!(grid_view->ad->saved_shot_mode_composer->array)) {
 		cam_critical(LOG_CAM, "could not create new eina array");
@@ -524,8 +526,8 @@ int __cam_mode_read_gengrid_order_from_file()
 		grid_view->shot_modes[i] = -1;
 	}
 	shot_mode_count = cam_config_get_int(grid_view->gkeyfile_conf_param.cur_config_type,
-										grid_view->gkeyfile_conf_param.countKeyString,
-										-1);
+	                                     grid_view->gkeyfile_conf_param.countKeyString,
+	                                     -1);
 	for (i = 0; i < shot_mode_count; i++) {
 		tmpstring = g_strdup_printf("%s%d", grid_view->gkeyfile_conf_param.otherKeyString, i);
 		int shot_mode_menu = -1;
@@ -553,7 +555,7 @@ void __cam_mode_convert_shot_to_eina_array(int shot_mode_count)
 
 	int i = 0;
 	while (i < shot_mode_count) {
-		eina_array_push(grid_view->ad->saved_shot_mode_composer->array, (void *)&(grid_view->shot_modes[i]));
+		eina_array_push(grid_view->ad->saved_shot_mode_composer->array, (void *) & (grid_view->shot_modes[i]));
 		cam_debug(LOGUI, "^^^^^ read to array item index = %d", grid_view->shot_modes[i]);
 		i++;
 	}

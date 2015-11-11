@@ -180,7 +180,7 @@ char *cam_mem_strdup(const char *file, int line, const char *func, const char *s
 		return NULL;
 	}
 
-	strncpy(get_mem, string, strlen(string)+1);
+	strncpy(get_mem, string, strlen(string) + 1);
 
 	return get_mem;
 

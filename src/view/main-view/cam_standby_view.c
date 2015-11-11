@@ -430,39 +430,39 @@ static void __standby_view_setting_button_create(Evas_Object *parent)
 	Evas_Smart_Cb cb_funcions[4] = {__standby_view_setting_button_cb, NULL, NULL, NULL};
 	if (!cam_edit_box_check_exist()) {
 		switch (ad->target_direction) {
-			case CAM_TARGET_DIRECTION_LANDSCAPE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_left", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_right", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_PORTRAIT:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
-				break;
-			default:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
-				break;
+		case CAM_TARGET_DIRECTION_LANDSCAPE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_left", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_right", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_PORTRAIT:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
+			break;
+		default:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
+			break;
 		}
 	} else {
 		switch (ad->target_direction) {
-			case CAM_TARGET_DIRECTION_LANDSCAPE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_right", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_left", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_PORTRAIT:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
-				break;
-			case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
-				break;
-			default:
-				standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
-				break;
+		case CAM_TARGET_DIRECTION_LANDSCAPE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_right", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_left", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_PORTRAIT:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
+			break;
+		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_up", cb_funcions, standby_view);
+			break;
+		default:
+			standby_view->setting_button = cam_util_button_create(parent, "IDS_CAM_HEADER_MODE_SETTINGS", "camera/setting_arrow_down", cb_funcions, standby_view);
+			break;
 		}
 	}
 	elm_object_part_content_set(parent, "setting_button", standby_view->setting_button);
@@ -671,9 +671,9 @@ static Eina_Bool __standby_view_check_af_timer(void *data)
 	cam_debug(LOG_CAM, "");
 
 	if ((camapp->focus_state == CAMERA_FOCUS_STATE_FAILED
-		|| camapp->focus_state == CAMERA_FOCUS_STATE_FOCUSED
-		|| camapp->focus_state == CAMERA_FOCUS_STATE_RELEASED)
-		&& !cam_sound_is_playing()) {
+	        || camapp->focus_state == CAMERA_FOCUS_STATE_FOCUSED
+	        || camapp->focus_state == CAMERA_FOCUS_STATE_RELEASED)
+	        && !cam_sound_is_playing()) {
 		if (!cam_do_capture(ad)) {
 			cam_warning(LOG_UI, "cam_do_capture failed");
 		}
@@ -1129,8 +1129,9 @@ static void __standby_view_guide_text_create(int shot_mode)
 		Evas_Object *tts_obj = (Evas_Object *)edje_object_part_object_get(_EDJ(standby_view->shot_guide_text), "guide_text");
 		cam_utils_sr_layout_set(standby_view->shot_guide_text, tts_obj, ELM_ACCESS_INFO, str);
 
-		if (standby_view->shot_guide_text_timer == NULL)
+		if (standby_view->shot_guide_text_timer == NULL) {
 			standby_view->shot_guide_text_timer = ecore_timer_add(GUIDE_TEXT_DISPLAY_TIME, __standby_view_guide_text_timer_cb, NULL);
+		}
 	}
 }
 
@@ -1179,8 +1180,9 @@ gboolean cam_standby_view_update_quickview_thumbnail()
 gboolean thumbnail_rotate_image_file_from_memory(const char *buffer, const int size, int format, camera_rotation_e degree, const char *file_path)
 {
 	cam_debug(LOG_CAM, "START");
-	if (file_path == NULL)
+	if (file_path == NULL) {
 		return FALSE;
+	}
 
 	unsigned char *tempBuffer = NULL;
 	unsigned char *destBuffer = NULL;
@@ -1271,8 +1273,9 @@ gboolean thumbnail_rotate_image_file_from_memory(const char *buffer, const int s
 gboolean thumbnail_rotate_image_file(char *filepath, int format, camera_rotation_e degree)
 {
 	cam_debug(LOG_CAM, "START");
-	if (filepath == NULL)
+	if (filepath == NULL) {
 		return FALSE;
+	}
 
 	if (degree == CAMERA_ROTATION_NONE) {
 		cam_debug(LOG_CAM, "CAMERA_ROTATION_NONE");
@@ -1409,8 +1412,9 @@ gboolean cam_standby_view_update_quickview_thumbnail_no_animation()
 	cam_secure_debug(LOG_UI, "camapp->filename %s", camapp->filename);
 	cam_secure_debug(LOG_UI, "camapp->thumbnail_file %s", camapp->thumbnail_name);
 
-	if (!cam_file_get_cam_file_thumbnail_path(camapp->filename, &temp_get_thumbnail))
+	if (!cam_file_get_cam_file_thumbnail_path(camapp->filename, &temp_get_thumbnail)) {
 		cam_warning(LOG_CAM, "cam_file_get_cam_file_thumbnail_path() fail");
+	}
 
 	if (camapp->thumbnail_name != NULL) {
 		edje_object_signal_emit(_EDJ(standby_view->thumbnail_button.edje), "image,normal,1", "*");
@@ -1471,9 +1475,9 @@ void cam_standby_view_add_rotate_object(Elm_Transit *transit)
 	if (standby_view->thumbnail_button.edje) {
 		elm_transit_object_add(transit, standby_view->thumbnail_button.edje);
 	}
-/*	if (standby_view->setting_button) {
-		elm_transit_object_add(transit, standby_view->setting_button);
-	}*/
+	/*	if (standby_view->setting_button) {
+			elm_transit_object_add(transit, standby_view->setting_button);
+		}*/
 	if (standby_view->self_portrait_button) {
 		elm_transit_object_add(transit, standby_view->self_portrait_button);
 	}
@@ -1674,8 +1678,9 @@ void cam_standby_view_camera_button_cb(void *data, Evas_Object *obj, void *event
 	struct appdata *ad = (struct appdata *)data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
-	if (__standby_view_is_disable_camera_button())
+	if (__standby_view_is_disable_camera_button()) {
 		return;
+	}
 
 	if (ad->is_view_changing) {
 		cam_debug(LOG_UI, "view changing!!");
@@ -1799,8 +1804,9 @@ void cam_standby_view_camera_button_press(void *data, Evas_Object *obj, void *ev
 		return;
 	}
 
-	if (standby_view->shot_guide_text == FALSE)
+	if (standby_view->shot_guide_text == FALSE) {
 		__standby_view_guide_text_destroy();
+	}
 
 	evas_object_event_callback_add(standby_view->camera_button, EVAS_CALLBACK_MOUSE_MOVE, __standby_view_camera_button_mouse_move_cb, standby_view->ad);
 
@@ -1942,8 +1948,9 @@ void cam_standby_view_camcorder_button_press(void *data, Evas_Object *obj, void 
 {
 	cam_debug(LOG_UI, "start");
 	cam_retm_if(standby_view == NULL, "standby_view is NULL");
-	if (standby_view->camcorder_button)
+	if (standby_view->camcorder_button) {
 		edje_object_signal_emit(_EDJ(standby_view->camcorder_button), "elm,action,focus_highlight,show", "elm");
+	}
 }
 
 void cam_standby_view_camcorder_button_unpress(void *data, Evas_Object *obj, void *event_info)
@@ -1971,7 +1978,7 @@ static void __standby_view_progressbar_create()
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *cam_handle = ad->camapp_handle;
 	cam_retm_if(cam_handle == NULL, "cam_handle is NULL");
-	 if (cam_handle->shooting_mode == CAM_SELFIE_ALARM_MODE) {
+	if (cam_handle->shooting_mode == CAM_SELFIE_ALARM_MODE) {
 		standby_view->progressbar_layout = cam_app_load_edj(standby_view->layout, CAM_STANDBY_VIEW_EDJ_NAME, "selfie_photo_progressbar");
 		cam_retm_if(standby_view->progressbar_layout == NULL, "cam_app_load_edj failed");
 		elm_object_part_content_set(standby_view->layout, "guide_text_area", standby_view->progressbar_layout);
@@ -1995,7 +2002,7 @@ gboolean cam_standby_view_set_progressbar_value(const int value)
 
 		char signal_buff[255] = {0};
 
-		snprintf(signal_buff, sizeof(signal_buff), "%s%d%s", "thumbnail_", value-1, "_on");
+		snprintf(signal_buff, sizeof(signal_buff), "%s%d%s", "thumbnail_", value - 1, "_on");
 		cam_secure_debug(LOG_CAM, "signal_buff=%s", signal_buff);
 
 		edje_object_signal_emit(_EDJ(standby_view->progressbar_layout), signal_buff, "*");
@@ -2059,12 +2066,12 @@ gboolean cam_standby_view_create(Evas_Object *parent, struct appdata *ad, int sh
 	__standby_view_camera_button_create(layout);
 	__standby_view_self_portrait_button_create(standby_view->layout);
 	__standby_view_setting_button_create(standby_view->layout);
-/*	if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
-		cam_standby_view_effects_button_create(camapp->effect);*/
+	/*	if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
+			cam_standby_view_effects_button_create(camapp->effect);*/
 	cam_indicator_create(standby_view->layout, ad);
 
 	if (FALSE == cam_edit_box_check_exist()) {
-	/*	__standby_view_mode_button_create(standby_view->layout);*/
+		/*	__standby_view_mode_button_create(standby_view->layout);*/
 		__standby_view_mode_display_update(standby_view->param.shooting_mode);
 		cam_indicator_create(standby_view->layout, ad);
 	} else {
@@ -2111,7 +2118,7 @@ static void __standby_view_update(CamStandbyViewType type)
 
 	switch (type) {
 	case CAM_STANDBY_VIEW_NORMAL:
-/*		cam_standby_view_effects_button_destroy();*/
+		/*		cam_standby_view_effects_button_destroy();*/
 		/*__standby_view_mode_arrow_button_create(standby_view->layout);*/
 		__standby_view_camera_button_create(standby_view->layout);
 		__standby_view_camcorder_button_create(standby_view->layout);
@@ -2120,12 +2127,12 @@ static void __standby_view_update(CamStandbyViewType type)
 		__shooting_mode_view_guide_update(camapp->shooting_mode);
 		__standby_view_self_portrait_button_create(standby_view->layout);
 		__standby_view_setting_button_create(standby_view->layout);
-/*		__standby_view_mode_button_create(standby_view->layout);*/
+		/*		__standby_view_mode_button_create(standby_view->layout);*/
 		__standby_view_thumbnail_button_create(standby_view->layout);
 		cam_indicator_create(standby_view->layout, ad);
 		cam_edit_box_destroy();
-/*		if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
-			cam_standby_view_effects_button_create(camapp->effect);*/
+		/*		if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
+					cam_standby_view_effects_button_create(camapp->effect);*/
 		break;
 	case CAM_STANDBY_VIEW_BURST_CAPTURE:
 		__standby_view_camera_button_destroy();
@@ -2139,7 +2146,7 @@ static void __standby_view_update(CamStandbyViewType type)
 
 		cam_indicator_destroy();
 		cam_edit_box_destroy();
-/*		cam_standby_view_effects_button_destroy();*/
+		/*		cam_standby_view_effects_button_destroy();*/
 		__standby_view_progressbar_create();
 		break;
 
@@ -2155,7 +2162,7 @@ static void __standby_view_update(CamStandbyViewType type)
 
 		cam_indicator_destroy();
 		cam_edit_box_destroy();
-/*		cam_standby_view_effects_button_destroy();*/
+		/*		cam_standby_view_effects_button_destroy();*/
 		break;
 	case CAM_STANDBY_VIEW_TIMER_SHOT_COUNTING:
 		__standby_view_camera_button_destroy();
@@ -2169,7 +2176,7 @@ static void __standby_view_update(CamStandbyViewType type)
 
 		cam_indicator_destroy();
 		cam_edit_box_destroy();
-/*		cam_standby_view_effects_button_destroy();*/
+		/*		cam_standby_view_effects_button_destroy();*/
 		break;
 	default:
 		cam_critical(LOG_UI, "invalid type:[%d]", type);
@@ -2269,7 +2276,7 @@ void cam_standby_view_rotate(Evas_Object *parent, struct appdata *ad)
 
 	if (cam_edit_box_check_exist()) {
 		is_quick_setting_open = TRUE;
-/*		cam_standby_view_effects_button_destroy();*/
+		/*		cam_standby_view_effects_button_destroy();*/
 	}
 
 	cam_standby_view_destroy();
@@ -2284,8 +2291,8 @@ void cam_standby_view_rotate(Evas_Object *parent, struct appdata *ad)
 	}
 
 	cam_edit_box_select_recreate(select_item, sub_select_item, box_select_type);
-/*	if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
-		cam_standby_view_effects_button_create(camapp->effect);*/
+	/*	if ((camapp->effect != 0)&&(cam_edit_box_check_exist()==FALSE))
+			cam_standby_view_effects_button_create(camapp->effect);*/
 
 	if (view_type != CAM_STANDBY_VIEW_NORMAL) {
 		cam_standby_view_update(view_type);
@@ -2493,7 +2500,7 @@ static void __standby_view_thumbnail_button_key_up(void *data, Evas *evas, Evas_
 	}
 
 	if ((!strcmp(ev->keyname, "Return")) || (!strcmp(ev->keyname, "KP_Enter"))) {
-		 __standby_view_thumbnail_button_cb(standby_view, NULL, "thumbnail_button_click", "hard_key");
+		__standby_view_thumbnail_button_cb(standby_view, NULL, "thumbnail_button_click", "hard_key");
 	}
 }
 
@@ -2507,11 +2514,13 @@ static void __standby_view_mode_display_update(int shot_mode)
 
 	CAM_COMMON_DATA *mode_data = cam_get_shooting_mode(shot_mode);
 	if (mode_data != NULL) {
-		if (strlen(mode_data->shot_mode_display) + 1 <= 128)
+		if (strlen(mode_data->shot_mode_display) + 1 <= 128) {
 			strncpy(get_stringID, mode_data->shot_mode_display, strlen(mode_data->shot_mode_display));
+		}
 	} else {
-		if (strlen("unknow mode") + 1 <= 128)
+		if (strlen("unknow mode") + 1 <= 128) {
 			strncpy(get_stringID, "unknow mode", strlen("unknow mode"));
+		}
 	}
 	convert_text = elm_entry_utf8_to_markup(dgettext(PACKAGE, get_stringID));
 	if (convert_text != NULL) {

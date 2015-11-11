@@ -133,8 +133,8 @@ void cam_config_save(gboolean remove_reserve_data)
 				if (fp != NULL) {
 					ret = fwrite((const void *)buf, len, 1, fp);
 					if (ret != 1) {
-					     /**fwrite return count(unsigned int) if write correct.
-							the-return-value is always >=0*/
+						/**fwrite return count(unsigned int) if write correct.
+						the-return-value is always >=0*/
 						cam_critical(LOG_CONFIG, "fwrite failed :%d", ret);
 					} else {
 						cam_debug(LOG_CONFIG, "save success");
@@ -217,10 +217,10 @@ int cam_config_get_int(CamConfigType config_type, const gchar *key, int default_
 	GError *error = NULL;
 	gint nval = g_key_file_get_integer(g_key_file, g_group_name[config_type], key, &error);
 	if (error) {
-/*
-		if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND)
-			cam_critical("error:%s", error->message);
-*/
+		/*
+				if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND)
+					cam_critical("error:%s", error->message);
+		*/
 		cam_config_set_int(config_type, key, default_value);
 		g_error_free(error);
 		error = NULL;
@@ -241,8 +241,9 @@ gchar *cam_config_get_string(CamConfigType config_type, const gchar *key, const 
 	GError *error = NULL;
 	const gchar *strval = g_key_file_get_string(g_key_file, g_group_name[config_type], key, &error);
 	if (error) {
-		if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND)
+		if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND) {
 			cam_critical(LOG_CONFIG, "error:%s", error->message);
+		}
 		cam_config_set_string(config_type, key, default_value);
 		g_error_free(error);
 		error = NULL;
@@ -261,8 +262,9 @@ gboolean cam_config_get_boolean(CamConfigType config_type, const gchar *key, gbo
 	GError *error = NULL;
 	gboolean bval = g_key_file_get_boolean(g_key_file, g_group_name[config_type], key, &error);
 	if (error) {
-		if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND)
+		if (error->code != G_KEY_FILE_ERROR_KEY_NOT_FOUND) {
 			cam_critical(LOG_CONFIG, "error:%s", error->message);
+		}
 		cam_config_set_boolean(config_type, key, default_value);
 		g_error_free(error);
 		error = NULL;

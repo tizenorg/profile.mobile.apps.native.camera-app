@@ -68,7 +68,7 @@ static void YuvToRgb(int Y, int U, int V, int *R, int *G, int *B)
 {
 	*B = CLIPING((76284 * (Y - 16) + 132252 * (U - 128)) >> 16);
 	*G = CLIPING((76284 * (Y - 16) - 53281 * (V - 128) -
-		      25625 * (U - 128)) >> 16);
+	              25625 * (U - 128)) >> 16);
 	*R = CLIPING((76284 * (Y - 16) + 104595 * (V - 128)) >> 16);
 }
 
@@ -111,13 +111,13 @@ static int __init_cairo(circle_data_s *circle_data)
 
 static int __draw_cairo(circle_data_s *circle_data, int circle_width, int circle_height, int r, int g, int b)
 {
-	double red = (r * 1.0)/255;
-	double green = (g * 1.0)/255;
-	double blue = (b * 1.0)/255;
-	double radius = (circle_width * 1.0)/2 - 5.0;
+	double red = (r * 1.0) / 255;
+	double green = (g * 1.0) / 255;
+	double blue = (b * 1.0) / 255;
+	double radius = (circle_width * 1.0) / 2 - 5.0;
 	cairo_save(circle_data->cr);
 	cairo_set_source_rgba(circle_data->cr, red, green, blue, 1.0); /* red, green, blue, alpha*/
-	cairo_arc(circle_data->cr, circle_width/2, circle_height/2, radius, 0, 2*M_PI); /* x-center, y-center, radius, angle1, angle2*/
+	cairo_arc(circle_data->cr, circle_width / 2, circle_height / 2, radius, 0, 2 * M_PI); /* x-center, y-center, radius, angle1, angle2*/
 	cairo_stroke(circle_data->cr);
 	cairo_restore(circle_data->cr);
 
@@ -280,7 +280,7 @@ gboolean cam_utils_check_bgm_playing(void)
 			fclose(fp);
 			return TRUE;
 		} else {
-		fclose(fp);
+			fclose(fp);
 			return FALSE;
 		}
 	}
@@ -342,8 +342,9 @@ guint64 cam_system_get_remain_rec_time(void *data)
 	cam_util_get_memory_status(&total_size, &available_size);
 	a_bitrate = cam_app_get_aenc_bitrate(ad);
 	v_bitrate = cam_app_get_venc_bitrate(ad, camapp->video_quality);
-	if ((a_bitrate + v_bitrate) != 0)
+	if ((a_bitrate + v_bitrate) != 0) {
 		remain_time = (guint64)((available_size * 8) / (a_bitrate + v_bitrate));
+	}
 
 	return remain_time;
 }
@@ -448,7 +449,7 @@ gint64 cam_system_get_still_count_by_resolution(void *data)
 		avg_file_size = JPEG_10M_PX_SIZE;
 	}
 
-	remained_count = (gint64)(available_size/avg_file_size);
+	remained_count = (gint64)(available_size / avg_file_size);
 	cam_secure_debug(LOG_UI, "avg_file_size =%lld", avg_file_size);
 	cam_secure_debug(LOG_UI, "remained_count =%lld", remained_count);
 
@@ -468,36 +469,32 @@ gboolean cam_utils_set_guide_rect_color(void *data)
 	cam_mm_get_video_source_format(&capture_video_format);
 
 	switch (capture_video_format) {
-	case CAMERA_PIXEL_FORMAT_INVALID:
-		{
-			cam_debug(LOG_UI, "can not set preview format & shapshot format");
-		}
-		return FALSE;
+	case CAMERA_PIXEL_FORMAT_INVALID: {
+		cam_debug(LOG_UI, "can not set preview format & shapshot format");
+	}
+	return FALSE;
 	case CAMERA_PIXEL_FORMAT_UYVY:
-	/*case MM_PIXEL_FORMAT_ITLV_JPEG_UYVY:*//*TODO:there is no this value in capi*/
-		{
-			camapp->guide_rect_green = UYVY_GUIDE_RECT_GREEN;
-			camapp->guide_rect_orange = UYVY_GUIDE_RECT_ORANGE;
-			camapp->guide_rect_red = UYVY_GUIDE_RECT_RED;
-			camapp->guide_rect_white = UYVY_GUIDE_RECT_WHITE;
-		}
-		break;
-	case CAMERA_PIXEL_FORMAT_YUYV:
-		{
-			camapp->guide_rect_green = YUYV_GUIDE_RECT_GREEN;
-			camapp->guide_rect_orange = YUYV_GUIDE_RECT_ORANGE;
-			camapp->guide_rect_red = YUYV_GUIDE_RECT_RED;
-			camapp->guide_rect_white = YUYV_GUIDE_RECT_WHITE;
-		}
-		break;
-	case CAMERA_PIXEL_FORMAT_NV12:
-		{
-			camapp->guide_rect_green_y = NV12_GUIDE_RECT_GREEN_Y;
-			camapp->guide_rect_green_uv = NV12_GUIDE_RECT_GREEN_UV;
-			camapp->guide_rect_white_y = NV12_GUIDE_RECT_WHITE_Y;
-			camapp->guide_rect_white_uv = NV12_GUIDE_RECT_WHITE_UV;
-		}
-		break;
+	/*case MM_PIXEL_FORMAT_ITLV_JPEG_UYVY:*/ { /*TODO:there is no this value in capi*/
+		camapp->guide_rect_green = UYVY_GUIDE_RECT_GREEN;
+		camapp->guide_rect_orange = UYVY_GUIDE_RECT_ORANGE;
+		camapp->guide_rect_red = UYVY_GUIDE_RECT_RED;
+		camapp->guide_rect_white = UYVY_GUIDE_RECT_WHITE;
+	}
+	break;
+	case CAMERA_PIXEL_FORMAT_YUYV: {
+		camapp->guide_rect_green = YUYV_GUIDE_RECT_GREEN;
+		camapp->guide_rect_orange = YUYV_GUIDE_RECT_ORANGE;
+		camapp->guide_rect_red = YUYV_GUIDE_RECT_RED;
+		camapp->guide_rect_white = YUYV_GUIDE_RECT_WHITE;
+	}
+	break;
+	case CAMERA_PIXEL_FORMAT_NV12: {
+		camapp->guide_rect_green_y = NV12_GUIDE_RECT_GREEN_Y;
+		camapp->guide_rect_green_uv = NV12_GUIDE_RECT_GREEN_UV;
+		camapp->guide_rect_white_y = NV12_GUIDE_RECT_WHITE_Y;
+		camapp->guide_rect_white_uv = NV12_GUIDE_RECT_WHITE_UV;
+	}
+	break;
 	default:
 		cam_debug(LOG_UI, "can not set preview format & shapshot format");
 		return FALSE;
@@ -812,7 +809,7 @@ void *cam_utils_IYUV_to_ARGB(byte *frame, int width, int height)
 	/* source yuv is FOURCC IYUV or I420, sampling format YUV 420. */
 	/* IYUV format is http://www.fourcc.org/yuv.php#IYUV */
 
-	byte *frame_argb =  (byte *)CAM_CALLOC(1, width * height * 4);	/* for ARGB */
+	byte *frame_argb = (byte *)CAM_CALLOC(1, width * height * 4);	/* for ARGB */
 	if (frame_argb == NULL) {
 		return NULL;
 	}
@@ -830,7 +827,7 @@ void *cam_utils_IYUV_to_ARGB(byte *frame, int width, int height)
 			y = frame[h * height + w];
 			u = frame[(width * height) + idx];
 			v = frame[(width * height) + ((width * height) / 4) +
-				  idx];
+			          idx];
 
 			if (w % 2) {
 				idx++;
@@ -893,7 +890,7 @@ cam_utils_save_to_jpg_memory(byte **memory, unsigned int *size, void *src_frame,
 	cam_debug(LOG_SYS, " \n\n\n\n\n START JPEG ENCODING \n\n\n\n\n");
 
 	ret = image_util_encode_jpeg_to_memory(src_frame, width, height,
-			IMAGE_UTIL_COLORSPACE_YUYV, 90, (unsigned char **)memory, size);
+	                                       IMAGE_UTIL_COLORSPACE_YUYV, 90, (unsigned char **)memory, size);
 
 	cam_debug(LOG_SYS, " \n\n\n\n\n END JPEG ENCODING \n\n\n\n\n");
 
@@ -924,7 +921,7 @@ void *cam_utils_load_temp_file(gchar *filepath, gint *pfilesize)
 	}
 
 	cam_secure_debug(LOG_CAM, "temp file's  file_path =%s, file_size =%d",
-		  filepath, filesize);
+	                 filepath, filesize);
 
 	void *data = (void *)CAM_CALLOC(1, filesize);
 
@@ -988,7 +985,7 @@ gboolean cam_utils_check_mmc_for_writing(GError **error)
 
 	return TRUE;
 
- ERROR:
+ERROR:
 
 	/* cam_set_error */
 	if (error_msg) {
@@ -1063,9 +1060,9 @@ int cam_utils_get_storage_id_from_filepath(const char *filepath)
 gboolean cam_utils_check_wide_resolution(int resol_w, int resol_h)
 {
 	if ((ABS((gfloat)((resol_w * 3.0) / (resol_h * 4.0)) - 1.0) < CAM_EPSINON)
-	    || (ABS((gfloat)((resol_w * 25.0) / (resol_h * 36.0)) - 1.0) < CAM_EPSINON)) {
+	        || (ABS((gfloat)((resol_w * 25.0) / (resol_h * 36.0)) - 1.0) < CAM_EPSINON)) {
 		cam_secure_debug(LOG_UI, "Not Wide Resolution : [%d]x[%d]", resol_w,
-			  resol_h);
+		                 resol_h);
 		return FALSE;
 	}
 
@@ -1080,9 +1077,9 @@ cam_utils_grey_image_rotate(char *src, int src_width, int src_height, char *dst,
 	int j = 0;
 
 	cam_retvm_if(src == NULL || dst == NULL || src_width == 0
-		    || src_height == 0, FALSE, "input NULL");
+	             || src_height == 0, FALSE, "input NULL");
 	cam_retvm_if(degree != 0 && degree != 90 && degree != 180
-		    && degree != 270, FALSE, "degree error %d", degree);
+	             && degree != 270, FALSE, "degree error %d", degree);
 
 	cam_debug(LOG_UI, "rotate (%d,%d) degree %d", src_width, src_height, degree);
 
@@ -1263,7 +1260,7 @@ int cam_utils_camera_format_to_image_util_format(camera_pixel_format_e camera_fo
 		return IMAGE_UTIL_COLORSPACE_I420;
 	case CAMERA_PIXEL_FORMAT_NV12:
 		return IMAGE_UTIL_COLORSPACE_NV12;
-    default:
+	default:
 		cam_secure_critical(LOG_CAM, "NOT SUPPORT FORMAT %d", camera_format);
 	}
 
@@ -1331,8 +1328,8 @@ gboolean cam_util_get_memory_status(double *total, double *avail)
 		}
 	}
 
-	*total = (double)fs.f_bsize*fs.f_blocks;
-	*avail = (double)fs.f_bsize*fs.f_bavail;
+	*total = (double)fs.f_bsize * fs.f_blocks;
+	*avail = (double)fs.f_bsize * fs.f_bavail;
 
 	cam_debug(LOG_UI, "total size:%f, available size:%f", *total, *avail);
 	return TRUE;
@@ -1429,7 +1426,7 @@ void cam_util_setting_box_config_update(Evas_Object *setting_box)
 	CAM_MENU_ITEM button_type = CAM_MENU_EMPTY;
 	int i = 0;
 	int config_index = 0;
-	char buf[16+1] = { '\0', };
+	char buf[16 + 1] = { '\0', };
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
 	cam_retm_if(ad == NULL, "ad is NULL");
 
@@ -1444,7 +1441,7 @@ void cam_util_setting_box_config_update(Evas_Object *setting_box)
 		}
 		/*write config according to the direction*/
 		if (CAM_TARGET_DIRECTION_LANDSCAPE == ad->target_direction
-			|| CAM_TARGET_DIRECTION_PORTRAIT_INVERSE == ad->target_direction) {
+		        || CAM_TARGET_DIRECTION_PORTRAIT_INVERSE == ad->target_direction) {
 			config_index = i;
 		} else {
 			config_index = CAM_SETTING_BOX_MAX_NUM - 1 - i;
@@ -1504,7 +1501,7 @@ Evas_Object *cam_util_menu_item_icon_get(Evas_Object *parent, CAM_MENU_ITEM item
 	cam_retvm_if(parent == NULL, NULL, "parent is NULL");
 
 	Evas_Object *icon = NULL;
-	char icon_name[1024+1] = {'\0', };
+	char icon_name[1024 + 1] = {'\0', };
 	char *get_incon_name = NULL;
 
 	CAM_MENU_ITEM menu_item = CAM_MENU_MAX_NUMS;
@@ -1560,9 +1557,9 @@ Evas_Object *cam_util_setting_button_create(Evas_Object *parent, CAM_MENU_ITEM b
 	evas_object_data_set(btn, "button_type", (void *)button_type);
 	//evas_object_size_hint_align_set(btn, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	double scale=elm_config_scale_get();
-	evas_object_size_hint_min_set(btn,((80)/(2.4))*(scale), ((80)/(2.4))*(scale));
-	evas_object_resize(btn, ((80)/(2.4))*(scale), ((80)/(2.4))*(scale));
+	double scale = elm_config_scale_get();
+	evas_object_size_hint_min_set(btn, ((80) / (2.4)) * (scale), ((80) / (2.4)) * (scale));
+	evas_object_resize(btn, ((80) / (2.4)) * (scale), ((80) / (2.4)) * (scale));
 	SHOW_EVAS_OBJECT(btn);
 	return btn;
 }
@@ -1647,17 +1644,17 @@ static void __setting_set_value_flash()
 	int flash = CAM_FLASH_OFF;
 	switch (camapp->flash) {
 	case CAM_FLASH_OFF:
-	   flash = CAM_FLASH_ON;
-	   break;
+		flash = CAM_FLASH_ON;
+		break;
 	case CAM_FLASH_ON:
-	   flash = CAM_FLASH_AUTO;
-	   break;
+		flash = CAM_FLASH_AUTO;
+		break;
 	case CAM_FLASH_AUTO:
-	   flash = CAM_FLASH_OFF;
-	   break;
+		flash = CAM_FLASH_OFF;
+		break;
 	default:
-		  cam_critical(LOG_UI, "invalid menu:[%d]", camapp->flash);
-	  break;
+		cam_critical(LOG_UI, "invalid menu:[%d]", camapp->flash);
+		break;
 	}
 
 	GValue value = {0};
@@ -1696,25 +1693,25 @@ static void __setting_set_value_timer(CAM_MENU_ITEM item)
 	int timer = CAM_SETTINGS_TIMER_OFF;
 
 	switch (camapp->timer) {
-		case CAM_SETTINGS_TIMER_OFF:
-		   timer = CAM_SETTINGS_TIMER_3SEC;
-		   break;
-		case CAM_SETTINGS_TIMER_3SEC:
-			timer = CAM_SETTINGS_TIMER_10SEC;
-		   break;
-		case CAM_SETTINGS_TIMER_10SEC:
-			timer = CAM_SETTINGS_TIMER_OFF;
-		   break;
-		default:
-			  cam_critical(LOG_UI, "invalid menu:[%d]", camapp->timer);
-		  break;
-		}
+	case CAM_SETTINGS_TIMER_OFF:
+		timer = CAM_SETTINGS_TIMER_3SEC;
+		break;
+	case CAM_SETTINGS_TIMER_3SEC:
+		timer = CAM_SETTINGS_TIMER_10SEC;
+		break;
+	case CAM_SETTINGS_TIMER_10SEC:
+		timer = CAM_SETTINGS_TIMER_OFF;
+		break;
+	default:
+		cam_critical(LOG_UI, "invalid menu:[%d]", camapp->timer);
+		break;
+	}
 
 	cam_debug(LOG_CAM, "timer : [%d]", timer);
 
-		GValue value = {0};
-		CAM_GVALUE_SET_INT(value, timer);
-		cam_handle_value_set(ad, PROP_TIMER, &value);
+	GValue value = {0};
+	CAM_GVALUE_SET_INT(value, timer);
+	cam_handle_value_set(ad, PROP_TIMER, &value);
 }
 
 static void __setting_set_value_photo_resolution(CAM_MENU_ITEM item)
@@ -1787,33 +1784,31 @@ static void __setting_set_value_storage(CAM_MENU_ITEM item)
 	GValue value = {0};
 
 	switch (item) {
-		case CAM_MENU_STORAGE_PHONE:
-			{
+	case CAM_MENU_STORAGE_PHONE: {
+		CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
+		cam_handle_value_set(ad, PROP_STORAGE, &value);
+	}
+	break;
+	case CAM_MENU_STORAGE_MMC: {
+		storage_state_e mmc_state;
+		int error_code = storage_get_state(ad->externalstorageId, &mmc_state);
+		if (error_code == STORAGE_ERROR_NONE) {
+			if (mmc_state == STORAGE_STATE_REMOVED) {
+				GValue value = {0};
 				CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
 				cam_handle_value_set(ad, PROP_STORAGE, &value);
+				cam_info(LOG_UI, "MMC card is removed");
+				cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_INSERT_MEMORY_CARD_TO_USE_CAMERA"), NULL);
+			} else {
+				CAM_GVALUE_SET_INT(value, CAM_STORAGE_EXTERNAL);
+				cam_handle_value_set(ad, PROP_STORAGE, &value);
 			}
-			break;
-		case CAM_MENU_STORAGE_MMC:
-			{
-				storage_state_e mmc_state;
-				int error_code = storage_get_state(ad->externalstorageId, &mmc_state);
-				if (error_code == STORAGE_ERROR_NONE) {
-					if (mmc_state == STORAGE_STATE_REMOVED) {
-						GValue value = {0};
-						CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
-						cam_handle_value_set(ad, PROP_STORAGE, &value);
-						cam_info(LOG_UI, "MMC card is removed");
-						cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_INSERT_MEMORY_CARD_TO_USE_CAMERA"), NULL);
-					} else {
-						CAM_GVALUE_SET_INT(value, CAM_STORAGE_EXTERNAL);
-						cam_handle_value_set(ad, PROP_STORAGE, &value);
-					}
-				}
-			}
+		}
+	}
 
-			break;
-		default:
-			break;
+	break;
+	default:
+		break;
 	}
 }
 
@@ -2123,9 +2118,9 @@ static void __setting_set_value_reset_popup(void *data)
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	cam_popup_select_create(ad, dgettext(PACKAGE, "IDS_CAM_BODY_RESET_SETTINGS_RESET"), dgettext(PACKAGE, "IDS_CAM_BODY_RESET_SETTINGS_RESET"),
-										dgettext(PACKAGE, "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"),
-										__setting_set_value_reset_popup_cancel_cb,
-										__setting_set_value_reset_popup_ok_cb);
+	                        dgettext(PACKAGE, "IDS_CAM_TPOP_CAMERA_SETTINGS_RESET_TO_DEFAULTS"),
+	                        __setting_set_value_reset_popup_cancel_cb,
+	                        __setting_set_value_reset_popup_ok_cb);
 
 }
 
@@ -2138,92 +2133,94 @@ gboolean cam_util_setting_set_value_by_menu_item(CAM_MENU_ITEM menu_item, CAM_ME
 
 	switch (menu_item) {
 		/*set by value_item*/
-		case CAM_MENU_RECORDING_MODE:
-			__setting_set_value_record_mode(value_item);
-			break;
-		case CAM_MENU_TIMER:
-			__setting_set_value_timer(value_item);
-			break;
-		case CAM_MENU_PHOTO_RESOLUTION:
-			__setting_set_value_photo_resolution(value_item);
-			break;
-		case CAM_MENU_VIDEO_RESOLUTION:
-			__setting_set_value_video_resolution(value_item);
-			break;
-		case CAM_MENU_WHITE_BALANCE:
-			__setting_set_value_wb(value_item);
-			break;
-		case CAM_MENU_ISO:
-			__setting_set_value_iso(value_item);
-			break;
-		case CAM_MENU_METERING:
-			__setting_set_value_metering(value_item);
-			break;
-		case CAM_MENU_SHUTTER_SOUND:
-			__setting_set_value_shutter_sound();
-			break;
-		case CAM_MENU_STORAGE:
-			__setting_set_value_storage(value_item);
-			break;
-		case CAM_MENU_VOLUME_KEY:
-			__setting_set_value_volume(value_item);
-			break;
+	case CAM_MENU_RECORDING_MODE:
+		__setting_set_value_record_mode(value_item);
+		break;
+	case CAM_MENU_TIMER:
+		__setting_set_value_timer(value_item);
+		break;
+	case CAM_MENU_PHOTO_RESOLUTION:
+		__setting_set_value_photo_resolution(value_item);
+		break;
+	case CAM_MENU_VIDEO_RESOLUTION:
+		__setting_set_value_video_resolution(value_item);
+		break;
+	case CAM_MENU_WHITE_BALANCE:
+		__setting_set_value_wb(value_item);
+		break;
+	case CAM_MENU_ISO:
+		__setting_set_value_iso(value_item);
+		break;
+	case CAM_MENU_METERING:
+		__setting_set_value_metering(value_item);
+		break;
+	case CAM_MENU_SHUTTER_SOUND:
+		__setting_set_value_shutter_sound();
+		break;
+	case CAM_MENU_STORAGE:
+		__setting_set_value_storage(value_item);
+		break;
+	case CAM_MENU_VOLUME_KEY:
+		__setting_set_value_volume(value_item);
+		break;
 
 		/*show new popup*/
-		case CAM_MENU_EXPOSURE_VALUE:
-			ev_load_edje(ad);
-			break;
-		case CAM_MENU_RESET:
-			__setting_set_value_reset_popup(ad);
-			break;
-		case CAM_MENU_EFFECTS:
-			__setting_set_value_set_effect(value_item);
-			break;
+	case CAM_MENU_EXPOSURE_VALUE:
+		ev_load_edje(ad);
+		break;
+	case CAM_MENU_RESET:
+		__setting_set_value_reset_popup(ad);
+		break;
+	case CAM_MENU_EFFECTS:
+		__setting_set_value_set_effect(value_item);
+		break;
 
 		/*change directly*/
-		case CAM_MENU_FLASH:
-			__setting_set_value_flash();
-			 break;
-		case CAM_MENU_TAP_SHOT:
-			__setting_view_set_tap_shot();
-			 break;
-		case CAM_MENU_VIDEO_STABILIZATION:
-			__setting_set_value_video_stabilization();
-			break;
-		case CAM_MENU_SAVE_AS_FLIP:
-			__setting_set_value_save_as_flip();
-			break;
-		case CAM_MENU_GPS_TAG:
-			__setting_set_value_gps();
-			break;
-		case CAM_MENU_REVIEW:
-			__setting_set_value_review();
-			break;
-		case CAM_MENU_FACE_DETECTION:
-			__setting_set_value_face_detection();
-			break;
-		default:
-			cam_warning(LOG_CAM, "invalid type %d", menu_item);
-			return FALSE;
-		}
+	case CAM_MENU_FLASH:
+		__setting_set_value_flash();
+		break;
+	case CAM_MENU_TAP_SHOT:
+		__setting_view_set_tap_shot();
+		break;
+	case CAM_MENU_VIDEO_STABILIZATION:
+		__setting_set_value_video_stabilization();
+		break;
+	case CAM_MENU_SAVE_AS_FLIP:
+		__setting_set_value_save_as_flip();
+		break;
+	case CAM_MENU_GPS_TAG:
+		__setting_set_value_gps();
+		break;
+	case CAM_MENU_REVIEW:
+		__setting_set_value_review();
+		break;
+	case CAM_MENU_FACE_DETECTION:
+		__setting_set_value_face_detection();
+		break;
+	default:
+		cam_warning(LOG_CAM, "invalid type %d", menu_item);
+		return FALSE;
+	}
 	return TRUE;
 }
 
 int cam_util_file_rmdir(const char *filename)
 {
 	int status = rmdir(filename);
-	if (status < 0)
+	if (status < 0) {
 		return 0;
-	else
+	} else {
 		return 1;
+	}
 }
 int cam_util_file_unlink(const char *filename)
 {
 	int status = unlink(filename);
-	if (status < 0)
+	if (status < 0) {
 		return 0;
-	else
+	} else {
 		return 1;
+	}
 }
 
 int cam_util_file_is_dir(const char *path)
@@ -2256,15 +2253,17 @@ int cam_util_file_recursive_rm(const char *dir)
 		if (dirp) {
 			while ((readdir_r(dirp, &ent_struct, &dp) == 0) && dp) {
 				if ((strcmp(dp->d_name , ".")) && (strcmp(dp->d_name, ".."))) {
-					if (!cam_util_file_recursive_rm(dp->d_name))
+					if (!cam_util_file_recursive_rm(dp->d_name)) {
 						ret = 0;
+					}
 				}
 			}
 			closedir(dirp);
 		}
 
-		if (!cam_util_file_rmdir(dir))
+		if (!cam_util_file_rmdir(dir)) {
 			ret = 0;
+		}
 
 		return ret;
 	} else {
@@ -2330,7 +2329,7 @@ int cam_image_util_rotate(unsigned char *dest, int *dest_width, int *dest_height
 	int src_w = src_width;
 	int src_h = src_height;
 	if (IMAGE_UTIL_COLORSPACE_RGB888 != colorspace || src_w <= 0 || src_h <= 0
-		 || dest_rotation <= IMAGE_UTIL_ROTATION_NONE || dest_rotation > IMAGE_UTIL_ROTATION_270) {
+	        || dest_rotation <= IMAGE_UTIL_ROTATION_NONE || dest_rotation > IMAGE_UTIL_ROTATION_270) {
 		cam_debug(LOG_CAM, "invalid data set");
 		return IMAGE_UTIL_ERROR_INVALID_PARAMETER;
 	}
@@ -2358,13 +2357,13 @@ int cam_image_util_rotate(unsigned char *dest, int *dest_width, int *dest_height
 			src_pixel = (rgb888 *)(src + j * src_stride + bpp * i);
 			if (IMAGE_UTIL_ROTATION_90 == dest_rotation) {
 				dest_pixel = (rgb888 *)(dest + (dest_w - 1) * bpp
-									   + i * dest_stride - bpp * j);
+				                        + i * dest_stride - bpp * j);
 			} else if (IMAGE_UTIL_ROTATION_180 == dest_rotation) {
 				dest_pixel = (rgb888 *)(dest + (dest_h - 1) * dest_stride
-									   + (dest_w - 1) * bpp - j * dest_stride - bpp * i);
+				                        + (dest_w - 1) * bpp - j * dest_stride - bpp * i);
 			} else if (IMAGE_UTIL_ROTATION_270 == dest_rotation) {
 				dest_pixel = (rgb888 *)(dest + (dest_h - 1) * dest_stride
-									   - i * dest_stride + bpp * j);
+				                        - i * dest_stride + bpp * j);
 			} else {
 				cam_debug(LOG_CAM, "invalid parameters");
 				return IMAGE_UTIL_ERROR_INVALID_PARAMETER;
@@ -2379,17 +2378,17 @@ int cam_image_util_rotate(unsigned char *dest, int *dest_width, int *dest_height
 
 /* CAM_CONFIG_TYPE_COMMON & get config when create(cam_handle_init)*/
 static CAM_MENU_ITEM cam_menu_config_common[] = {
-									CAM_MENU_PHOTO_RESOLUTION,
-									CAM_MENU_VIDEO_RESOLUTION,
-									CAM_MENU_METERING,
-									CAM_MENU_ANTI_SHAKE,
-									CAM_MENU_VIDEO_STABILIZATION,
-									CAM_MENU_FLASH,
-									CAM_MENU_VOLUME_KEY,
-									CAM_MENU_SAVE_AS_FLIP,
-									CAM_MENU_TAP_SHOT,
-									CAM_MENU_GPS_TAG,
-									};
+	CAM_MENU_PHOTO_RESOLUTION,
+	CAM_MENU_VIDEO_RESOLUTION,
+	CAM_MENU_METERING,
+	CAM_MENU_ANTI_SHAKE,
+	CAM_MENU_VIDEO_STABILIZATION,
+	CAM_MENU_FLASH,
+	CAM_MENU_VOLUME_KEY,
+	CAM_MENU_SAVE_AS_FLIP,
+	CAM_MENU_TAP_SHOT,
+	CAM_MENU_GPS_TAG,
+};
 
 gboolean __cam_utils_reload_setting_item(void *data, GKeyFile *key_file, CAM_MENU_ITEM menu_item)
 {
@@ -2409,7 +2408,7 @@ gboolean __cam_utils_reload_setting_item(void *data, GKeyFile *key_file, CAM_MEN
 	GValue value = { 0 };
 
 	/*reload g_key_file*/
-	switch(key_type){
+	switch (key_type) {
 	case CAM_CONFIG_KEY_TYPE_INT:
 		nval = g_key_file_get_integer(key_file, group_name[config_type], key_name, &error);
 		if (error != NULL) {
@@ -2439,7 +2438,7 @@ gboolean __cam_utils_reload_setting_item(void *data, GKeyFile *key_file, CAM_MEN
 		break;
 	}
 
-	if(CAM_MENU_GPS_TAG == menu_item) {
+	if (CAM_MENU_GPS_TAG == menu_item) {
 		return TRUE;
 	}
 
@@ -2517,7 +2516,7 @@ void cam_utils_reload_common_settings(void *data)
 	cam_retm_if(data == NULL, "data is invalid");
 
 	__cam_utils_reload_setting_list(data, (CAM_MENU_ITEM*)cam_menu_config_common,
-		sizeof(cam_menu_config_common)/sizeof(CAM_MENU_ITEM));
+	                                sizeof(cam_menu_config_common) / sizeof(CAM_MENU_ITEM));
 }
 
 /*end file*/

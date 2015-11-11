@@ -59,9 +59,9 @@ static gboolean __pinch_is_block(void *data)
 	}
 
 	if (camapp->camera_mode == CAM_CAMERA_MODE
-		&&
-		(camapp->shooting_mode == CAM_PX_MODE ||
-		camapp->shooting_mode == CAM_SELFIE_ALARM_MODE)) {
+	        &&
+	        (camapp->shooting_mode == CAM_PX_MODE ||
+	         camapp->shooting_mode == CAM_SELFIE_ALARM_MODE)) {
 		cam_debug(LOG_UI, "shooting_mode not support");
 		return TRUE;
 	}
@@ -93,8 +93,8 @@ static Evas_Event_Flags __pinch_start(void *data, void *event_info)
 	if (TRUE == __pinch_is_block(data)) {
 		if (ad->popup == NULL) {
 			cam_popup_toast_popup_create(ad,
-					dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
-					NULL);
+			                             dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
+			                             NULL);
 		}
 		return EVAS_EVENT_FLAG_NONE;
 	}
@@ -111,8 +111,9 @@ static Evas_Event_Flags __pinch_start(void *data, void *event_info)
 		cam_debug(LOG_CAM, "touch_af_state is [%d], do not zoom", camapp->touch_af_state);
 		return EVAS_EVENT_FLAG_NONE;
 	}
-	if (ad->ev_edje || ad->zoom_edje)
+	if (ad->ev_edje || ad->zoom_edje) {
 		return EVAS_EVENT_FLAG_NONE;
+	}
 
 	cam_app_focus_guide_destroy(ad);
 	cam_app_af_stop(ad);
@@ -124,7 +125,7 @@ static Evas_Event_Flags __pinch_start(void *data, void *event_info)
 	cam_debug(LOG_UI, " state = %d", state);
 	if (camapp->camera_mode == CAM_CAMERA_MODE) {
 		if (state == CAMERA_STATE_PREVIEW
-			|| state == CAMERA_STATE_CAPTURED) {
+		        || state == CAMERA_STATE_CAPTURED) {
 			if (camapp->shooting_mode != CAM_PX_MODE) {
 				cam_zoom_create_pinch_edje(ad);
 				return EVAS_EVENT_FLAG_NONE;
@@ -132,8 +133,8 @@ static Evas_Event_Flags __pinch_start(void *data, void *event_info)
 		}
 	} else if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
 		if (state == RECORDER_STATE_READY
-			|| state == RECORDER_STATE_RECORDING
-			|| state == RECORDER_STATE_PAUSED) {
+		        || state == RECORDER_STATE_RECORDING
+		        || state == RECORDER_STATE_PAUSED) {
 			if (camapp->recording_mode != CAM_RECORD_SLOW) {
 				cam_zoom_create_pinch_edje(ad);
 				return EVAS_EVENT_FLAG_NONE;
@@ -155,8 +156,9 @@ static Evas_Event_Flags __pinch_end(void *data, void *event_info)
 	cam_retvm_if(ad->main_view_type == CAM_VIEW_SETTING, EVAS_EVENT_FLAG_NONE, "setting view not support pinch");
 	cam_retvm_if(ad->main_view_type == CAM_VIEW_MODE, EVAS_EVENT_FLAG_NONE, "mode view not support pinch");
 
-	if (TRUE == __pinch_is_block(data))
+	if (TRUE == __pinch_is_block(data)) {
 		return EVAS_EVENT_FLAG_NONE;
+	}
 
 	cam_debug(LOG_CAM, "__pinch_end");
 
@@ -187,8 +189,9 @@ static Evas_Event_Flags __pinch_move(void *data, void *event_info)
 		return EVAS_EVENT_FLAG_NONE;
 	}
 
-	if (ad->ev_edje || ad->zoom_edje)
+	if (ad->ev_edje || ad->zoom_edje) {
 		return EVAS_EVENT_FLAG_NONE;
+	}
 
 	if (TRUE == __pinch_is_block(data)) {
 		return EVAS_EVENT_FLAG_NONE;
@@ -202,17 +205,18 @@ static Evas_Event_Flags __pinch_move(void *data, void *event_info)
 	prev_zoom = ev->zoom;
 
 	gboolean is_zoom_in = FALSE;
-	if (diff > 0)
+	if (diff > 0) {
 		is_zoom_in = FALSE;
-	else
+	} else {
 		is_zoom_in = TRUE;
+	}
 
 	int state = 0;
 	state = cam_mm_get_state();
 	cam_debug(LOG_UI, " state = %d", state);
 	if (camapp->camera_mode == CAM_CAMERA_MODE) {
 		if (state == CAMERA_STATE_PREVIEW
-			|| state == CAMERA_STATE_CAPTURED) {
+		        || state == CAMERA_STATE_CAPTURED) {
 			if (camapp->shooting_mode != CAM_PX_MODE) {
 				cam_zoom_pinch_start(ad, is_zoom_in, 1);
 				return EVAS_EVENT_FLAG_NONE;
@@ -220,8 +224,8 @@ static Evas_Event_Flags __pinch_move(void *data, void *event_info)
 		}
 	} else if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
 		if (state == RECORDER_STATE_READY
-			|| state == RECORDER_STATE_RECORDING
-			|| state == RECORDER_STATE_PAUSED) {
+		        || state == RECORDER_STATE_RECORDING
+		        || state == RECORDER_STATE_PAUSED) {
 			if (camapp->recording_mode != CAM_RECORD_SLOW) {
 				cam_zoom_pinch_start(ad, is_zoom_in, 1);
 				return EVAS_EVENT_FLAG_NONE;
@@ -397,11 +401,13 @@ static void __mouse_down_cb(void *data, Evas * evas, Evas_Object *obj, void *eve
 	if (__is_blocking_mouse_event(ad)) {
 		cam_warning(LOG_UI, "mouse event is blocking");
 	} else {
-		if (ad->zoom_edje)
+		if (ad->zoom_edje) {
 			cam_zoom_unload_edje(ad);
+		}
 
-		if (ad->ev_edje)
+		if (ad->ev_edje) {
 			ev_unload_edje(ad);
+		}
 		if (ad->gallery_edje) {
 			cam_app_gallery_edje_destroy(ad);
 		}

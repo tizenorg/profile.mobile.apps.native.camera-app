@@ -33,7 +33,7 @@ CCamTypeConverter::CamIsoDevConvertCaps(camera_attr_iso_e iso)
 {
 	unsigned int ret = 0;
 
-	switch(iso) {
+	switch (iso) {
 	case CAMERA_ATTR_ISO_AUTO:
 		ret = CAM_CP_ISO_AUTO;
 		break;
@@ -71,7 +71,7 @@ CCamTypeConverter::CamIsoCamConvertCaps(CamIso iso)
 {
 	unsigned int ret = 0;
 
-	switch(iso) {
+	switch (iso) {
 	case CAM_ISO_AUTO:
 		ret = CAM_CP_ISO_AUTO;
 		break;
@@ -120,7 +120,7 @@ unsigned int
 CCamTypeConverter::CamEffectCamConvertCaps(CamSettingsEffects effect)
 {
 	unsigned int loop = 0;
-	for (loop = 0; loop < sizeof(g_cam_single_effects)/sizeof(CamSingleEffects); loop++) {
+	for (loop = 0; loop < sizeof(g_cam_single_effects) / sizeof(CamSingleEffects); loop++) {
 		if (effect == g_cam_single_effects[loop].effect_type) {
 			return g_cam_single_effects[loop].effect_cap;
 		}
@@ -135,14 +135,14 @@ CCamTypeConverter::CamFpsDevConvertCaps(camera_attr_fps_e fps)
 {
 	unsigned int ret = 0;
 
-	switch(fps) {
+	switch (fps) {
 	case CAMERA_ATTR_FPS_AUTO:
 		ret = CAM_CP_FPS_AUTO;
 		break;
 	case CAMERA_ATTR_FPS_8:
 		ret = CAM_CP_FPS_8;
 		break;
-    case CAMERA_ATTR_FPS_15:
+	case CAMERA_ATTR_FPS_15:
 		ret = CAM_CP_FPS_15;
 		break;
 	case CAMERA_ATTR_FPS_24:
@@ -173,7 +173,7 @@ CCamTypeConverter::CamWbDevConvertCaps(camera_attr_whitebalance_e wb)
 {
 	unsigned int ret = 0;
 
-	switch(wb) {
+	switch (wb) {
 	case CAMERA_ATTR_WHITE_BALANCE_NONE:
 		break;
 	case CAMERA_ATTR_WHITE_BALANCE_AUTOMATIC:
@@ -215,7 +215,7 @@ CCamTypeConverter::CamWbCamConvertCaps(CamSettingsWB wb)
 {
 	unsigned int ret = 0;
 
-	switch(wb) {
+	switch (wb) {
 	case CAM_SETTINGS_WB_AWB:
 		ret = CAM_CP_WB_AUTO;
 		break;
@@ -256,7 +256,7 @@ CCamTypeConverter::CamFocusDevConvertCaps(camera_attr_af_mode_e focus)
 {
 	unsigned int ret = 0;
 
-	switch(focus) {
+	switch (focus) {
 	case CAMERA_ATTR_AF_NONE:
 		ret = CAM_CP_FOCUS_NONE;
 		break;
@@ -281,7 +281,7 @@ CCamTypeConverter::CamFocusCamConvertCaps(CamFocusMode focus)
 {
 	unsigned int ret = 0;
 
-	switch(focus) {
+	switch (focus) {
 	case CAM_FOCUS_AUTO:
 		ret = CAM_CP_FOCUS_AUTO_FOCUS;
 		break;
@@ -306,7 +306,7 @@ CCamTypeConverter::CamMeteringDevConvertCaps(camera_attr_exposure_mode_e meterin
 {
 	unsigned int ret = 0;
 
-	switch(metering) {
+	switch (metering) {
 	case CAMERA_ATTR_EXPOSURE_MODE_CENTER:
 		ret = CAM_CP_METERING_CENTERWEIGHT;
 		break;
@@ -328,7 +328,7 @@ CCamTypeConverter::CamMeteringCamConvertCaps(CamMetering type)
 {
 	unsigned int ret = 0;
 
-	switch(type) {
+	switch (type) {
 	case CAM_METERING_MATRIX:
 		ret = CAM_CP_METERING_MATRIX;
 		break;
@@ -349,7 +349,7 @@ unsigned int
 CCamTypeConverter::CamSceneDevConvertCaps(camera_attr_scene_mode_e scene)
 {
 	unsigned int ret = 0;
-	switch(scene) {
+	switch (scene) {
 	case CAMERA_ATTR_SCENE_MODE_NORMAL:
 		ret = CAM_CP_SCENE_MODE_AUTO;
 		break;
@@ -396,7 +396,7 @@ CCamTypeConverter::CamSceneDevConvertCaps(camera_attr_scene_mode_e scene)
 		ret = CAM_CP_SCENE_MODE_SHOW_WINDOW;
 		break;
 	default:
-			break;
+		break;
 	}
 
 	return ret;
@@ -408,7 +408,7 @@ CCamTypeConverter::CamSceneCamConvertCaps(CamSceneMode scene)
 {
 	unsigned int ret = 0;
 
-	switch(scene) {
+	switch (scene) {
 	case CAM_SCENE_NONE:
 		ret = CAM_CP_SCENE_MODE_AUTO;
 		break;
@@ -455,7 +455,7 @@ CCamTypeConverter::CamSceneCamConvertCaps(CamSceneMode scene)
 		ret = CAM_CP_SCENE_MODE_SHOW_WINDOW;
 		break;
 	default:
-			break;
+		break;
 	}
 
 	return ret;
@@ -466,7 +466,7 @@ CCamTypeConverter::CamFlashDevConvertCaps(camera_attr_flash_mode_e flash)
 {
 	unsigned int ret = 0;
 
-	switch(flash) {
+	switch (flash) {
 	case CAMERA_ATTR_FLASH_MODE_OFF:
 		ret = CAM_CP_FLASH_OFF;
 		break;
@@ -503,7 +503,7 @@ CCamTypeConverter::CamFlashCamConvertCaps(CamFlashMode flash)
 {
 	unsigned int ret = 0;
 
-	switch(flash) {
+	switch (flash) {
 	case CAM_FLASH_OFF:
 		ret = CAM_CP_FLASH_OFF;
 		break;
@@ -528,7 +528,7 @@ CCamTypeConverter::CamResolutionCamConvertCaps(unsigned int res)
 {
 	unsigned int ret = 0;
 
-	switch(res) {
+	switch (res) {
 	case CAM_RESOLUTION_3264x2448:
 		ret = CAM_CP_SIZE_3264X2448;
 		break;
@@ -575,9 +575,9 @@ CCamTypeConverter::CamResolutionCamConvertCaps(unsigned int res)
 		ret = CAM_CP_SIZE_1280X720;
 		break;
 	case CAM_RESOLUTION_1080x1080:
-        ret = CAM_CP_SIZE_1080X1080;
-        break;
-        case CAM_RESOLUTION_1056x1056:
+		ret = CAM_CP_SIZE_1080X1080;
+		break;
+	case CAM_RESOLUTION_1056x1056:
 		ret = CAM_CP_SIZE_1080X1080;
 		break;
 	case CAM_RESOLUTION_SVGA:

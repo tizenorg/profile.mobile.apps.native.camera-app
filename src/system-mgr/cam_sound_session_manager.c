@@ -67,7 +67,7 @@ gboolean cam_sound_session_set_option(CamSoundSessionOption option)
 
 gboolean cam_sound_session_set_mode(CamSoundSessionMode mode)
 {
-/*	cam_retvm_if(session_h == NULL, FALSE, "session_h is NULL");*/
+	/*	cam_retvm_if(session_h == NULL, FALSE, "session_h is NULL");*/
 
 	cam_debug(LOG_UI, "session set mode [%d]", mode);
 

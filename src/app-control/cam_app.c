@@ -339,39 +339,39 @@ int cam_convert_video_orient_value(void *data, int video_orient)
 
 	if ((camapp->self_portrait == TRUE) && (save_as_flip == FALSE)) {
 		switch (video_orient) {
-			case CAMERA_ROTATION_NONE:
-				convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE;
-				break;
-			case RECORDER_ROTATION_90:
-				convert_orient = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
-				break;
-			case RECORDER_ROTATION_180:
-				convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
-				break;
-			case RECORDER_ROTATION_270:
-				convert_orient = CAM_TARGET_DIRECTION_PORTRAIT;
-				break;
-			default:
-				convert_orient = ad->target_direction;
-				break;
+		case CAMERA_ROTATION_NONE:
+			convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE;
+			break;
+		case RECORDER_ROTATION_90:
+			convert_orient = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
+			break;
+		case RECORDER_ROTATION_180:
+			convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
+			break;
+		case RECORDER_ROTATION_270:
+			convert_orient = CAM_TARGET_DIRECTION_PORTRAIT;
+			break;
+		default:
+			convert_orient = ad->target_direction;
+			break;
 		}
 	} else {
 		switch (video_orient) {
-			case CAMERA_ROTATION_NONE:
-				convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE;
-				break;
-			case CAMERA_ROTATION_90:
-				convert_orient = CAM_TARGET_DIRECTION_PORTRAIT;
-				break;
-			case CAMERA_ROTATION_180:
-				convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
-				break;
-			case CAMERA_ROTATION_270:
-				convert_orient = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
-				break;
-			default:
-				convert_orient = ad->target_direction;
-				break;
+		case CAMERA_ROTATION_NONE:
+			convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE;
+			break;
+		case CAMERA_ROTATION_90:
+			convert_orient = CAM_TARGET_DIRECTION_PORTRAIT;
+			break;
+		case CAMERA_ROTATION_180:
+			convert_orient = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
+			break;
+		case CAMERA_ROTATION_270:
+			convert_orient = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
+			break;
+		default:
+			convert_orient = ad->target_direction;
+			break;
 		}
 	}
 
@@ -702,10 +702,10 @@ static void __cam_app_start_after_preview(void *data)
 		app_control_reply_to_launch_request(reply, ad->app_control_handle, APP_CONTROL_RESULT_SUCCEEDED);
 		app_control_destroy(reply);
 	}
-/*Commented as it is trying to open the image viewer when camera is launched
-	if (ad->launching_mode == CAM_LAUNCHING_MODE_NORMAL) {
-		cam_app_preload_image_viewer(ad);
-	}*/
+	/*Commented as it is trying to open the image viewer when camera is launched
+		if (ad->launching_mode == CAM_LAUNCHING_MODE_NORMAL) {
+			cam_app_preload_image_viewer(ad);
+		}*/
 
 	cam_warning(LOG_UI, "END");
 }
@@ -732,51 +732,51 @@ gboolean cam_app_pause(void *data)
 		cam_shot_stop_capture(ad);
 	} else {
 		if ((mm_state == RECORDER_STATE_RECORDING)
-			|| (mm_state == RECORDER_STATE_PAUSED)) {
+		        || (mm_state == RECORDER_STATE_PAUSED)) {
 			cam_video_record_stop(ad);
 		}
 	}
 
 	switch (ad->main_view_type) {
-		case CAM_VIEW_SHOT_PROCESS:
-		case CAM_VIEW_SETTING:
-			cam_shot_destroy(ad);
-			if (cam_edit_box_check_exist()) {
-				cam_edit_box_destroy();
-			}
+	case CAM_VIEW_SHOT_PROCESS:
+	case CAM_VIEW_SETTING:
+		cam_shot_destroy(ad);
+		if (cam_edit_box_check_exist()) {
+			cam_edit_box_destroy();
+		}
+		cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
+		break;
+	case CAM_VIEW_STANDBY:
+		cam_shot_destroy(ad);
+		cam_standby_view_camera_button_create();
+		/*clean popup in standby view when pause*/
+		if (is_cam_edit_box_popup_exist()) {
+			cam_edit_box_popup_destroy();
+		}
+
+		if (cam_edit_box_check_exist()) {
+			cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);
+		}
+
+		if (cam_help_popup_check_exist()) {
+			cam_help_popup_destroy();
+		}
+
+		cam_indicator_destroy();
+
+		if (ad->ext_app_control_handle) {
 			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			break;
-		case CAM_VIEW_STANDBY:
-			cam_shot_destroy(ad);
-			cam_standby_view_camera_button_create();
-			/*clean popup in standby view when pause*/
-			if (is_cam_edit_box_popup_exist()) {
-				cam_edit_box_popup_destroy();
-			}
+		}
 
-			if (cam_edit_box_check_exist()) {
-				cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);
-			}
-
-			if (cam_help_popup_check_exist()) {
-				cam_help_popup_destroy();
-			}
-
-			cam_indicator_destroy();
-
-			if (ad->ext_app_control_handle) {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-
-			break;
-		case CAM_VIEW_RECORD:
-			if (ad->ext_app_control_handle) {
-				cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-			}
-			break;
-		default:
-			cam_shot_destroy(ad);
-			break;
+		break;
+	case CAM_VIEW_RECORD:
+		if (ad->ext_app_control_handle) {
+			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
+		}
+		break;
+	default:
+		cam_shot_destroy(ad);
+		break;
 	}
 
 	cam_app_focus_guide_destroy(ad);
@@ -807,14 +807,17 @@ gboolean cam_app_pause(void *data)
 		cam_critical(LOG_MM, "cam_app_preview_stop fail");
 	}
 
-	if (EXIT_FAILURE == cam_noti_deinit(ad))
+	if (EXIT_FAILURE == cam_noti_deinit(ad)) {
 		cam_critical(LOG_UI, "cam_noti_deinit failed");
+	}
 
-	if (!cam_app_key_event_deinit(ad))
+	if (!cam_app_key_event_deinit(ad)) {
 		cam_critical(LOG_UI, "cam_app_key_event_deinit failed");
+	}
 
-	if (!cam_app_x_event_deinit(ad))
+	if (!cam_app_x_event_deinit(ad)) {
 		cam_critical(LOG_UI, "cam_app_x_event_deinit failed");
+	}
 
 	cam_app_timeout_checker_remove();
 
@@ -853,9 +856,9 @@ gboolean cam_app_resume(void *data)
 	}
 
 	if (!cam_callback_init(ad)) {
-		  cam_critical(LOG_MM, "cam_init_mm_callback failed");
-		  cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
-		  return FALSE;
+		cam_critical(LOG_MM, "cam_init_mm_callback failed");
+		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
+		return FALSE;
 	}
 
 	cam_app_get_preview_offset_coordinate(ad);
@@ -884,7 +887,7 @@ gboolean cam_app_resume(void *data)
 		}
 
 		cam_critical(LOG_MM, "cam_app_preview_start failed");
-	/*	cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);*/
+		/*	cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);*/
 		return FALSE;
 	}
 
@@ -1022,35 +1025,33 @@ gboolean cam_app_preview_start(void *data)
 	cam_debug(LOG_CAM, "state: %d ", state);
 
 	if (((camapp->camera_mode == CAM_CAMERA_MODE) && (state < CAMERA_STATE_NONE))
-			|| ((camapp->camera_mode == CAM_CAMCORDER_MODE) && (state < RECORDER_STATE_NONE))) {
+	        || ((camapp->camera_mode == CAM_CAMCORDER_MODE) && (state < RECORDER_STATE_NONE))) {
 		return FALSE;
 	}
 
 	if (camapp->camera_mode == CAM_CAMERA_MODE) {
 		switch (state) {
 		case CAMERA_STATE_CREATED:
-		case CAMERA_STATE_CAPTURED:
-			{
-				if (!cam_mm_preview_start(camapp->camera_mode)) {
-					cam_critical(LOG_MM, "cam_mm_preview_start failed");
-					return FALSE;
-				}
+		case CAMERA_STATE_CAPTURED: {
+			if (!cam_mm_preview_start(camapp->camera_mode)) {
+				cam_critical(LOG_MM, "cam_mm_preview_start failed");
+				return FALSE;
 			}
-			break;
+		}
+		break;
 		default:
 			break;
 		}
 	} else if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
 		switch (state) {
 		case RECORDER_STATE_CREATED:
-		case RECORDER_STATE_PAUSED:
-			{
-				if (!cam_mm_preview_start(camapp->camera_mode)) {
-					cam_critical(LOG_MM, "cam_mm_preview_start failed");
-					return FALSE;
-				}
+		case RECORDER_STATE_PAUSED: {
+			if (!cam_mm_preview_start(camapp->camera_mode)) {
+				cam_critical(LOG_MM, "cam_mm_preview_start failed");
+				return FALSE;
 			}
-			break;
+		}
+		break;
 		default:
 			break;
 		}
@@ -1082,7 +1083,7 @@ gboolean cam_app_preview_stop(void)
 	cam_retvm_if(camapp == NULL, FALSE, "camapp is NULL");
 
 	if (camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING
-		|| camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY) {
+	        || camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY) {
 		camapp->touch_af_state = CAM_TOUCH_AF_STATE_NONE;
 	}
 
@@ -1200,7 +1201,7 @@ gboolean cam_app_create_main_view(void *data, CamView type, void *view_param)
 		break;
 	case CAM_VIEW_SHOT_PROCESS:
 		cam_shot_processing_view_create(ad->main_layout, ad, camapp->shooting_mode);
-		break;	
+		break;
 	default:
 		break;
 	}
@@ -1209,7 +1210,7 @@ gboolean cam_app_create_main_view(void *data, CamView type, void *view_param)
 	ad->main_view_angle = elm_win_rotation_get(ad->win_main);
 
 	if (ad->app_state == CAM_APP_PAUSE_STATE
-		|| ad->app_state == CAM_APP_TERMINATE_STATE) {
+	        || ad->app_state == CAM_APP_TERMINATE_STATE) {
 		/*auto dim*/
 		cam_util_lcd_unlock();
 		cam_secure_debug(LOG_UI, "unlock power/home key, auto dim");
@@ -1269,7 +1270,7 @@ void cam_app_rotate_main_view(void *data, CamView type)
 		cam_recording_view_rotate(ad->main_layout, ad);
 		break;
 	case CAM_VIEW_SHOT_PROCESS:
-/*		cam_shot_processing_view_rotate(ad->main_layout, ad);*/
+		/*cam_shot_processing_view_rotate(ad->main_layout, ad);*/
 		break;
 	default:
 		break;
@@ -1305,10 +1306,10 @@ gboolean cam_layout_init(void *data)
 	}
 
 	if (ad->battery_status == LOW_BATTERY_CRITICAL_STATUS
-		|| ad->battery_status == LOW_BATTERY_WARNING_STATUS
-		|| ad->is_voice_calling == TRUE
-		|| ad->is_video_calling == TRUE
-		|| ad->siop_camcorder_close == TRUE) {
+	        || ad->battery_status == LOW_BATTERY_WARNING_STATUS
+	        || ad->is_voice_calling == TRUE
+	        || ad->is_video_calling == TRUE
+	        || ad->siop_camcorder_close == TRUE) {
 		REMOVE_EXITER_IDLER(ad->cam_exiter_idler[CAM_EXITER_IDLER_DISPLAY_ERROR_POPUP]);
 		ad->cam_exiter_idler[CAM_EXITER_IDLER_DISPLAY_ERROR_POPUP] = ecore_idle_exiter_add(__cam_app_display_error_popup_idler, data);
 	}
@@ -1427,9 +1428,9 @@ gboolean __cam_handle_init_by_shooting_mode(void *data)
 	}
 
 	cam_debug(LOG_CAM, "camera_mode %d, update config by shooting_mode %d: flash %d, metering %d, video_stabilization %d",
-		camapp->camera_mode, camapp->shooting_mode,
-		camapp->flash, camapp->metering,
-		camapp->video_stabilization);
+	          camapp->camera_mode, camapp->shooting_mode,
+	          camapp->flash, camapp->metering,
+	          camapp->video_stabilization);
 
 	return TRUE;
 }
@@ -1711,9 +1712,9 @@ static void __cam_app_location_setting_service_reply_cb(app_control_h request, a
 
 	if (cam_lbs_is_location_setting_enabled() == FALSE) {
 		cam_popup_select_create(ad, dgettext(PACKAGE, "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"), dgettext(PACKAGE, "IDS_CAM_BODY_SETTINGS"),
-									dgettext(PACKAGE, "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"),
-									__cam_app_location_setting_launch_popup_cancel_cb,
-									__cam_app_location_setting_launch_popup_ok_cb);
+		                        dgettext(PACKAGE, "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"),
+		                        __cam_app_location_setting_launch_popup_cancel_cb,
+		                        __cam_app_location_setting_launch_popup_ok_cb);
 	}
 
 	cam_warning(LOG_UI, "end");
@@ -1773,9 +1774,9 @@ static void __cam_app_gps_attention_popup_ok_cb(void *data, Evas_Object *obj, vo
 
 	if (cam_lbs_is_location_setting_enabled() == FALSE) {
 		cam_popup_select_create(ad, dgettext(PACKAGE, "IDS_CAM_HEADER_UNABLE_TO_ENABLE_LOCATION_TAGS_ABB"), dgettext(PACKAGE, "IDS_CAM_BODY_SETTINGS"),
-									dgettext(PACKAGE, "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"),
-									__cam_app_location_setting_launch_popup_cancel_cb,
-									__cam_app_location_setting_launch_popup_ok_cb);
+		                        dgettext(PACKAGE, "IDS_CAM_POP_TO_USE_LOCATION_TAGS_GO_TO_SETTINGS_LOCATION_AND_MAKE_SURE_THAT_GPS_IS_TURNED_ON_AND_WIRELESS_NETWORKS_IS_ENABLED"),
+		                        __cam_app_location_setting_launch_popup_cancel_cb,
+		                        __cam_app_location_setting_launch_popup_ok_cb);
 	} else {
 		if (!cam_app_lbs_start(ad)) {
 			cam_critical(LOG_CAM, "cam_app_lbs_start failed");
@@ -1899,745 +1900,725 @@ gboolean cam_handle_value_set(void *data, int type, const GValue *value)
 	cam_debug(LOG_CAM, "type : %d", type);
 
 	switch (type) {
-	case PROP_MODE:
-		{
-			gint current = 0;
-			gint tempval = g_value_get_int(value);
+	case PROP_MODE: {
+		gint current = 0;
+		gint tempval = g_value_get_int(value);
 
-			current = camapp->camera_mode;
+		current = camapp->camera_mode;
 
-			if (!cam_app_mode_change(ad, tempval)) {
-				cam_critical(LOG_CAM, "cam_app_mode_change failed");
-				camapp->camera_mode = current;
-				cam_popup_toast_popup_create(data, "MODE CHANGE FAILED", cam_app_exit_popup_response_cb);
+		if (!cam_app_mode_change(ad, tempval)) {
+			cam_critical(LOG_CAM, "cam_app_mode_change failed");
+			camapp->camera_mode = current;
+			cam_popup_toast_popup_create(data, "MODE CHANGE FAILED", cam_app_exit_popup_response_cb);
+			return FALSE;
+		}
+	}
+	break;
+	case PROP_SELF_PORTRAIT: {
+		GValue set_value = { 0 };
+		gboolean tempval = g_value_get_boolean(value);
+		camapp->self_portrait = tempval;
+
+		cam_face_detection_stop();
+		cam_popup_destroy(ad);
+
+		/* stop preview and destory mmfw handle */
+		int state = cam_mm_get_state();
+		if (state == CAMERA_STATE_PREVIEW) {
+			if (!cam_app_preview_stop()) {
+				cam_critical(LOG_MM, "cam_app_preview_stop faild");
 				return FALSE;
 			}
 		}
-		break;
-	case PROP_SELF_PORTRAIT:
-		{
-			GValue set_value = { 0 };
-			gboolean tempval = g_value_get_boolean(value);
-			camapp->self_portrait = tempval;
 
-			cam_face_detection_stop();
-			cam_popup_destroy(ad);
+		if (!cam_mm_destory()) {
+			cam_critical(LOG_MM, "cam_mm_destory faild");
+			return FALSE;
+		}
 
-			/* stop preview and destory mmfw handle */
-			int state = cam_mm_get_state();
-			if (state == CAMERA_STATE_PREVIEW) {
-				if (!cam_app_preview_stop()) {
-					cam_critical(LOG_MM, "cam_app_preview_stop faild");
-					return FALSE;
-				}
-			}
+		if (camapp->self_portrait == TRUE) {
+			camapp->device_type = CAM_DEVICE_FRONT;
+		} else {
+			camapp->device_type = CAM_DEVICE_REAR;
+		}
 
-			if (!cam_mm_destory()) {
-				cam_critical(LOG_MM, "cam_mm_destory faild");
-				return FALSE;
-			}
+		cam_debug(LOG_CAM, "device_type = %d", camapp->device_type);
 
-			if (camapp->self_portrait == TRUE) {
-				camapp->device_type = CAM_DEVICE_FRONT;
-			} else {
-				camapp->device_type = CAM_DEVICE_REAR;
-			}
+		cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SELF_PORTRAIT_NAME, tempval);
 
-			cam_debug(LOG_CAM, "device_type = %d", camapp->device_type);
+		if (!cam_mm_create(camapp->device_type, camapp->camera_mode)) {
+			cam_critical(LOG_MM, "cam_mm_create failed");
+			cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
+			return FALSE;
+		}
 
-			cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SELF_PORTRAIT_NAME, tempval);
+		ResetCaps();
+		cam_define_gesture_callback(ad);
 
-			if (!cam_mm_create(camapp->device_type, camapp->camera_mode)) {
-				cam_critical(LOG_MM, "cam_mm_create failed");
-				cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
-				return FALSE;
-			}
+		gint to_camera_mode = 0;
+		gint to_record_mode = 0;
 
-			ResetCaps();
-			cam_define_gesture_callback(ad);
+		/* get reserved setting value */
+		if (camapp->self_portrait == FALSE) {
+			to_camera_mode = camapp->reserved_setting_data.rear_shooting_mode;
+			to_record_mode = camapp->reserved_setting_data.rear_recording_mode;
+		} else {
+			to_camera_mode = camapp->reserved_setting_data.front_shooting_mode;
+			to_record_mode = camapp->reserved_setting_data.front_recording_mode;
+		}
 
-			gint to_camera_mode = 0;
-			gint to_record_mode = 0;
+		if (camapp->self_portrait == FALSE) {
+			camapp->photo_resolution = camapp->reserved_setting_data.rear_photo_resolution;
+			camapp->video_resolution = camapp->reserved_setting_data.rear_video_resolution;
+		} else {
+			camapp->photo_resolution = camapp->reserved_setting_data.front_photo_resolution;
+			camapp->video_resolution = camapp->reserved_setting_data.front_video_resolution;
+		}
 
-			/* get reserved setting value */
-			if (camapp->self_portrait == FALSE) {
-				to_camera_mode = camapp->reserved_setting_data.rear_shooting_mode;
-				to_record_mode = camapp->reserved_setting_data.rear_recording_mode;
-			} else {
-				to_camera_mode = camapp->reserved_setting_data.front_shooting_mode;
-				to_record_mode = camapp->reserved_setting_data.front_recording_mode;
-			}
+		cam_handle_init_by_capacity(ad);
 
-			if (camapp->self_portrait == FALSE) {
-				camapp->photo_resolution = camapp->reserved_setting_data.rear_photo_resolution;
-				camapp->video_resolution = camapp->reserved_setting_data.rear_video_resolution;
-			} else {
-				camapp->photo_resolution = camapp->reserved_setting_data.front_photo_resolution;
-				camapp->video_resolution = camapp->reserved_setting_data.front_video_resolution;
-			}
+		if (!cam_app_init_attribute(ad, camapp->camera_mode)) {
+			cam_warning(LOG_MM, "cam_app_init_attribute failed");
+		}
 
-			cam_handle_init_by_capacity(ad);
+		cam_reset_focus_mode(ad);
 
-			if (!cam_app_init_attribute(ad, camapp->camera_mode)) {
-				cam_warning(LOG_MM, "cam_app_init_attribute failed");
-			}
+		CAM_GVALUE_SET_INT(set_value, camapp->brightness_default);
+		cam_handle_value_set(ad, PROP_EXPOSURE_VALUE, &set_value);
 
-			cam_reset_focus_mode(ad);
+		CAM_GVALUE_SET_INT(set_value, to_camera_mode);
+		cam_handle_value_set(ad, PROP_SHOT_MODE, &set_value);
 
-			CAM_GVALUE_SET_INT(set_value, camapp->brightness_default);
-			cam_handle_value_set(ad, PROP_EXPOSURE_VALUE, &set_value);
+		CAM_GVALUE_SET_INT(set_value, to_record_mode);
+		cam_handle_value_set(ad, PROP_REC_MODE, &set_value);
 
-			CAM_GVALUE_SET_INT(set_value, to_camera_mode);
-			cam_handle_value_set(ad, PROP_SHOT_MODE, &set_value);
-
-			CAM_GVALUE_SET_INT(set_value, to_record_mode);
-			cam_handle_value_set(ad, PROP_REC_MODE, &set_value);
-
-			if (ad->battery_status == LOW_BATTERY_WARNING_STATUS) {
-				if (camapp->flash != CAM_FLASH_OFF) {
-					cam_app_close_flash_feature(ad);
-				}
-			}
-
-			cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
-
-			if (!cam_app_preview_start(ad)) {
-				cam_critical(LOG_MM, "cam_app_preview_start failed");
-				cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
-				return FALSE;
+		if (ad->battery_status == LOW_BATTERY_WARNING_STATUS) {
+			if (camapp->flash != CAM_FLASH_OFF) {
+				cam_app_close_flash_feature(ad);
 			}
 		}
-		break;
-	case PROP_SHOT_MODE:
-		{
-			gint tempval = g_value_get_int(value);
-			gint cur_mode = camapp->shooting_mode;
 
-			if (!cam_shooting_mode_change(ad, tempval)) {
-				cam_critical(LOG_UI, "shot mode set fail");
-				camapp->shooting_mode = cur_mode;
+		cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
+
+		if (!cam_app_preview_start(ad)) {
+			cam_critical(LOG_MM, "cam_app_preview_start failed");
+			cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA"), cam_app_exit_popup_response_cb);
+			return FALSE;
+		}
+	}
+	break;
+	case PROP_SHOT_MODE: {
+		gint tempval = g_value_get_int(value);
+		gint cur_mode = camapp->shooting_mode;
+
+		if (!cam_shooting_mode_change(ad, tempval)) {
+			cam_critical(LOG_UI, "shot mode set fail");
+			camapp->shooting_mode = cur_mode;
+			return FALSE;
+		}
+
+		if (camapp->self_portrait == FALSE) {
+			camapp->reserved_setting_data.rear_shooting_mode = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_SHOOTING_MODE)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SHOT_MODE_NAME, camapp->reserved_setting_data.rear_shooting_mode);
+			}
+		} else {
+			camapp->reserved_setting_data.front_shooting_mode = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_SHOOTING_MODE)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_SHOT_MODE_NAME, camapp->reserved_setting_data.front_shooting_mode);
+			}
+		}
+
+		camapp->zoom_mode = ZOOM_DEFAULT;
+		cam_mm_set_zoom(camapp->zoom_mode);
+		cam_app_set_guide_text_display_state(TRUE);
+	}
+	break;
+	case PROP_REC_MODE: {
+		gint tempval = g_value_get_int(value);
+		camapp->recording_mode = tempval;
+
+		if (camapp->self_portrait == FALSE) {
+			camapp->reserved_setting_data.rear_recording_mode = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_RECORDING_MODE)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_REC_MODE_NAME, camapp->reserved_setting_data.rear_recording_mode);
+			}
+		} else {
+			camapp->reserved_setting_data.front_recording_mode = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_RECORDING_MODE)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_REC_MODE_NAME, camapp->reserved_setting_data.front_recording_mode);
+			}
+		}
+
+		int video_resolution = 0;
+		GValue set_value = { 0, };
+
+		if (camapp->recording_mode == CAM_RECORD_NORMAL) {
+			video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
+			CAM_GVALUE_SET_INT(set_value, video_resolution);
+		} else if (camapp->recording_mode == CAM_RECORD_FAST) {
+			video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
+			CAM_GVALUE_SET_INT(set_value, video_resolution);
+		} else if (camapp->recording_mode == CAM_RECORD_SLOW) {
+			CAM_GVALUE_SET_INT(set_value, CAM_RESOLUTION_SLOW_MOTION);
+		} else if (camapp->recording_mode == CAM_RECORD_SELF) {
+			video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, SELF_REC_RESOLUTION_DEFAULT);
+			CAM_GVALUE_SET_INT(set_value, video_resolution);
+		} else if (camapp->recording_mode == CAM_RECORD_MMS || camapp->recording_mode == CAM_RECORD_SELF_MMS) {
+			CAM_GVALUE_SET_INT(set_value, CAM_RESOLUTION_QCIF);
+		}
+
+		cam_handle_value_set(ad, PROP_VIDEO_RESOLUTION, &set_value);
+	}
+	break;
+	case PROP_SCENE_MODE: {
+		gint tempval = g_value_get_int(value);
+
+		if (camapp->scene_mode != tempval) {
+			if (!cam_mm_set_program_mode(tempval)) {
+				cam_warning(LOG_UI, "program mode set fail");
 				return FALSE;
 			}
 
-			if (camapp->self_portrait == FALSE) {
-				camapp->reserved_setting_data.rear_shooting_mode = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_SHOOTING_MODE)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SHOT_MODE_NAME, camapp->reserved_setting_data.rear_shooting_mode);
-				}
-			} else {
-				camapp->reserved_setting_data.front_shooting_mode = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_SHOOTING_MODE)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_SHOT_MODE_NAME, camapp->reserved_setting_data.front_shooting_mode);
-				}
-			}
+			gint old_scene_mode = camapp->scene_mode;
+			camapp->scene_mode = tempval;
 
-			camapp->zoom_mode = ZOOM_DEFAULT;
-			cam_mm_set_zoom(camapp->zoom_mode);
-			cam_app_set_guide_text_display_state(TRUE);
-		}
-		break;
-	case PROP_REC_MODE:
-		{
-			gint tempval = g_value_get_int(value);
-			camapp->recording_mode = tempval;
-
-			if (camapp->self_portrait == FALSE) {
-				camapp->reserved_setting_data.rear_recording_mode = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_RECORDING_MODE)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_REC_MODE_NAME, camapp->reserved_setting_data.rear_recording_mode);
-				}
-			} else {
-				camapp->reserved_setting_data.front_recording_mode = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_RECORDING_MODE)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_REC_MODE_NAME, camapp->reserved_setting_data.front_recording_mode);
-				}
-			}
-
-			int video_resolution = 0;
 			GValue set_value = { 0, };
 
-			if (camapp->recording_mode == CAM_RECORD_NORMAL) {
-				video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
-				CAM_GVALUE_SET_INT(set_value, video_resolution);
-			} else if (camapp->recording_mode == CAM_RECORD_FAST) {
-				video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
-				CAM_GVALUE_SET_INT(set_value, video_resolution);
-			} else if (camapp->recording_mode == CAM_RECORD_SLOW) {
-				CAM_GVALUE_SET_INT(set_value, CAM_RESOLUTION_SLOW_MOTION);
-			} else if (camapp->recording_mode == CAM_RECORD_SELF) {
-				video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, SELF_REC_RESOLUTION_DEFAULT);
-				CAM_GVALUE_SET_INT(set_value, video_resolution);
-			} else if (camapp->recording_mode == CAM_RECORD_MMS || camapp->recording_mode == CAM_RECORD_SELF_MMS) {
-				CAM_GVALUE_SET_INT(set_value, CAM_RESOLUTION_QCIF);
+			/* set flash */
+			int flash = CAM_FLASH_OFF;
+			if (camapp->scene_mode == CAM_SCENE_NONE) {
+				flash = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_FLASH_NAME, FLASH_DEFAULT);
+			} else if (camapp->scene_mode == CAM_SCENE_CANDLELIGHT) {
+				flash = CAM_FLASH_ON;
+			} else {
+				flash = CAM_FLASH_OFF;
 			}
 
-			cam_handle_value_set(ad, PROP_VIDEO_RESOLUTION, &set_value);
+			CAM_GVALUE_SET_INT(set_value, flash);
+			cam_handle_value_set(ad, PROP_FLASH, &set_value);
+
+			/*note: portrait scene mode, will open */
+			if ((camapp->scene_mode == CAM_SCENE_PORTRAIT) && (old_scene_mode != CAM_SCENE_PORTRAIT)) {
+				CAM_GVALUE_SET_INT(set_value, CAM_FOCUS_FACE);
+				cam_handle_value_set(ad, PROP_AF_MODE, &set_value);
+			}
 		}
-		break;
-	case PROP_SCENE_MODE:
-		{
-			gint tempval = g_value_get_int(value);
+	}
+	break;
+	case PROP_PHOTO_RESOLUTION: {
+		gint tempval = g_value_get_int(value);
+		gint resolution_bak = camapp->photo_resolution;
 
-			if (camapp->scene_mode != tempval) {
-				if (!cam_mm_set_program_mode(tempval)) {
-					cam_warning(LOG_UI, "program mode set fail");
-					return FALSE;
+		cam_secure_debug(LOG_UI, "old_resolution = %d, new_resolution = %d ", camapp->photo_resolution, tempval);
+		cam_secure_debug(LOG_UI, "CAM_RESOLUTION_W = %d ,CAM_RESOLUTION_H=%d ", CAM_RESOLUTION_W(tempval), CAM_RESOLUTION_H(tempval));
+
+		if (camapp->photo_resolution != tempval) {
+			camapp->photo_resolution = tempval;
+
+			if (!cam_app_set_image_resolution(ad, camapp->photo_resolution)) {
+				cam_warning(LOG_UI, "cam_app_set_image_resolution fail");
+				camapp->photo_resolution = resolution_bak; /*setting fail do not change*/
+				return FALSE;
+			}
+			if (!cam_app_set_preview_resolution(ad)) {
+				cam_warning(LOG_UI, "cam_app_set_preview_resolution fail");
+				camapp->photo_resolution = resolution_bak; /*setting fail do not change*/
+				return FALSE;
+			}
+
+			cam_face_detection_stop();
+
+			if (camapp->self_portrait == FALSE) {
+				camapp->reserved_setting_data.rear_photo_resolution = tempval;
+				if (cam_is_enabled_menu(ad, CAM_MENU_PHOTO_RESOLUTION)) {
+					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_PHOTO_RESOLUTION_NAME, tempval);
 				}
-
-				gint old_scene_mode = camapp->scene_mode;
-				camapp->scene_mode = tempval;
-
-				GValue set_value = { 0, };
-
-				/* set flash */
-				int flash = CAM_FLASH_OFF;
-				if (camapp->scene_mode == CAM_SCENE_NONE) {
-					flash = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_FLASH_NAME, FLASH_DEFAULT);
-				} else if (camapp->scene_mode == CAM_SCENE_CANDLELIGHT) {
-					flash = CAM_FLASH_ON;
-				} else {
-					flash = CAM_FLASH_OFF;
+			} else {
+				camapp->reserved_setting_data.front_photo_resolution = tempval;
+				if (cam_is_enabled_menu(ad, CAM_MENU_PHOTO_RESOLUTION)) {
+					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_PHOTO_RESOLUTION_NAME, tempval);
 				}
+			}
+			cam_app_get_preview_offset_coordinate(ad);
+			ad->remained_count = cam_system_get_still_count_by_resolution(ad);
 
-				CAM_GVALUE_SET_INT(set_value, flash);
-				cam_handle_value_set(ad, PROP_FLASH, &set_value);
-
-				/*note: portrait scene mode, will open */
-				if ((camapp->scene_mode == CAM_SCENE_PORTRAIT) && (old_scene_mode != CAM_SCENE_PORTRAIT)) {
-					CAM_GVALUE_SET_INT(set_value, CAM_FOCUS_FACE);
-					cam_handle_value_set(ad, PROP_AF_MODE, &set_value);
+			if (!cam_mm_is_supported_face_detection()) {
+				cam_warning(LOG_CAM, "face detection is not supported");
+			} else {
+				if (camapp->face_detection == CAM_FACE_DETECTION_ON) {
+					if (!cam_face_detection_start(ad)) {
+						cam_warning(LOG_UI, "cam_face_detection_start fail");
+						return FALSE;
+					}
 				}
 			}
 		}
-		break;
-	case PROP_PHOTO_RESOLUTION:
-		{
-			gint tempval = g_value_get_int(value);
-			gint resolution_bak = camapp->photo_resolution;
+	}
+	break;
+	case PROP_VIDEO_RESOLUTION: {
+		gint tempval = g_value_get_int(value);
 
-			cam_secure_debug(LOG_UI, "old_resolution = %d, new_resolution = %d ", camapp->photo_resolution, tempval);
-			cam_secure_debug(LOG_UI, "CAM_RESOLUTION_W = %d ,CAM_RESOLUTION_H=%d ", CAM_RESOLUTION_W(tempval), CAM_RESOLUTION_H(tempval));
+		if (!cam_mm_set_video_size(CAM_RESOLUTION_W(tempval), CAM_RESOLUTION_H(tempval))) {
+			cam_warning(LOG_UI, "cam_mm_set_video_size fail");
+			return FALSE;
+		}
 
-			if (camapp->photo_resolution != tempval) {
-				camapp->photo_resolution = tempval;
+		camapp->video_resolution = tempval;
 
-				if (!cam_app_set_image_resolution(ad, camapp->photo_resolution)) {
-					cam_warning(LOG_UI, "cam_app_set_image_resolution fail");
-					camapp->photo_resolution = resolution_bak; /*setting fail do not change*/
-					return FALSE;
+		if (camapp->self_portrait == FALSE) {
+			camapp->reserved_setting_data.rear_video_resolution = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_RESOLUTION)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, tempval);
+			}
+		} else {
+			camapp->reserved_setting_data.front_video_resolution = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_RESOLUTION)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, tempval);
+			}
+		}
+
+		GValue set_value = { 0, };
+		gboolean video_stabilization = FALSE;
+		if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_STABILIZATION)) {
+			video_stabilization = cam_config_get_boolean(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_STABILIZATION_NAME, VIDEO_STABILIZATION_DEFAULT);
+			CAM_GVALUE_SET_BOOLEAN(set_value, video_stabilization);
+		} else {
+			CAM_GVALUE_SET_BOOLEAN(set_value, FALSE);
+		}
+		cam_handle_value_set(ad, PROP_VIDEO_STABILIZATION, &set_value);
+	}
+	break;
+	case PROP_FPS: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->fps != tempval) {
+			if (!cam_mm_set_fps(tempval)) {
+				cam_warning(LOG_UI, "fps set fail");
+				return FALSE;
+			}
+			camapp->fps = tempval;
+		}
+	}
+	break;
+	case PROP_EXPOSURE_VALUE: {
+		gint tempval = g_value_get_int(value);
+		if (!cam_mm_set_brightness(tempval)) {
+			cam_warning(LOG_UI, "brightness set fail");
+			return FALSE;
+		}
+		camapp->brightness = tempval;
+		if (cam_is_enabled_menu(ad, CAM_MENU_EXPOSURE_VALUE)) {
+			cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_EXPOSURE_VALUE_NAME, tempval);
+		}
+	}
+	break;
+	case PROP_WB: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->white_balance != tempval) {
+			if (!cam_mm_set_white_balance(tempval)) {
+				cam_warning(LOG_UI, "white balance set fail: %d", tempval);
+				return FALSE;
+			}
+			camapp->white_balance = tempval;
+
+			if (camapp->self_portrait == FALSE) {
+				if (cam_is_enabled_menu(ad, CAM_MENU_WHITE_BALANCE)) {
+					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_WB_NAME, tempval);
 				}
-				if (!cam_app_set_preview_resolution(ad)) {
-					cam_warning(LOG_UI, "cam_app_set_preview_resolution fail");
-					camapp->photo_resolution = resolution_bak; /*setting fail do not change*/
-					return FALSE;
+			} else {
+				if (cam_is_enabled_menu(ad, CAM_MENU_WHITE_BALANCE)) {
+					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_WB_NAME, tempval);
 				}
+			}
+		}
+	}
+	break;
+	case PROP_ISO: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->iso != tempval) {
+			if (!cam_mm_set_iso(tempval)) {
+				cam_warning(LOG_UI, "iso set fail");
+				return FALSE;
+			}
+			camapp->iso = tempval;
 
-				cam_face_detection_stop();
+			if (cam_is_enabled_menu(ad, CAM_MENU_ISO)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_ISO_NAME, tempval);
+			}
 
-				if (camapp->self_portrait == FALSE) {
-					camapp->reserved_setting_data.rear_photo_resolution = tempval;
-					if (cam_is_enabled_menu(ad, CAM_MENU_PHOTO_RESOLUTION)) {
-						cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_PHOTO_RESOLUTION_NAME, tempval);
-					}
-				} else {
-					camapp->reserved_setting_data.front_photo_resolution = tempval;
-					if (cam_is_enabled_menu(ad, CAM_MENU_PHOTO_RESOLUTION)) {
-						cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_PHOTO_RESOLUTION_NAME, tempval);
-					}
-				}
-				cam_app_get_preview_offset_coordinate(ad);
-				ad->remained_count = cam_system_get_still_count_by_resolution(ad);
+			GValue set_value = { 0, };
+			if (camapp->iso != CAM_ISO_AUTO) {
+				camapp->reserved_setting_data.anti_shake = camapp->anti_shake;
+				CAM_GVALUE_SET_BOOLEAN(set_value, CAM_AHS_OFF);
+			} else {
+				CAM_GVALUE_SET_BOOLEAN(set_value, camapp->reserved_setting_data.anti_shake);
+			}
+			cam_handle_value_set(ad, PROP_AHS, &set_value);
+		}
+	}
+	break;
+	case PROP_AUTO_CONTRAST: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->auto_contrast != tempval) {
+			if (!cam_mm_enable_auto_contrast(tempval)) {
+				cam_warning(LOG_UI, "contrast set fail");
+				return FALSE;
+			}
+			camapp->auto_contrast = tempval;
 
+			if (cam_is_enabled_menu(ad, CAM_MENU_AUTO_CONTRAST)) {
+				cam_config_set_boolean(CAM_CONFIG_TYPE_RESERVE, PROP_AUTO_CONTRAST_NAME, tempval);
+			}
+
+			GValue set_value = { 0, };
+			if (camapp->auto_contrast == TRUE) {
+				camapp->reserved_setting_data.brightness = camapp->brightness;
+				CAM_GVALUE_SET_INT(set_value, camapp->brightness_default);
+			} else {
+				CAM_GVALUE_SET_INT(set_value, camapp->reserved_setting_data.brightness);
+			}
+			cam_handle_value_set(ad, PROP_EXPOSURE_VALUE, &set_value);
+		}
+	}
+	break;
+	case PROP_METERING: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->metering != tempval) {
+			if (!cam_mm_set_metering(tempval)) {
+				cam_warning(LOG_UI, "metering set fail");
+				return FALSE;
+			}
+			camapp->metering = tempval;
+
+			if (cam_is_enabled_menu(ad, CAM_MENU_METERING)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_METERING_NAME, tempval);
+			}
+		}
+	}
+	break;
+	case PROP_EFFECT: {
+		GValue i_value = { 0 };
+		gint tempval = g_value_get_int(value);
+		if (camapp->effect != tempval) {
+			camapp->effect = tempval;
+
+			if (!cam_mm_set_effect(tempval)) {
+				cam_warning(LOG_UI, "effect set fail : %d", tempval);
+				return FALSE;
+			}
+
+			if (camapp->effect != CAM_SETTINGS_EFFECTS_NOR) {
+				CAM_GVALUE_SET_INT(i_value, CAM_SETTINGS_WB_AWB);
+				cam_handle_value_set(ad, PROP_WB, &i_value);
+			}
+
+			if (cam_is_enabled_menu(ad, CAM_MENU_EFFECTS)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_EFFECT_NAME, tempval);
+			}
+
+			cam_indicator_update();
+		}
+	}
+	break;
+	case PROP_FACE_DETECTION: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->face_detection != tempval) {
+			int state = cam_mm_get_state();
+			if (state == CAMERA_STATE_PREVIEW) {
 				if (!cam_mm_is_supported_face_detection()) {
 					cam_warning(LOG_CAM, "face detection is not supported");
 				} else {
-					if (camapp->face_detection == CAM_FACE_DETECTION_ON) {
+					if (tempval == CAM_FACE_DETECTION_ON) {
 						if (!cam_face_detection_start(ad)) {
-							cam_warning(LOG_UI, "cam_face_detection_start fail");
+							cam_warning(LOG_UI, "cam_face_detection_start set fail");
 							return FALSE;
 						}
 					}
 				}
 			}
+			if (tempval == CAM_FACE_DETECTION_OFF) {
+				if (!cam_face_detection_stop()) {
+					cam_warning(LOG_UI, "cam_face_detection_stop set fail");
+					return FALSE;
+				}
+			}
+			camapp->face_detection = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_FACE_DETECTION)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_FACE_DETECTION_NAME, tempval);
+			}
 		}
-		break;
-	case PROP_VIDEO_RESOLUTION:
-		{
-			gint tempval = g_value_get_int(value);
-
-			if (!cam_mm_set_video_size(CAM_RESOLUTION_W(tempval), CAM_RESOLUTION_H(tempval))) {
-				cam_warning(LOG_UI, "cam_mm_set_video_size fail");
+	}
+	break;
+	case PROP_AHS: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->anti_shake != tempval) {
+			if (!cam_mm_set_anti_hand_shake(tempval)) {
+				cam_warning(LOG_UI, "anti_shake set fail");
 				return FALSE;
 			}
 
-			camapp->video_resolution = tempval;
-
-			if (camapp->self_portrait == FALSE) {
-				camapp->reserved_setting_data.rear_video_resolution = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_RESOLUTION))
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, tempval);
-			} else {
-				camapp->reserved_setting_data.front_video_resolution = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_RESOLUTION))
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, tempval);
+			camapp->anti_shake = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_ANTI_SHAKE)) {
+				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_AHS_NAME, tempval);
 			}
+		}
+	}
+	break;
+	case PROP_VIDEO_STABILIZATION: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->video_stabilization != tempval) {
+			camapp->video_stabilization = tempval;
 
-			GValue set_value = { 0, };
-			gboolean video_stabilization = FALSE;
 			if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_STABILIZATION)) {
-				video_stabilization = cam_config_get_boolean(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_STABILIZATION_NAME, VIDEO_STABILIZATION_DEFAULT);
-				CAM_GVALUE_SET_BOOLEAN(set_value, video_stabilization);
-			} else {
-				CAM_GVALUE_SET_BOOLEAN(set_value, FALSE);
-			}
-			cam_handle_value_set(ad, PROP_VIDEO_STABILIZATION, &set_value);
-		}
-		break;
-	case PROP_FPS:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->fps != tempval) {
-				if (!cam_mm_set_fps(tempval)) {
-					cam_warning(LOG_UI, "fps set fail");
-					return FALSE;
-				}
-				camapp->fps = tempval;
+				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_STABILIZATION_NAME, tempval);
 			}
 		}
-		break;
-	case PROP_EXPOSURE_VALUE:
-		{
-			gint tempval = g_value_get_int(value);
-			if (!cam_mm_set_brightness(tempval)) {
-				cam_warning(LOG_UI, "brightness set fail");
+	}
+	break;
+	case PROP_FLASH: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->flash != tempval) {
+			if (!cam_mm_set_flash(tempval)) {
+				cam_warning(LOG_UI, "flash set fail");
 				return FALSE;
 			}
-			camapp->brightness = tempval;
-			if (cam_is_enabled_menu(ad, CAM_MENU_EXPOSURE_VALUE))
-				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_EXPOSURE_VALUE_NAME, tempval);
-		}
-		break;
-	case PROP_WB:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->white_balance != tempval) {
-				if (!cam_mm_set_white_balance(tempval)) {
-					cam_warning(LOG_UI, "white balance set fail: %d", tempval);
-					return FALSE;
-				}
-				camapp->white_balance = tempval;
 
-				if (camapp->self_portrait == FALSE) {
-					if (cam_is_enabled_menu(ad, CAM_MENU_WHITE_BALANCE))
-						cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_WB_NAME, tempval);
-				} else {
-					if (cam_is_enabled_menu(ad, CAM_MENU_WHITE_BALANCE))
-						cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SELF_WB_NAME, tempval);
-				}
+			camapp->flash = tempval;
+
+			if (cam_is_enabled_menu(ad, CAM_MENU_FLASH)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_FLASH_NAME, tempval);
 			}
 		}
-		break;
-	case PROP_ISO:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->iso != tempval) {
-				if (!cam_mm_set_iso(tempval)) {
-					cam_warning(LOG_UI, "iso set fail");
-					return FALSE;
-				}
-				camapp->iso = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_ISO))
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_ISO_NAME, tempval);
-
-				GValue set_value = { 0, };
-				if (camapp->iso != CAM_ISO_AUTO) {
-					camapp->reserved_setting_data.anti_shake = camapp->anti_shake;
-					CAM_GVALUE_SET_BOOLEAN(set_value, CAM_AHS_OFF);
-				} else {
-					CAM_GVALUE_SET_BOOLEAN(set_value, camapp->reserved_setting_data.anti_shake);
-				}
-				cam_handle_value_set(ad, PROP_AHS, &set_value);
+	}
+	break;
+	case PROP_TIMER: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->timer != tempval) {
+			camapp->timer = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_TIMER)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_TIMER_NAME, tempval);
 			}
 		}
-		break;
-	case PROP_AUTO_CONTRAST:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			if (camapp->auto_contrast != tempval) {
-				if (!cam_mm_enable_auto_contrast(tempval)) {
-					cam_warning(LOG_UI, "contrast set fail");
-					return FALSE;
-				}
-				camapp->auto_contrast = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_AUTO_CONTRAST))
-					cam_config_set_boolean(CAM_CONFIG_TYPE_RESERVE, PROP_AUTO_CONTRAST_NAME, tempval);
-
-				GValue set_value = { 0, };
-				if (camapp->auto_contrast == TRUE) {
-					camapp->reserved_setting_data.brightness = camapp->brightness;
-					CAM_GVALUE_SET_INT(set_value, camapp->brightness_default);
-				} else {
-					CAM_GVALUE_SET_INT(set_value, camapp->reserved_setting_data.brightness);
-				}
-				cam_handle_value_set(ad, PROP_EXPOSURE_VALUE, &set_value);
+	}
+	break;
+	case PROP_AUDIO_REC: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->audio_recording != tempval) {
+			if (!cam_mm_set_audio_recording(tempval)) {
+				cam_warning(LOG_UI, "audio_recording set fail");
+				return FALSE;
 			}
+			camapp->audio_recording = tempval;
 		}
-		break;
-	case PROP_METERING:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->metering != tempval) {
-				if (!cam_mm_set_metering(tempval)) {
-					cam_warning(LOG_UI, "metering set fail");
-					return FALSE;
-				}
-				camapp->metering = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_METERING))
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_METERING_NAME, tempval);
-			}
+	}
+	break;
+	case PROP_BATTERY_LEVEL: {
+		gint tempval = g_value_get_int(value);
+		camapp->battery_level = tempval;
+		cam_indicator_update();
+	}
+	break;
+	case PROP_ZOOM: {
+		gint tempval = g_value_get_int(value);
+		if (!cam_mm_set_zoom(tempval)) {
+			cam_warning(LOG_UI, "zoom set fail");
+			return FALSE;
 		}
-		break;
-	case PROP_EFFECT:
-		{
-			GValue i_value = { 0 };
-			gint tempval = g_value_get_int(value);
-			if (camapp->effect != tempval) {
-				camapp->effect = tempval;
+		/*camapp->zoom_mode = tempval;*/ /*note: zoom_mode is zoom level, is not same this value*/
+	}
+	break;
+	case PROP_STORAGE: {
+		gint tempval = g_value_get_int(value);
 
-				if (!cam_mm_set_effect(tempval)) {
-					cam_warning(LOG_UI, "effect set fail : %d", tempval);
-					return FALSE;
-				}
-
-				if (camapp->effect != CAM_SETTINGS_EFFECTS_NOR) {
-					CAM_GVALUE_SET_INT(i_value, CAM_SETTINGS_WB_AWB);
-					cam_handle_value_set(ad, PROP_WB, &i_value);
-				}
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_EFFECTS)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_EFFECT_NAME, tempval);
-				}
-
-				cam_indicator_update();
-			}
+		if (cam_is_enabled_menu(ad, CAM_MENU_STORAGE)) {
+			cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, tempval);
 		}
-		break;
-	case PROP_FACE_DETECTION:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->face_detection != tempval) {
-				int state = cam_mm_get_state();
-				if (state == CAMERA_STATE_PREVIEW) {
-					if (!cam_mm_is_supported_face_detection()) {
-						cam_warning(LOG_CAM, "face detection is not supported");
-					} else {
-						if (tempval == CAM_FACE_DETECTION_ON) {
-							if (!cam_face_detection_start(ad)) {
-								cam_warning(LOG_UI, "cam_face_detection_start set fail");
-								return FALSE;
-							}
-						}
-					}
-				}
-				if (tempval == CAM_FACE_DETECTION_OFF) {
-					if (!cam_face_detection_stop()) {
-						cam_warning(LOG_UI, "cam_face_detection_stop set fail");
-						return FALSE;
-					}
-				}
-				camapp->face_detection = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_FACE_DETECTION))
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_FACE_DETECTION_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_AHS:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			if (camapp->anti_shake != tempval) {
-				if (!cam_mm_set_anti_hand_shake(tempval)) {
-					cam_warning(LOG_UI, "anti_shake set fail");
-					return FALSE;
-				}
 
-				camapp->anti_shake = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_ANTI_SHAKE)) {
-					cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_AHS_NAME, tempval);
-				}
-			}
-		}
-		break;
-	case PROP_VIDEO_STABILIZATION:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			if (camapp->video_stabilization != tempval) {
-				camapp->video_stabilization = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_VIDEO_STABILIZATION))
-					cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_STABILIZATION_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_FLASH:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->flash != tempval) {
-				if (!cam_mm_set_flash(tempval)) {
-					cam_warning(LOG_UI, "flash set fail");
-					return FALSE;
-				}
-
-				camapp->flash = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_FLASH))
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_FLASH_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_TIMER:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->timer != tempval) {
-				camapp->timer = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_TIMER))
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_TIMER_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_AUDIO_REC:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			if (camapp->audio_recording != tempval) {
-				if (!cam_mm_set_audio_recording(tempval)) {
-					cam_warning(LOG_UI, "audio_recording set fail");
-					return FALSE;
-				}
-				camapp->audio_recording = tempval;
-			}
-		}
-		break;
-	case PROP_BATTERY_LEVEL:
-		{
-			gint tempval = g_value_get_int(value);
-			camapp->battery_level = tempval;
+		if (camapp->storage != tempval) {
+			camapp->storage = tempval;
+			cam_utils_set_default_memory(camapp->storage);
 			cam_indicator_update();
-		}
-		break;
-	case PROP_ZOOM:
-		{
-			gint tempval = g_value_get_int(value);
-			if (!cam_mm_set_zoom(tempval)) {
-				cam_warning(LOG_UI, "zoom set fail");
-				return FALSE;
-			}
-			/*camapp->zoom_mode = tempval;*/ /*note: zoom_mode is zoom level, is not same this value*/
-		}
-		break;
-	case PROP_STORAGE:
-		{
-			gint tempval = g_value_get_int(value);
 
-			if (cam_is_enabled_menu(ad, CAM_MENU_STORAGE)) {
-				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_STORAGE_NAME, tempval);
-			}
-
-			if (camapp->storage != tempval) {
-				camapp->storage = tempval;
-				cam_utils_set_default_memory(camapp->storage);
-				cam_indicator_update();
-
-				IF_FREE(camapp->filename);
-				cam_app_init_thumbnail_data(ad);
-				cam_standby_view_update_quickview_thumbnail_no_animation();
+			IF_FREE(camapp->filename);
+			cam_app_init_thumbnail_data(ad);
+			cam_standby_view_update_quickview_thumbnail_no_animation();
+		}
+	}
+	break;
+	case PROP_GPS: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->gps != tempval) {
+			if (tempval) {
+				gboolean show_gps_attention = cam_config_get_boolean(CAM_CONFIG_TYPE_SHORTCUTS, PROP_SHOW_POP_GPS_ATTENTION, POP_TIP_DEFAULT);
+				ad->show_gps_attention_popup = show_gps_attention;
+				if (show_gps_attention) {
+					cam_popup_select_with_check_create(ad, dgettext(PACKAGE, "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"),
+					                                   dgettext(PACKAGE, "IDS_CAM_BUTTON_ENABLE_ABB"),
+					                                   dgettext(PACKAGE, "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"),
+					                                   __cam_app_gps_attention_popup_check_cb,
+					                                   __cam_app_gps_attention_popup_cancel_cb,
+					                                   __cam_app_gps_attention_popup_ok_cb,
+					                                   FALSE);
+				} else {
+					__cam_app_gps_attention_popup_ok_cb(ad, NULL, NULL);
+				}
+			} else {
+				if (!cam_app_lbs_stop(ad)) {
+					return FALSE;
+				}
 			}
 		}
-		break;
-	case PROP_GPS:
-			{
-				gboolean tempval = g_value_get_boolean(value);
-				if (camapp->gps != tempval) {
-					if (tempval) {
-						gboolean show_gps_attention = cam_config_get_boolean(CAM_CONFIG_TYPE_SHORTCUTS, PROP_SHOW_POP_GPS_ATTENTION, POP_TIP_DEFAULT);
-						ad->show_gps_attention_popup = show_gps_attention;
-						if (show_gps_attention) {
-							cam_popup_select_with_check_create(ad, dgettext(PACKAGE, "IDS_CAM_HEADER_ENABLE_LOCATION_TAGS"),
-													dgettext(PACKAGE, "IDS_CAM_BUTTON_ENABLE_ABB"),
-													dgettext(PACKAGE, "IDS_CAM_BODY_THIS_FUNCTION_WILL_ATTACH_EMBED_AND_STORE_GEOGRAPHICAL_LOCATION_DATA_WITHIN_EACH_PICTURE_THAT_YOU_TAKE_MSG"),
-													__cam_app_gps_attention_popup_check_cb,
-													__cam_app_gps_attention_popup_cancel_cb,
-													__cam_app_gps_attention_popup_ok_cb,
-													FALSE);
-						} else {
-							__cam_app_gps_attention_popup_ok_cb(ad, NULL, NULL);
-						}
-					} else {
-						if (!cam_app_lbs_stop(ad)) {
-							return FALSE;
-						}
+	}
+	break;
+	case PROP_GPS_LEVEL: {
+		gint tempval = g_value_get_int(value);
+
+		camapp->gps_level = tempval;
+		cam_indicator_update();
+	}
+	break;
+	case PROP_TAP_SHOT: {
+		gboolean tempval = g_value_get_boolean(value);
+
+		camapp->tap_shot = tempval;
+
+		if (cam_is_enabled_menu(ad, CAM_MENU_TAP_SHOT)) {
+			cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_TAP_SHOT_NAME, camapp->tap_shot);
+		}
+	}
+	break;
+	case PROP_REVIEW: {
+		gboolean tempval = g_value_get_boolean(value);
+		camapp->review = tempval;
+		if (cam_is_enabled_menu(ad, CAM_MENU_REVIEW)) {
+			cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_REVIEW_NAME, tempval);
+		}
+	}
+	break;
+	case PROP_SIZE_LIMIT: {
+		gint tempval = g_value_get_int(value);
+		if (!cam_app_set_size_limit(tempval, camapp->size_limit_type)) {
+			cam_warning(LOG_UI, "size_limit set fail");
+			return FALSE;
+		}
+		camapp->size_limit = tempval;
+	}
+	break;
+	case PROP_SIZE_LIMIT_TYPE: {
+		gint tempval = g_value_get_int(value);
+		camapp->size_limit_type = tempval;
+	}
+	break;
+	case PROP_VOLUME_KEY: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->volume_key != tempval) {
+			camapp->volume_key = tempval;
+			if (cam_is_enabled_menu(ad, CAM_MENU_VOLUME_KEY)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_VOLUME_KEY_NAME, tempval);
+			}
+		}
+	}
+	break;
+	case PROP_SAVE_AS_FLIP: {
+		gboolean tempval = g_value_get_boolean(value);
+		if (camapp->save_as_flip != tempval) {
+			cam_debug(LOG_CAM, "tempval:%d", tempval);
+
+			if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
+				cam_mm_set_image_flip(FALSE);
+				if (!cam_mm_set_recording_flip(tempval)) {
+					cam_warning(LOG_UI, "cam_mm_set_flip() fail");
+					return FALSE;
+				}
+			} else if (camapp->camera_mode == CAM_CAMERA_MODE) {
+				int state = cam_mm_get_state();
+				gboolean restart_camera = FALSE;
+				if (state == CAMERA_STATE_PREVIEW) {
+					restart_camera = TRUE;
+					if (!cam_app_preview_stop()) {
+						cam_critical(LOG_UI, "cam_app_preview_stop() faild");
 					}
 				}
-			}
-			break;
-	case PROP_GPS_LEVEL:
-			{
-				gint tempval = g_value_get_int(value);
-
-				camapp->gps_level = tempval;
-				cam_indicator_update();
-			}
-			break;
-	case PROP_TAP_SHOT:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-
-			camapp->tap_shot = tempval;
-
-			if (cam_is_enabled_menu(ad, CAM_MENU_TAP_SHOT)) {
-				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_TAP_SHOT_NAME, camapp->tap_shot);
-			}
-		}
-		break;
-	case PROP_REVIEW:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			camapp->review = tempval;
-			if (cam_is_enabled_menu(ad, CAM_MENU_REVIEW))
-				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_REVIEW_NAME, tempval);
-		}
-		break;
-	case PROP_SIZE_LIMIT:
-		{
-			gint tempval = g_value_get_int(value);
-			if (!cam_app_set_size_limit(tempval, camapp->size_limit_type)) {
-				cam_warning(LOG_UI, "size_limit set fail");
-				return FALSE;
-			}
-			camapp->size_limit = tempval;
-		}
-		break;
-	case PROP_SIZE_LIMIT_TYPE:
-		{
-			gint tempval = g_value_get_int(value);
-			camapp->size_limit_type = tempval;
-		}
-		break;
-	case PROP_VOLUME_KEY:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->volume_key != tempval) {
-				camapp->volume_key = tempval;
-				if (cam_is_enabled_menu(ad, CAM_MENU_VOLUME_KEY)) {
-					cam_config_set_int(CAM_CONFIG_TYPE_COMMON, PROP_VOLUME_KEY_NAME, tempval);
+				if (camapp->self_portrait == TRUE) {
+					tempval = TRUE;
 				}
-			}
-		}
-		break;
-	case PROP_SAVE_AS_FLIP:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-			if (camapp->save_as_flip != tempval) {
-				cam_debug(LOG_CAM, "tempval:%d", tempval);
 
-				if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
-					cam_mm_set_image_flip(FALSE);
-					if (!cam_mm_set_recording_flip(tempval)) {
-						cam_warning(LOG_UI, "cam_mm_set_flip() fail");
+				cam_mm_set_image_flip(tempval);
+				cam_app_continuous_af_start(ad);
+
+				if (restart_camera == TRUE) {
+					if (cam_app_preview_start(ad) == FALSE) {
+						cam_warning(LOG_UI, "cam_app_preview_start() fail");
 						return FALSE;
 					}
-				} else if (camapp->camera_mode == CAM_CAMERA_MODE) {
-					int state = cam_mm_get_state();
-					gboolean restart_camera = FALSE;
-					if (state == CAMERA_STATE_PREVIEW) {
-						restart_camera = TRUE;
-						if (!cam_app_preview_stop()) {
-							cam_critical(LOG_UI, "cam_app_preview_stop() faild");
-						}
-					}
-					if (camapp->self_portrait == TRUE) {
-						tempval = TRUE;
-					}
-
-					cam_mm_set_image_flip(tempval);
-					cam_app_continuous_af_start(ad);
-
-					if (restart_camera == TRUE) {
-						if (cam_app_preview_start(ad) == FALSE) {
-							cam_warning(LOG_UI, "cam_app_preview_start() fail");
-							return FALSE;
-						}
-					}
-				}
-				camapp->save_as_flip = tempval;
-				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SAVE_AS_FLIP_NAME, tempval);
-			}
-		}
-		break;
-
-	case PROP_SHARE:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->share != tempval) {
-				camapp->share = tempval;
-
-				if (camapp->share != CAM_SHARE_BUDDY_PHOTO) {
-					GValue b_value = { 0, };
-					if (ad->launching_mode != CAM_LAUNCHING_MODE_NORMAL) {
-						CAM_GVALUE_SET_BOOLEAN(b_value, TRUE);
-						cam_handle_value_set(ad, PROP_REVIEW, &b_value);
-					}
-				}
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_SHARE_BUDDY_PHOTO))
-					cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SHARE_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_FAST_MOTION:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->fast_motion != tempval) {
-				camapp->fast_motion = tempval;
-				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_FAST_MOTION_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_SLOW_MOTION:
-		{
-			gint tempval = g_value_get_int(value);
-			if (camapp->slow_motion != tempval) {
-				camapp->slow_motion = tempval;
-				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SLOW_MOTION_NAME, tempval);
-			}
-		}
-		break;
-	case PROP_SHUTTER_SOUND:
-		{
-			gboolean tempval = g_value_get_boolean(value);
-
-			if (camapp->need_shutter_sound != tempval) {
-				camapp->need_shutter_sound = tempval;
-
-				if (cam_is_enabled_menu(ad, CAM_MENU_SHUTTER_SOUND))
-					cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SHUTTER_SOUND_NAME, tempval);
-
-				if (tempval) {
-					cam_mm_disable_shutter_sound(FALSE);
-				} else {
-					cam_mm_disable_shutter_sound(TRUE);
 				}
 			}
+			camapp->save_as_flip = tempval;
+			cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SAVE_AS_FLIP_NAME, tempval);
 		}
-		break;
+	}
+	break;
+
+	case PROP_SHARE: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->share != tempval) {
+			camapp->share = tempval;
+
+			if (camapp->share != CAM_SHARE_BUDDY_PHOTO) {
+				GValue b_value = { 0, };
+				if (ad->launching_mode != CAM_LAUNCHING_MODE_NORMAL) {
+					CAM_GVALUE_SET_BOOLEAN(b_value, TRUE);
+					cam_handle_value_set(ad, PROP_REVIEW, &b_value);
+				}
+			}
+
+			if (cam_is_enabled_menu(ad, CAM_MENU_SHARE_BUDDY_PHOTO)) {
+				cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SHARE_NAME, tempval);
+			}
+		}
+	}
+	break;
+	case PROP_FAST_MOTION: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->fast_motion != tempval) {
+			camapp->fast_motion = tempval;
+			cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_FAST_MOTION_NAME, tempval);
+		}
+	}
+	break;
+	case PROP_SLOW_MOTION: {
+		gint tempval = g_value_get_int(value);
+		if (camapp->slow_motion != tempval) {
+			camapp->slow_motion = tempval;
+			cam_config_set_int(CAM_CONFIG_TYPE_RESERVE, PROP_SLOW_MOTION_NAME, tempval);
+		}
+	}
+	break;
+	case PROP_SHUTTER_SOUND: {
+		gboolean tempval = g_value_get_boolean(value);
+
+		if (camapp->need_shutter_sound != tempval) {
+			camapp->need_shutter_sound = tempval;
+
+			if (cam_is_enabled_menu(ad, CAM_MENU_SHUTTER_SOUND)) {
+				cam_config_set_boolean(CAM_CONFIG_TYPE_COMMON, PROP_SHUTTER_SOUND_NAME, tempval);
+			}
+
+			if (tempval) {
+				cam_mm_disable_shutter_sound(FALSE);
+			} else {
+				cam_mm_disable_shutter_sound(TRUE);
+			}
+		}
+	}
+	break;
 	default:
 		cam_warning(LOG_UI, "unknow type :%d ", type);
 		return FALSE;
 		break;
 	}
 	/* indicator should be updated here!!! */
-/*      change_indicator_mode_icons(ad); */
+	/*change_indicator_mode_icons(ad); */
 	return TRUE;
 }
 
@@ -3098,7 +3079,7 @@ static gboolean __cam_app_timer_is_view_update(void *data)
 	camapp = ad->camapp_handle;
 
 	if ((camapp->shooting_mode == CAM_SINGLE_MODE)
-		|| (camapp->shooting_mode == CAM_SELF_SINGLE_MODE)) {
+	        || (camapp->shooting_mode == CAM_SELF_SINGLE_MODE)) {
 		return TRUE;
 	}
 
@@ -3130,8 +3111,9 @@ static Eina_Bool __cam_app_timer_cb(void *data)
 	if (ad->timer_count > 0) {
 		cam_debug(LOG_UI, "timer continue ... ");
 
-		if (ad->timer_icon_edje == NULL)
+		if (ad->timer_icon_edje == NULL) {
 			cam_standby_view_update(CAM_STANDBY_VIEW_TIMER_SHOT_COUNTING);
+		}
 
 		cam_app_timer_update_count(ad);
 
@@ -3180,8 +3162,8 @@ void cam_app_start_timer(void *data, int camera_mode)
 
 	switch (camapp->timer) {
 	case CAM_SETTINGS_TIMER_3SEC:
-			ad->timer_count = 3;
-			break;
+		ad->timer_count = 3;
+		break;
 	case CAM_SETTINGS_TIMER_10SEC:
 		ad->timer_count = 10;
 		break;
@@ -3568,17 +3550,17 @@ static Eina_Bool __cam_app_start_record_idler(void *data)
 			}
 			break;
 		case RECORDER_STATE_CREATED: {
-				GValue value = {0, };
-				CAM_GVALUE_SET_INT(value, CAM_CAMERA_MODE);
-				if (!cam_handle_value_set(ad, PROP_MODE, &value)) {
-					cam_critical(LOG_UI, "mode change failed");
-				}
-
-				if (!cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL)) {
-					cam_critical(LOG_UI, "cam_app_create_main_view failed");
-				}
+			GValue value = {0, };
+			CAM_GVALUE_SET_INT(value, CAM_CAMERA_MODE);
+			if (!cam_handle_value_set(ad, PROP_MODE, &value)) {
+				cam_critical(LOG_UI, "mode change failed");
 			}
-			break;
+
+			if (!cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL)) {
+				cam_critical(LOG_UI, "cam_app_create_main_view failed");
+			}
+		}
+		break;
 		case RECORDER_STATE_NONE:
 		case RECORDER_STATE_RECORDING:
 		case RECORDER_STATE_PAUSED:
@@ -3644,8 +3626,9 @@ Eina_Bool cam_volume_key_press(void *data)
 
 	cam_app_timeout_checker_update();
 
-	if (ad->ev_edje)
+	if (ad->ev_edje) {
 		ev_unload_edje(ad);
+	}
 
 	if (ad->main_view_type == CAM_VIEW_STANDBY) {
 		if (is_cam_edit_box_popup_exist()) {
@@ -3670,24 +3653,23 @@ Eina_Bool cam_volume_key_press(void *data)
 		switch (state) {
 		case RECORDER_STATE_RECORDING:
 		case RECORDER_STATE_PAUSED:
-		case RECORDER_STATE_READY:
-			{
-				if (camapp->recording_mode == CAM_RECORD_SLOW
-					|| camapp->self_portrait == TRUE) {
-					if (ad->popup == NULL) {
-						cam_popup_toast_popup_create(ad,
-								dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
-								NULL);
-					}
-					ad->cam_timer[CAM_TIMER_LONGPRESS] = NULL;
-
-					return ECORE_CALLBACK_CANCEL;
-
-				} else {
-					cam_zoom_in(ad, up_key, 1);
+		case RECORDER_STATE_READY: {
+			if (camapp->recording_mode == CAM_RECORD_SLOW
+			        || camapp->self_portrait == TRUE) {
+				if (ad->popup == NULL) {
+					cam_popup_toast_popup_create(ad,
+					                             dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
+					                             NULL);
 				}
+				ad->cam_timer[CAM_TIMER_LONGPRESS] = NULL;
+
+				return ECORE_CALLBACK_CANCEL;
+
+			} else {
+				cam_zoom_in(ad, up_key, 1);
 			}
-			break;
+		}
+		break;
 		case RECORDER_STATE_NONE:
 		case RECORDER_STATE_CREATED:
 			break;
@@ -3697,22 +3679,21 @@ Eina_Bool cam_volume_key_press(void *data)
 	} else if (camapp->camera_mode == CAM_CAMERA_MODE) {
 		switch (state) {
 		case CAMERA_STATE_PREVIEW:
-		case CAMERA_STATE_CAPTURED:
-			{
-				if (camapp->shooting_mode == CAM_PX_MODE
-					|| camapp->self_portrait == TRUE) {
-					if (ad->popup == NULL) {
-						cam_popup_toast_popup_create(ad,
-								dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
-								NULL);
-					}
-					ad->cam_timer[CAM_TIMER_LONGPRESS] = NULL;
-					return ECORE_CALLBACK_CANCEL;
-				} else {
-					cam_zoom_in(ad, up_key, 1);
+		case CAMERA_STATE_CAPTURED: {
+			if (camapp->shooting_mode == CAM_PX_MODE
+			        || camapp->self_portrait == TRUE) {
+				if (ad->popup == NULL) {
+					cam_popup_toast_popup_create(ad,
+					                             dgettext(PACKAGE, "IDS_CAM_TPOP_UNABLE_TO_ZOOM_IN_CURRENT_MODE"),
+					                             NULL);
 				}
+				ad->cam_timer[CAM_TIMER_LONGPRESS] = NULL;
+				return ECORE_CALLBACK_CANCEL;
+			} else {
+				cam_zoom_in(ad, up_key, 1);
 			}
-			break;
+		}
+		break;
 		case CAMERA_STATE_NONE:
 		case CAMERA_STATE_CREATED:
 		case CAMERA_STATE_CAPTURING:
@@ -3872,7 +3853,7 @@ Eina_Bool cam_hard_key_down(void *data, int type, void *event_info)
 	}
 
 	if ((ad->main_view_type != CAM_VIEW_STANDBY)
-		&& (ad->main_view_type != CAM_VIEW_RECORD)) {
+	        && (ad->main_view_type != CAM_VIEW_RECORD)) {
 		cam_secure_debug(LOG_UI, "main view is [%d], do not control hard key", ad->main_view_type);
 		return ECORE_CALLBACK_PASS_ON;
 	}
@@ -3935,7 +3916,7 @@ Eina_Bool cam_hard_key_up(void *data, int type, void *event_info)
 	cam_secure_debug(LOG_UI, "Key name : %s", kd->keyname);
 
 	if ((ad->main_view_type != CAM_VIEW_STANDBY) && (ad->main_view_type != CAM_VIEW_RECORD)
-		&& (ad->main_view_type != CAM_VIEW_SHOT_PROCESS)&&(ad->main_view_type != CAM_VIEW_SETTING)) {
+	        && (ad->main_view_type != CAM_VIEW_SHOT_PROCESS) && (ad->main_view_type != CAM_VIEW_SETTING)) {
 		cam_secure_debug(LOG_UI, "main view is [%d], do not control hard key", ad->main_view_type);
 		return ECORE_CALLBACK_PASS_ON;
 	}
@@ -3947,7 +3928,7 @@ Eina_Bool cam_hard_key_up(void *data, int type, void *event_info)
 	}
 
 	if ((0 == g_strcmp0(kd->keyname, "XF86AudioRaiseVolume"))
-			|| (0 == g_strcmp0(kd->keyname, "XF86AudioLowerVolume"))) {
+	        || (0 == g_strcmp0(kd->keyname, "XF86AudioLowerVolume"))) {
 		if (camapp->volume_key == CAM_VOLUME_KEY_CAMERA) {
 			if (!ad->is_recording) {
 				cam_standby_view_camera_button_unpress(ad, NULL, NULL);
@@ -3967,18 +3948,18 @@ Eina_Bool cam_hard_key_up(void *data, int type, void *event_info)
 			cam_del_longpress_key_timer(ad);
 		}
 	} else if ((0 == g_strcmp0(kd->keyname, "XF86Home"))
-			|| (0 == g_strcmp0(kd->keyname, "XF86PowerOff"))) {
-		if(ad->lock_value_on==1)
-		{
-			if (ad->main_view_type == CAM_VIEW_SETTING)
+	           || (0 == g_strcmp0(kd->keyname, "XF86PowerOff"))) {
+		if (ad->lock_value_on == 1) {
+			if (ad->main_view_type == CAM_VIEW_SETTING) {
 				(ad->click_hw_back_key)();
-			if (ad->main_view_type == CAM_VIEW_RECORD)
-			{
+			}
+			if (ad->main_view_type == CAM_VIEW_RECORD) {
 				cam_recording_view_rec_stop_button_cb(ad, NULL, NULL);
 				cam_rec_save_and_register_video_file(ad);
 			}
-			if (ad->main_view_type == CAM_VIEW_STANDBY)
+			if (ad->main_view_type == CAM_VIEW_STANDBY) {
 				(ad->click_hw_back_key)();
+			}
 		}
 		if (ad->secure_mode == TRUE) {
 			cam_app_exit(ad);
@@ -4040,7 +4021,7 @@ Eina_Bool cam_mouse_button_down(void *data, void *event_info)
 
 		cam_secure_debug(LOG_UI, "touched lcd x,y=[%d,%d] af x,y=[%d,%d]", ad->touch_lcd_x, ad->touch_lcd_y, ad->af_x, ad->af_y);
 		if (camapp->enable_touch_af == TRUE
-			&& camapp->touch_af_state == CAM_TOUCH_AF_STATE_NONE) {
+		        && camapp->touch_af_state == CAM_TOUCH_AF_STATE_NONE) {
 			cam_face_detection_stop();
 			cam_app_af_stop(ad);
 
@@ -4050,7 +4031,7 @@ Eina_Bool cam_mouse_button_down(void *data, void *event_info)
 			camapp->touch_af_state = CAM_TOUCH_AF_STATE_DOING;
 
 			cam_app_focus_guide_update(ad);
-			evas_object_resize(ad->focus_edje, (ad->focus_edje_w*1.3), (ad->focus_edje_h*1.3));
+			evas_object_resize(ad->focus_edje, (ad->focus_edje_w * 1.3), (ad->focus_edje_h * 1.3));
 		}
 	} else {
 		if (camapp->tap_shot) {
@@ -4126,9 +4107,9 @@ Eina_Bool cam_mouse_button_up(void *data, void *event_info)
 		}
 	} else {
 		if (camapp->camera_mode == CAM_CAMERA_MODE
-			&& ad->tap_shot_ready
-			&& ad->popup == NULL
-			&& ad->gallery_open_ready == FALSE) {
+		        && ad->tap_shot_ready
+		        && ad->popup == NULL
+		        && ad->gallery_open_ready == FALSE) {
 			if (!cam_do_capture(ad)) {
 				cam_critical(LOG_UI, "cam_do_capture failed");
 			}
@@ -4303,10 +4284,11 @@ gchar *cam_app_get_next_filename(CamFileExtention extension)
 		new_filename = cam_file_get_next_filename(cam_app_get_target_path(), INAGE_FILE_NAME, IMAGE_FILE_EXTENSION);
 	} else {
 		if ((camapp->recording_mode == CAM_RECORD_MMS)
-				|| (camapp->recording_mode == CAM_RECORD_SELF_MMS))
+		        || (camapp->recording_mode == CAM_RECORD_SELF_MMS)) {
 			new_filename = cam_file_get_next_filename(cam_app_get_target_path(), VIDEO_FILE_NAME, VIDEO_FILE_EXTENSION_3GP);
-		else
+		} else {
 			new_filename = cam_file_get_next_filename(cam_app_get_target_path(), VIDEO_FILE_NAME, VIDEO_FILE_EXTENSION_MP4);
+		}
 	}
 
 	if (new_filename) {
@@ -4400,7 +4382,7 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 		CAM_LAUNCH("focus_cb - focused", "IN");
 		if ((camapp->camera_mode == CAM_CAMERA_MODE) && (cam_mm_get_state() < CAMERA_STATE_CAPTURING)) {
 			if ((camapp->focus_mode == CAM_FOCUS_MODE_TOUCH_AUTO) || (camapp->focus_mode == CAM_FOCUS_MODE_HALFSHUTTER)) {
-/*				cam_sound_play(CAM_SOUND_EFFECT_AF_OK, ad);*/
+				/*				cam_sound_play(CAM_SOUND_EFFECT_AF_OK, ad);*/
 			}
 
 			if (camapp->focus_mode == CAM_FOCUS_MODE_TOUCH_AUTO) {
@@ -4408,8 +4390,9 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 				cam_mm_set_auto_white_balance_lock(FALSE);
 
 				if (camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY
-					|| camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING)
+				        || camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING) {
 					camapp->touch_af_state = CAM_TOUCH_AF_STATE_NONE;
+				}
 
 				REMOVE_TIMER(ad->cam_timer[CAM_TIMER_CONTINOUS_AF]);
 				ad->cam_timer[CAM_TIMER_CONTINOUS_AF] = ecore_timer_add(FOCUS_FOCUSED_TIME_OUT, cam_app_continuous_af_timer_cb, ad);
@@ -4425,8 +4408,9 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 				cam_mm_set_auto_white_balance_lock(FALSE);
 
 				if (camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY
-					|| camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING)
+				        || camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING) {
 					camapp->touch_af_state = CAM_TOUCH_AF_STATE_NONE;
+				}
 			} else if (camapp->focus_mode == CAM_FOCUS_MODE_HALFSHUTTER) {
 				cam_mm_set_auto_exposure_lock(FALSE);
 				cam_mm_set_auto_white_balance_lock(FALSE);
@@ -4439,8 +4423,8 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 		CAM_LAUNCH("focus_cb - focused", "OUT");
 
 		if (camapp->camera_mode == CAM_CAMERA_MODE
-			&& camapp->tap_shot
-			&& ad->tap_shot_ready) {
+		        && camapp->tap_shot
+		        && ad->tap_shot_ready) {
 			cam_standby_view_camera_button_cb(ad, NULL, NULL);
 			ad->tap_shot_ready = FALSE;
 		}
@@ -4450,7 +4434,7 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 		camapp->touch_focus = FALSE;
 		if ((camapp->camera_mode == CAM_CAMERA_MODE) && (cam_mm_get_state() < CAMERA_STATE_CAPTURING)) {
 			if ((camapp->focus_mode == CAM_FOCUS_MODE_TOUCH_AUTO) || (camapp->focus_mode == CAM_FOCUS_MODE_HALFSHUTTER)) {
-/*				cam_sound_play(CAM_SOUND_EFFECT_AF_FAIL, ad);*/
+				/*				cam_sound_play(CAM_SOUND_EFFECT_AF_FAIL, ad);*/
 			}
 
 			if (camapp->focus_mode == CAM_FOCUS_MODE_TOUCH_AUTO) {
@@ -4458,8 +4442,9 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 				cam_mm_set_auto_white_balance_lock(FALSE);
 
 				if (camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY
-					|| camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING)
+				        || camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING) {
 					camapp->touch_af_state = CAM_TOUCH_AF_STATE_NONE;
+				}
 
 				REMOVE_TIMER(ad->cam_timer[CAM_TIMER_CONTINOUS_AF]);
 				ad->cam_timer[CAM_TIMER_CONTINOUS_AF] = ecore_timer_add(FOCUS_FOCUSED_TIME_OUT, cam_app_continuous_af_timer_cb, ad);
@@ -4475,8 +4460,9 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 				cam_mm_set_auto_white_balance_lock(FALSE);
 
 				if (camapp->touch_af_state == CAM_TOUCH_AF_STATE_READY
-					|| camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING)
+				        || camapp->touch_af_state == CAM_TOUCH_AF_STATE_DOING) {
 					camapp->touch_af_state = CAM_TOUCH_AF_STATE_NONE;
+				}
 			} else if (camapp->focus_mode == CAM_FOCUS_MODE_HALFSHUTTER) {
 				cam_mm_set_auto_exposure_lock(FALSE);
 				cam_mm_set_auto_white_balance_lock(FALSE);
@@ -4488,8 +4474,8 @@ static void __cam_focus_cb(camera_focus_state_e state, void *user_data)
 		}
 
 		if (camapp->camera_mode == CAM_CAMERA_MODE
-			&& camapp->tap_shot
-			&& ad->tap_shot_ready) {
+		        && camapp->tap_shot
+		        && ad->tap_shot_ready) {
 			cam_standby_view_camera_button_cb(ad, NULL, NULL);
 			ad->tap_shot_ready = FALSE;
 		}
@@ -4523,7 +4509,7 @@ static void __cam_interrupted_cb(camera_policy_e policy, camera_state_e previous
 	case CAMERA_POLICY_SOUND_BY_CALL:
 	case CAMERA_POLICY_SOUND_BY_ALARM:
 		cam_popup_toast_popup_create(ad,
-				dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
+		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
 		break;
 	case CAMERA_POLICY_SECURITY:
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"), cam_app_exit_popup_response_cb);
@@ -4562,14 +4548,14 @@ static void __rec_interrupted_cb(recorder_policy_e policy, recorder_state_e prev
 	switch (policy) {
 	case RECORDER_POLICY_SOUND:
 		cam_popup_toast_popup_create(ad,
-				dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),
-				NULL);
+		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),
+		                             NULL);
 		cam_app_exit(ad);
 		break;
 	case RECORDER_POLICY_SOUND_BY_CALL:
 	case RECORDER_POLICY_SOUND_BY_ALARM:
 		cam_popup_toast_popup_create(ad,
-				dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
+		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
 		break;
 	case RECORDER_POLICY_SECURITY:
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"), cam_app_exit_popup_response_cb);
@@ -4639,8 +4625,8 @@ static void __recording_limit_reached_cb(recorder_recording_limit_type_e type, v
 
 	cam_warning(LOG_UI, "recording limit reached - [%d]", type);
 	cam_popup_toast_popup_create(ad,
-					dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
-					cam_app_exit_popup_response_cb);
+	                             dgettext(PACKAGE, "IDS_CAM_TPOP_MAXIMUM_RECORDING_TIME_REACHED"),
+	                             cam_app_exit_popup_response_cb);
 
 	if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
 		if (type == RECORDER_RECORDING_LIMIT_FREE_SPACE) {
@@ -4899,12 +4885,12 @@ gboolean cam_app_launch_image_viewer(void *data, char *file_path, gboolean launc
 					int i = 0;
 					char *files = NULL;
 					int photo_number = MAX_SELFIE_PHOTO;
-					char **file_list = (char **)CAM_CALLOC(1, (sizeof(char *)*photo_number));
+					char **file_list = (char **)CAM_CALLOC(1, (sizeof(char *) * photo_number));
 					if (!file_list) {
 						app_control_destroy(app_control);
 						return FALSE;
 					}
-					char **thumb_list = (char **)CAM_CALLOC(1, (sizeof(char *)*photo_number));
+					char **thumb_list = (char **)CAM_CALLOC(1, (sizeof(char *) * photo_number));
 					if (!thumb_list) {
 						IF_FREE(file_list);
 						app_control_destroy(app_control);
@@ -4915,8 +4901,9 @@ gboolean cam_app_launch_image_viewer(void *data, char *file_path, gboolean launc
 						if (files != NULL) {
 							file_list[photo_number - 1 - i] = CAM_STRDUP(files);
 						}
-						if ((cam_selfie_alarm_shot_get_thumbnail_images(i) != NULL))
+						if ((cam_selfie_alarm_shot_get_thumbnail_images(i) != NULL)) {
 							thumb_list[photo_number - 1 - i] = CAM_STRDUP(cam_selfie_alarm_shot_get_thumbnail_images(i));
+						}
 					}
 					app_control_add_extra_data_array(app_control, "http://tizen.org/appcontrol/data/path", (const char **)file_list, photo_number);
 					app_control_add_extra_data_array(app_control, "http://tizen.org/appcontrol/data/thumb_path", (const char **)thumb_list, photo_number);
@@ -4946,7 +4933,7 @@ gboolean cam_app_launch_image_viewer(void *data, char *file_path, gboolean launc
 				Eina_List *l = NULL;
 				char *filename = NULL;
 				int count = eina_list_count(camapp->secure_filename_list);
-				char **file_list = (char **)CAM_CALLOC(1, (sizeof(char *)*count));
+				char **file_list = (char **)CAM_CALLOC(1, (sizeof(char *) * count));
 
 				EINA_LIST_FOREACH(camapp->secure_filename_list, l, filename) {
 					if (filename) {
@@ -5081,7 +5068,7 @@ gboolean cam_app_check_wide_resolution(int id)
 
 	gfloat get_value = (HIWORD(id) * 3.0) / (LOWORD(id) * 4.0);
 	if (ABS(get_value - 1.0) < CAM_EPSINON
-	    || ABS((gfloat)((HIWORD(id) * 25.0) / (LOWORD(id) * 36.0)) - 1.0) < CAM_EPSINON) {
+	        || ABS((gfloat)((HIWORD(id) * 25.0) / (LOWORD(id) * 36.0)) - 1.0) < CAM_EPSINON) {
 		return FALSE;
 	}
 
@@ -5090,7 +5077,8 @@ gboolean cam_app_check_wide_resolution(int id)
 }
 
 gboolean cam_app_is_skip_video_stream()
-{				/*if true , must finish function in stream callback function */
+{
+	/*if true , must finish function in stream callback function */
 	return video_stream_skip_flag;
 }
 
@@ -5154,7 +5142,7 @@ static Eina_Bool __cam_app_timeout_checker_cb(void *data)
 		return ECORE_CALLBACK_CANCEL;
 	}
 
-/*	cam_app_exit(ad);//Stopping camera to exit after timeout(2secs)*/
+	/*	cam_app_exit(ad);//Stopping camera to exit after timeout(2secs)*/
 
 	return ECORE_CALLBACK_CANCEL;
 }
@@ -5493,20 +5481,20 @@ Eina_Bool cam_app_focus_guide_create(void *data)
 	double focus_move_y = 0.0;
 	if (!camapp->touch_focus) {
 		if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE ||
-			ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
-			focus_move_x = MAIN_W/2;
-			focus_move_y = MAIN_H/2;
+		        ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+			focus_move_x = MAIN_W / 2;
+			focus_move_y = MAIN_H / 2;
 		} else {
-			focus_move_x = MAIN_H/2;
-			focus_move_y = MAIN_W/2;
+			focus_move_x = MAIN_H / 2;
+			focus_move_y = MAIN_W / 2;
 		}
 	} else {
 		if (__cam_app_check_mouse_pos_valid(ad)) {
 			__cam_app_calculate_focus_edje_coord(data);
 		}
 
-		focus_move_x = ad->focus_edje_x + FOCUS_IMAGE_WIDTH/4;
-		focus_move_y = ad->focus_edje_y + FOCUS_IMAGE_HEIGHT/4;
+		focus_move_x = ad->focus_edje_x + FOCUS_IMAGE_WIDTH / 4;
+		focus_move_y = ad->focus_edje_y + FOCUS_IMAGE_HEIGHT / 4;
 	}
 
 	evas_object_move(ad->focus_data->button, focus_move_x, focus_move_y);
@@ -5573,8 +5561,9 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 	elm_image_no_scale_set(img, EINA_FALSE);
 	elm_image_aspect_fixed_set(img, EINA_FALSE);
 	elm_image_fill_outside_set(img, EINA_TRUE);
-	if (img == NULL)
+	if (img == NULL) {
 		cam_critical(LOG_CAM, "elm_bg_add failed");
+	}
 
 	SHOW_EVAS_OBJECT(img);
 	elm_object_part_content_set(ad->main_layout, "gallery_layout", ad->gallery_edje);
@@ -5590,12 +5579,12 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 	Elm_Transit *transit1 = elm_transit_add();
 	elm_transit_object_add(transit1, img);
 	if ((ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) || (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE)) {
-		elm_transit_effect_resizing_add(transit1, w, h, w-100, h-200);
+		elm_transit_effect_resizing_add(transit1, w, h, w - 100, h - 200);
 		elm_transit_effect_translation_add(transit1, 0, 0, 50, 100);
 		elm_transit_duration_set(transit1, 1.0);
 	} else {
-		elm_transit_effect_resizing_add(transit1, w, h, h-100, h-100);
-		elm_transit_effect_translation_add(transit1, 0, 0, (h-100)/2, 50);
+		elm_transit_effect_resizing_add(transit1, w, h, h - 100, h - 100);
+		elm_transit_effect_translation_add(transit1, 0, 0, (h - 100) / 2, 50);
 		elm_transit_duration_set(transit1, 0.8);
 	}
 	elm_transit_objects_final_state_keep_set(transit1, EINA_TRUE);
@@ -5604,10 +5593,10 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 	Elm_Transit *transit = elm_transit_add();
 	elm_transit_object_add(transit, img);
 	if ((ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) || (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT_INVERSE)) {
-		elm_transit_effect_translation_add(transit, 0, 0, (w*2)-100, 0);
+		elm_transit_effect_translation_add(transit, 0, 0, (w * 2) - 100, 0);
 		elm_transit_duration_set(transit, 0.5);
 	} else {
-		elm_transit_effect_translation_add(transit, 0, 0, h-100, 0);
+		elm_transit_effect_translation_add(transit, 0, 0, h - 100, 0);
 		elm_transit_duration_set(transit, 0.25);
 	}
 	elm_transit_objects_final_state_keep_set(transit, EINA_TRUE);
@@ -5693,8 +5682,9 @@ static Eina_Bool __focus_guide_destroy_timer_cb(void *data)
 	struct appdata *ad = (struct appdata *)data;
 	cam_retvm_if(ad == NULL, ECORE_CALLBACK_CANCEL, "appdata is NULL");
 
-	if (ad->cam_timer[CAM_TIMER_FOCUS_GUIDE_DESTROY])
+	if (ad->cam_timer[CAM_TIMER_FOCUS_GUIDE_DESTROY]) {
 		ad->cam_timer[CAM_TIMER_FOCUS_GUIDE_DESTROY] = NULL;
+	}
 
 	cam_app_focus_guide_destroy(ad);
 
@@ -5715,7 +5705,7 @@ static gboolean __cam_app_need_show_focus_guide(void *data)
 	}
 
 	if ((ad->main_view_type == CAM_VIEW_MODE)
-		|| (ad->main_view_type == CAM_VIEW_SHOT_PROCESS)) {
+	        || (ad->main_view_type == CAM_VIEW_SHOT_PROCESS)) {
 		return FALSE;
 	}
 
@@ -5733,8 +5723,8 @@ static gboolean __cam_app_need_show_focus_guide(void *data)
 	}
 
 	if (camapp->camera_mode == CAM_CAMCORDER_MODE
-		&& ((mm_state == RECORDER_STATE_RECORDING) || (mm_state == RECORDER_STATE_PAUSED))
-		&& (camapp->focus_mode != CAM_FOCUS_MODE_TOUCH_AUTO))  {
+	        && ((mm_state == RECORDER_STATE_RECORDING) || (mm_state == RECORDER_STATE_PAUSED))
+	        && (camapp->focus_mode != CAM_FOCUS_MODE_TOUCH_AUTO))  {
 		return FALSE;
 	}
 
@@ -5760,8 +5750,8 @@ Eina_Bool cam_app_focus_guide_update(void *data)
 	}
 
 	if ((camapp->camera_mode == CAM_CAMCORDER_MODE)
-			&& (camapp->recording_mode == CAM_RECORD_SELF
-			|| camapp->recording_mode == CAM_RECORD_SELF_MMS)) {
+	        && (camapp->recording_mode == CAM_RECORD_SELF
+	            || camapp->recording_mode == CAM_RECORD_SELF_MMS)) {
 		cam_app_focus_guide_destroy(ad);
 	}
 
@@ -5791,8 +5781,9 @@ Eina_Bool cam_app_focus_guide_update(void *data)
 		cam_utils_sr_text_say(dgettext(PACKAGE, "IDS_CAM_POP_AUTO_FOCUS_FAILED"));
 	}
 
-	if ((camapp->focus_state == CAMERA_FOCUS_STATE_FOCUSED) || (camapp->focus_state == CAMERA_FOCUS_STATE_FAILED))
+	if ((camapp->focus_state == CAMERA_FOCUS_STATE_FOCUSED) || (camapp->focus_state == CAMERA_FOCUS_STATE_FAILED)) {
 		ad->cam_timer[CAM_TIMER_FOCUS_GUIDE_DESTROY] = ecore_timer_add(0.5, __focus_guide_destroy_timer_cb, ad);
+	}
 
 	return EINA_TRUE;
 }
@@ -5871,15 +5862,15 @@ static void cam_mmc_state_change_cb(int storage_id, storage_state_e state, void 
 	}
 
 	if ((mmc_state == STORAGE_STATE_REMOVED || mmc_state == STORAGE_STATE_UNMOUNTABLE)
-	    && camapp->storage == CAM_STORAGE_EXTERNAL) {
+	        && camapp->storage == CAM_STORAGE_EXTERNAL) {
 		cam_info(LOG_UI, "MMC card is removed");
 
 		GValue value = { 0 };
 		int mm_state = cam_mm_get_state();
 
 		if ((mm_state == RECORDER_STATE_RECORDING
-		    || mm_state == RECORDER_STATE_PAUSED)
-		    && camapp->camera_mode == CAM_CAMCORDER_MODE) {
+		        || mm_state == RECORDER_STATE_PAUSED)
+		        && camapp->camera_mode == CAM_CAMCORDER_MODE) {
 			cam_video_record_cancel(ad);
 		}
 		CAM_GVALUE_SET_INT(value, CAM_STORAGE_INTERNAL);
@@ -5904,7 +5895,7 @@ static gboolean __filter_cam_app_pipe_handler(void *data, gint pipe_type, void *
 	gboolean ret = FALSE;
 
 	if (ad->app_state == CAM_APP_TERMINATE_STATE
-			|| ad->app_state == CAM_APP_PAUSE_STATE) {
+	        || ad->app_state == CAM_APP_PAUSE_STATE) {
 		switch (pipe_type) {
 		case CAM_MAIN_PIPE_OP_TYPE_SHOT_CAPTURE_COMPLETE:
 		case CAM_MAIN_PIPE_OP_TYPE_VIDEO_CAPTURE_HANDLE:
@@ -5973,9 +5964,9 @@ static void __cam_app_parse_pipe_info_command(void *data, int pipe_type,  void *
 		cam_standby_view_camcorder_button_cb(ad, NULL, NULL);
 		break;
 	case CAM_MAIN_PIPE_OP_TYPE_FACE_DETECTION: {
-			cam_standby_face_detection_load_image(*pipe_info_data);
-		}
-		break;
+		cam_standby_face_detection_load_image(*pipe_info_data);
+	}
+	break;
 	case CAM_MAIN_PIPE_OP_TYPE_CREATE_PANORAMA_MAIN_VIEW:
 		cam_app_create_main_view(ad , CAM_VIEW_PANORAMA, *pipe_info_data);
 		break;
@@ -5984,15 +5975,15 @@ static void __cam_app_parse_pipe_info_command(void *data, int pipe_type,  void *
 		cam_standby_view_thumbnail_button_create();
 		break;
 	case CAM_MAIN_PIPE_OP_TYPE_JOIN_INDEX_THREAD: {
-			if (pipe_info_data != NULL) {
-				PIPE_PASS_DATA *param = *pipe_info_data;
-				if (param != NULL) {
-					int thread_index = param->integer_param.param;
-					__cam_app_join_thread(ad, thread_index);
-				}
+		if (pipe_info_data != NULL) {
+			PIPE_PASS_DATA *param = *pipe_info_data;
+			if (param != NULL) {
+				int thread_index = param->integer_param.param;
+				__cam_app_join_thread(ad, thread_index);
 			}
 		}
-		break;
+	}
+	break;
 	/*case CAM_MAIN_PIPE_OP_TYPE_JOIN_SELFIE_THREAD: {
 			if (pipe_info_data!= NULL) {
 				PIPE_PASS_DATA *param = *pipe_info_data;
@@ -6005,7 +5996,7 @@ static void __cam_app_parse_pipe_info_command(void *data, int pipe_type,  void *
 		break;*/
 	case CAM_MAIN_PIPE_OP_TYPE_UPDATE_INDICATOR:
 		cam_indicator_update();
-		break;		
+		break;
 	default:
 		break;
 
@@ -6132,7 +6123,7 @@ gboolean cam_screen_rotate(void *data)
 	}
 
 	if (ad->zoom_edje &&
-	    ((ad->main_view_type == CAM_VIEW_STANDBY) || (ad->main_view_type == CAM_VIEW_RECORD))) {
+	        ((ad->main_view_type == CAM_VIEW_STANDBY) || (ad->main_view_type == CAM_VIEW_RECORD))) {
 		cam_zoom_unload_edje(ad);
 		cam_zoom_load_edje(ad);
 	}
@@ -6285,164 +6276,156 @@ int cam_app_get_venc_bitrate(void *data, int quality)
 		}
 	} else {
 		switch (camapp->video_resolution) {
-		case CAM_RESOLUTION_FULLHD:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 17000000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 15000000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 13000000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_FULLHD: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 17000000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 15000000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 13000000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
-		case CAM_RESOLUTION_1440x1080:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 13000000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 11000000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 9000000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		}
+		break;
+		case CAM_RESOLUTION_1440x1080: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 13000000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 11000000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 9000000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
-		case CAM_RESOLUTION_HD:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 12000000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 10000000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 8000000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		}
+		break;
+		case CAM_RESOLUTION_HD: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 12000000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 10000000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 8000000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
 		case CAM_RESOLUTION_WVGA:
-		case CAM_RESOLUTION_WVGA2:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 3449000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 2834000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 2298000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_WVGA2: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 3449000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 2834000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 2298000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
-		case CAM_RESOLUTION_VGA:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 3078000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 2553000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 2019000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_VGA: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 3078000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 2553000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 2019000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
-		case CAM_RESOLUTION_QVGA:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 767000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 641000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 518000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_QVGA: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 767000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 641000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 518000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
-		case CAM_RESOLUTION_QCIF:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 384000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 320000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 256000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_QCIF: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 384000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 320000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 256000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
-		case CAM_RESOLUTION_800x450:
-			{
-				switch (quality) {
-				case CAM_QUALITY_HIGH:
-				case CAM_QUALITY_BEST:
-					return_val = 3600000;
-					break;
-				case CAM_QUALITY_MEDIUM:
-					return_val = 3000000;
-					break;
-				case CAM_QUALITY_LOW:
-					return_val = 2000000;
-					break;
-				default:
-					cam_critical(LOG_MM, "INVALID QUAILTY");
-					break;
-				}
+		case CAM_RESOLUTION_800x450: {
+			switch (quality) {
+			case CAM_QUALITY_HIGH:
+			case CAM_QUALITY_BEST:
+				return_val = 3600000;
+				break;
+			case CAM_QUALITY_MEDIUM:
+				return_val = 3000000;
+				break;
+			case CAM_QUALITY_LOW:
+				return_val = 2000000;
+				break;
+			default:
+				cam_critical(LOG_MM, "INVALID QUAILTY");
+				break;
 			}
-			break;
+		}
+		break;
 
 		default:
 			cam_critical(LOG_MM, "INVALID RESOLUTION");
@@ -6451,7 +6434,7 @@ int cam_app_get_venc_bitrate(void *data, int quality)
 	}
 
 	cam_secure_debug(LOG_MM, "videoenc bit rate = %d, current quilty = %d",
-		  return_val, quality);
+	                 return_val, quality);
 	return return_val;
 }
 
@@ -6506,11 +6489,11 @@ gboolean cam_app_set_recording_mode(void *data, int mode)
 		cam_debug(LOG_CAM, "audio_codec = %d ,RECORDER_AUDIO_CODEC_AAC = %d" , audio_codec, RECORDER_AUDIO_CODEC_AAC);
 		cam_debug(LOG_CAM, "file_format = %d ,RECORDER_FILE_FORMAT_MP4 = %d" , file_format, RECORDER_FILE_FORMAT_MP4);
 	}
-/*#ifdef CAMERA_MACHINE_I686
-	video_codec = RECORDER_VIDEO_CODEC_THEORA;
-	audio_codec = RECORDER_AUDIO_CODEC_VORBIS;
-#endif
-*/
+	/*#ifdef CAMERA_MACHINE_I686
+		video_codec = RECORDER_VIDEO_CODEC_THEORA;
+		audio_codec = RECORDER_AUDIO_CODEC_VORBIS;
+	#endif
+	*/
 	if (!cam_mm_set_codec(audio_codec, video_codec)) {
 		return FALSE;
 	}
@@ -6586,7 +6569,7 @@ gboolean cam_app_init_attribute(void *data, CamMode mode)
 	ret &= cam_mm_set_video_source_format(__cam_app_get_recommend_video_format(ad));
 	ret &= cam_app_set_capture_format_shooting_mode(camapp->shooting_mode);
 
-	if(camapp->self_portrait == TRUE) {
+	if (camapp->self_portrait == TRUE) {
 		camapp->save_as_flip = TRUE;
 	} else {
 		camapp->save_as_flip = FALSE;
@@ -6696,7 +6679,7 @@ gboolean cam_app_return_ext_app(void *data, gboolean multishots)
 				app_control_reply_to_launch_request(reply, ad->app_control_handle, APP_CONTROL_RESULT_FAILED);
 			} else {
 				path_array[0] = CAM_STRDUP(ad->path_in_return);
-				if(ad->is_caller_attach_panel) {
+				if (ad->is_caller_attach_panel) {
 					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_PATH, (const char **)path_array, 1);
 					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_SELECTED, (const char **)path_array, 1);
 				} else {
@@ -6731,7 +6714,7 @@ gboolean cam_app_return_ext_app(void *data, gboolean multishots)
 						index++;
 					}
 				}
-				if(ad->is_caller_attach_panel) {
+				if (ad->is_caller_attach_panel) {
 					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_PATH, (const char **)path_array, index);
 					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_SELECTED, (const char **)path_array, index);
 				} else {
@@ -6945,19 +6928,19 @@ gboolean cam_app_parse_args(CamExeArgs *args, app_control_h app_control)
 
 	if (g_strcmp0(operation, APP_CONTROL_OPERATION_PICK) == 0) {
 		if (ad->app_control_mime != NULL &&
-			((strncmp(ad->app_control_mime, CAM_SERVICE_MIME_TYPE_IMAGE, strlen(CAM_SERVICE_MIME_TYPE_IMAGE)) == 0)
-				|| (strncmp(ad->app_control_mime, CAM_SERVICE_MIME_TYPE_VIDEO, strlen(CAM_SERVICE_MIME_TYPE_VIDEO)) == 0))) {
-				args->allow_switch = FALSE;
+		        ((strncmp(ad->app_control_mime, CAM_SERVICE_MIME_TYPE_IMAGE, strlen(CAM_SERVICE_MIME_TYPE_IMAGE)) == 0)
+		         || (strncmp(ad->app_control_mime, CAM_SERVICE_MIME_TYPE_VIDEO, strlen(CAM_SERVICE_MIME_TYPE_VIDEO)) == 0))) {
+			args->allow_switch = FALSE;
 		} else {
 			args->allow_switch = TRUE;
 		}
 		IF_FREE(operation);
 #if 0 //New Appcontrol operations are not available
-	} else if (g_strcmp0(operation, APP_CONTROL_OPERATION_IMAGE_CAPTURE) == 0){
+	} else if (g_strcmp0(operation, APP_CONTROL_OPERATION_IMAGE_CAPTURE) == 0) {
 		ad->app_control_mime = CAM_STRDUP(CAM_SERVICE_MIME_TYPE_IMAGE);
 		args->allow_switch = FALSE;
 		args->cam_mode = CAM_CAMERA_MODE;
-	} else if (g_strcmp0(operation, APP_CONTROL_OPERATION_VIDEO_CAPTURE) == 0){
+	} else if (g_strcmp0(operation, APP_CONTROL_OPERATION_VIDEO_CAPTURE) == 0) {
 		ad->app_control_mime = CAM_STRDUP(CAM_SERVICE_MIME_TYPE_VIDEO);
 		args->allow_switch = FALSE;
 		args->cam_mode = CAM_CAMCORDER_MODE;
@@ -7005,7 +6988,7 @@ gboolean cam_app_parse_args(CamExeArgs *args, app_control_h app_control)
 		cam_debug(LOG_UI, "LIMIT %s", val);
 		args->size_limit = atoi(val);
 		/*convert BYTES to KBYTES as APP_CONTROL_DATA_TOTAL_SIZE comes in BYTES*/
-		args->size_limit = (args->size_limit)/1024;
+		args->size_limit = (args->size_limit) / 1024;
 		IF_FREE(val);
 	} else {
 		app_control_get_extra_data(app_control, CAM_SERVICE_OPTIONAL_KEY_LIMIT, (char **)&val);
@@ -7076,86 +7059,82 @@ static gboolean __cam_app_check_mouse_pos_valid(void *data)
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 
 	switch (ad->target_direction) {
-		case CAM_TARGET_DIRECTION_PORTRAIT:
-		{
-			if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_WIDTH) {
-				return FALSE;
-			}
-
-			else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_WIDTH)) {
-				return FALSE;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT) {
-				return FALSE;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
-				return FALSE;
-			}
-
-			break;
+	case CAM_TARGET_DIRECTION_PORTRAIT: {
+		if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_WIDTH) {
+			return FALSE;
 		}
-		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		{
-			if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_INVERSE_WIDTH) {
-				return FALSE;
-			}
 
-			else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH)) {
-				return FALSE;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_INVERSE_HEIGHT) {
-				return FALSE;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT)) {
-				return FALSE;
-			}
-			break;
+		else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_WIDTH)) {
+			return FALSE;
 		}
-		case CAM_TARGET_DIRECTION_LANDSCAPE:
-		{
-			if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_WIDTH) {
-				return FALSE;
-			}
 
-			else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_WIDTH)) {
-				return FALSE;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT - 40) {
-				return FALSE;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
-				return FALSE;
-			}
-
-			break;
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT) {
+			return FALSE;
 		}
-		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		{
-			if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_INVERSE_WIDTH) {
-				return FALSE;
-			}
 
-			else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH)) {
-				return FALSE;
-			}
-
-			if (ad->touch_lcd_y < BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT) {
-				return FALSE;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT)) {
-				return FALSE;
-			}
-			break;
+		else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
+			return FALSE;
 		}
-		default:
-			break;
+
+		break;
+	}
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE: {
+		if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_INVERSE_WIDTH) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH)) {
+			return FALSE;
+		}
+
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_INVERSE_HEIGHT) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT)) {
+			return FALSE;
+		}
+		break;
+	}
+	case CAM_TARGET_DIRECTION_LANDSCAPE: {
+		if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_WIDTH) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_WIDTH)) {
+			return FALSE;
+		}
+
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT - 40) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
+			return FALSE;
+		}
+
+		break;
+	}
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE: {
+		if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_INVERSE_WIDTH) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH)) {
+			return FALSE;
+		}
+
+		if (ad->touch_lcd_y < BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT) {
+			return FALSE;
+		}
+
+		else if (ad->touch_lcd_y > (ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT)) {
+			return FALSE;
+		}
+		break;
+	}
+	default:
+		break;
 	}
 
 	return TRUE;
@@ -7167,85 +7146,81 @@ static gboolean __cam_app_check_mouse_pos_adjust(void *data)
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 
 	switch (ad->target_direction) {
-		case CAM_TARGET_DIRECTION_PORTRAIT:
-		{
-			if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_WIDTH) {
-				ad->touch_lcd_x = LEFT_TOUCH_EDGE_WIDTH;
-			}
-
-			if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_WIDTH)) {
-				ad->touch_lcd_x = ad->win_height - RIGHT_TOUCH_EDGE_WIDTH;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT) {
-				ad->touch_lcd_y = TOP_TOUCH_EDGE_HEIGHT;
-			}
-
-			if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
-				ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT;
-			}
-			break;
-		}
-		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		{
-			if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_INVERSE_WIDTH) {
-				ad->touch_lcd_x = LEFT_TOUCH_EDGE_INVERSE_WIDTH;
-			}
-
-			else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH)) {
-				ad->touch_lcd_x = ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_INVERSE_HEIGHT) {
-				ad->touch_lcd_y = TOP_TOUCH_EDGE_INVERSE_HEIGHT;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT)) {
-				ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT;
-			}
-			break;
-		}
-		case CAM_TARGET_DIRECTION_LANDSCAPE:
-		{
-			if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_WIDTH) {
-				ad->touch_lcd_x = RIGHT_TOUCH_EDGE_WIDTH;
-			}
-
-			if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_WIDTH)) {
-				ad->touch_lcd_x = ad->win_height - LEFT_TOUCH_EDGE_WIDTH;
-			}
-
-			if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT - 40) {
-				ad->touch_lcd_y = TOP_TOUCH_EDGE_HEIGHT - 40;
-			}
-
-			if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
-				ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT;
-			}
-			break;
+	case CAM_TARGET_DIRECTION_PORTRAIT: {
+		if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_WIDTH) {
+			ad->touch_lcd_x = LEFT_TOUCH_EDGE_WIDTH;
 		}
 
-		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		{
-			if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_INVERSE_WIDTH) {
-				ad->touch_lcd_x = RIGHT_TOUCH_EDGE_INVERSE_WIDTH;
-			}
-
-			else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH)) {
-				ad->touch_lcd_x = ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH;
-			}
-
-			if (ad->touch_lcd_y < BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT) {
-				ad->touch_lcd_y = BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT;
-			}
-
-			else if (ad->touch_lcd_y > (ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT)) {
-				ad->touch_lcd_y = ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT;
-			}
-			break;
+		if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_WIDTH)) {
+			ad->touch_lcd_x = ad->win_height - RIGHT_TOUCH_EDGE_WIDTH;
 		}
-		default:
-			break;
+
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT) {
+			ad->touch_lcd_y = TOP_TOUCH_EDGE_HEIGHT;
+		}
+
+		if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
+			ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT;
+		}
+		break;
+	}
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE: {
+		if (ad->touch_lcd_x < LEFT_TOUCH_EDGE_INVERSE_WIDTH) {
+			ad->touch_lcd_x = LEFT_TOUCH_EDGE_INVERSE_WIDTH;
+		}
+
+		else if (ad->touch_lcd_x > (ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH)) {
+			ad->touch_lcd_x = ad->win_height - RIGHT_TOUCH_EDGE_INVERSE_WIDTH;
+		}
+
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_INVERSE_HEIGHT) {
+			ad->touch_lcd_y = TOP_TOUCH_EDGE_INVERSE_HEIGHT;
+		}
+
+		else if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT)) {
+			ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT;
+		}
+		break;
+	}
+	case CAM_TARGET_DIRECTION_LANDSCAPE: {
+		if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_WIDTH) {
+			ad->touch_lcd_x = RIGHT_TOUCH_EDGE_WIDTH;
+		}
+
+		if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_WIDTH)) {
+			ad->touch_lcd_x = ad->win_height - LEFT_TOUCH_EDGE_WIDTH;
+		}
+
+		if (ad->touch_lcd_y < TOP_TOUCH_EDGE_HEIGHT - 40) {
+			ad->touch_lcd_y = TOP_TOUCH_EDGE_HEIGHT - 40;
+		}
+
+		if (ad->touch_lcd_y > (ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT)) {
+			ad->touch_lcd_y = ad->win_width - BOTTOM_TOUCH_EDGE_HEIGHT;
+		}
+		break;
+	}
+
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE: {
+		if (ad->touch_lcd_x < RIGHT_TOUCH_EDGE_INVERSE_WIDTH) {
+			ad->touch_lcd_x = RIGHT_TOUCH_EDGE_INVERSE_WIDTH;
+		}
+
+		else if (ad->touch_lcd_x > (ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH)) {
+			ad->touch_lcd_x = ad->win_height - LEFT_TOUCH_EDGE_INVERSE_WIDTH;
+		}
+
+		if (ad->touch_lcd_y < BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT) {
+			ad->touch_lcd_y = BOTTOM_TOUCH_EDGE_INVERSE_HEIGHT;
+		}
+
+		else if (ad->touch_lcd_y > (ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT)) {
+			ad->touch_lcd_y = ad->win_width - TOP_TOUCH_EDGE_INVERSE_HEIGHT;
+		}
+		break;
+	}
+	default:
+		break;
 	}
 
 	return TRUE;
@@ -7263,30 +7238,26 @@ static void __cam_app_convert_mouse_pos(void *data, void * event_info)
 	cam_retm_if(md == NULL, "md is NULL");
 
 	switch (ad->target_direction) {
-	case CAM_TARGET_DIRECTION_PORTRAIT:
-		{
-			ad->touch_lcd_x = md->canvas.x;
-			ad->touch_lcd_y = md->canvas.y;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		{
-			ad->touch_lcd_x = ad->win_height - md->canvas.x;
-			ad->touch_lcd_y = ad->win_width - md->canvas.y;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_LANDSCAPE:
-		{
-			ad->touch_lcd_x = ad->win_height - md->canvas.y;
-			ad->touch_lcd_y = md->canvas.x;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		{
-			ad->touch_lcd_x = md->canvas.y;
-			ad->touch_lcd_y = ad->win_width - md->canvas.x;
-		}
-		break;
+	case CAM_TARGET_DIRECTION_PORTRAIT: {
+		ad->touch_lcd_x = md->canvas.x;
+		ad->touch_lcd_y = md->canvas.y;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE: {
+		ad->touch_lcd_x = ad->win_height - md->canvas.x;
+		ad->touch_lcd_y = ad->win_width - md->canvas.y;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE: {
+		ad->touch_lcd_x = ad->win_height - md->canvas.y;
+		ad->touch_lcd_y = md->canvas.x;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE: {
+		ad->touch_lcd_x = md->canvas.y;
+		ad->touch_lcd_y = ad->win_width - md->canvas.x;
+	}
+	break;
 	default:
 		cam_critical(LOG_UI, "invalid direction");
 		break;
@@ -7312,30 +7283,26 @@ static void __cam_app_calculate_focus_edje_coord(void *data)
 	ad->focus_edje_y = 0;
 
 	switch (ad->target_direction) {
-	case CAM_TARGET_DIRECTION_PORTRAIT:
-		{
-			ad->focus_edje_x = ad->touch_lcd_x;
-			ad->focus_edje_y = ad->touch_lcd_y;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		{
-			ad->focus_edje_x = ad->win_height - ad->touch_lcd_x;
-			ad->focus_edje_y = ad->win_width - ad->touch_lcd_y;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_LANDSCAPE:
-		{
-			ad->focus_edje_x = ad->touch_lcd_y;
-			ad->focus_edje_y = ad->win_height - ad->touch_lcd_x;
-		}
-		break;
-	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		{
-			ad->focus_edje_x = ad->win_width - ad->touch_lcd_y;
-			ad->focus_edje_y = ad->touch_lcd_x;
-		}
-		break;
+	case CAM_TARGET_DIRECTION_PORTRAIT: {
+		ad->focus_edje_x = ad->touch_lcd_x;
+		ad->focus_edje_y = ad->touch_lcd_y;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE: {
+		ad->focus_edje_x = ad->win_height - ad->touch_lcd_x;
+		ad->focus_edje_y = ad->win_width - ad->touch_lcd_y;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE: {
+		ad->focus_edje_x = ad->touch_lcd_y;
+		ad->focus_edje_y = ad->win_height - ad->touch_lcd_x;
+	}
+	break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE: {
+		ad->focus_edje_x = ad->win_width - ad->touch_lcd_y;
+		ad->focus_edje_y = ad->touch_lcd_x;
+	}
+	break;
 	default:
 		break;
 	}
@@ -7347,7 +7314,7 @@ static void __cam_app_calculate_focus_edje_coord(void *data)
 	ad->focus_edje_y = ad->focus_edje_y - (ad->focus_edje_h / 2);
 
 	if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE
-	    || ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+	        || ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 		if (ad->focus_edje_x < ad->preview_offset_x) {
 			ad->focus_edje_x = ad->preview_offset_x;
 		}
@@ -7456,7 +7423,7 @@ void cam_app_preview_start_coordinate(CamVideoRectangle src,
 		result->h = dst.h;
 	}
 	cam_secure_debug(LOG_UI, "source is %dx%d dest is %dx%d, result window size is %dx%d result offset x= %dx y=%d",
-	     src.w, src.h, dst.w, dst.h, result->w, result->h, result->x, result->y);
+	                 src.w, src.h, dst.w, dst.h, result->w, result->h, result->x, result->y);
 }
 
 
@@ -7475,7 +7442,7 @@ void cam_remove_tmp_file()
 	default_path = cam_file_get_external_video_path();
 	cam_secure_debug(LOG_UI, "video = %s", default_path);
 	snprintf(tmpfile_name, sizeof(tmpfile_name), "%s%s", default_path,
-		 TMPFILE_PREFIX);
+	         TMPFILE_PREFIX);
 
 	if (g_file_test(tmpfile_name, G_FILE_TEST_EXISTS)) {
 		cam_debug(LOG_CAM, "REMOVE tmp file");
@@ -7492,7 +7459,7 @@ void cam_remove_video_file(char *file_name)
 	default_path = cam_file_get_internal_video_path();
 	cam_secure_debug(LOG_UI, " video = %s", default_path);
 	snprintf(tmpfile_name, sizeof(tmpfile_name), "%s%s", default_path,
-		 file_name);
+	         file_name);
 	if (g_file_test(tmpfile_name, G_FILE_TEST_EXISTS)) {
 		cam_debug(LOG_CAM, "REMOVE tmp file");
 		unlink(tmpfile_name);
@@ -7500,7 +7467,7 @@ void cam_remove_video_file(char *file_name)
 	default_path = cam_file_get_external_video_path();
 	cam_secure_debug(LOG_UI, "video = %s", default_path);
 	snprintf(tmpfile_name, sizeof(tmpfile_name), "%s%s", default_path,
-		 file_name);
+	         file_name);
 
 	if (g_file_test(tmpfile_name, G_FILE_TEST_EXISTS)) {
 		cam_debug(LOG_CAM, "REMOVE tmp file");
@@ -7511,7 +7478,7 @@ void cam_remove_video_file(char *file_name)
 
 Eina_Bool cam_elm_cache_flush()
 {
-/*Make the canvas discard as much data as possible used by the engine at runtime.*/
+	/*Make the canvas discard as much data as possible used by the engine at runtime.*/
 	cam_debug(LOG_CAM, "start");
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
 	if (ad) {
@@ -7637,7 +7604,7 @@ gint cam_app_get_max_image_size_by_ratio(void *data, int resolution)
 
 	GetCamDevCamResolutionCaps(&capacity, ad);
 
-	if (ratio == (gdouble)4.0/3.0) {
+	if (ratio == (gdouble)4.0 / 3.0) {
 		if (capacity & CAM_CP_SIZE_3264X2448) {
 			result = CAM_RESOLUTION_3264x2448;
 		} else if (capacity & CAM_CP_SIZE_2048X1536) {
@@ -7649,7 +7616,7 @@ gint cam_app_get_max_image_size_by_ratio(void *data, int resolution)
 		} else {
 			result = CAM_RESOLUTION_VGA;
 		}
-	} else if (ratio == (gdouble)16.0/9.0) {
+	} else if (ratio == (gdouble)16.0 / 9.0) {
 		if (capacity & CAM_CP_SIZE_3264X1836) {
 			result = CAM_RESOLUTION_3264x1836;
 		} else if (capacity & CAM_CP_SIZE_2048X1152) {
@@ -7661,7 +7628,7 @@ gint cam_app_get_max_image_size_by_ratio(void *data, int resolution)
 		} else {
 			result = CAM_RESOLUTION_VGA;
 		}
-	} else if (ratio == (gdouble)3.0/2.0) {
+	} else if (ratio == (gdouble)3.0 / 2.0) {
 		result = CAM_RESOLUTION_VGA;
 	}  else if (ratio == (gdouble)1.0) {
 		if (capacity & CAM_CP_SIZE_2448X2448) {
@@ -7673,7 +7640,7 @@ gint cam_app_get_max_image_size_by_ratio(void *data, int resolution)
 				result = CAM_RESOLUTION_1080x1080;
 			}
 		}
-	} else if (ratio == (gdouble)5.0/3.0) {
+	} else if (ratio == (gdouble)5.0 / 3.0) {
 		if (capacity & CAM_CP_SIZE_2048X1232) {
 			result = CAM_RESOLUTION_2048x1232;
 		}
@@ -7736,16 +7703,16 @@ int cam_app_get_preview_mode()
 	gint p_width = 0;
 	gint p_height = 0;
 	float resolution = 0.0;
-	float res_16_9 = (16*1.0)/9;
-	float res_11_9 = (11*1.0)/9;
-	float res_4_3 = (4*1.0)/3;
+	float res_16_9 = (16 * 1.0) / 9;
+	float res_11_9 = (11 * 1.0) / 9;
+	float res_4_3 = (4 * 1.0) / 3;
 	gboolean ret = cam_mm_get_preview_size(&p_width, &p_height);
 	if (!ret) {
 		cam_critical(LOG_CAM, "cam_mm_get_preview_size error occur!");
 		return PREVIEW_MODE_NORMAL;
 	}
 
-	resolution = (p_width * 1.0)/(p_height * 1.0);
+	resolution = (p_width * 1.0) / (p_height * 1.0);
 	if (resolution == res_16_9) {
 		return PREVIEW_MODE_WIDE;
 	} else if (resolution ==  res_4_3) {
@@ -7797,114 +7764,111 @@ static gboolean __cam_change_camcorder_mode(void *data)
 	cam_debug(LOG_UI, "recording mode is [%d]", camapp->recording_mode);
 	switch (camapp->recording_mode) {
 	case CAM_RECORD_MMS:
-	case CAM_RECORD_SELF_MMS:
-		{
-			camapp->enable_touch_af = FALSE;
-			camapp->video_resolution = CAM_RESOLUTION_QCIF;
-			camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
+	case CAM_RECORD_SELF_MMS: {
+		camapp->enable_touch_af = FALSE;
+		camapp->video_resolution = CAM_RESOLUTION_QCIF;
+		camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
 
-			if (camapp->recording_mode == CAM_RECORD_MMS) {
-				g_value_set_int(&value, FPS_25);
-			} else {
-				g_value_set_int(&value, FPS_15);
-			}
-
-			if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
-				cam_critical(LOG_UI, "fps set fail");
-				return FALSE;
-			}
-
-			if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-				&& ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
-				g_value_set_int(&value, ad->camapp_handle->size_limit);
-			} else {
-				g_value_set_int(&value, CAM_REC_MMS_MAX_SIZE);
-			}
-
-			if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
-				cam_critical(LOG_UI, "size limit set fail");
-				return FALSE;
-			}
-
-			if (!cam_mm_reset_recording_motion_fps()) {
-				cam_critical(LOG_UI, "cam_mm_reset_recording_motion_fps fail");
-				return FALSE;
-			}
+		if (camapp->recording_mode == CAM_RECORD_MMS) {
+			g_value_set_int(&value, FPS_25);
+		} else {
+			g_value_set_int(&value, FPS_15);
 		}
-		break;
-	case CAM_RECORD_NORMAL:
-		{
-			camapp->enable_touch_af = FALSE;
-			camapp->video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
-			camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
 
-			if (__check_use_recommanded_preview_size(ad) == TRUE) {
-				cam_mm_get_recommanded_preview_size(&width, &height);
-			}
-
-			cam_mm_get_fps_by_resolution(width, height, ad);
-			g_value_set_int(&value, camapp->fps_by_resolution);
-			/*g_value_set_int(&value, FPS_AUTO);*/
-
-			if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
-				cam_critical(LOG_UI, "fps set fail");
-				return FALSE;
-			}
-
-			if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL && ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
-				g_value_set_int(&value, ad->camapp_handle->size_limit);
-			} else {
-				g_value_set_int(&value, REC_SIZE_LIMIT_DEFAULT);
-			}
-
-			if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
-				cam_critical(LOG_UI, "size limit set fail");
-				return FALSE;
-			}
-
-			if (!cam_mm_reset_recording_motion_fps()) {
-				cam_critical(LOG_UI, "fps set fail");
-				return FALSE;
-			}
+		if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
+			cam_critical(LOG_UI, "fps set fail");
+			return FALSE;
 		}
-		break;
-	case CAM_RECORD_SELF:
-		{
-			camapp->enable_touch_af = FALSE;
-			camapp->video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, SELF_REC_RESOLUTION_DEFAULT);
-			camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
 
-			if (__check_use_recommanded_preview_size(ad) == TRUE) {
-				cam_mm_get_recommanded_preview_size(&width, &height);
-			}
-
-			cam_mm_get_fps_by_resolution(width, height, ad);
-			g_value_set_int(&value, camapp->fps_by_resolution);
-			/*g_value_set_int(&value, FPS_15);*/
-
-			if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
-				cam_critical(LOG_UI, "fps set fail");
-				return FALSE;
-			}
-
-			if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
-				&& ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
-				g_value_set_int(&value, ad->camapp_handle->size_limit);
-			} else {
-				g_value_set_int(&value, REC_SIZE_LIMIT_DEFAULT);
-			}
-
-			if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
-				cam_critical(LOG_UI, "size limit set fail");
-				return FALSE;
-			}
-
-			if (!cam_mm_reset_recording_motion_fps()) {
-				 cam_critical(LOG_UI, "cam_mm_reset_recording_motion_fps fail");
-				return FALSE;
-			}
+		if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
+		        && ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
+			g_value_set_int(&value, ad->camapp_handle->size_limit);
+		} else {
+			g_value_set_int(&value, CAM_REC_MMS_MAX_SIZE);
 		}
-		break;
+
+		if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
+			cam_critical(LOG_UI, "size limit set fail");
+			return FALSE;
+		}
+
+		if (!cam_mm_reset_recording_motion_fps()) {
+			cam_critical(LOG_UI, "cam_mm_reset_recording_motion_fps fail");
+			return FALSE;
+		}
+	}
+	break;
+	case CAM_RECORD_NORMAL: {
+		camapp->enable_touch_af = FALSE;
+		camapp->video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_VIDEO_RESOLUTION_NAME, REC_RESOLUTION_DEFAULT);
+		camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
+
+		if (__check_use_recommanded_preview_size(ad) == TRUE) {
+			cam_mm_get_recommanded_preview_size(&width, &height);
+		}
+
+		cam_mm_get_fps_by_resolution(width, height, ad);
+		g_value_set_int(&value, camapp->fps_by_resolution);
+		/*g_value_set_int(&value, FPS_AUTO);*/
+
+		if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
+			cam_critical(LOG_UI, "fps set fail");
+			return FALSE;
+		}
+
+		if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL && ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
+			g_value_set_int(&value, ad->camapp_handle->size_limit);
+		} else {
+			g_value_set_int(&value, REC_SIZE_LIMIT_DEFAULT);
+		}
+
+		if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
+			cam_critical(LOG_UI, "size limit set fail");
+			return FALSE;
+		}
+
+		if (!cam_mm_reset_recording_motion_fps()) {
+			cam_critical(LOG_UI, "fps set fail");
+			return FALSE;
+		}
+	}
+	break;
+	case CAM_RECORD_SELF: {
+		camapp->enable_touch_af = FALSE;
+		camapp->video_resolution = cam_config_get_int(CAM_CONFIG_TYPE_COMMON, PROP_SELF_VIDEO_RESOLUTION_NAME, SELF_REC_RESOLUTION_DEFAULT);
+		camapp->photo_resolution = cam_app_get_max_image_size_by_ratio(ad, camapp->video_resolution);
+
+		if (__check_use_recommanded_preview_size(ad) == TRUE) {
+			cam_mm_get_recommanded_preview_size(&width, &height);
+		}
+
+		cam_mm_get_fps_by_resolution(width, height, ad);
+		g_value_set_int(&value, camapp->fps_by_resolution);
+		/*g_value_set_int(&value, FPS_15);*/
+
+		if (!cam_handle_value_set(ad, PROP_FPS, &value)) {
+			cam_critical(LOG_UI, "fps set fail");
+			return FALSE;
+		}
+
+		if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL
+		        && ad->camapp_handle->size_limit != CAM_REC_NORMAL_MAX_SIZE) {
+			g_value_set_int(&value, ad->camapp_handle->size_limit);
+		} else {
+			g_value_set_int(&value, REC_SIZE_LIMIT_DEFAULT);
+		}
+
+		if (!cam_handle_value_set(ad, PROP_SIZE_LIMIT, &value)) {
+			cam_critical(LOG_UI, "size limit set fail");
+			return FALSE;
+		}
+
+		if (!cam_mm_reset_recording_motion_fps()) {
+			cam_critical(LOG_UI, "cam_mm_reset_recording_motion_fps fail");
+			return FALSE;
+		}
+	}
+	break;
 	default:
 		cam_critical(LOG_UI, "invalid recording mode - [%d]", camapp->recording_mode);
 		break;
@@ -8071,8 +8035,8 @@ static void __cam_app_display_state_changed_cb(device_callback_e type, void *val
 		}
 
 		if ((mm_state == RECORDER_STATE_RECORDING
-			|| mm_state == RECORDER_STATE_PAUSED)
-			&& (camapp->camera_mode == CAM_CAMCORDER_MODE)) {
+		        || mm_state == RECORDER_STATE_PAUSED)
+		        && (camapp->camera_mode == CAM_CAMCORDER_MODE)) {
 			cam_video_record_stop(ad);
 		}
 	}
@@ -8088,8 +8052,7 @@ void __cam_app_soundmanager_route_changed_cb(sound_device_h  device, bool is_con
 	sound_device_type_e type;
 	sound_device_io_direction_e direction;
 	if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
-		if (is_connected)
-		{
+		if (is_connected) {
 			ret = sound_manager_get_device_type(device, &type);
 			if (ret == SOUND_MANAGER_ERROR_NONE) {
 				if (type == SOUND_DEVICE_AUDIO_JACK) {
@@ -8153,13 +8116,13 @@ static Eina_Bool __cam_restart_camera(void *data)
 
 	int mm_state = cam_mm_get_state();
 	if ((camapp->camera_mode == CAM_CAMERA_MODE)
-			&& (mm_state == CAMERA_STATE_CAPTURING)) {
+	        && (mm_state == CAMERA_STATE_CAPTURING)) {
 		cam_warning(LOG_UI, "camera capturing state");
 		if (!cam_app_preview_start(ad)) {
 			cam_critical(LOG_UI, "cam_app_preview_start failed");;
 		}
 	} else if ((camapp->camera_mode == CAM_CAMCORDER_MODE)
-			&& ((mm_state == RECORDER_STATE_RECORDING) || (mm_state == RECORDER_STATE_PAUSED))) {
+	           && ((mm_state == RECORDER_STATE_RECORDING) || (mm_state == RECORDER_STATE_PAUSED))) {
 		cam_warning(LOG_UI, "camera recording state");
 		if (!cam_video_record_stop(ad)) {
 			cam_critical(LOG_UI, "cam_video_record_stop failed");;
@@ -8265,23 +8228,23 @@ void cam_app_set_display_rotate(void *data)
 	}
 #else
 #ifdef CAMERA_MACHINE_I686
-		switch (ad->target_direction) {
-		case CAM_TARGET_DIRECTION_PORTRAIT:
-			cam_mm_set_display_rotate(CAMERA_ROTATION_NONE);
-			break;
-		case CAM_TARGET_DIRECTION_LANDSCAPE:
-			cam_mm_set_display_rotate(CAMERA_ROTATION_270);
-			break;
-		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-			cam_mm_set_display_rotate(CAMERA_ROTATION_180);
-			break;
-		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-			cam_mm_set_display_rotate(CAMERA_ROTATION_90);
-			break;
-		default:
-			cam_critical(LOG_UI, "invalid type");
-			break;
-		}
+	switch (ad->target_direction) {
+	case CAM_TARGET_DIRECTION_PORTRAIT:
+		cam_mm_set_display_rotate(CAMERA_ROTATION_NONE);
+		break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE:
+		cam_mm_set_display_rotate(CAMERA_ROTATION_270);
+		break;
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
+		cam_mm_set_display_rotate(CAMERA_ROTATION_180);
+		break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
+		cam_mm_set_display_rotate(CAMERA_ROTATION_90);
+		break;
+	default:
+		cam_critical(LOG_UI, "invalid type");
+		break;
+	}
 #else
 	cam_mm_set_display_rotate(CAMERA_ROTATION_270);
 #endif
@@ -8376,7 +8339,7 @@ static void __cam_app_join_thread(void *data, int index)
 
 gboolean cam_app_check_record_condition(void *data)
 {
-	cam_retvm_if(data == NULL,FALSE, "data is null");
+	cam_retvm_if(data == NULL, FALSE, "data is null");
 	struct appdata *ad = (struct appdata *)data;
 	cam_retvm_if(ad == NULL, FALSE, "ad is NULL");
 	CamAppData *camapp = ad->camapp_handle;

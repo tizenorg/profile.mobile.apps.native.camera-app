@@ -45,8 +45,9 @@ gboolean cam_sound_init()
 		g_return_val_if_fail(sound_files, FALSE);
 
 		int i;
-		for (i = 0; i < CAM_SOUND_EFFECT_NUM; i++)
+		for (i = 0; i < CAM_SOUND_EFFECT_NUM; i++) {
 			sound_files[i] = NULL;
+		}
 
 		__sound_file_set(CAM_SOUND_EFFECT_TIMER, SOUND_PATH "/Camera_Timer.ogg");
 		__sound_file_set(CAM_SOUND_EFFECT_TIMER_2_SECONDS, SOUND_PATH "/Camera_Timer_2sec.ogg");
@@ -128,13 +129,13 @@ gboolean cam_sound_play(int index, void *data)
 			return FALSE;
 		}
 
-/*		if (WAV_PLAYER_ERROR_NONE != wav_player_start_tuned(sound_files[index], SOUND_TYPE_TUNED_FIXED_SHUTTER1, SOUND_OPTION_TUNED_SOLO_SPEAKER_ONLY, __sound_play_completed_callback, ad, &wav_player_handle))
- should replace wav_player_start_tuned */
-/*		if (WAV_PLAYER_ERROR_NONE != wav_player_start_tuned(sound_files[index], NULL, NULL, __sound_play_completed_callback, ad, &wav_player_handle))
-		{
-			cam_critical(LOG_SND, "wav_player_start_tuned failed");
-			return INVALID_SOUND_HANDLE;
-		} */
+		/*		if (WAV_PLAYER_ERROR_NONE != wav_player_start_tuned(sound_files[index], SOUND_TYPE_TUNED_FIXED_SHUTTER1, SOUND_OPTION_TUNED_SOLO_SPEAKER_ONLY, __sound_play_completed_callback, ad, &wav_player_handle))
+		 should replace wav_player_start_tuned */
+		/*		if (WAV_PLAYER_ERROR_NONE != wav_player_start_tuned(sound_files[index], NULL, NULL, __sound_play_completed_callback, ad, &wav_player_handle))
+				{
+					cam_critical(LOG_SND, "wav_player_start_tuned failed");
+					return INVALID_SOUND_HANDLE;
+				} */
 	} else {
 		if (__sound_is_silent_mode(index)) {
 			cam_debug(LOG_UI, "Silent mode now");
@@ -177,30 +178,30 @@ gboolean cam_sound_play_touch_sound()
 
 gboolean cam_sound_set_mic()
 {
-/*	int ret = SOUND_MANAGER_ERROR_NONE;
-	bool is_available = FALSE;
-	sound_route_e route_to_active = SOUND_ROUTE_IN_MIC;
+	/*	int ret = SOUND_MANAGER_ERROR_NONE;
+		bool is_available = FALSE;
+		sound_route_e route_to_active = SOUND_ROUTE_IN_MIC;
 
-	sound_route_e route_to_active = NULL;
+		sound_route_e route_to_active = NULL;
 
-	 Check if earphone mic is available
-	ret = sound_manager_is_route_available(SOUND_ROUTE_TYPE_IN, SOUND_ROUTE_IN_WIRED_ACCESSORY, &is_available);
-	ret = sound_manager_is_route_available(NULL, NULL, &is_available);
-	if (ret != SOUND_MANAGER_ERROR_NONE) {
-		cam_critical(LOG_SND, "sound_manager_is_route_available failed - [%d]", ret);
-	}
+		 Check if earphone mic is available
+		ret = sound_manager_is_route_available(SOUND_ROUTE_TYPE_IN, SOUND_ROUTE_IN_WIRED_ACCESSORY, &is_available);
+		ret = sound_manager_is_route_available(NULL, NULL, &is_available);
+		if (ret != SOUND_MANAGER_ERROR_NONE) {
+			cam_critical(LOG_SND, "sound_manager_is_route_available failed - [%d]", ret);
+		}
 
-	 If earphone mic is available, use earphone mic, otherwise use phone mic
-	route_to_active = (is_available) ? SOUND_ROUTE_IN_WIRED_ACCESSORY : SOUND_ROUTE_IN_MIC;
-	cam_debug(LOG_SND, "sound route is [%d]", route_to_active);
+		 If earphone mic is available, use earphone mic, otherwise use phone mic
+		route_to_active = (is_available) ? SOUND_ROUTE_IN_WIRED_ACCESSORY : SOUND_ROUTE_IN_MIC;
+		cam_debug(LOG_SND, "sound route is [%d]", route_to_active);
 
-	ret = sound_manager_set_active_route(SOUND_ROUTE_TYPE_IN, route_to_active);
-	if (ret != SOUND_MANAGER_ERROR_NONE) {
-		cam_critical(LOG_SND, "sound_manager_set_active_route failed - [%d]", ret);
-	}
+		ret = sound_manager_set_active_route(SOUND_ROUTE_TYPE_IN, route_to_active);
+		if (ret != SOUND_MANAGER_ERROR_NONE) {
+			cam_critical(LOG_SND, "sound_manager_set_active_route failed - [%d]", ret);
+		}
 
 
-	return ret;*/
+		return ret;*/
 	return 0;
 }
 
@@ -211,8 +212,9 @@ static void __sound_file_set(int index, const gchar *file)
 		g_free(sound_files[index]);
 		sound_files[index] = NULL;
 	}
-	if (file)
+	if (file) {
 		sound_files[index] = g_strdup(file);
+	}
 }
 
 static void __sound_play_completed_callback(int id, void *data)

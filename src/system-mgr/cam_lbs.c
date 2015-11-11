@@ -26,7 +26,7 @@
 typedef struct {
 	location_manager_h location_handle;
 	CamLBSState m_lbs_state;
-	void (*lbs_update_cb) (void *data, int lbs_state);
+	void (*lbs_update_cb)(void *data, int lbs_state);
 	void *cb_data;
 	double latitude;
 	double longitude;
@@ -48,7 +48,7 @@ static void __lbs_set_state_from_accuracy_level()
 	int ret = LOCATIONS_ERROR_NONE;
 
 	ret = location_manager_get_accuracy(cam_lbs_info->location_handle,
-										&accuracy_level, &horizontal, &vertical);
+	                                    &accuracy_level, &horizontal, &vertical);
 	if (ret != LOCATIONS_ERROR_NONE) {
 		cam_warning(LOG_SYS, "location_manager_get_accuracy failed!! error = %d", ret);
 		return;
@@ -79,10 +79,10 @@ static void __lbs_set_state_from_accuracy_level()
 }
 
 static void __lbs_position_updated_cb(double latitude, double longitude,
-												double altitude, time_t timestamp, void *user_data)
+								double altitude, time_t timestamp, void *user_data)
 {
 	cam_secure_debug(LOG_SYS, "__lbs_position_updated_cb : lat(%f), long(%f), alt(%f), time(%f)",
-				latitude, longitude, altitude, timestamp);
+	                 latitude, longitude, altitude, timestamp);
 
 	g_return_if_fail(cam_lbs_info);
 
@@ -114,46 +114,46 @@ static void __lbs_service_state_changed_cb(location_service_state_e state, void 
 
 	switch (state) {
 	case LOCATIONS_SERVICE_ENABLED: {
-			cam_lbs_info->m_lbs_state = CAM_LBS_STATE_SERVICE_ENABLE;
+		cam_lbs_info->m_lbs_state = CAM_LBS_STATE_SERVICE_ENABLE;
 
-			double altitude = -1.0;
-			double latitude = -1.0;
-			double longitude = -1.0;
-			time_t timestamp = -1.0;
+		double altitude = -1.0;
+		double latitude = -1.0;
+		double longitude = -1.0;
+		time_t timestamp = -1.0;
 
-			int ret = LOCATIONS_ERROR_NONE;
+		int ret = LOCATIONS_ERROR_NONE;
 
-			ret = location_manager_get_position(cam_lbs_info->location_handle, &altitude, &latitude, &longitude, &timestamp);
-			if (ret != LOCATIONS_ERROR_NONE) {
-				cam_warning(LOG_SYS, "location_manager_get_position failed!! error = %d", ret);
-				return;
-			}
-
-			cam_secure_debug(LOG_SYS, "__lbs_service_state_changed_cb : alt(%f), lat(%f), long(%f), time(%f)",
-						altitude, latitude, longitude, timestamp);
-
-			cam_lbs_info->altitude = altitude;
-			cam_lbs_info->latitude = latitude;
-			cam_lbs_info->longitude = longitude;
-			cam_lbs_info->time_stamp = timestamp;
-
-			__lbs_set_state_from_accuracy_level();
-
-			/* call callback function */
-			if (cam_lbs_info->lbs_update_cb) {
-				cam_lbs_info->lbs_update_cb(cam_lbs_info->cb_data, cam_lbs_get_state());
-			}
+		ret = location_manager_get_position(cam_lbs_info->location_handle, &altitude, &latitude, &longitude, &timestamp);
+		if (ret != LOCATIONS_ERROR_NONE) {
+			cam_warning(LOG_SYS, "location_manager_get_position failed!! error = %d", ret);
+			return;
 		}
-		break;
+
+		cam_secure_debug(LOG_SYS, "__lbs_service_state_changed_cb : alt(%f), lat(%f), long(%f), time(%f)",
+		                 altitude, latitude, longitude, timestamp);
+
+		cam_lbs_info->altitude = altitude;
+		cam_lbs_info->latitude = latitude;
+		cam_lbs_info->longitude = longitude;
+		cam_lbs_info->time_stamp = timestamp;
+
+		__lbs_set_state_from_accuracy_level();
+
+		/* call callback function */
+		if (cam_lbs_info->lbs_update_cb) {
+			cam_lbs_info->lbs_update_cb(cam_lbs_info->cb_data, cam_lbs_get_state());
+		}
+	}
+	break;
 	case LOCATIONS_SERVICE_DISABLED: {
-			cam_lbs_info->m_lbs_state = CAM_LBS_STATE_DISABLE;
+		cam_lbs_info->m_lbs_state = CAM_LBS_STATE_DISABLE;
 
-			/* call callback function */
-			if (cam_lbs_info->lbs_update_cb) {
-				cam_lbs_info->lbs_update_cb(cam_lbs_info->cb_data, cam_lbs_get_state());
-			}
+		/* call callback function */
+		if (cam_lbs_info->lbs_update_cb) {
+			cam_lbs_info->lbs_update_cb(cam_lbs_info->cb_data, cam_lbs_get_state());
 		}
-		break;
+	}
+	break;
 	default:
 		break;
 	}
@@ -261,7 +261,7 @@ gboolean cam_lbs_finialize(void)
 	return TRUE;
 }
 
-gboolean cam_lbs_start(void (*lbs_update_cb) (void *data, int lbs_state), void *data)
+gboolean cam_lbs_start(void (*lbs_update_cb)(void *data, int lbs_state), void *data)
 {
 	g_return_val_if_fail(cam_lbs_info, FALSE);
 	g_return_val_if_fail(cam_lbs_info->location_handle, FALSE);
@@ -321,7 +321,7 @@ gboolean cam_lbs_is_valid(void)
 }
 
 gboolean cam_lbs_get_current_position(double *longitude, double *latitude,
-											double *altitude, time_t *time_stamp)
+								double *altitude, time_t *time_stamp)
 {
 	g_return_val_if_fail(cam_lbs_info, FALSE);
 	g_return_val_if_fail(cam_lbs_info->m_lbs_state >= CAM_LBS_STATE_SERVICE_ENABLE, FALSE);
