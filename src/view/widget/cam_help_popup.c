@@ -211,8 +211,9 @@ static Eina_Bool __setting_sub_help_popup_hide_idler_cb(void *data)
 		return ECORE_CALLBACK_CANCEL;
 	}
 
-	if (help_popup_instance->sub_help_popup)
+	if (help_popup_instance->sub_help_popup) {
 		cam_help_popup_destroy();
+	}
 
 	help_popup_instance->destroy_sub_help_delay_timer = NULL;
 	return ECORE_CALLBACK_CANCEL;
@@ -231,15 +232,15 @@ static void __setting_sub_help_popup_move(CAM_MENU_ITEM item, int info_popup_h)
 	case CAM_MENU_ANTI_SHAKE:
 	case CAM_MENU_VIDEO_STABILIZATION:
 		if (help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE ||
-		   help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+		        help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 			move_x = 220;
-			move_y = (720-info_popup_h)/2;
+			move_y = (720 - info_popup_h) / 2;
 		} else if (help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
 			move_x = 75;
-			move_y = (1280-info_popup_h)/2;
-		} else{
+			move_y = (1280 - info_popup_h) / 2;
+		} else {
 			move_x = 115;
-			move_y = (1280-info_popup_h)/2;
+			move_y = (1280 - info_popup_h) / 2;
 		}
 		break;
 	default:
@@ -257,21 +258,22 @@ static void __setting_sub_help_popup_resize_move()
 
 	const Evas_Object *content_obj = edje_object_part_object_get(_EDJ(help_popup_instance->sub_help_popup), "elm.text.content");
 	if (content_obj == NULL) {
-			return ;
+		return ;
 	} else {
 		int x, y, w, h;
 		evas_object_geometry_get(content_obj, &x, &y, &w, &h);
 		cam_debug(LOG_CAM, "x: %d, y: %d, w: %d, h: %d", x, y, w, h);
 
 		cam_debug(LOG_CAM, "help_popup_instance->help_popup_menu_item = %d", help_popup_instance->help_popup_menu_item);
-		if (h < 10)
+		if (h < 10) {
 			return ;
+		}
 
 		int line_count = h / QUICK_POP_INFO_TEXT_FONT_HIGHT;
 		int info_popup_h = 0;
 
 		if (help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE ||
-			help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+		        help_popup_instance->ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
 			info_popup_h = line_count * QUICK_POP_INFO_TEXT_LINE_HIGHT + QUICK_POP_INFO_HIGHT;
 			__setting_sub_help_popup_move(help_popup_instance->help_popup_menu_item, info_popup_h);
 			evas_object_resize(help_popup_instance->sub_help_popup, QUICK_POP_INFO_WIDTH, info_popup_h);
@@ -384,8 +386,9 @@ static char *__setting_sub_help_gl_text_get(void *data, Evas_Object *obj, const 
 	} else if (!strcmp(part, "elm.text.2")) {
 		cam_get_menu_item_description(*menu_item, get_text);
 		return CAM_STRDUP(get_text);
-	} else
+	} else {
 		return NULL;
+	}
 }
 
 static Eina_Bool __setting_sub_help_popup_genlist_each_cb(const void *container, void *data, void *fdata)
@@ -415,7 +418,7 @@ static Eina_Bool __setting_sub_help_popup_genlist_each_cb(const void *container,
 
 	Elm_Object_Item *obj_item = NULL;
 	obj_item = elm_genlist_item_append(help_popup_instance->sub_help_genlist, &sub_itc, (void *)(help_popup_instance->sub_help_popup_menu_index),
-								NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+	                                   NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
 
 	if (obj_item != NULL) {
 		elm_genlist_item_select_mode_set(obj_item, ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY);
@@ -436,17 +439,17 @@ static int __setting_sub_menu_get_max_height()
 	int max_height = 0;
 
 	switch (ad->target_direction) {
-		case CAM_TARGET_DIRECTION_LANDSCAPE:
-		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-			max_height = QUICK_MENU_POPUP_LANDSCAPE_HEIGHT;
-			break;
-		case CAM_TARGET_DIRECTION_PORTRAIT:
-		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-			max_height = QUICK_MENU_POPUP_PORTRAIT_HEIGHT;
-			break;
-		default:
-			max_height = QUICK_MENU_POPUP_PORTRAIT_HEIGHT;
-			break;
+	case CAM_TARGET_DIRECTION_LANDSCAPE:
+	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
+		max_height = QUICK_MENU_POPUP_LANDSCAPE_HEIGHT;
+		break;
+	case CAM_TARGET_DIRECTION_PORTRAIT:
+	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
+		max_height = QUICK_MENU_POPUP_PORTRAIT_HEIGHT;
+		break;
+	default:
+		max_height = QUICK_MENU_POPUP_PORTRAIT_HEIGHT;
+		break;
 	}
 
 	return max_height;
@@ -523,8 +526,8 @@ static Evas_Object *__sub_help_popup_genlist_create(CAM_MENU_ITEM menu_item)
 	int size = eina_array_count(help_popup_instance->menu_composer->array);
 	int quick_menu_height = __setting_sub_menu_help_height_get(size);
 	evas_object_size_hint_min_set(layout,
-					QUICK_MENU_HELP_POPUP_WIDTH * elm_config_scale_get(),
-					quick_menu_height * elm_config_scale_get());
+	                              QUICK_MENU_HELP_POPUP_WIDTH * elm_config_scale_get(),
+	                              quick_menu_height * elm_config_scale_get());
 
 	/* create genlist */
 	Evas_Object *genlist = elm_genlist_add(layout);
@@ -544,7 +547,7 @@ static Evas_Object *__sub_help_popup_genlist_create(CAM_MENU_ITEM menu_item)
 	int x, y, w, h;
 	evas_object_geometry_get(layout, &x, &y, &w, &h);
 	cam_debug(LOG_CAM, "x: %d, y: %d, w: %d, h: %d", x, y, w, h);
-	evas_object_move(layout, (1280-w)/2, (720-h)/2);
+	evas_object_move(layout, (1280 - w) / 2, (720 - h) / 2);
 
 	help_popup_instance->help_popup_menu_item = menu_item;
 
@@ -562,13 +565,13 @@ static int __sub_help_popup_type_get(CAM_MENU_ITEM menu_item)
 	cam_debug(LOG_CAM, "START");
 
 	switch (menu_item) {
-		case CAM_MENU_STORAGE:
-		case CAM_MENU_REVIEW:
-		case CAM_MENU_ANTI_SHAKE:
-		case CAM_MENU_VIDEO_STABILIZATION:
-			return QUICKSETTING_HELP_POPUP_TEXT;
-		default:
-			return QUICKSETTING_HELP_POPUP_GENLIST;
+	case CAM_MENU_STORAGE:
+	case CAM_MENU_REVIEW:
+	case CAM_MENU_ANTI_SHAKE:
+	case CAM_MENU_VIDEO_STABILIZATION:
+		return QUICKSETTING_HELP_POPUP_TEXT;
+	default:
+		return QUICKSETTING_HELP_POPUP_GENLIST;
 	}
 
 	return QUICKSETTING_HELP_POPUP_GENLIST;

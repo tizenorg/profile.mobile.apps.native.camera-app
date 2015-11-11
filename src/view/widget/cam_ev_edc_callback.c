@@ -222,7 +222,7 @@ gboolean ev_exposure_text_get(struct appdata *data, char *value, char *sign)
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
 	int step = ev_get_step_value(ad);
-	double brightness_value = (double)(camapp->brightness - camapp->brightness_default)/(2.0*step);
+	double brightness_value = (double)(camapp->brightness - camapp->brightness_default) / (2.0 * step);
 
 	if (brightness_value < 0) {
 		snprintf(value, 10, "%.1f", fabs(brightness_value));
@@ -313,8 +313,9 @@ static void __ev_slider_stop_cb(void *data, Evas_Object *obj, void *event_info)
 		Evas_Object *slider = (Evas_Object *)obj;
 		int slider_value = (int)elm_slider_value_get(slider) + camapp->brightness_default;
 		int step = ev_get_step_value(ad);
-		if (step != 0)
-			slider_value -= slider_value%step;
+		if (step != 0) {
+			slider_value -= slider_value % step;
+		}
 
 		__set_ev_value(ad, slider_value);
 
@@ -343,7 +344,7 @@ static void __ev_slider_changed_cb(void *data, Evas_Object *obj, void *event_inf
 		Evas_Object *slider = (Evas_Object *)obj;
 		int slider_value = (int)elm_slider_value_get(slider) + camapp->brightness_default;
 		double d_value = elm_slider_value_get(slider);
-		int i_value = ((int)ABS(d_value*10))%10;
+		int i_value = ((int)ABS(d_value * 10)) % 10;
 		if ((d_value >= 0) && (i_value > 4)) {
 			slider_value += 1;
 		}
@@ -352,7 +353,7 @@ static void __ev_slider_changed_cb(void *data, Evas_Object *obj, void *event_inf
 		}
 		int step = ev_get_step_value(ad);
 		if (step != 0) {
-			if (slider_value%step == 0) {
+			if (slider_value % step == 0) {
 				__set_ev_value(ad, slider_value);
 				if (ad->main_view_type == CAM_VIEW_STANDBY) {
 					__show_exposure_text(ad);
@@ -554,7 +555,7 @@ int ev_get_step_value(struct appdata *ad)
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, 0, "camapp_handle is NULL");
 
-	return (camapp->brightness_max - camapp->brightness_default)/4;
+	return (camapp->brightness_max - camapp->brightness_default) / 4;
 }
 
 /*endfile*/

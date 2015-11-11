@@ -325,17 +325,15 @@ static Eina_Bool __cam_setting_view_popup_selected_idler(void *data)
 	CAM_MENU_ITEM menu_item  = (CAM_MENU_ITEM)data;
 
 	switch (menu_item) {
-		/*do nothing*/
-		case CAM_MENU_EMPTY:
-			__cam_setting_view_genlist_update();
-			cam_setting_popup_destroy();
-			break;
+	case CAM_MENU_EMPTY:
+		__cam_setting_view_genlist_update();
+		cam_setting_popup_destroy();
+		break;
 
-		/*set value*/
-		default:
-			cam_util_setting_set_value_by_menu_item(cam_genlist_popup_menu_type_get(setting_view->setting_popup), menu_item);
-			__cam_setting_view_genlist_update();
-			cam_setting_popup_destroy();
+	default:
+		cam_util_setting_set_value_by_menu_item(cam_genlist_popup_menu_type_get(setting_view->setting_popup), menu_item);
+		__cam_setting_view_genlist_update();
+		cam_setting_popup_destroy();
 	}
 
 	setting_view->setting_popup_timer = NULL;
@@ -364,10 +362,10 @@ void __cam_setting_popup_create(int menu_item)
 	}
 
 	setting_view->setting_popup = cam_genlist_popup_create(NULL,
-										menu_item,
-										CAM_GENLIST_POPUP_STYLE_NONE,
-										__cam_setting_view_popup_selected_cb,
-										cam_setting_popup_destroy);
+	                              menu_item,
+	                              CAM_GENLIST_POPUP_STYLE_NONE,
+	                              __cam_setting_view_popup_selected_cb,
+	                              cam_setting_popup_destroy);
 	cam_retm_if(setting_view->setting_popup == NULL, "setting_popup is null");
 	__cam_setting_view_genlist_update();
 	cam_debug(LOG_CAM, "end");
@@ -427,9 +425,9 @@ static void __cam_setting_view_genlist_update()
 			elm_genlist_item_update(it);
 			elm_genlist_item_selected_set(it, FALSE);
 			if (((cap_enable == TRUE) && (cur_state == EINA_TRUE))
-				|| ((cap_enable == FALSE) && (cur_state == EINA_FALSE))) {
+			        || ((cap_enable == FALSE) && (cur_state == EINA_FALSE))) {
 				elm_object_item_disabled_set(it, !cap_enable);
-			 }
+			}
 		}
 
 		it = elm_genlist_item_next_get(it);
@@ -453,16 +451,16 @@ static Cam_Setting_Menu_Type __cam_setting_view_get_menu_type(CAM_MENU_ITEM menu
 	case CAM_MENU_ISO:
 	case CAM_MENU_METERING:
 	case CAM_MENU_STORAGE:
-	menu_type = CAM_SETTING_TYPE_GENLIST_POPUP;
-	break;
+		menu_type = CAM_SETTING_TYPE_GENLIST_POPUP;
+		break;
 
 	/*show new popup and close setting view*/
 	case CAM_MENU_EXPOSURE_VALUE:
 	case CAM_MENU_RESET:
 	case CAM_MENU_EFFECTS:
 	case CAM_MENU_MORE_HELP:
-	menu_type = CAM_SETTING_TYPE_POPUP;
-	break;
+		menu_type = CAM_SETTING_TYPE_POPUP;
+		break;
 
 	/*change directly*/
 	case CAM_MENU_FLASH:
@@ -473,11 +471,11 @@ static Cam_Setting_Menu_Type __cam_setting_view_get_menu_type(CAM_MENU_ITEM menu
 	case CAM_MENU_REVIEW:
 	case CAM_MENU_FACE_DETECTION:
 	case CAM_MENU_SHUTTER_SOUND:
-	menu_type = CAM_SETTING_TYPE_SWITCH;
-	break;
+		menu_type = CAM_SETTING_TYPE_SWITCH;
+		break;
 	default:
-	menu_type = CAM_SETTING_TYPE_GENLIST_POPUP;
-	break;
+		menu_type = CAM_SETTING_TYPE_GENLIST_POPUP;
+		break;
 	}
 
 	return menu_type;
@@ -509,26 +507,26 @@ static void __cam_setting_view_genlist_item_selected(void *data, Evas_Object *ob
 	Cam_Setting_Menu_Type menu_type = __cam_setting_view_get_menu_type(menu_item);
 
 	switch (menu_type) {
-		/*show sub genlist popup*/
-		case CAM_SETTING_TYPE_GENLIST_POPUP:
-			__cam_setting_popup_create(menu_item);
-			break;
+	/*show sub genlist popup*/
+	case CAM_SETTING_TYPE_GENLIST_POPUP:
+		__cam_setting_popup_create(menu_item);
+		break;
 
-		/*show new popup and close setting view*/
-		case CAM_SETTING_TYPE_POPUP:
-			__cam_setting_view_set_value_popup_cb(menu_item);
-			break;
+	/*show new popup and close setting view*/
+	case CAM_SETTING_TYPE_POPUP:
+		__cam_setting_view_set_value_popup_cb(menu_item);
+		break;
 
-		/*change directly*/
-		case CAM_SETTING_TYPE_SWITCH:
-			cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
-			__cam_setting_view_genlist_update();
-			break;
+	/*change directly*/
+	case CAM_SETTING_TYPE_SWITCH:
+		cam_util_setting_set_value_by_menu_item(menu_item, CAM_MENU_EMPTY);
+		__cam_setting_view_genlist_update();
+		break;
 
-		default:
-			cam_warning(LOG_CAM, "invalid type %d", menu_item);
-			return;
-		}
+	default:
+		cam_warning(LOG_CAM, "invalid type %d", menu_item);
+		return;
+	}
 
 	return;
 }
@@ -627,26 +625,25 @@ static char *__cam_setting_view_genlist_text2_get(void *data, Evas_Object *obj, 
 		break;
 	case CAM_MENU_RESET:
 		return NULL;
-	case CAM_MENU_EXPOSURE_VALUE:
-		{
-			char string[10] = {'\0',};
-			char value[10] = {'\0',};
-			char sign[2] = {'\0',};
-			gboolean ret = FALSE;
+	case CAM_MENU_EXPOSURE_VALUE: {
+		char string[10] = {'\0',};
+		char value[10] = {'\0',};
+		char sign[2] = {'\0',};
+		gboolean ret = FALSE;
 
-			ret = ev_exposure_text_get(ad, value, sign);
-			cam_retvm_if(ret == FALSE, NULL, "ev_exposure_text_get fail");
+		ret = ev_exposure_text_get(ad, value, sign);
+		cam_retvm_if(ret == FALSE, NULL, "ev_exposure_text_get fail");
 
-			snprintf(string, 10, "%s%s", sign, value);
-			snprintf(tts_str, 256, "%s %s", dgettext(PACKAGE, menu_stringID), string);
-			cam_utils_sr_item_set(genlist_item->item, ELM_ACCESS_INFO, tts_str);
+		snprintf(string, 10, "%s%s", sign, value);
+		snprintf(tts_str, 256, "%s %s", dgettext(PACKAGE, menu_stringID), string);
+		cam_utils_sr_item_set(genlist_item->item, ELM_ACCESS_INFO, tts_str);
 
-			return CAM_STRDUP(string);
-		}
-		break;
+		return CAM_STRDUP(string);
+	}
+	break;
 	case CAM_MENU_MAX_NUMS:
-			cam_critical(LOG_CAM, "your array out, please check!");
-			item = CAM_MENU_MAX_NUMS;
+		cam_critical(LOG_CAM, "your array out, please check!");
+		item = CAM_MENU_MAX_NUMS;
 		break;
 	default:
 		break;
@@ -726,7 +723,7 @@ static Evas_Object *__cam_setting_view_genlist_content_get(void *data, Evas_Obje
 
 	if (!strcmp(itc->item_style, "type1")) {
 		if (!strcmp(part, "elm.swallow.end")
-				&& (CAM_SETTING_TYPE_SWITCH == __cam_setting_view_get_menu_type(genlist_item->type))) {
+		        && (CAM_SETTING_TYPE_SWITCH == __cam_setting_view_get_menu_type(genlist_item->type))) {
 			content = elm_layout_add(obj);
 			elm_layout_theme_set(content, "layout", "list/C/type.3", "default");
 			check = elm_check_add(content);
@@ -791,11 +788,11 @@ static void __cam_setting_view_genlist_load_items(Evas_Object *genlist)
 		itc = (menu_type == CAM_SETTING_TYPE_GENLIST_POPUP) ? setting_view->genlist_2line_itc : setting_view->genlist_1line_itc;
 
 		genlist_item->item = elm_genlist_item_append(genlist,
-			itc, (void *)genlist_item,
-			NULL,
-			ELM_GENLIST_ITEM_NONE,
-			__cam_setting_view_genlist_item_selected,
-			(void *)genlist_item);
+		                     itc, (void *)genlist_item,
+		                     NULL,
+		                     ELM_GENLIST_ITEM_NONE,
+		                     __cam_setting_view_genlist_item_selected,
+		                     (void *)genlist_item);
 
 		if (!cam_is_enabled_menu(setting_view->ad, genlist_item->type)) {
 			elm_object_item_disabled_set(genlist_item->item, TRUE);
@@ -850,7 +847,7 @@ static gboolean __cam_setting_view_genlist_create(void *data)
 	Itc->func.text_get = __cam_setting_view_genlist_text_get;
 	Itc->func.content_get = __cam_setting_view_genlist_content_get;
 	Itc->func.state_get = NULL,
-	Itc->func.del = __cam_setting_view_genlist_item_del;
+	          Itc->func.del = __cam_setting_view_genlist_item_del;
 	setting_view->genlist_1line_itc = Itc;
 
 	Elm_Genlist_Item_Class *Itc2 = elm_genlist_item_class_new();
@@ -859,7 +856,7 @@ static gboolean __cam_setting_view_genlist_create(void *data)
 	Itc2->func.text_get = __cam_setting_view_genlist_text_type2_get;
 	Itc2->func.content_get = __cam_setting_view_genlist_content_get;
 	Itc2->func.state_get = NULL,
-	Itc2->func.del = __cam_setting_view_genlist_item_del;
+	           Itc2->func.del = __cam_setting_view_genlist_item_del;
 	setting_view->genlist_2line_itc = Itc2;
 
 	__cam_setting_view_genlist_load_items(genlist);

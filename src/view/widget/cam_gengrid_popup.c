@@ -126,14 +126,14 @@ static void __cam_gengrid_popup_grid_direction_set(Cam_Gengrid_Popup *gengrid_po
 	int item_w = 0;
 	int item_h = 0;
 
-	double scale=elm_config_scale_get();
+	double scale = elm_config_scale_get();
 
 	if (gengrid_popup_instance->menu_type == CAM_MENU_TIMER) {
 		item_w = TIMER_GENGRID_POPUP_ITEM_WIDTH;
 		item_h = TIMER_GENGRID_POPUP_ITEM_HEIGHT;
 	} else {
-		item_w = ((173)/(2.6))*(scale);
-		item_h = ((173)/(2.6))*(scale);
+		item_w = ((173) / (2.6)) * (scale);
+		item_h = ((173) / (2.6)) * (scale);
 	}
 
 	switch (ad->target_direction) {
@@ -246,7 +246,7 @@ static Evas_Object *__cam_gengrid_popup_grid_icon_get(void *data, Evas_Object *o
 	cam_retvm_if(gengrid_item == NULL, NULL, "gengrid_item is NULL");
 
 	Evas_Object *icon = NULL;
-	char icon_name[1024+1] = { '\0', };
+	char icon_name[1024 + 1] = { '\0', };
 	char *get_incon_name = NULL;
 
 	if (strcmp(part, "elm.icon.press") == 0) {
@@ -258,7 +258,7 @@ static Evas_Object *__cam_gengrid_popup_grid_icon_get(void *data, Evas_Object *o
 	}
 	cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
 
-	strncpy(icon_name, get_incon_name, sizeof(icon_name)-1);
+	strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
 	icon = elm_image_add(obj);
 	elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
 
@@ -403,18 +403,18 @@ static Eina_Bool __cam_gengrid_popup_grid_load_items(Cam_Gengrid_Popup *gengrid_
 		case CAM_TARGET_DIRECTION_LANDSCAPE:
 		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
 			gengrid_item->item = elm_gengrid_item_prepend(gengrid_popup_instance->gengrid,
-							&(gengrid_popup_instance->gengrid_itc),
-							(void *)gengrid_item,
-							__cam_gengrid_popup_grid_selected_cb,
-							(void *)gengrid_item);
+			                     &(gengrid_popup_instance->gengrid_itc),
+			                     (void *)gengrid_item,
+			                     __cam_gengrid_popup_grid_selected_cb,
+			                     (void *)gengrid_item);
 			break;
 		case CAM_TARGET_DIRECTION_PORTRAIT:
 		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
 			gengrid_item->item = elm_gengrid_item_append(gengrid_popup_instance->gengrid,
-										&(gengrid_popup_instance->gengrid_itc),
-										(void *)gengrid_item,
-										__cam_gengrid_popup_grid_selected_cb,
-										(void *)gengrid_item);
+			                     &(gengrid_popup_instance->gengrid_itc),
+			                     (void *)gengrid_item,
+			                     __cam_gengrid_popup_grid_selected_cb,
+			                     (void *)gengrid_item);
 			break;
 		default:
 			cam_critical(LOG_UI, "invalid target direction [%d]", ad->target_direction);

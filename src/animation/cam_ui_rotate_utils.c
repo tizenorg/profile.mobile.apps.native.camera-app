@@ -59,11 +59,10 @@ void cam_ui_rotate_utils_rotate_start(void *data)
 	int diff_degree = ad->target_direction_tmp - ad->target_direction;
 
 	switch (ad->main_view_type) {
-	case CAM_VIEW_STANDBY:
-		{
-			cam_standby_view_add_rotate_object(rotate_transit);
-		}
-		break;
+	case CAM_VIEW_STANDBY: {
+		cam_standby_view_add_rotate_object(rotate_transit);
+	}
+	break;
 	case CAM_VIEW_SETTING:
 		cam_setting_view_add_rotate_object(rotate_transit);
 		break;
@@ -84,7 +83,7 @@ void cam_ui_rotate_utils_rotate_start(void *data)
 	} else if (diff_degree == -270) {
 		to_degree = -90;
 	} else {
-		to_degree = diff_degree*(-1);
+		to_degree = diff_degree * (-1);
 	}
 
 	elm_transit_effect_rotation_add(rotate_transit, 0, to_degree);

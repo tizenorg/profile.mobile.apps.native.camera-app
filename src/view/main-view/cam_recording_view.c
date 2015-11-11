@@ -189,8 +189,9 @@ static void __recording_view_snapshot_button_create(Evas_Object *parent)
 		elm_object_focus_custom_chain_append(recording_view->layout, recording_view->snapshot_button, NULL);
 	}
 
-	if (camapp->effect != 0)
+	if (camapp->effect != 0) {
 		elm_object_disabled_set(recording_view->snapshot_button, EINA_TRUE);
+	}
 
 #ifdef CAMERA_MACHINE_I686
 	elm_object_disabled_set(recording_view->snapshot_button, EINA_TRUE);
@@ -230,31 +231,32 @@ static Eina_Bool __recording_view_pause_icon_update(void *data)
 	camapp->pause_time++;
 	if (state == RECORDER_STATE_PAUSED) {
 		if (!(camapp->pause_time % 2) == 0) {
-					if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE) {
-						edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,landscape", "prog");
-						return ECORE_CALLBACK_RENEW;
+			if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE) {
+				edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,landscape", "prog");
+				return ECORE_CALLBACK_RENEW;
 
-					} else if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
-						edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,landscape_inverse", "prog");
-						return ECORE_CALLBACK_RENEW;
+			} else if (ad->target_direction == CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE) {
+				edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,landscape_inverse", "prog");
+				return ECORE_CALLBACK_RENEW;
 
-					} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
-						edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,portrait", "prog");
-						return ECORE_CALLBACK_RENEW;
+			} else if (ad->target_direction == CAM_TARGET_DIRECTION_PORTRAIT) {
+				edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,portrait", "prog");
+				return ECORE_CALLBACK_RENEW;
 
-					} else {
-						edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,portrait_inverse", "prog");
-						return ECORE_CALLBACK_RENEW;
+			} else {
+				edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,pause,portrait_inverse", "prog");
+				return ECORE_CALLBACK_RENEW;
 
-					}
-				} else {
-					edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,hide", "prog");
-					return ECORE_CALLBACK_RENEW;
+			}
+		} else {
+			edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,hide", "prog");
+			return ECORE_CALLBACK_RENEW;
 
-				}
+		}
 
-	} else
+	} else {
 		return ECORE_CALLBACK_CANCEL;
+	}
 }
 
 static void __recording_view_rec_pause_button_cb(void *data, Evas_Object *obj, void *event_info)
@@ -406,7 +408,7 @@ static void __recording_view_rec_icon_create(Evas_Object *parent)
 	elm_object_part_content_set(parent, "recording_icon", recording_view->recording_icon);
 
 	cam_utils_sr_layout_cb_set(parent, recording_view->recording_icon, ELM_ACCESS_INFO,
-									__recording_view_rec_icon_sr_cb, (void *)recording_view);
+	                           __recording_view_rec_icon_sr_cb, (void *)recording_view);
 
 	__recording_view_rec_icon_update();
 }
@@ -433,7 +435,7 @@ static void __recording_view_rec_icon_update()
 			}
 		} else {
 			edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,hide", "prog");
-			}
+		}
 	} else {
 		if ((camapp->rec_elapsed % 2) == 0) {
 			edje_object_signal_emit(_EDJ(recording_view->recording_icon), "recording_icon,recording", "prog");
@@ -470,13 +472,13 @@ static void __recording_view_set_timer_icon(int cnt)
 	if (camapp->recording_mode == CAM_RECORD_FAST) {
 		switch (camapp->fast_motion) {
 		case CAM_FAST_MOTION_X2:
-			timer_cnt = 2 - cnt%2;
+			timer_cnt = 2 - cnt % 2;
 			break;
 		case CAM_FAST_MOTION_X4:
-			timer_cnt = 4 - cnt%4;
+			timer_cnt = 4 - cnt % 4;
 			break;
 		case CAM_FAST_MOTION_X8:
-			timer_cnt = 8 - cnt%8;
+			timer_cnt = 8 - cnt % 8;
 			break;
 		default:
 			cam_critical(LOG_UI, "invalid fast motion rate");
@@ -518,14 +520,14 @@ static void __recording_view_progressbar_create(Evas_Object *parent)
 	if (cam_handle->size_limit < 1024) {
 		snprintf(str, sizeof(str), "%dK", cam_handle->size_limit);
 	} else {
-		size_limit_in_mega = (gdouble)cam_handle->size_limit/(gdouble)1024;
+		size_limit_in_mega = (gdouble)cam_handle->size_limit / (gdouble)1024;
 		snprintf(str, sizeof(str), "%.1fM", size_limit_in_mega);
 	}
 
 	if (cam_handle->rec_filesize < 1024) {
 		snprintf(str2, sizeof(str2), "%lldK", cam_handle->rec_filesize);
 	} else {
-		rec_filesize_in_mega = (gdouble)cam_handle->rec_filesize/(gdouble)1024;
+		rec_filesize_in_mega = (gdouble)cam_handle->rec_filesize / (gdouble)1024;
 		snprintf(str2, sizeof(str2), "%.1fM", rec_filesize_in_mega);
 	}
 
@@ -534,11 +536,11 @@ static void __recording_view_progressbar_create(Evas_Object *parent)
 
 	Evas_Object *tts_obj = (Evas_Object *)edje_object_part_object_get(_EDJ(recording_view->progressbar_layout), "right_text_val");
 	cam_utils_sr_layout_cb_set(parent, tts_obj, ELM_ACCESS_INFO,
-								__recording_view_recording_size_right_sr_cb, (void *)recording_view);
+	                           __recording_view_recording_size_right_sr_cb, (void *)recording_view);
 
 	tts_obj = (Evas_Object *)edje_object_part_object_get(_EDJ(recording_view->progressbar_layout), "left_text_val");
 	cam_utils_sr_layout_cb_set(parent, tts_obj, ELM_ACCESS_INFO,
-								__recording_view_recording_size_left_sr_cb, (void *)recording_view);
+	                           __recording_view_recording_size_left_sr_cb, (void *)recording_view);
 }
 
 static guint64 __recording_view_get_remain_time()
@@ -555,7 +557,7 @@ static guint64 __recording_view_get_remain_time()
 	double available_size = 0.0;
 
 	if (camapp->recording_mode != CAM_RECORD_NORMAL
-		&& camapp->recording_mode != CAM_RECORD_SELF) {
+	        && camapp->recording_mode != CAM_RECORD_SELF) {
 		cam_debug(LOG_UI, "recording_mode %d, not support remain time", camapp->recording_mode);
 		return 0;
 	}
@@ -566,7 +568,7 @@ static guint64 __recording_view_get_remain_time()
 		cam_critical(LOG_UI, "memory total_size is 0");
 		return 0;
 	}
-	ratio = (double)available_size/(double)total_size;
+	ratio = (double)available_size / (double)total_size;
 
 	/*remain time*/
 	remain_rec_time = cam_system_get_remain_rec_time((void *)recording_view->ad);
@@ -644,7 +646,7 @@ static void __recording_view_set_recording_time()
 	}
 
 	if (camapp->recording_mode == CAM_RECORD_SLOW
-		|| camapp->recording_mode == CAM_RECORD_FAST) {
+	        || camapp->recording_mode == CAM_RECORD_FAST) {
 		edje_object_part_text_set(_EDJ(recording_view->recording_icon), "recording_time", time_text);
 	} else {
 		edje_object_part_text_set(_EDJ(recording_view->layout), "recording_time", time_text);
@@ -668,19 +670,19 @@ static void __recording_view_set_recording_size()
 
 		if (camapp->storage == CAM_STORAGE_EXTERNAL) {
 			cam_util_get_memory_status(&total_size, &available_size);
-			available_size_in_mega = available_size / (1024*1024);
+			available_size_in_mega = available_size / (1024 * 1024);
 
 			if (camapp->rec_filesize < 1024) {
 				snprintf(str, sizeof(str), "%lldKB/%.fMB", camapp->rec_filesize, available_size_in_mega);
 			} else {
-				rec_filesize_in_mega = (gdouble)camapp->rec_filesize/(gdouble)1024;
+				rec_filesize_in_mega = (gdouble)camapp->rec_filesize / (gdouble)1024;
 				snprintf(str, sizeof(str), "%.1fMB/%.fMB", rec_filesize_in_mega, available_size_in_mega);
 			}
 		} else {
 			if (camapp->rec_filesize < 1024) {
 				snprintf(str, sizeof(str), "%lldKB", camapp->rec_filesize);
 			} else {
-				rec_filesize_in_mega = (gdouble)camapp->rec_filesize/(gdouble)1024;
+				rec_filesize_in_mega = (gdouble)camapp->rec_filesize / (gdouble)1024;
 				snprintf(str, sizeof(str), "%.1fMB", rec_filesize_in_mega);
 			}
 		}
@@ -693,20 +695,20 @@ static void __recording_view_set_recording_size()
 		gdouble size_limit_in_mega = 0.0;
 		gdouble rec_filesize_in_mega = 0.0;
 
-		pbar_position = camapp->rec_filesize/(gdouble)camapp->size_limit;
+		pbar_position = camapp->rec_filesize / (gdouble)camapp->size_limit;
 		elm_progressbar_value_set(recording_view->progressbar, pbar_position);
 
 		if (camapp->size_limit < 1024) {
 			snprintf(str, sizeof(str), "%dKB", camapp->size_limit);
 		} else {
-			size_limit_in_mega = (gdouble)camapp->size_limit/(gdouble)1024;
+			size_limit_in_mega = (gdouble)camapp->size_limit / (gdouble)1024;
 			snprintf(str, sizeof(str), "%.1fMB", size_limit_in_mega);
 		}
 
 		if (camapp->rec_filesize < 1024) {
 			snprintf(str2, sizeof(str2), "%lldKB", camapp->rec_filesize);
 		} else {
-			rec_filesize_in_mega = (gdouble)camapp->rec_filesize/(gdouble)1024;
+			rec_filesize_in_mega = (gdouble)camapp->rec_filesize / (gdouble)1024;
 			snprintf(str2, sizeof(str2), "%.1fMB", rec_filesize_in_mega);
 		}
 
@@ -745,7 +747,7 @@ static char *__recording_view_recording_time_sr_cb(void *data, Evas_Object *obj)
 	char *str = NULL;
 
 	if (camapp->recording_mode == CAM_RECORD_SLOW
-		|| camapp->recording_mode == CAM_RECORD_FAST) {
+	        || camapp->recording_mode == CAM_RECORD_FAST) {
 		str = (char *)edje_object_part_text_get(_EDJ(recording_view->recording_icon), "recording_time");
 	} else {
 		str = (char *)edje_object_part_text_get(_EDJ(recording_view->layout), "recording_time");
@@ -836,28 +838,32 @@ gboolean cam_recording_view_create(Evas_Object *parent, struct appdata *ad)
 
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
-		if (recording_view->is_memory_limited == TRUE)
+		if (recording_view->is_memory_limited == TRUE) {
 			edje_object_signal_emit(_EDJ(layout), "landscape_when_memory_limited", "recording_view");
-		else
+		} else {
 			edje_object_signal_emit(_EDJ(layout), "landscape", "recording_view");
+		}
 		break;
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		if (recording_view->is_memory_limited == TRUE)
+		if (recording_view->is_memory_limited == TRUE) {
 			edje_object_signal_emit(_EDJ(layout), "landscape_inverse_when_memory_limited", "recording_view");
-		else
+		} else {
 			edje_object_signal_emit(_EDJ(layout), "landscape_inverse", "recording_view");
+		}
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT:
-		if (recording_view->is_memory_limited == TRUE)
+		if (recording_view->is_memory_limited == TRUE) {
 			edje_object_signal_emit(_EDJ(layout), "portrait_when_memory_limited", "recording_view");
-		else
+		} else {
 			edje_object_signal_emit(_EDJ(layout), "portrait", "recording_view");
+		}
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		if (recording_view->is_memory_limited == TRUE)
+		if (recording_view->is_memory_limited == TRUE) {
 			edje_object_signal_emit(_EDJ(layout), "portrait_inverse_when_memory_limited", "recording_view");
-		else
+		} else {
 			edje_object_signal_emit(_EDJ(layout), "portrait_inverse", "recording_view");
+		}
 		break;
 	default:
 		cam_critical(LOG_UI, "invalid target direction!");
@@ -884,11 +890,11 @@ gboolean cam_recording_view_create(Evas_Object *parent, struct appdata *ad)
 
 	Evas_Object *tts_obj = (Evas_Object *)edje_object_part_object_get(_EDJ(recording_view->layout), "recording_time");
 	cam_utils_sr_layout_cb_set(recording_view->layout, tts_obj, ELM_ACCESS_INFO,
-									__recording_view_recording_time_sr_cb, (void *)recording_view);
+	                           __recording_view_recording_time_sr_cb, (void *)recording_view);
 
 	tts_obj = (Evas_Object *)edje_object_part_object_get(_EDJ(recording_view->layout), "recording_size");
 	cam_utils_sr_layout_cb_set(recording_view->layout, tts_obj, ELM_ACCESS_INFO,
-									__recording_view_recording_size_sr_cb, (void *)recording_view);
+	                           __recording_view_recording_size_sr_cb, (void *)recording_view);
 
 	edje_message_signal_process();
 
@@ -999,7 +1005,7 @@ void cam_recording_view_update_time()
 
 	int state = cam_mm_get_state();
 	if (state == RECORDER_STATE_RECORDING) {
- 		__recording_view_rec_icon_update();
+		__recording_view_rec_icon_update();
 		__recording_view_set_recording_time();
 		__recording_view_set_recording_size();
 	}
@@ -1072,7 +1078,7 @@ bool cam_recording_view_check_memory_and_set_max_recording_time(void *data, Cam_
 		cam_critical(LOG_UI, "memory total_size is 0");
 		return FALSE;
 	}
-	ratio = (double)available_size/(double)total_size;
+	ratio = (double)available_size / (double)total_size;
 
 	gint64 remain = cam_system_get_remain_rec_time(ad);
 	cam_debug(LOG_UI, "remain rec time is [%lld]", remain);

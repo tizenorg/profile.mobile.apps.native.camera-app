@@ -38,7 +38,7 @@ typedef struct _cam_exif_info {
 } CamExifInfo;
 
 
-static void __exif_set_uint16 (void *out, unsigned short in);
+static void __exif_set_uint16(void *out, unsigned short in);
 static gboolean __exif_load_exif_info(CamExifInfo **info, unsigned char *jpeg_data, unsigned int jpeg_length);
 static ExifData *__exif_get_exif_from_jpeg(unsigned char *jpeg_data, unsigned int jpeg_size);
 static gboolean __exif_set_entry(ExifData *in_exif, ExifIfd ifd, ExifTag tag, ExifFormat format, unsigned long components, unsigned char *data);
@@ -68,8 +68,9 @@ static gboolean __exif_load_exif_info(CamExifInfo **info, unsigned char *jpeg_da
 			exif_info = (CamExifInfo *)CAM_CALLOC(1, sizeof(CamExifInfo));
 			if (exif_info != NULL) {
 				exif_info->data = (unsigned char *)CAM_CALLOC(1, buf_size);
-				if (exif_info->data != NULL)
+				if (exif_info->data != NULL) {
 					memcpy((unsigned char *)exif_info->data, buf, buf_size);
+				}
 				exif_info->size = buf_size;
 				*info = exif_info;
 				ret = TRUE;
@@ -149,7 +150,7 @@ static gboolean __exif_set_entry(ExifData *in_exif, ExifIfd ifd, ExifTag tag, Ex
 	}
 
 	entry->size = exif_format_get_size(format) * entry->components;
-	memcpy(entry->data, data,entry->size);
+	memcpy(entry->data, data, entry->size);
 	exif_content_add_entry(exif->ifd[ifd], entry);
 	exif_entry_unref(entry);
 
@@ -243,8 +244,9 @@ gboolean cam_exif_update_exif_in_jpeg(int orientation, unsigned char *in_data, u
 	return TRUE;
 
 exit:
-	if (exif)
+	if (exif) {
 		exif_data_unref(exif);
+	}
 
 	return FALSE;
 }
@@ -277,7 +279,7 @@ gboolean cam_exif_write_to_jpeg(unsigned char *in_data, unsigned int in_size, un
 
 	data_size = EXIF_MARKER_SOI_LENGTH + EXIF_MARKER_APP1_LENGTH + EXIF_APP1_LENGTH + exif_size + (in_size - jpeg_offset);
 
-	data = (unsigned char *)CAM_CALLOC(1, sizeof(unsigned char)*data_size);
+	data = (unsigned char *)CAM_CALLOC(1, sizeof(unsigned char) * data_size);
 	if (!data) {
 		cam_critical(LOG_SYS, "alloc fail");
 		goto exit;
@@ -310,7 +312,7 @@ gboolean cam_exif_write_to_jpeg(unsigned char *in_data, unsigned int in_size, un
 
 	if (data != NULL) {
 		*out_data = data;
-	 	*out_size = data_size;
+		*out_size = data_size;
 	}
 
 	return TRUE;
@@ -351,8 +353,8 @@ static gboolean __exif_update_gps_info(ExifData *in_exif, double longitude, doub
 		}
 
 		deg = (unsigned int)(longitude);
-		min = (unsigned int)((longitude-deg)*60);
-		sec = (unsigned int)(((longitude-deg)*3600)-min*60);
+		min = (unsigned int)((longitude - deg) * 60);
+		sec = (unsigned int)(((longitude - deg) * 3600) - min * 60);
 
 		data = (unsigned char *)CAM_CALLOC(1, 3 * sizeof(ExifRational));
 		if (data == NULL) {
@@ -364,9 +366,9 @@ static gboolean __exif_update_gps_info(ExifData *in_exif, double longitude, doub
 		rData.denominator = 1;
 		exif_set_rational(data, exif_data_get_byte_order(in_exif), rData);
 		rData.numerator = min;
-		exif_set_rational(data+8, exif_data_get_byte_order(in_exif), rData);
+		exif_set_rational(data + 8, exif_data_get_byte_order(in_exif), rData);
 		rData.numerator = sec;
-		exif_set_rational(data+16, exif_data_get_byte_order(in_exif), rData);
+		exif_set_rational(data + 16, exif_data_get_byte_order(in_exif), rData);
 
 		if (!__exif_set_entry(in_exif, EXIF_IFD_GPS, EXIF_TAG_GPS_LONGITUDE, EXIF_FORMAT_RATIONAL, 3, (unsigned char *)data)) {
 			cam_critical(LOG_CAM, "__exif_set_entry failed");
@@ -397,8 +399,8 @@ static gboolean __exif_update_gps_info(ExifData *in_exif, double longitude, doub
 			}
 		}
 		deg = (unsigned int)(latitude);
-		min = (unsigned int)((latitude-deg)*60);
-		sec = (unsigned int)(((latitude-deg)*3600)-min*60);
+		min = (unsigned int)((latitude - deg) * 60);
+		sec = (unsigned int)(((latitude - deg) * 3600) - min * 60);
 
 		data = (unsigned char *)CAM_CALLOC(1, 3 * sizeof(ExifRational));
 		if (data == NULL) {
@@ -410,9 +412,9 @@ static gboolean __exif_update_gps_info(ExifData *in_exif, double longitude, doub
 		rData.denominator = 1;
 		exif_set_rational(data, exif_data_get_byte_order(in_exif), rData);
 		rData.numerator = min;
-		exif_set_rational(data+8, exif_data_get_byte_order(in_exif), rData);
+		exif_set_rational(data + 8, exif_data_get_byte_order(in_exif), rData);
 		rData.numerator = sec;
-		exif_set_rational(data+16, exif_data_get_byte_order(in_exif), rData);
+		exif_set_rational(data + 16, exif_data_get_byte_order(in_exif), rData);
 
 		if (!__exif_set_entry(in_exif, EXIF_IFD_GPS, EXIF_TAG_GPS_LATITUDE, EXIF_FORMAT_RATIONAL, 3, (unsigned char *)data)) {
 			cam_critical(LOG_CAM, "__exif_set_entry failed");
@@ -445,7 +447,7 @@ static gboolean __exif_update_gps_info(ExifData *in_exif, double longitude, doub
 			return FALSE;
 		}
 
-		rData.numerator = (unsigned int)(altitude + 0.5)*100;
+		rData.numerator = (unsigned int)(altitude + 0.5) * 100;
 		rData.denominator = 100;
 		exif_set_rational(data, exif_data_get_byte_order(in_exif), rData);
 		if (!__exif_set_entry(in_exif, EXIF_IFD_GPS, EXIF_TAG_GPS_ALTITUDE, EXIF_FORMAT_RATIONAL, 1, (unsigned char *)data)) {

@@ -62,7 +62,7 @@ gboolean cam_utils_sr_layout_doubleclick_set(Evas_Object *obj, Elm_Access_Activa
 
 /*register layout Evas_Object, modify doubleclick cb*/
 gboolean cam_utils_sr_layout_action_cb_set(Evas_Object *obj, const Elm_Access_Action_Type type,
-												const Elm_Access_Action_Cb action_cb, const void *action_data)
+		const Elm_Access_Action_Cb action_cb, const void *action_data)
 {
 	return TRUE;
 }

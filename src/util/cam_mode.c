@@ -289,20 +289,20 @@ static gboolean __cam_init_preload_mode_by_index(int mode)
 	cam_retvm_if(ad == NULL, FALSE, "ad is NULL");
 
 	switch (mode) {
-		case CAM_SINGLE_MODE:
-			__cam_init_single_mode(ad);
-			break;
-		case CAM_PX_MODE:
-			__cam_init_px_mode(ad);
-			break;
-		case CAM_SELFIE_ALARM_MODE:
-			__cam_init_selfie_alarm_mode(ad);
-			break;
-		case CAM_SELF_SINGLE_MODE:
-			__cam_init_self_single_mode(ad);
-			break;
-		default:
-			break;
+	case CAM_SINGLE_MODE:
+		__cam_init_single_mode(ad);
+		break;
+	case CAM_PX_MODE:
+		__cam_init_px_mode(ad);
+		break;
+	case CAM_SELFIE_ALARM_MODE:
+		__cam_init_selfie_alarm_mode(ad);
+		break;
+	case CAM_SELF_SINGLE_MODE:
+		__cam_init_self_single_mode(ad);
+		break;
+	default:
+		break;
 	}
 	return TRUE;
 }

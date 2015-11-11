@@ -229,9 +229,10 @@ void cam_indicator_update()
 	}
 	__indicator_update_gps();
 	ad->remained_count = cam_system_get_still_count_by_resolution(ad);
-	cam_debug(LOG_UI,"ad->remained_count=%d",ad->remained_count);
-	if((ad->remained_count>=0)&&(ad->remained_count<300))
+	cam_debug(LOG_UI, "ad->remained_count=%d", ad->remained_count);
+	if ((ad->remained_count >= 0) && (ad->remained_count < 300)) {
 		__indicator_update_shots();
+	}
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
 	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
@@ -264,48 +265,43 @@ static void __indicator_update_image_by_type(CamIndicator type, const char *imag
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	if (image_file != NULL && (cam_is_enabled_menu(ad, menu_item))) {
-		if(menu_item == CAM_MENU_SHOTS)
-			{
-				char remain_shots[100]={0};
-				struct appdata *ad = indicator->ad;
-				int digit_shot=ad->remained_count;
-				int val_digit=100;
-				int count_shot=0;
-				char tag[50]="<color=#FFFFFFFF>";
-				char closing_tag[20]="</color>";
-				strncpy(remain_shots,tag,strlen(tag));
-				count_shot=strlen(tag);
-				while(val_digit>0)
-				{
-					int temp=digit_shot/val_digit;
-					remain_shots[count_shot++]='0'+temp;
-					digit_shot=digit_shot%val_digit;
-					val_digit/=10;
-				}
-				strncat(remain_shots,closing_tag,strlen(closing_tag));
-				count_shot+=strlen(closing_tag);
-				remain_shots[++count_shot]='\0';
+		if (menu_item == CAM_MENU_SHOTS) {
+			char remain_shots[100] = {0};
+			struct appdata *ad = indicator->ad;
+			int digit_shot = ad->remained_count;
+			int val_digit = 100;
+			int count_shot = 0;
+			char tag[50] = "<color=#FFFFFFFF>";
+			char closing_tag[20] = "</color>";
+			strncpy(remain_shots, tag, strlen(tag));
+			count_shot = strlen(tag);
+			while (val_digit > 0) {
+				int temp = digit_shot / val_digit;
+				remain_shots[count_shot++] = '0' + temp;
+				digit_shot = digit_shot % val_digit;
+				val_digit /= 10;
+			}
+			strncat(remain_shots, closing_tag, strlen(closing_tag));
+			count_shot += strlen(closing_tag);
+			remain_shots[++count_shot] = '\0';
 
-				Evas_Object *label_shots = elm_label_add(indicator->indicator_layout);
-				elm_object_text_set(label_shots,remain_shots);
-				evas_object_show(label_shots);
-				indicator->indicator_obj[type] = label_shots;
-			}
-			else
-			{
-				//if (!indicator->indicator_obj[type])
-				//{
-					indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
-					cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
-					elm_image_file_set(indicator->indicator_obj[type], CAM_IMAGE_EDJ_NAME, image_file);
-				//}
-			}
-		double scale= elm_config_scale_get();
-		evas_object_size_hint_min_set(indicator->indicator_obj[type], ((INDICATOR_W)/(2.4))*(scale), ((INDICATOR_H)/(2.4))*(scale));
-		evas_object_resize(indicator->indicator_obj[type], ((INDICATOR_W)/(2.4))*(scale), (INDICATOR_H/(2.4))*(scale));
+			Evas_Object *label_shots = elm_label_add(indicator->indicator_layout);
+			elm_object_text_set(label_shots, remain_shots);
+			evas_object_show(label_shots);
+			indicator->indicator_obj[type] = label_shots;
+		} else {
+			//if (!indicator->indicator_obj[type])
+			//{
+			indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
+			cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
+			elm_image_file_set(indicator->indicator_obj[type], CAM_IMAGE_EDJ_NAME, image_file);
+			//}
+		}
+		double scale = elm_config_scale_get();
+		evas_object_size_hint_min_set(indicator->indicator_obj[type], ((INDICATOR_W) / (2.4)) * (scale), ((INDICATOR_H) / (2.4)) * (scale));
+		evas_object_resize(indicator->indicator_obj[type], ((INDICATOR_W) / (2.4)) * (scale), (INDICATOR_H / (2.4)) * (scale));
 		SHOW_EVAS_OBJECT(indicator->indicator_obj[type]);
-	}
-	else {
+	} else {
 		DEL_EVAS_OBJECT(indicator->indicator_obj[type]);
 	}
 }

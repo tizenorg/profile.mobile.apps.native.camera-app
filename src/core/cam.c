@@ -60,9 +60,9 @@ static void cam_language_changed_cb(app_event_info_h event_info, void *data)
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	cam_warning(LOG_UI, "language changed");
-	  char *language_set = NULL;
-	  int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language_set);
-	  cam_critical(LOG_UI, " cam_language_changed_cb %d  ", ret);
+	char *language_set = NULL;
+	int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language_set);
+	cam_critical(LOG_UI, " cam_language_changed_cb %d  ", ret);
 	if (language_set != NULL) {
 		elm_language_set(language_set);
 		IF_FREE(language_set);
@@ -89,7 +89,7 @@ static void cam_device_orientation_cb(app_event_info_h event_info, void *data)
 	CamTargetDirection target_direction;
 
 	/*if (ad->app_state == CAM_APP_PAUSE_STATE) {
-		return; 
+		return;
 	}
 	int angle = elm_win_rotation_get(obj);
 	cam_warning(LOG_UI, "orientation changed:[%d]", angle);
@@ -100,32 +100,27 @@ static void cam_device_orientation_cb(app_event_info_h event_info, void *data)
 	app_event_get_device_orientation(event_info, &orientation);
 	cam_warning(LOG_UI, "new orientation :[%d]", orientation);
 	switch (orientation) {
-		case APP_DEVICE_ORIENTATION_0:
-		{
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_90:
-		{
-			target_direction = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_180:
-		{
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_270:
-		{
-			target_direction = CAM_TARGET_DIRECTION_LANDSCAPE;
-			break;
-		}
-		default:
-		{
-			cam_warning(LOG_UI, "no orientation found, setting to default");
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
-			break;
-		}
+	case APP_DEVICE_ORIENTATION_0: {
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_90: {
+		target_direction = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_180: {
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_270: {
+		target_direction = CAM_TARGET_DIRECTION_LANDSCAPE;
+		break;
+	}
+	default: {
+		cam_warning(LOG_UI, "no orientation found, setting to default");
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
+		break;
+	}
 	}
 	cam_warning(LOG_UI, "orientation changed: target direction[%d]  ad->target_direction:[%d]", target_direction, ad->target_direction);
 	if (target_direction != ad->target_direction) {
@@ -151,32 +146,27 @@ CamTargetDirection cam_get_device_orientation()
 
 	orientation = app_get_device_orientation();
 	switch (orientation) {
-		case APP_DEVICE_ORIENTATION_0:
-		{
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_90:
-		{
-			target_direction = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_180:
-		{
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
-			break;
-		}
-		case APP_DEVICE_ORIENTATION_270:
-		{
-			target_direction = CAM_TARGET_DIRECTION_LANDSCAPE;
-			break;
-		}
-		default:
-		{
-			cam_warning(LOG_UI, "no orientation found, setting to default");
-			target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
-			break;
-		}
+	case APP_DEVICE_ORIENTATION_0: {
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_90: {
+		target_direction = CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_180: {
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT_INVERSE;
+		break;
+	}
+	case APP_DEVICE_ORIENTATION_270: {
+		target_direction = CAM_TARGET_DIRECTION_LANDSCAPE;
+		break;
+	}
+	default: {
+		cam_warning(LOG_UI, "no orientation found, setting to default");
+		target_direction = CAM_TARGET_DIRECTION_PORTRAIT;
+		break;
+	}
 	}
 	return target_direction;
 }
@@ -422,225 +412,220 @@ static void cam_service(app_control_h app_control, void *user_data)
 
 	cam_warning(LOG_UI, "app state is [%d]", ad->app_state);
 	switch (ad->app_state) {
-	case CAM_APP_CREATE_STATE:
-		{
-			/* get caller appl. */
-			app_control_get_extra_data(app_control, CAM_SERVICE_OPTIONAL_KEY_CALLER, (char **)&val);
-			if (val) {
-				cam_secure_debug(LOG_UI, "CALLER %s", val);
-				ad->caller = CAM_STRDUP(val);
-				IF_FREE(val);
-			}
+	case CAM_APP_CREATE_STATE: {
+		/* get caller appl. */
+		app_control_get_extra_data(app_control, CAM_SERVICE_OPTIONAL_KEY_CALLER, (char **)&val);
+		if (val) {
+			cam_secure_debug(LOG_UI, "CALLER %s", val);
+			ad->caller = CAM_STRDUP(val);
+			IF_FREE(val);
+		}
 
-			ad->target_direction = cam_get_device_orientation();
-			ad->target_direction_tmp = ad->target_direction;
-			elm_win_wm_rotation_preferred_rotation_set(ad->win_main, ad->target_direction);
-			ret = app_control_get_operation(app_control, &operation);
-			if (ret != APP_CONTROL_ERROR_NONE) {
-				cam_critical(LOG_UI, "app_control_get_operation failed");
-				goto ERROR;
-			}
+		ad->target_direction = cam_get_device_orientation();
+		ad->target_direction_tmp = ad->target_direction;
+		elm_win_wm_rotation_preferred_rotation_set(ad->win_main, ad->target_direction);
+		ret = app_control_get_operation(app_control, &operation);
+		if (ret != APP_CONTROL_ERROR_NONE) {
+			cam_critical(LOG_UI, "app_control_get_operation failed");
+			goto ERROR;
+		}
 
-			if (operation == NULL) {
-				cam_critical(LOG_UI, "operation is null");
-				goto ERROR;
-			}
-			cam_debug(LOG_UI, "operation is [%s]", operation);
+		if (operation == NULL) {
+			cam_critical(LOG_UI, "operation is null");
+			goto ERROR;
+		}
+		cam_debug(LOG_UI, "operation is [%s]", operation);
 
 #if 0 //New Appcontrol operations are not available
-			if ((0 == strcmp(operation, APP_CONTROL_OPERATION_CREATE_CONTENT))
-					|| (0 == strcmp(operation, APP_CONTROL_OPERATION_IMAGE_CAPTURE))
-					|| (0 == strcmp(operation, APP_CONTROL_OPERATION_VIDEO_CAPTURE))
-					|| (0 == strcmp(operation, APP_CONTROL_OPERATION_PICK))) {
+		if ((0 == strcmp(operation, APP_CONTROL_OPERATION_CREATE_CONTENT))
+		        || (0 == strcmp(operation, APP_CONTROL_OPERATION_IMAGE_CAPTURE))
+		        || (0 == strcmp(operation, APP_CONTROL_OPERATION_VIDEO_CAPTURE))
+		        || (0 == strcmp(operation, APP_CONTROL_OPERATION_PICK))) {
 #else
-			if ((0 == strcmp(operation, APP_CONTROL_OPERATION_CREATE_CONTENT))
-					|| (0 == strcmp(operation, APP_CONTROL_OPERATION_PICK))) {
+		if ((0 == strcmp(operation, APP_CONTROL_OPERATION_CREATE_CONTENT))
+		        || (0 == strcmp(operation, APP_CONTROL_OPERATION_PICK))) {
 #endif
-				ad->launching_mode = CAM_LAUNCHING_MODE_EXTERNAL;
+			ad->launching_mode = CAM_LAUNCHING_MODE_EXTERNAL;
 
-				CamExeArgs *args = (CamExeArgs *)CAM_CALLOC(1, sizeof(CamExeArgs));
-				if (args == NULL) {
-					cam_critical(LOG_UI, "Memory allocation failed");
-					IF_FREE(operation);
-					goto ERROR;
-				}
-
-				if (!cam_app_parse_args(args, app_control)) {
-					cam_critical(LOG_UI, "cam_app_parse_args failed");
-					IF_FREE(args);
-					IF_FREE(operation);
-					goto ERROR;
-				}
-				ad->exe_args = args;
-
-				if (!cam_handle_init(ad, ad->exe_args->cam_mode)) {
-					cam_critical(LOG_UI, "cam_handle_init failed");
-					IF_FREE(operation);
-					goto ERROR;
-				}
-
-				cam_app_init_with_args(ad);
-			} else {
-				ad->launching_mode = CAM_LAUNCHING_MODE_NORMAL;
-
-				/* get secure mode state */
-				app_control_get_extra_data(app_control, "secure_mode", (char **)&val);
-				if (val) {
-					cam_warning(LOG_UI, "secure_mode %s ", val);
-					if (0 == strcmp(val, "true")) {
-						ad->secure_mode = TRUE;
-					}
-					IF_FREE(val);
-				}
-				/* displaying camera screen above lock screen */
-				app_control_get_extra_data(app_control, "http://tizen.org/lock/window/above", (char **)&val);
-				if (val) {
-					cam_warning(LOG_UI, "key = http://tizen.org/lock/window/above, value = %s ", val);
-					if (0 == strcmp(val, "on")) {
-						elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "1");
-						ad->lock_value_on=1;
-					} else if (0 == strcmp(val, "off")) {
-						elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "0");
-						ad->lock_value_on=0;
-					}
-					IF_FREE(val);
-				}
-				else
-				{
-					ad->lock_value_on=0;
-				}
-
-
-				CAM_LAUNCH("cam_handle_init", "IN");
-				if (!cam_handle_init(ad, CAM_CAMERA_MODE)) {
-					cam_critical(LOG_UI, "cam_handle_init failed");
-					IF_FREE(operation);
-					goto ERROR;
-				}
-				CAM_LAUNCH("cam_handle_init", "OUT");
-			}
-
-			IF_FREE(operation);
-
-			/* indicator setting */
-			elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_SHOW);
-			elm_win_indicator_opacity_set(ad->win_main, ELM_WIN_INDICATOR_TRANSPARENT);
-			cam_elm_object_signal_emit(ad->conformant, "elm,state,indicator,overlap", "");
-			evas_object_data_set(ad->conformant, "overlap", (void *)TRUE);
-
-			if (cam_condition_check_to_start_camera(ad) == TRUE) {
-				CAM_LAUNCH("cam_mm_create", "IN");
-				CamAppData *camapp = ad->camapp_handle;
-				cam_retm_if(camapp == NULL, "camapp_handle is NULL");
-				if (!cam_mm_create(camapp->device_type, camapp->camera_mode)) {
-					cam_critical(LOG_UI, "cam_mm_create failed");
-					ad->error_type = CAM_ERROR_UNABLE_TO_LAUNCH;
-					goto ERROR;
-				}
-				CAM_LAUNCH("cam_mm_create", "OUT");
-
-				cam_handle_init_by_capacity(ad);
-
-				if (pthread_create(&ad->cam_thread[CAM_THREAD_START], NULL, __cam_start_thread_run, (void *)ad) < 0) {
-					cam_critical(LOG_UI, "Create camera start thread failed");
-					goto ERROR;
-				}
-			} else {
-				if (ad->not_enough_memory == TRUE) {
-					cam_critical(LOG_UI, "not_enough_memory");
-					if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL) {
-						cam_app_return_ext_app(ad, FALSE);
-					}
-					goto ERROR;
-				}
-			}
-
-#ifndef USE_EVASIMAGE_SINK
-			cam_app_win_transparent_set(ad);
-#endif
-			CAM_LAUNCH("cam_layout_init", "IN");
-			if (!cam_layout_init(ad)) {
-				cam_critical(LOG_UI, "cam_layout_init failed");
+			CamExeArgs *args = (CamExeArgs *)CAM_CALLOC(1, sizeof(CamExeArgs));
+			if (args == NULL) {
+				cam_critical(LOG_UI, "Memory allocation failed");
+				IF_FREE(operation);
 				goto ERROR;
 			}
-			CAM_LAUNCH("cam_layout_init", "OUT");
 
-			SHOW_EVAS_OBJECT(ad->win_main);
-			elm_win_activate(ad->win_main);
+			if (!cam_app_parse_args(args, app_control)) {
+				cam_critical(LOG_UI, "cam_app_parse_args failed");
+				IF_FREE(args);
+				IF_FREE(operation);
+				goto ERROR;
+			}
+			ad->exe_args = args;
 
-			ecore_job_add(__app_init_idler, ad);
-		}
-		break;
-	case CAM_APP_PAUSE_STATE:
-		{
-			/*if (ad->ext_app_control_handle != NULL) {
-				cam_critical(LOG_CAM, "Sending terminate request");
-				ret = app_control_send_terminate_request(ad->ext_app_control_handle);
-				if (ret != APP_CONTROL_ERROR_NONE) {
-					cam_critical(LOG_UI, "app_control_send_terminate_request failed - [%d]", ret);
+			if (!cam_handle_init(ad, ad->exe_args->cam_mode)) {
+				cam_critical(LOG_UI, "cam_handle_init failed");
+				IF_FREE(operation);
+				goto ERROR;
+			}
+
+			cam_app_init_with_args(ad);
+		} else {
+			ad->launching_mode = CAM_LAUNCHING_MODE_NORMAL;
+
+			/* get secure mode state */
+			app_control_get_extra_data(app_control, "secure_mode", (char **)&val);
+			if (val) {
+				cam_warning(LOG_UI, "secure_mode %s ", val);
+				if (0 == strcmp(val, "true")) {
+					ad->secure_mode = TRUE;
 				}
-
-				app_control_destroy(ad->ext_app_control_handle);
-				ad->ext_app_control_handle = NULL;
-			}*/
+				IF_FREE(val);
+			}
 			/* displaying camera screen above lock screen */
 			app_control_get_extra_data(app_control, "http://tizen.org/lock/window/above", (char **)&val);
 			if (val) {
 				cam_warning(LOG_UI, "key = http://tizen.org/lock/window/above, value = %s ", val);
 				if (0 == strcmp(val, "on")) {
 					elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "1");
-					ad->lock_value_on=1;
+					ad->lock_value_on = 1;
 				} else if (0 == strcmp(val, "off")) {
 					elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "0");
-					ad->lock_value_on=1;
+					ad->lock_value_on = 0;
 				}
 				IF_FREE(val);
-			}
-			app_control_get_extra_data(app_control, "secure_mode", (char **)&val);
-			if (val) {
-				cam_warning(LOG_UI, "secure_mode %s ", val);
-				if (0 == strcmp(val, "true")) {
-					ad->secure_mode = TRUE;
-					ad->lock_value_on=1;
-					IF_FREE(camapp->filename);
-					IF_FREE(camapp->thumbnail_name);
-					cam_standby_view_update_quickview_thumbnail_no_animation();
-					cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);
-				}
-				IF_FREE(val);
+			} else {
+				ad->lock_value_on = 0;
 			}
 
-			SHOW_EVAS_OBJECT(ad->win_main);
-			elm_win_activate(ad->win_main);
-			cam_resume(ad);
+
+			CAM_LAUNCH("cam_handle_init", "IN");
+			if (!cam_handle_init(ad, CAM_CAMERA_MODE)) {
+				cam_critical(LOG_UI, "cam_handle_init failed");
+				IF_FREE(operation);
+				goto ERROR;
+			}
+			CAM_LAUNCH("cam_handle_init", "OUT");
 		}
-		break;
-	case CAM_APP_RUNNING_STATE:
-		{
-			SHOW_EVAS_OBJECT(ad->win_main);
-			elm_win_activate(ad->win_main);
 
-			if (camapp->camera_mode == CAM_CAMERA_MODE) {
-				if (cam_mm_get_cam_state() == CAMERA_STATE_CAPTURING
-					|| cam_mm_get_cam_state() == CAMERA_STATE_CAPTURED) {
-					cam_critical(LOG_UI, "camera state is capturing");
-					return;
+		IF_FREE(operation);
+
+		/* indicator setting */
+		elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_SHOW);
+		elm_win_indicator_opacity_set(ad->win_main, ELM_WIN_INDICATOR_TRANSPARENT);
+		cam_elm_object_signal_emit(ad->conformant, "elm,state,indicator,overlap", "");
+		evas_object_data_set(ad->conformant, "overlap", (void *)TRUE);
+
+		if (cam_condition_check_to_start_camera(ad) == TRUE) {
+			CAM_LAUNCH("cam_mm_create", "IN");
+			CamAppData *camapp = ad->camapp_handle;
+			cam_retm_if(camapp == NULL, "camapp_handle is NULL");
+			if (!cam_mm_create(camapp->device_type, camapp->camera_mode)) {
+				cam_critical(LOG_UI, "cam_mm_create failed");
+				ad->error_type = CAM_ERROR_UNABLE_TO_LAUNCH;
+				goto ERROR;
+			}
+			CAM_LAUNCH("cam_mm_create", "OUT");
+
+			cam_handle_init_by_capacity(ad);
+
+			if (pthread_create(&ad->cam_thread[CAM_THREAD_START], NULL, __cam_start_thread_run, (void *)ad) < 0) {
+				cam_critical(LOG_UI, "Create camera start thread failed");
+				goto ERROR;
+			}
+		} else {
+			if (ad->not_enough_memory == TRUE) {
+				cam_critical(LOG_UI, "not_enough_memory");
+				if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL) {
+					cam_app_return_ext_app(ad, FALSE);
 				}
+				goto ERROR;
+			}
+		}
+
+#ifndef USE_EVASIMAGE_SINK
+		cam_app_win_transparent_set(ad);
+#endif
+		CAM_LAUNCH("cam_layout_init", "IN");
+		if (!cam_layout_init(ad)) {
+			cam_critical(LOG_UI, "cam_layout_init failed");
+			goto ERROR;
+		}
+		CAM_LAUNCH("cam_layout_init", "OUT");
+
+		SHOW_EVAS_OBJECT(ad->win_main);
+		elm_win_activate(ad->win_main);
+
+		ecore_job_add(__app_init_idler, ad);
+	}
+	break;
+	case CAM_APP_PAUSE_STATE: {
+		/*if (ad->ext_app_control_handle != NULL) {
+			cam_critical(LOG_CAM, "Sending terminate request");
+			ret = app_control_send_terminate_request(ad->ext_app_control_handle);
+			if (ret != APP_CONTROL_ERROR_NONE) {
+				cam_critical(LOG_UI, "app_control_send_terminate_request failed - [%d]", ret);
 			}
 
-			app_control_get_extra_data(app_control, "MMICHECK_CAMERA", (char **)&val);
-			if (val) {
-				if (0 == strcmp(val, "1")) {
-					cam_warning(LOG_UI, "MMICHECK_CAMERA");
-					if (!cam_do_capture(ad)) {
-						cam_critical(LOG_UI, "cam_do_capture failed");
-					}
-				}
-				IF_FREE(val);
+			app_control_destroy(ad->ext_app_control_handle);
+			ad->ext_app_control_handle = NULL;
+		}*/
+		/* displaying camera screen above lock screen */
+		app_control_get_extra_data(app_control, "http://tizen.org/lock/window/above", (char **)&val);
+		if (val) {
+			cam_warning(LOG_UI, "key = http://tizen.org/lock/window/above, value = %s ", val);
+			if (0 == strcmp(val, "on")) {
+				elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "1");
+				ad->lock_value_on = 1;
+			} else if (0 == strcmp(val, "off")) {
+				elm_win_aux_hint_add(ad->win_main, "wm.policy.win.above.lock", "0");
+				ad->lock_value_on = 1;
+			}
+			IF_FREE(val);
+		}
+		app_control_get_extra_data(app_control, "secure_mode", (char **)&val);
+		if (val) {
+			cam_warning(LOG_UI, "secure_mode %s ", val);
+			if (0 == strcmp(val, "true")) {
+				ad->secure_mode = TRUE;
+				ad->lock_value_on = 1;
+				IF_FREE(camapp->filename);
+				IF_FREE(camapp->thumbnail_name);
+				cam_standby_view_update_quickview_thumbnail_no_animation();
+				cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);
+			}
+			IF_FREE(val);
+		}
+
+		SHOW_EVAS_OBJECT(ad->win_main);
+		elm_win_activate(ad->win_main);
+		cam_resume(ad);
+	}
+	break;
+	case CAM_APP_RUNNING_STATE: {
+		SHOW_EVAS_OBJECT(ad->win_main);
+		elm_win_activate(ad->win_main);
+
+		if (camapp->camera_mode == CAM_CAMERA_MODE) {
+			if (cam_mm_get_cam_state() == CAMERA_STATE_CAPTURING
+			        || cam_mm_get_cam_state() == CAMERA_STATE_CAPTURED) {
+				cam_critical(LOG_UI, "camera state is capturing");
 				return;
 			}
 		}
-		break;
+
+		app_control_get_extra_data(app_control, "MMICHECK_CAMERA", (char **)&val);
+		if (val) {
+			if (0 == strcmp(val, "1")) {
+				cam_warning(LOG_UI, "MMICHECK_CAMERA");
+				if (!cam_do_capture(ad)) {
+					cam_critical(LOG_UI, "cam_do_capture failed");
+				}
+			}
+			IF_FREE(val);
+			return;
+		}
+	}
+	break;
 	default:
 		break;
 	}
@@ -770,14 +755,17 @@ static void __app_init_idler(void *data)
 		return;
 	}
 
-	if (!cam_key_grab_init(ad))
+	if (!cam_key_grab_init(ad)) {
 		cam_critical(LOG_UI, "cam_key_grab_init fail");
+	}
 
-	if (!cam_app_key_event_init(ad))
+	if (!cam_app_key_event_init(ad)) {
 		cam_critical(LOG_UI, "cam_app_key_event_init failed");
+	}
 
-	if (!cam_app_x_event_init(ad))
+	if (!cam_app_x_event_init(ad)) {
 		cam_critical(LOG_UI, "cam_app_x_event_init failed");
+	}
 
 	cam_app_timeout_checker_init(ad);
 	cam_app_check_storage_location_popup(ad);
@@ -792,10 +780,10 @@ gboolean open_cam_ext_handle()
 		handle = dlopen(CAM_EXT_LIB_PATH, RTLD_LAZY);
 		if (!handle) {
 			char *msg = NULL;
-			if (dlerror() != NULL)
+			if (dlerror() != NULL) {
 				msg = CAM_STRDUP(dlerror());
-			if(msg)
-			{
+			}
+			if (msg) {
 				cam_critical(LOG_UI, "error: %s", msg);
 				IF_FREE(msg);
 			}

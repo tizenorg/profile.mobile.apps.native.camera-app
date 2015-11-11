@@ -83,19 +83,21 @@ void cam_mode_view_utils_shooting_mode_description_get(CAM_MENU_ITEM menu_item, 
 	int mode = CAM_SHOT_MODE_MIN + 1;
 	if (menu_item == CAM_MENU_SHOOTING_SINGLE || menu_item == CAM_MENU_SHOOTING_SELF_SINGLE) {
 		strID = dgettext(PACKAGE, "IDS_CAM_BODY_AUTOMATICALLY_ADJUSTS_THE_EXPOSURE_TO_OPTIMISE_THE_COLOUR_AND_BRIGHTNESS_OF_PICTURES");
-				if (strID) {
-					if (strlen(strID) + 1 <= 128)
-						strncpy(description, strID, strlen(strID)+1);
-				}
+		if (strID) {
+			if (strlen(strID) + 1 <= 128) {
+				strncpy(description, strID, strlen(strID) + 1);
+			}
+		}
 	} else {
 		for (mode = (CAM_SHOT_MODE_MIN + 1); mode < CAM_SHOT_MODE_NUM; mode++) {
 			mode_data = cam_get_shooting_mode(mode);
 			if (mode_data != NULL && mode_data->shot_property.property_index == menu_item) {
 				strID = mode_data->shot_mode_description;
-						if (strID) {
-							if (strlen(strID) + 1 <= 128)
-								strncpy(description, strID, strlen(strID)+1);
-						}
+				if (strID) {
+					if (strlen(strID) + 1 <= 128) {
+						strncpy(description, strID, strlen(strID) + 1);
+					}
+				}
 			}
 		}
 	}
