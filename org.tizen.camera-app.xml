@@ -32,19 +32,19 @@
 		<label xml:lang="ta-in">கேமரா</label>
 		<label xml:lang="te-in">కెమెరా</label>
 		<label xml:lang="ur-in">کیمرہ</label>
-		<application-service>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/create_content" />
 			<mime name="image/jpg" />
 			<mime name="image/jpeg" />
 			<mime name="video/3gp" />
 			<mime name="video/3gpp" />
-		</application-service>
-		<application-service>
+		</app-control>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/image_capture" />
-		</application-service>
-		<application-service>
+		</app-control>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/video_capture" />
-		</application-service>
+		</app-control>
 	</ui-application>
 	<privileges>
 		<privilege>http://tizen.org/privilege/location</privilege>
