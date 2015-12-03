@@ -219,7 +219,6 @@ INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
 # install manifest file & icon
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.xml DESTINATION /usr/share/packages/)
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.png DESTINATION /usr/share/icons/default/small/)
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.efl DESTINATION /etc/smack/accesses.d)
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/fake_portrait.png DESTINATION ${SHAREDDIR}/res/)
 
 # install sound & image files

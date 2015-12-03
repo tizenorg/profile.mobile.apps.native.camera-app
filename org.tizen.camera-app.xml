@@ -50,5 +50,6 @@
 		<privilege>http://tizen.org/privilege/location</privilege>
 		<privilege>http://tizen.org/privilege/telephony</privilege>
 		<privilege>http://tizen.org/privilege/camera</privilege>
+		<privilege>http://tizen.org/privilege/display</privilege>
 	</privileges>
 </manifest>

@@ -99,7 +99,6 @@ ln -sf %{_appdir}/bin/camera %{_appdir}/bin/camera-appcontrol
 %defattr(-,root,root,-)
 %{_usrdir}/share/icons/default/small/org.tizen.camera-app.png
 %{_usrdir}/share/packages/org.tizen.camera-app.xml
-/etc/smack/accesses.d/org.tizen.camera-app.efl
 %{_appdir}/bin/camera
 %{_appdir}/res/edje/*
 %{_appdir}/res/locale/*
