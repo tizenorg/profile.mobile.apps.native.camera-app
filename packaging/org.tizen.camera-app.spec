@@ -48,6 +48,7 @@ BuildRequires: pkgconfig(capi-system-system-settings)
 BuildRequires: pkgconfig(capi-system-runtime-info)
 BuildRequires: pkgconfig(capi-telephony)
 BuildRequires: pkgconfig(notification)
+BuildRequires: pkgconfig(libtzplatform-config)
 
 #Requires(post): signing-client
 
@@ -63,10 +64,9 @@ Description: org.tizen.camera-app
 %prep
 %setup -q
 
-%define _optdir	/opt
-%define _usrdir	/usr
-%define _appdir	%{_usrdir}/apps/%{name}
-
+%define _appdir		%{TZ_SYS_RO_APP}/%{name}
+%define _app_icon_dir	%{TZ_SYS_RO_ICONS}/default/small
+%define _app_share_packages_dir   %{TZ_SYS_RO_PACKAGES}
 %build
 %if 0%{?tizen_build_binary_release_type_eng}
 export CFLAGS="$CFLAGS -DTIZEN_ENGINEER_MODE"
@@ -75,6 +75,9 @@ export FFLAGS="$FFLAGS -DTIZEN_ENGINEER_MODE"
 %endif
 
 cmake . -DCMAKE_INSTALL_PREFIX=%{_appdir} \
+	-DPKGNAME=%{name} \
+        -DCMAKE_APP_ICON_DIR=%{_app_icon_dir} \
+        -DCMAKE_APP_SHARE_PACKAGES_DIR=%{_app_share_packages_dir} \
 
 make %{?jobs:-j%jobs}
 
@@ -90,15 +93,12 @@ rm -rf %{buildroot}
 %define tizen_dist_sign 1
 
 %post
-chown -R 5000:5000 /usr/apps/org.tizen.camera-app/shared
-chown 5000:5000 /opt/usr/apps/org.tizen.camera-app/data/.camera.ini
-ln -sf %{_appdir}/bin/camera %{_appdir}/bin/camera-appcontrol
 
 %files
 %manifest org.tizen.camera-app.manifest
 %defattr(-,root,root,-)
-%{_usrdir}/share/icons/default/small/org.tizen.camera-app.png
-%{_usrdir}/share/packages/org.tizen.camera-app.xml
+%{_app_icon_dir}/org.tizen.camera-app.png
+%{_app_share_packages_dir}/org.tizen.camera-app.xml
 %{_appdir}/bin/camera
 %{_appdir}/res/edje/*
 %{_appdir}/res/locale/*
@@ -106,7 +106,7 @@ ln -sf %{_appdir}/bin/camera %{_appdir}/bin/camera-appcontrol
 %{_appdir}/shared/res/*
 %{_appdir}/author-signature.xml
 %{_appdir}/signature1.xml
-/opt/usr/apps/org.tizen.camera-app/data/.camera.ini
+%{_appdir}/res/.camera.ini
 
 #%ifarch %{arm}
 #%{_appdir}/lib/*

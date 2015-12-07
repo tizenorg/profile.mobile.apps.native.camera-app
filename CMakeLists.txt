@@ -118,6 +118,7 @@ pkg_check_modules(pkgs REQUIRED
 	capi-system-system-settings
 	capi-telephony
 	notification
+	libtzplatform-config
 )
 
 FOREACH(flag ${pkgs_CFLAGS})
@@ -217,15 +218,16 @@ ENDFOREACH(file_name)
 INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 # install manifest file & icon
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.xml DESTINATION /usr/share/packages/)
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.png DESTINATION /usr/share/icons/default/small/)
+
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.xml DESTINATION ${CMAKE_APP_SHARE_PACKAGES_DIR})
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.png DESTINATION ${CMAKE_APP_ICON_DIR})
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/fake_portrait.png DESTINATION ${SHAREDDIR}/res/)
 
 # install sound & image files
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/sounds DESTINATION ${RESDIR})
 
 # install .camera.ini file
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/.camera.ini DESTINATION /opt/usr/apps/org.tizen.camera-app/data/)
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/.camera.ini DESTINATION ${RESDIR})
 
 # po files
 ADD_SUBDIRECTORY(po)
