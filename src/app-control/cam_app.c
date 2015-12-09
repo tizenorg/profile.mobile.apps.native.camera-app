@@ -552,7 +552,7 @@ int cam_appdata_fini(void *data)
 	IF_FREE(ad->exe_args);
 	IF_FREE(ad->path_in_return);
 	IF_FREE(ad->app_control_mime);
-
+	IF_FREE(ad->cam_data_ini);
 	if (ad->file_reg_queue) {
 		while (!g_queue_is_empty(ad->file_reg_queue)) {
 			char *filename = NULL;

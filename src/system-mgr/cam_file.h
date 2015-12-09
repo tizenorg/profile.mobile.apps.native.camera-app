@@ -31,6 +31,7 @@ typedef enum {
 	MEDIA_TYPE_LAST
 } media_type_t;
 
+int cam_file_copy(const char *src, const char *dst);
 gboolean cam_file_get_size(const char *filename, guint64 *size);
 gboolean cam_file_check_exists(const gchar *filename);
 gboolean cam_file_get_size(const char *filename, guint64 *size);
