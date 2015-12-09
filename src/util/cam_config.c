@@ -21,6 +21,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <cam.h>
+#include <app_common.h>
 
 /*
 #define DEBUG_CONFIG
@@ -32,6 +34,8 @@
 static gchar **g_group_name = NULL;	/*  config information group name for save */
 static GKeyFile *g_key_file = NULL;
 static gboolean disable_set_mode = FALSE;	/* if disable_set_mode is true unable to set setmode use for scene mode and ncr case ... */
+
+#define CAM_INIT_PATH_MAX	512
 
 gchar **cam_config_get_group_name()
 {
@@ -54,6 +58,30 @@ gboolean cam_config_init()
 {
 	GError *err = NULL;
 	debug_fenter(LOG_CONFIG);
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, FALSE, "ad is NULL");
+
+	gchar cam_data_ini[CAM_INIT_PATH_MAX] = { 0, };
+	gchar cam_res_ini[CAM_INIT_PATH_MAX] = { 0, };
+	char *datapath = NULL;
+	char *respath = NULL;
+	datapath = app_get_data_path();
+	if (datapath != NULL) {
+		respath = app_get_resource_path();
+		if (respath != NULL) {
+			cam_warning(LOG_UI, "app_get_data_path = %s , app_get_resource_path = %s", datapath, respath);
+			snprintf(cam_data_ini, sizeof(cam_data_ini), "%s%s", datapath, ".camera.ini");
+			snprintf(cam_res_ini, sizeof(cam_res_ini), "%s%s", respath, ".camera.ini");
+
+			cam_warning(LOG_UI, " app_data_ini_path = %s app_res_ini_path = %s", cam_data_ini, cam_res_ini);
+			free(respath);
+			if (cam_file_check_exists(cam_data_ini) == FALSE) {
+				cam_file_copy(cam_res_ini, cam_data_ini);
+			}
+			ad->cam_data_ini = strdup(cam_data_ini);
+		}
+		free(datapath);
+	}
 	if (!g_group_name) {
 		g_group_name = g_new0(gchar *, CAM_CONFIG_MAX);
 		cam_config_set_group_name(CAM_CONFIG_TYPE_COMMON, "common");
@@ -67,7 +95,7 @@ gboolean cam_config_init()
 		return TRUE;
 	}
 	g_key_file = g_key_file_new();
-	if (!g_key_file_load_from_file(g_key_file, CONFIG_PATH, G_KEY_FILE_NONE, &err)) {
+	if (!g_key_file_load_from_file(g_key_file, ad->cam_data_ini, G_KEY_FILE_NONE, &err)) {
 		if (err != NULL) {
 			cam_warning(LOG_UI, "config file not exists. %s", err->message);
 			g_error_free(err);
@@ -105,6 +133,8 @@ void cam_config_finalize(void)
 
 void cam_config_save(gboolean remove_reserve_data)
 {
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retm_if(ad == NULL, "appdata is NULL");
 	debug_fenter(LOG_UI);
 	if (g_key_file != NULL) {
 		GError *err = NULL;
@@ -129,7 +159,7 @@ void cam_config_save(gboolean remove_reserve_data)
 				g_error_free(err);
 				err = NULL;
 			} else {
-				FILE *fp = fopen(CONFIG_PATH, "w");
+				FILE *fp = fopen(ad->cam_data_ini, "w");
 				if (fp != NULL) {
 					ret = fwrite((const void *)buf, len, 1, fp);
 					if (ret != 1) {

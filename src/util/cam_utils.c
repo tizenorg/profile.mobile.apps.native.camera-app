@@ -2487,7 +2487,7 @@ void __cam_utils_reload_setting_list(void *data, CAM_MENU_ITEM *menu_list, int l
 	int list_index = 0;
 
 	g_key_file_tmp = g_key_file_new();
-	if (!g_key_file_load_from_file(g_key_file_tmp, CONFIG_PATH, G_KEY_FILE_NONE, &file_err)) {
+	if (!g_key_file_load_from_file(g_key_file_tmp, ad->cam_data_ini, G_KEY_FILE_NONE, &file_err)) {
 		cam_warning(LOG_UI, "g_key_file_load_from_file fail");
 		goto RELOAD_FAIL;
 	}

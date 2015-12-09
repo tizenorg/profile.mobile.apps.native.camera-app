@@ -31,6 +31,36 @@
 #include <storage.h>
 
 #define CAM_FILE_PATH_MAX	512
+#define BUF_MAX 16384
+
+int cam_file_copy(const char *src, const char *dst)
+{
+	FILE *f1 = NULL;
+	FILE *f2 = NULL;
+	char buf[BUF_MAX] = {0,};
+	size_t num;
+	int ret = 1;
+	f1 = fopen(src, "rb");
+	if (!f1) {
+		return 0;
+	}
+
+	f2 = fopen(dst, "wb");
+	if (!f2) {
+		fclose(f1);
+		return 0;
+	}
+	while ((num = fread(buf, 1, sizeof(buf), f1)) > 0) {
+		if (fwrite(buf, 1, num, f2) != num) {
+			ret = 0;
+		}
+	}
+
+	fclose(f1);
+	fclose(f2);
+
+	return ret;
+}
 
 gboolean cam_file_get_size(const char *filename, guint64 *size)
 {
