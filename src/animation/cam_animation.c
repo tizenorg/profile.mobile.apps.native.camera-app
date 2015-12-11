@@ -66,10 +66,12 @@ void cam_animation_create_rect_image(void *data)
 {
 	struct appdata *ad = data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 
 	DEL_EVAS_OBJECT(ad->rect_image);
 
-	ad->rect_image = cam_app_load_edj(ad->main_layout, CAM_MAIN_LAYOUT_EDJ_NAME, "shutter_rect");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_MAIN_LAYOUT_EDJ_NAME);
+	ad->rect_image = cam_app_load_edj(ad->main_layout, edj_path, "shutter_rect");
 	cam_retm_if(ad->rect_image == NULL, "rect_image load failed");
 
 	edje_object_signal_callback_add(_EDJ(ad->rect_image), "shutter_rect,finish", "*", __cam_app_shutter_animation_finished, ad);

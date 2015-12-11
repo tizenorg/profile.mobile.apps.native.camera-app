@@ -315,22 +315,24 @@ static Evas_Object *__sub_help_popup_text_create(CAM_MENU_ITEM menu_item)
 	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 
 	Evas_Object *layout = NULL;
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_STANDBY_VIEW_EDJ_NAME);
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
-		layout = cam_app_load_edj(help_popup_instance->parent, CAM_STANDBY_VIEW_EDJ_NAME, "quick_setting_popup/default");
+		layout = cam_app_load_edj(help_popup_instance->parent, edj_path, "quick_setting_popup/default");
 		evas_object_resize(layout, QUICK_POP_INFO_WIDTH, MAIN_H);
 		break;
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		layout = cam_app_load_edj(help_popup_instance->parent, CAM_STANDBY_VIEW_EDJ_NAME, "quick_setting_popup/landscape/inverse");
+		layout = cam_app_load_edj(help_popup_instance->parent, edj_path, "quick_setting_popup/landscape/inverse");
 		evas_object_resize(layout, QUICK_POP_INFO_WIDTH, MAIN_H);
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT:
-		layout = cam_app_load_edj(help_popup_instance->parent, CAM_STANDBY_VIEW_EDJ_NAME, "quick_setting_popup/portrait");
+		layout = cam_app_load_edj(help_popup_instance->parent, edj_path, "quick_setting_popup/portrait");
 		evas_object_resize(layout, QUICK_POP_INFO_WIDTH_V, MAIN_H);
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		layout = cam_app_load_edj(help_popup_instance->parent, CAM_STANDBY_VIEW_EDJ_NAME, "quick_setting_popup/portrait/inverse");
+		layout = cam_app_load_edj(help_popup_instance->parent, edj_path, "quick_setting_popup/portrait/inverse");
 		evas_object_resize(layout, QUICK_POP_INFO_WIDTH_V, MAIN_H);
 		break;
 	default:
@@ -479,8 +481,10 @@ static Evas_Object *__sub_help_popup_genlist_create(CAM_MENU_ITEM menu_item)
 
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
 	cam_retvm_if(ad == NULL, NULL, "appdata is null");
+	char edj_path[1024] = {0};
 
-	Evas_Object *layout = cam_app_load_edj(help_popup_instance->parent, CAM_QUICKSETTING_HELP_EDJ_NAME, "camera/help_genlist_layout");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_QUICKSETTING_HELP_EDJ_NAME);
+	Evas_Object *layout = cam_app_load_edj(help_popup_instance->parent, edj_path, "camera/help_genlist_layout");
 	cam_retvm_if(layout == NULL, FALSE, "layout is NULL");
 
 	elm_object_part_content_set(help_popup_instance->parent, "quick_setting_help", layout);

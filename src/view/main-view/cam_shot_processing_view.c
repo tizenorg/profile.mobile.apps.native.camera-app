@@ -58,8 +58,10 @@ gboolean cam_shot_processing_view_create(Evas_Object *parent, struct appdata *ad
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp is NULL");
+	char edj_path[1024] = {0};
 
 	cam_debug(LOG_CAM, "shooting_mode %d", shooting_mode);
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SHOT_PROCESSING_VIEW_EDJ_NAME);
 
 	if (cam_edit_box_check_exist()) {
 		cam_edit_box_destroy();
@@ -70,7 +72,7 @@ gboolean cam_shot_processing_view_create(Evas_Object *parent, struct appdata *ad
 	shot_processing_view->ad = ad;
 	shot_processing_view->shooting_mode = shooting_mode;
 
-	Evas_Object *layout = cam_app_load_edj(parent, CAM_SHOT_PROCESSING_VIEW_EDJ_NAME, "shot_processing_view");
+	Evas_Object *layout = cam_app_load_edj(parent, edj_path, "shot_processing_view");
 	cam_retvm_if(layout == NULL, FALSE, "cam_app_load_edj failed");
 
 	switch (ad->target_direction) {

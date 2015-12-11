@@ -268,6 +268,7 @@ Eina_Bool cam_capture_on_recording_handle(void *data);
 
  /* gboolean cam_xwin_create(void *data); */
 void *cam_appdata_get(void);
+int cam_appdata_set(void *data);
 int cam_appdata_init(void *data);
 int cam_appdata_fini(void *data);
 CamAppData *cam_handle_get(void);

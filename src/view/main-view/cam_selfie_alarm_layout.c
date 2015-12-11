@@ -603,20 +603,22 @@ static Evas_Object *__selfie_camera_layout_create(void *data, int x, int y, int 
 	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, NULL, "camapp is NULL");
+	char edj_path[1024] = {0};
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SELFIE_LAYOUT_EDJ_NAME);
 
 	if (selfie_camera_layout->selfie_camera_frame) {
 		cam_critical(LOG_UI, "destroy frame before create!!!");
 		cam_selfie_alarm_layout_destroy();
 	}
 
-	frame = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "frame");
+	frame = cam_app_load_edj(ad->main_layout, edj_path, "frame");
 	cam_retvm_if(frame == NULL, NULL, "frame is NULL");
 
-	Evas_Object *line = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "selfie_alarm_line");
-	Evas_Object *point_left_top = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "selfie_point_left_top");
-	Evas_Object *point_right_top = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "selfie_point_right_top");
-	Evas_Object *point_left_bottom = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "selfie_point_left_bottom");
-	Evas_Object *point_right_bottom = cam_app_load_edj(ad->main_layout, CAM_SELFIE_LAYOUT_EDJ_NAME, "selfie_point_right_bottom");
+	Evas_Object *line = cam_app_load_edj(ad->main_layout, edj_path, "selfie_alarm_line");
+	Evas_Object *point_left_top = cam_app_load_edj(ad->main_layout, edj_path, "selfie_point_left_top");
+	Evas_Object *point_right_top = cam_app_load_edj(ad->main_layout, edj_path, "selfie_point_right_top");
+	Evas_Object *point_left_bottom = cam_app_load_edj(ad->main_layout, edj_path, "selfie_point_left_bottom");
+	Evas_Object *point_right_bottom = cam_app_load_edj(ad->main_layout, edj_path, "selfie_point_right_bottom");
 
 	selfie_camera_layout->selfie_camera_point_line = line;
 	selfie_camera_layout->selfie_camera_point_left_top = point_left_top;

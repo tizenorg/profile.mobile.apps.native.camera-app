@@ -258,9 +258,13 @@ static char *__gengrid_item_text_get(void *data, Evas_Object *obj, const char *p
 static Evas_Object *__gengrid_icon_get(Evas_Object *parent, CAM_MENU_ITEM menu_item)
 {
 	cam_debug(LOG_CAM, "START");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 
 	Evas_Object *icon = elm_image_add(parent);
-	elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, (const char *)cam_mode_view_utils_shooting_mode_icon_path_get(menu_item));
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
+	elm_image_file_set(icon, edj_path, (const char *)cam_mode_view_utils_shooting_mode_icon_path_get(menu_item));
 	return icon;
 }
 
@@ -389,12 +393,16 @@ static void __cam_mode_view_grid_mode_create_mode_items()
 
 static void __cam_mode_view_grid_mode_create_layout()
 {
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retm_if(ad == NULL, "appdata is NULL");
 	cam_debug(LOG_CAM, "START");
+	char edj_path[1024] = {0};
 
 	Cam_Shooting_Mode_Grid_View *grid_view = __get_shooting_mode_grid_view_instance();
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME);
 	Evas_Object *layout = cam_app_load_edj(grid_view->parent,
-	                                       CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
+	                                       edj_path,
 	                                       "shooting_mode/grid/layout");
 
 	grid_view->layout = layout;

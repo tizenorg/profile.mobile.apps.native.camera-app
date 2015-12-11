@@ -29,6 +29,9 @@ void cam_popup_select_with_check_create(void *data, const char *title, const cha
 {
 	struct appdata *ad = (struct appdata *)(data);
 	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 
 	cam_info(LOG_UI, "create [%s] popup", title);
 
@@ -47,7 +50,7 @@ void cam_popup_select_with_check_create(void *data, const char *title, const cha
 
 	/* layout */
 	Evas_Object *layout = elm_layout_add(popup);
-	elm_layout_file_set(layout, CAM_UTILS_EDJ_NAME, "popup_checkview_layout");
+	elm_layout_file_set(layout, edj_path, "popup_checkview_layout");
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 
 	/* check */

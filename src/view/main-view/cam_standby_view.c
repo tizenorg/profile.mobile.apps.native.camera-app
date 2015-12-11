@@ -124,6 +124,7 @@ Cam_Standby_View *cam_standby_view_instance_create()
 
 void cam_standby_view_instance_destroy()
 {
+	IF_FREE(standby_view->standby_view_edj);
 	IF_FREE(standby_view);
 }
 
@@ -1066,9 +1067,12 @@ Evas_Object *__standby_view_load_guide_text_layout(int shot_mode)
 	cam_retvm_if(shot_mode <= CAM_SHOT_MODE_MIN && shot_mode >= CAM_SHOT_MODE_NUM, NULL, "Out of range");
 
 	Evas_Object *layout = NULL;
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SHOT_VIEW_GUIDE_EDJ_NAME);
 	switch (shot_mode) {
 	case CAM_PX_MODE:
-		layout = cam_app_load_edj(standby_view->layout, CAM_SHOT_VIEW_GUIDE_EDJ_NAME, "panorama_shot_guide_text");
+		layout = cam_app_load_edj(standby_view->layout, edj_path, "panorama_shot_guide_text");
 		cam_retvm_if(layout == NULL, NULL, "cam_app_load_edj failed");
 		break;
 	}
@@ -1978,8 +1982,11 @@ static void __standby_view_progressbar_create()
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *cam_handle = ad->camapp_handle;
 	cam_retm_if(cam_handle == NULL, "cam_handle is NULL");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_STANDBY_VIEW_EDJ_NAME);
 	if (cam_handle->shooting_mode == CAM_SELFIE_ALARM_MODE) {
-		standby_view->progressbar_layout = cam_app_load_edj(standby_view->layout, CAM_STANDBY_VIEW_EDJ_NAME, "selfie_photo_progressbar");
+		standby_view->progressbar_layout = cam_app_load_edj(standby_view->layout, edj_path, "selfie_photo_progressbar");
 		cam_retm_if(standby_view->progressbar_layout == NULL, "cam_app_load_edj failed");
 		elm_object_part_content_set(standby_view->layout, "guide_text_area", standby_view->progressbar_layout);
 		cam_selfie_alarm_update_progress_value_reset(ad);
@@ -2029,16 +2036,19 @@ gboolean cam_standby_view_create(Evas_Object *parent, struct appdata *ad, int sh
 
 	Cam_Standby_View *standby_view = cam_standby_view_instance_create();
 	cam_retvm_if(standby_view == NULL, FALSE, "standby_view is NULL");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_STANDBY_VIEW_EDJ_NAME);
 	standby_view->parent = parent;
 	standby_view->ad = ad;
 	standby_view->param.shooting_mode = shooting_mode;
-	standby_view->standby_view_edj = CAM_STANDBY_VIEW_EDJ_NAME;
+	standby_view->standby_view_edj = strdup(edj_path);
 
 	DEL_EVAS_OBJECT(standby_view->layout);
 
 	ad->click_hw_back_key = cam_standby_view_back_button_click_by_hardware;
 
-	Evas_Object *layout = cam_app_load_edj(parent, CAM_STANDBY_VIEW_EDJ_NAME, "standby_view");
+	Evas_Object *layout = cam_app_load_edj(parent, edj_path, "standby_view");
 	cam_retvm_if(layout == NULL, FALSE, "cam_app_load_edj failed");
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
