@@ -141,7 +141,9 @@ gboolean cam_indicator_create_battery(Evas_Object *parent, struct appdata *ad)
 {
 	debug_fenter(LOG_UI);
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 	if (ad->app_state == CAM_APP_PAUSE_STATE) {
 		cam_debug(LOG_UI, "Do not create battery indicator while camera paused");
 		return FALSE;
@@ -152,7 +154,7 @@ gboolean cam_indicator_create_battery(Evas_Object *parent, struct appdata *ad)
 	indicator->ad = ad;
 
 	if (indicator->indicator_battery == NULL) {
-		indicator->indicator_battery = cam_app_load_edj(indicator->parent, CAM_UTILS_EDJ_NAME, "battery_indicator");
+		indicator->indicator_battery = cam_app_load_edj(indicator->parent, edj_path, "battery_indicator");
 		cam_retvm_if(indicator->indicator_battery == NULL, FALSE, "indicator_battery is NULL");
 		elm_object_part_content_set(indicator->parent, "battery_indicator_area", indicator->indicator_battery);
 	}
@@ -263,7 +265,9 @@ static void __indicator_update_image_by_type(CamIndicator type, const char *imag
 	cam_retm_if(indicator == NULL, "indicator is NULL");
 	struct appdata *ad = indicator->ad;
 	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 	if (image_file != NULL && (cam_is_enabled_menu(ad, menu_item))) {
 		if (menu_item == CAM_MENU_SHOTS) {
 			char remain_shots[100] = {0};
@@ -294,7 +298,7 @@ static void __indicator_update_image_by_type(CamIndicator type, const char *imag
 			//{
 			indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
 			cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
-			elm_image_file_set(indicator->indicator_obj[type], CAM_IMAGE_EDJ_NAME, image_file);
+			elm_image_file_set(indicator->indicator_obj[type], edj_path, image_file);
 			//}
 		}
 		double scale = elm_config_scale_get();
@@ -443,6 +447,8 @@ static void __indicator_update_gps()
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;;
 	cam_retm_if(camapp == NULL, "camapp_handle is NULL");
+	char edj_path[1024] = {0};
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 
 	REMOVE_TIMER(indicator->gps_animation_timer);
 
@@ -455,7 +461,7 @@ static void __indicator_update_gps()
 		}
 		cam_retm_if(indicator->indicator_obj[CAM_INDI_GPS] == NULL, "indicator->indicator_obj[CAM_INDI_GPS] is NULL");
 
-		elm_image_file_set(indicator->indicator_obj[CAM_INDI_GPS], CAM_IMAGE_EDJ_NAME, image_file);
+		elm_image_file_set(indicator->indicator_obj[CAM_INDI_GPS], edj_path, image_file);
 		evas_object_size_hint_min_set(indicator->indicator_obj[CAM_INDI_GPS], INDICATOR_W, INDICATOR_H);
 		SHOW_EVAS_OBJECT(indicator->indicator_obj[CAM_INDI_GPS]);
 

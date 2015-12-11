@@ -1499,10 +1499,13 @@ Evas_Object *cam_util_setting_box_create(Evas_Object *parent)
 Evas_Object *cam_util_menu_item_icon_get(Evas_Object *parent, CAM_MENU_ITEM item, CamMenuState state)
 {
 	cam_retvm_if(parent == NULL, NULL, "parent is NULL");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 
 	Evas_Object *icon = NULL;
 	char icon_name[1024 + 1] = {'\0',};
 	char *get_incon_name = NULL;
+	char edj_path[1024] = {0};
 
 	CAM_MENU_ITEM menu_item = CAM_MENU_MAX_NUMS;
 	menu_item = cam_convert_setting_value_to_menu_item(item);
@@ -1513,9 +1516,10 @@ Evas_Object *cam_util_menu_item_icon_get(Evas_Object *parent, CAM_MENU_ITEM item
 
 	/*cam_debug(LOG_CAM, "incon_name %s", get_incon_name);*/
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 	strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
 	icon = elm_image_add(parent);
-	elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
+	elm_image_file_set(icon, edj_path, icon_name);
 	return icon;
 }
 

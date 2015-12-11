@@ -92,14 +92,17 @@ static void __cam_gengrid_popup_layout_create(Cam_Gengrid_Popup *gengrid_popup_i
 {
 	cam_retm_if(gengrid_popup_instance == NULL, "gengrid_popup_instance is NULL");
 	cam_retm_if(gengrid_popup_instance->ad == NULL, "gengrid_popup_instance->ad is NULL");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", gengrid_popup_instance->ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 
 	gengrid_popup_instance->parent = gengrid_popup_instance->ad->main_layout;
 	cam_retm_if(gengrid_popup_instance->parent == NULL, "gengrid_popup_instance->parent is NULL");
 
 	if (gengrid_popup_instance->menu_type == CAM_MENU_TIMER) {
-		gengrid_popup_instance->popup_layout = cam_app_load_edj(gengrid_popup_instance->parent, CAM_UTILS_EDJ_NAME, "timer_gengrid_popup_layout");
+		gengrid_popup_instance->popup_layout = cam_app_load_edj(gengrid_popup_instance->parent, edj_path, "timer_gengrid_popup_layout");
 	} else {
-		gengrid_popup_instance->popup_layout = cam_app_load_edj(gengrid_popup_instance->parent, CAM_UTILS_EDJ_NAME, "effect_gengrid_popup_layout");
+		gengrid_popup_instance->popup_layout = cam_app_load_edj(gengrid_popup_instance->parent, edj_path, "effect_gengrid_popup_layout");
 	}
 
 	elm_object_part_content_set(gengrid_popup_instance->parent, "gengrid_popup_layout", gengrid_popup_instance->popup_layout);
@@ -107,9 +110,9 @@ static void __cam_gengrid_popup_layout_create(Cam_Gengrid_Popup *gengrid_popup_i
 
 	if (gengrid_popup_instance->grid_layout == NULL) {
 		if (gengrid_popup_instance->menu_type == CAM_MENU_TIMER) {
-			gengrid_popup_instance->grid_layout = cam_app_load_edj(gengrid_popup_instance->popup_layout, CAM_UTILS_EDJ_NAME, "timer_grid");
+			gengrid_popup_instance->grid_layout = cam_app_load_edj(gengrid_popup_instance->popup_layout, edj_path, "timer_grid");
 		} else {
-			gengrid_popup_instance->grid_layout = cam_app_load_edj(gengrid_popup_instance->popup_layout, CAM_UTILS_EDJ_NAME, "effect_grid");
+			gengrid_popup_instance->grid_layout = cam_app_load_edj(gengrid_popup_instance->popup_layout, edj_path, "effect_grid");
 		}
 		cam_retm_if(gengrid_popup_instance->grid_layout == NULL, "grid_layout is not created");
 		elm_object_part_content_set(gengrid_popup_instance->popup_layout, "grid", gengrid_popup_instance->grid_layout);
@@ -244,10 +247,13 @@ static Evas_Object *__cam_gengrid_popup_grid_icon_get(void *data, Evas_Object *o
 	cam_debug(LOG_UI, "start");
 	cam_gengrid_popup_item *gengrid_item = (cam_gengrid_popup_item *)data;
 	cam_retvm_if(gengrid_item == NULL, NULL, "gengrid_item is NULL");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 
 	Evas_Object *icon = NULL;
 	char icon_name[1024 + 1] = { '\0', };
 	char *get_incon_name = NULL;
+	char edj_path[1024] = {0};
 
 	if (strcmp(part, "elm.icon.press") == 0) {
 		get_incon_name = (char *)cam_get_menu_item_image(gengrid_item->type, CAM_MENU_STATE_PRESS);
@@ -259,8 +265,9 @@ static Evas_Object *__cam_gengrid_popup_grid_icon_get(void *data, Evas_Object *o
 	cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
 
 	strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 	icon = elm_image_add(obj);
-	elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
+	elm_image_file_set(icon, edj_path, icon_name);
 
 	int index = gengrid_item->index;
 	int value_index = __cam_gengrid_popup_grid_menu_index_convert(gengrid_item->gengrid_popup_instance);

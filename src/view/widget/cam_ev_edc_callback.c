@@ -396,6 +396,9 @@ gboolean ev_load_edje(struct appdata *ad)
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_EV_EDJ_NAME);
 	if (ad->ev_edje) {
 		ev_unload_edje(ad);
 	}
@@ -410,7 +413,7 @@ gboolean ev_load_edje(struct appdata *ad)
 	/* ev bg */
 	gboolean portrait = FALSE;
 	gboolean slider_inverse = FALSE;
-	ad->ev_edje = cam_app_load_edj(ad->main_layout, CAM_EV_EDJ_NAME, GRP_MAIN);
+	ad->ev_edje = cam_app_load_edj(ad->main_layout, edj_path, GRP_MAIN);
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
 		edje_object_signal_emit(_EDJ(ad->ev_edje), "landscape", "ev");
@@ -437,7 +440,7 @@ gboolean ev_load_edje(struct appdata *ad)
 	}
 	cam_retvm_if(ad->ev_edje == NULL, FALSE, "ev_edje is NULL");
 
-	ad->exposure_text_edje = cam_app_load_edj(ad->ev_edje, CAM_EV_EDJ_NAME, GRP_EXPOSURE_TEXT);
+	ad->exposure_text_edje = cam_app_load_edj(ad->ev_edje, edj_path, GRP_EXPOSURE_TEXT);
 	cam_retvm_if(ad->exposure_text_edje == NULL, FALSE, "exposure_text_edje is NULL");
 
 	elm_object_part_content_set(ad->ev_edje, "exposure_text", ad->exposure_text_edje);

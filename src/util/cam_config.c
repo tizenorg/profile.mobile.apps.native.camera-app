@@ -31,6 +31,7 @@
 */
 #include "cam_debug.h"
 #include "cam_config.h"
+#include "cam_file.h"
 static gchar **g_group_name = NULL;	/*  config information group name for save */
 static GKeyFile *g_key_file = NULL;
 static gboolean disable_set_mode = FALSE;	/* if disable_set_mode is true unable to set setmode use for scene mode and ncr case ... */

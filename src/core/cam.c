@@ -200,6 +200,7 @@ static bool cam_create(void *user_data)
 	elm_win_resize_object_add(ad->win_main, ad->conformant);
 	evas_object_show(ad->conformant);
 	CAM_LAUNCH("elm_conformant_add", "OUT");
+	cam_appdata_set(ad);
 
 	/* create base layout */
 	ad->main_layout = __create_base_layout(ad->win_main);
@@ -661,11 +662,15 @@ static Evas_Object *__create_window(const char *name)
 
 static Evas_Object *__create_base_layout(Evas_Object *parent)
 {
-	Evas_Object *eo = NULL;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, FALSE, "ad is NULL");
 
+	Evas_Object *eo = NULL;
+	char edj_path[1024] = {0};
 	eo = elm_layout_add(parent);
 	cam_retvm_if(eo == NULL, NULL, "elm_layout_add failed");
-	elm_layout_file_set(eo, CAM_MAIN_LAYOUT_EDJ_NAME, "main_layout");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_MAIN_LAYOUT_EDJ_NAME);
+	elm_layout_file_set(eo, edj_path, "main_layout");
 	evas_object_size_hint_weight_set(eo, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_show(eo);
 
@@ -676,10 +681,14 @@ static Evas_Object *__create_base_layout(Evas_Object *parent)
 static Evas_Object *__create_native_buffer_object_layout(Evas_Object *parent)
 {
 	cam_retvm_if(parent == NULL, NULL, "parent is NULL");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, FALSE, "ad is NULL");
 
 	Evas_Object *eo = NULL;
+	char edj_path[1024] = {0};
 
-	eo = cam_app_load_edj(parent, CAM_MAIN_LAYOUT_EDJ_NAME, "native_buffer");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_MAIN_LAYOUT_EDJ_NAME);
+	eo = cam_app_load_edj(parent, edj_path, "native_buffer");
 	cam_retvm_if(eo == NULL, NULL, "cam_app_load_edj fail");
 
 	elm_object_part_content_set(parent, "native_buffer_layout", eo);
