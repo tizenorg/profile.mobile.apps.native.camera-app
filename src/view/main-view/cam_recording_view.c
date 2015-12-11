@@ -79,6 +79,7 @@ Cam_Recording_View *cam_recording_view_create_instance()
 
 void cam_recording_view_destroy_instance()
 {
+	IF_FREE(recording_view->recording_view_edj);
 	IF_FREE(recording_view);
 }
 
@@ -500,8 +501,10 @@ static void __recording_view_progressbar_create(Evas_Object *parent)
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *cam_handle = ad->camapp_handle;
 	cam_retm_if(cam_handle == NULL, "cam_handle is NULL");
+	char edj_path[1024] = {0};
 
-	recording_view->progressbar_layout = cam_app_load_edj(parent, CAM_RECORDING_VIEW_EDJ_NAME, "progressbar");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_RECORDING_VIEW_EDJ_NAME);
+	recording_view->progressbar_layout = cam_app_load_edj(parent, edj_path, "progressbar");
 	cam_retm_if(recording_view->progressbar_layout == NULL, "cam_app_load_edj failed");
 	elm_object_part_content_set(parent, "progressbar_area", recording_view->progressbar_layout);
 
@@ -819,18 +822,20 @@ gboolean cam_recording_view_create(Evas_Object *parent, struct appdata *ad)
 
 	Cam_Recording_View *recording_view = cam_recording_view_create_instance();
 	cam_retvm_if(recording_view == NULL, FALSE, "cam_recording_view_create_instance fail");
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_RECORDING_VIEW_EDJ_NAME);
 	if (cam_edit_box_check_exist()) {
 		cam_edit_box_destroy();
 	}
 
 	recording_view->parent = parent;
 	recording_view->ad = ad;
-	recording_view->recording_view_edj = CAM_RECORDING_VIEW_EDJ_NAME;
+	recording_view->recording_view_edj = strdup(edj_path);
 
 	ad->click_hw_back_key = __recording_view_back_button_click_by_hardware;
 
-	Evas_Object *layout = cam_app_load_edj(ad->main_layout, CAM_RECORDING_VIEW_EDJ_NAME, "recording_view");
+	Evas_Object *layout = cam_app_load_edj(ad->main_layout, edj_path, "recording_view");
 	cam_retvm_if(layout == NULL, FALSE, "cam_app_load_edj failed");
 	elm_object_part_content_set(parent, "main_view", layout);
 

@@ -1388,6 +1388,9 @@ gboolean cam_edit_box_create(Evas_Object *parent, void *data, box_selected_done_
 	edit_box_instance->ad = (struct appdata *)data;
 	cam_retvm_if(edit_box_instance->ad == NULL, FALSE, "ad is NULL");
 	cam_retvm_if(edit_box_instance->ad->main_layout == NULL, FALSE, "ad->main_layout is not created");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", edit_box_instance->ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 
 	if (CAM_VIEW_STANDBY == edit_box_instance->ad->main_view_type) {
 		cam_standby_view_mode_text_destroy();
@@ -1398,14 +1401,14 @@ gboolean cam_edit_box_create(Evas_Object *parent, void *data, box_selected_done_
 	edit_box_instance->selected_done_cb = func;
 	edit_box_instance->tts_switch_menu_id = CAM_MENU_EMPTY;
 
-	edit_box_instance->base = cam_app_load_edj(edit_box_instance->parent, CAM_UTILS_EDJ_NAME, "edit_box_layout");
+	edit_box_instance->base = cam_app_load_edj(edit_box_instance->parent, edj_path, "edit_box_layout");
 	cam_retvm_if(edit_box_instance->base == NULL, FALSE, "edit_box_instance->base is not created");
 	__cam_edit_box_set_layout_direction();
 	elm_object_part_content_set(edit_box_instance->parent, "edit_box_layout", edit_box_instance->base);
 
 #ifdef CAM_IS_SUPPORT_EDIT_BOX_DRAG_FUNCTION
 	/*empty box can not be drop target, we have to use layout as drop target*/
-	edit_box_instance->dnd_drop_layout = cam_app_load_edj(edit_box_instance->base, CAM_UTILS_EDJ_NAME, "dnd_box_drop_layout");
+	edit_box_instance->dnd_drop_layout = cam_app_load_edj(edit_box_instance->base, edj_path, "dnd_box_drop_layout");
 	cam_retvm_if(edit_box_instance->dnd_drop_layout == NULL, FALSE, "edit_box_instance->dnd_drop_layout is not created");
 	elm_object_part_content_set(edit_box_instance->base, "box_area", edit_box_instance->dnd_drop_layout);
 #endif

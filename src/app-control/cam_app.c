@@ -22,6 +22,7 @@
 #include <device/callback.h>
 #include <device/display.h>
 #include <storage.h>
+#include <app_common.h>
 
 #include "cam.h"
 #include "cam_app.h"
@@ -493,12 +494,32 @@ void cam_app_get_win_size(void *data)
 	cam_secure_debug(LOG_UI, "main window ----- win_width, win_height: [%d, %d]", ad->win_width, ad->win_height);
 }
 
+
+int cam_appdata_set(void *data)
+{
+	struct appdata *ad = (struct appdata *)data;
+	cam_retvm_if(ad == NULL, 0, "appdata is NULL");
+	char *respath = NULL;
+
+	app_handle = ad;
+
+	respath = app_get_resource_path();
+	if ( respath != NULL) {
+		ad->cam_res_ini = strdup(respath);
+		cam_warning(LOG_UI, "app_get_resource_path =%s",ad->cam_res_ini);
+		free(respath);
+	}
+	return 1;
+}
+
 int cam_appdata_init(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
 	cam_retvm_if(ad == NULL, 0, "appdata is NULL");
 
-	app_handle = ad;
+	if(app_handle == NULL) {
+		app_handle = ad;
+	}
 
 	ad->main_pipe = ecore_pipe_add(cam_app_pipe_handler, ad);
 
@@ -1286,16 +1307,21 @@ gboolean cam_layout_init(void *data)
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp is NULL");
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SETTING_POPUP_STYLE_WITH_RADIO_EDJ_NAME);
 	ad->pinch_edje = NULL;
 	ad->gallery_edje = NULL;
 	camapp->pinch_enable = FALSE;
 	cam_app_start_rotate(ad, TRUE);
 
-	elm_theme_extension_add(NULL, CAM_SETTING_POPUP_STYLE_WITH_RADIO_EDJ_NAME);
-	elm_theme_extension_add(NULL, CAM_LABEL_STYLE_EDJ_NAME);
-	elm_theme_extension_add(NULL, CAM_GENGRID_STYLE_EDJ_NAME);
-	elm_theme_extension_add(NULL, CAM_BUTTON_STYLE_EDJ_NAME);
+	elm_theme_extension_add(NULL, edj_path);
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_LABEL_STYLE_EDJ_NAME);
+	elm_theme_extension_add(NULL, edj_path);
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_GENGRID_STYLE_EDJ_NAME);
+	elm_theme_extension_add(NULL, edj_path);
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_BUTTON_STYLE_EDJ_NAME);
+	elm_theme_extension_add(NULL, edj_path);
 
 	cam_define_mouse_callback(ad);
 	cam_define_gesture_callback(ad);
@@ -3000,24 +3026,26 @@ static void cam_app_timer_update_count(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 
 	cam_debug(LOG_UI, "timer count ... [ %d ]", ad->timer_count);
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 	cam_elm_object_part_content_unset(ad->main_layout, "timer_layout");
 	DEL_EVAS_OBJECT(ad->timer_icon_edje);
 	if (ad->timer_icon_edje == NULL) {
 		switch (ad->target_direction) {
 		case CAM_TARGET_DIRECTION_LANDSCAPE:
-			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "timer_icon_landscape");
+			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, edj_path, "timer_icon_landscape");
 			break;
 		case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "timer_icon_landscape_inverse");
+			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, edj_path, "timer_icon_landscape_inverse");
 			break;
 		case CAM_TARGET_DIRECTION_PORTRAIT:
-			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "timer_icon_portrait");
+			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, edj_path, "timer_icon_portrait");
 			break;
 		case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "timer_icon_portrait_inverse");
+			ad->timer_icon_edje = cam_app_load_edj(ad->main_layout, edj_path, "timer_icon_portrait_inverse");
 			break;
 		default:
 			cam_critical(LOG_CAM, "Invalid direction type!!!");
@@ -5399,11 +5427,13 @@ static Eina_Bool __cam_focus_rotate_cb(void *data)
 
 Cam_Animation_Data *cam_focus_create(void *data)
 {
-	struct appdata *ad = cam_appdata_get();
-	cam_retv_if(ad == NULL, EINA_FALSE);
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 	Cam_Animation_Data *waiting_instance = CAM_CALLOC(1, sizeof(Cam_Animation_Data));
 	cam_retvm_if(waiting_instance == NULL, NULL, "parent is NULL");
-	waiting_instance->button = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "focus_inner_circle");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
+	waiting_instance->button = cam_app_load_edj(ad->main_layout, edj_path, "focus_inner_circle");
 
 	waiting_instance->timer = ecore_timer_add(0.01, __cam_focus_rotate_cb, waiting_instance);
 	return waiting_instance;
@@ -5534,6 +5564,7 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 	int screen_width = 0;
 	int screen_height = 0;
 	int state = cam_mm_get_state();
+	char edj_path[1024] = {0};
 
 	if ((camapp->camera_mode == CAM_CAMERA_MODE && state == CAMERA_STATE_CAPTURING) || (camapp->camera_mode == CAM_CAMCORDER_MODE)) {
 		cam_debug(LOG_CAM, "camera state is capturing");
@@ -5545,7 +5576,8 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 		cam_debug(LOG_CAM, "file doesn't exists");
 		return EINA_FALSE;
 	}
-	ad->gallery_edje =  cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "after_shot_image");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
+	ad->gallery_edje =  cam_app_load_edj(ad->main_layout, edj_path, "after_shot_image");
 	if (ad->gallery_edje == NULL) {
 		cam_critical(LOG_CAM, "gallery_edje load failed ");
 		return EINA_FALSE;
@@ -5615,6 +5647,7 @@ Eina_Bool cam_app_gallery_edje_create(void *data)
 
 	/*gchar *filename = NULL;*/
 	Evas_Object *galleryImgObject = NULL;
+	char edj_path[1024] = {0};
 
 	int state = cam_mm_get_state();
 	if ((camapp->camera_mode == CAM_CAMERA_MODE && state == CAMERA_STATE_CAPTURING) || (camapp->camera_mode == CAM_CAMCORDER_MODE)) {
@@ -5627,7 +5660,8 @@ Eina_Bool cam_app_gallery_edje_create(void *data)
 		cam_debug(LOG_UI, "file doesn't exists");
 		return EINA_FALSE;
 	}
-	ad->gallery_edje =  cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "gallery_image");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
+	ad->gallery_edje =  cam_app_load_edj(ad->main_layout, edj_path, "gallery_image");
 	if (ad->gallery_edje == NULL) {
 		cam_critical(LOG_UI, "gallery_edje load failed ");
 		return EINA_FALSE;
@@ -5651,6 +5685,7 @@ Eina_Bool cam_app_focused_image_create(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
 	cam_retv_if(ad == NULL, EINA_FALSE);
+	char edj_path[1024] = {0};
 	CamAppData *camapp = ad->camapp_handle;
 	g_return_val_if_fail(camapp, FALSE);
 	/*NOTE: TODO, perhaps there is issue:
@@ -5659,10 +5694,11 @@ Eina_Bool cam_app_focused_image_create(void *data)
 	cam_ui_effect_utils_stop_zoom_effect();
 	cam_app_focus_guide_destroy(ad);
 	gint af_mode = camapp->focus_mode;
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_UTILS_EDJ_NAME);
 	if ((CamAppFocusMode)af_mode == CAM_FOCUS_MODE_CONTINUOUS) {
-		ad->focus_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "focus_image");
+		ad->focus_edje = cam_app_load_edj(ad->main_layout, edj_path, "focus_image");
 	} else {
-		ad->focus_edje = cam_app_load_edj(ad->main_layout, CAM_UTILS_EDJ_NAME, "touch_focus_image");
+		ad->focus_edje = cam_app_load_edj(ad->main_layout, edj_path, "touch_focus_image");
 	}
 	if (ad->focus_edje == NULL) {
 		cam_critical(LOG_UI, "focus_edje load failed ");

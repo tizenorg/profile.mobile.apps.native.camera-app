@@ -256,9 +256,13 @@ static void __mode_view_auto_image_mouse_move_cb(void *data, Evas *e, Evas_Objec
 static void __cam_mode_view_auto_mode_image_create_layout(Evas_Object *parent)
 {
 	cam_debug(LOG_CAM, "START");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME);
 	Evas_Object *layout = cam_app_load_edj(parent,
-	                                       CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME,
+	                                       edj_path,
 	                                       "shooting_mode/automode/layout");
 
 	elm_object_part_content_set(parent, "auto_mode_image", layout);
@@ -377,6 +381,9 @@ static void __mode_view_mode_button_cb(void *data, Evas_Object *obj, void *event
 
 static void __mode_view_layout_create()
 {
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retm_if(ad == NULL, "appdata is NULL");
+	char edj_path[1024] = {0};
 	if (check_shooting_mode_controler_instance() == FALSE) {
 		return;
 	}
@@ -391,7 +398,8 @@ static void __mode_view_layout_create()
 		cam_compose_list_menu((void *)controler->ad, CAM_MENU_SHOOTING_MODE, controler->ad->sub_menu_composer);
 	}
 
-	controler->shooting_mode_layout = cam_app_load_edj(controler->parent, CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME, "shooting_mode/layout");
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME);
+	controler->shooting_mode_layout = cam_app_load_edj(controler->parent, edj_path, "shooting_mode/layout");
 
 	switch (controler->ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:

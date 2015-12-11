@@ -334,6 +334,9 @@ gboolean cam_zoom_load_edje(struct appdata *ad)
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_ZOOM_EDJ_NAME);
 	DEL_EVAS_OBJECT(ad->pinch_edje);
 
 	if (cam_app_is_timer_activated() == TRUE) {
@@ -346,7 +349,7 @@ gboolean cam_zoom_load_edje(struct appdata *ad)
 	/* zoom bg */
 	gboolean portrait = FALSE;
 	gboolean slider_inverse = FALSE;
-	ad->zoom_edje = cam_app_load_edj(ad->main_layout, CAM_ZOOM_EDJ_NAME, GRP_MAIN);
+	ad->zoom_edje = cam_app_load_edj(ad->main_layout, edj_path, GRP_MAIN);
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
 		edje_object_signal_emit(_EDJ(ad->zoom_edje), "landscape", "zoom");
@@ -374,7 +377,7 @@ gboolean cam_zoom_load_edje(struct appdata *ad)
 
 	cam_retvm_if(ad->zoom_edje == NULL, FALSE, "zom_edje is NULL");
 
-	ad->zoom_text_edje = cam_app_load_edj(ad->zoom_edje, CAM_ZOOM_EDJ_NAME, GRP_ZOOM_TEXT);
+	ad->zoom_text_edje = cam_app_load_edj(ad->zoom_edje, edj_path, GRP_ZOOM_TEXT);
 	cam_retvm_if(ad->zoom_text_edje == NULL, FALSE, "zoom_text_edje is NULL");
 
 	elm_object_part_content_set(ad->zoom_edje, "zoom_text", ad->zoom_text_edje);
@@ -537,6 +540,9 @@ void cam_zoom_create_pinch_edje(struct appdata *data)
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retm_if(camapp == NULL, "camapp_handle is NULL");
+	char edj_path[1024] = {0};
+
+	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_ZOOM_EDJ_NAME);
 
 	DEL_EVAS_OBJECT(ad->pinch_edje);
 
@@ -545,11 +551,11 @@ void cam_zoom_create_pinch_edje(struct appdata *data)
 	switch (ad->target_direction) {
 	case CAM_TARGET_DIRECTION_LANDSCAPE:
 	case CAM_TARGET_DIRECTION_LANDSCAPE_INVERSE:
-		ad->pinch_edje = cam_app_load_edj(ad->main_layout, CAM_ZOOM_EDJ_NAME, "pinch");
+		ad->pinch_edje = cam_app_load_edj(ad->main_layout, edj_path, "pinch");
 		break;
 	case CAM_TARGET_DIRECTION_PORTRAIT:
 	case CAM_TARGET_DIRECTION_PORTRAIT_INVERSE:
-		ad->pinch_edje = cam_app_load_edj(ad->main_layout, CAM_ZOOM_EDJ_NAME, "pinch_vertical");
+		ad->pinch_edje = cam_app_load_edj(ad->main_layout, edj_path, "pinch_vertical");
 		break;
 	default:
 		cam_critical(LOG_CAM, "error target direction!");

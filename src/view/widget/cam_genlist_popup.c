@@ -132,6 +132,8 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 	cam_genlist_popup_item *genlist_item = (cam_genlist_popup_item *)data;
 	cam_retvm_if(genlist_item == NULL, NULL, "genlist_item is NULL");
 	cam_retvm_if(genlist_item->genlist_popup_instance == NULL, NULL, "genlist_popup_instance is NULL");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 
 	Evas_Object *content = NULL;
 	if (!strcmp(part, "elm.icon.2")) {
@@ -159,6 +161,7 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 			char icon_name[1024 + 1] = { '\0', };
 			char *get_incon_name = NULL;
 			Evas_Object *icon = NULL;
+			char edj_path[1024] = {0};
 
 			content = elm_layout_add(obj);
 			elm_layout_theme_set(content, "layout", "list/B/type.3", "default");
@@ -167,8 +170,9 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 			cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
 			strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
 
+			snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 			icon = elm_image_add(content);
-			elm_image_file_set(icon, CAM_IMAGE_EDJ_NAME, icon_name);
+			elm_image_file_set(icon, edj_path, icon_name);
 			elm_layout_content_set(content, "elm.swallow.content", icon);
 		}
 	}

@@ -43,29 +43,28 @@
 #define GRP_ZOOM_TEXT					"zoom_text"
 #define GRP_EXPOSURE_TEXT				"exposure_text"
 
-#define CAM_MAIN_LAYOUT_EDJ_NAME						EDJ_PATH"/cam_main_layout.edj"
+#define CAM_MAIN_LAYOUT_EDJ_NAME						"cam_main_layout.edj"
 
-#define CAM_RECORDING_VIEW_EDJ_NAME						EDJ_PATH"/cam_recording_view.edj"
-#define CAM_SETTING_VIEW_EDJ_NAME						EDJ_PATH"/cam_setting_view.edj"
-#define CAM_SHOT_PROCESSING_VIEW_EDJ_NAME				EDJ_PATH"/cam_shot_processing_view.edj"
-#define CAM_STANDBY_VIEW_EDJ_NAME						EDJ_PATH"/cam_standby_view.edj"
-#define CAM_SHOT_VIEW_GUIDE_EDJ_NAME					EDJ_PATH"/cam_shot_guide_text.edj"
-#define CAM_SETTING_POPUP_LAYOUT_EDJ_NAME				EDJ_PATH"/cam_setting_popup_layout.edj"
+#define CAM_RECORDING_VIEW_EDJ_NAME						"cam_recording_view.edj"
+#define CAM_SETTING_VIEW_EDJ_NAME						"cam_setting_view.edj"
+#define CAM_SHOT_PROCESSING_VIEW_EDJ_NAME				"cam_shot_processing_view.edj"
+#define CAM_STANDBY_VIEW_EDJ_NAME						"cam_standby_view.edj"
+#define CAM_SHOT_VIEW_GUIDE_EDJ_NAME					"cam_shot_guide_text.edj"
+#define CAM_SETTING_POPUP_LAYOUT_EDJ_NAME				"cam_setting_popup_layout.edj"
 
-#define CAM_SETTING_POPUP_STYLE_WITH_RADIO_EDJ_NAME		EDJ_PATH"/style_ctxpopup_camera_with_radio.edj"
-#define CAM_LABEL_STYLE_EDJ_NAME						EDJ_PATH"/style_label_camera.edj"
-#define CAM_GENGRID_STYLE_EDJ_NAME						EDJ_PATH"/style_gengrid_camera.edj"
-#define CAM_BUTTON_STYLE_EDJ_NAME						EDJ_PATH"/style_button_camera.edj"
+#define CAM_SETTING_POPUP_STYLE_WITH_RADIO_EDJ_NAME		"style_ctxpopup_camera_with_radio.edj"
+#define CAM_LABEL_STYLE_EDJ_NAME						"style_label_camera.edj"
+#define CAM_GENGRID_STYLE_EDJ_NAME						"style_gengrid_camera.edj"
+#define CAM_BUTTON_STYLE_EDJ_NAME						"style_button_camera.edj"
 
-#define CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME				EDJ_PATH"/cam_shooting_mode_layout.edj"
-#define CAM_QUICKSETTING_HELP_EDJ_NAME					EDJ_PATH"/cam_quicksetting_help.edj"
+#define CAM_SHOOTING_MODE_LAYOUT_EDJ_NAME				"cam_shooting_mode_layout.edj"
+#define CAM_QUICKSETTING_HELP_EDJ_NAME					"cam_quicksetting_help.edj"
 
-#define CAM_UTILS_EDJ_NAME								EDJ_PATH"/cam_utils.edj"
-#define CAM_EV_EDJ_NAME									EDJ_PATH"/cam_ev_layout.edj"
-#define CAM_ZOOM_EDJ_NAME								EDJ_PATH"/cam_zoom_layout.edj"
-#define CAM_SELFIE_LAYOUT_EDJ_NAME								EDJ_PATH"/cam_selfie_layout.edj"
-#define CAM_IMAGE_EDJ_NAME								EDJ_PATH"/cam_images.edj"
-
+#define CAM_UTILS_EDJ_NAME								"cam_utils.edj"
+#define CAM_EV_EDJ_NAME									"cam_ev_layout.edj"
+#define CAM_ZOOM_EDJ_NAME								"cam_zoom_layout.edj"
+#define CAM_SELFIE_LAYOUT_EDJ_NAME								"cam_selfie_layout.edj"
+#define CAM_IMAGE_EDJ_NAME								"cam_images.edj"
 
 #define IMAGE_VIEWER_VIEW_MODE_KEY_NAME					"View Mode"
 #define IMAGE_VIEWER_FILE_PATH_KEY_NAME					"Path"
@@ -243,6 +242,7 @@ struct appdata {
 	/* caller */
 	char *caller;
 	char *cam_data_ini;
+	char *cam_res_ini;
 	/* Thread for file register */
 	pthread_mutex_t file_reg_mutex;
 	pthread_cond_t file_reg_cond;
