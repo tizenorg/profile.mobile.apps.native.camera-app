@@ -119,7 +119,7 @@ static char *__cam_genlist_popup_gl_text_get(void *data, Evas_Object *obj, const
 
 	char get_stringID[128] = {0};
 
-	if (!strcmp(part, "elm.text.main.left")) {
+	if (!strcmp(part, "elm.text")) {
 		cam_get_menu_item_text(genlist_item->type, get_stringID, FALSE);
 		return elm_entry_utf8_to_markup(dgettext(PACKAGE, get_stringID));
 	}
@@ -135,16 +135,12 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
 	cam_retvm_if(ad == NULL, NULL, "appdata is NULL");
 
-	Evas_Object *content = NULL;
-	if (!strcmp(part, "elm.icon.2")) {
+	if (!strcmp(part, "elm.swallow.end")) {
 		Evas_Object *radio = NULL;
 		int index = genlist_item->index;
 		CAM_MENU_ITEM value_item = cam_convert_setting_value_to_menu_item(genlist_item->genlist_popup_instance->menu_type);
 
-		content = elm_layout_add(obj);
-		elm_layout_theme_set(content, "layout", "list/C/type.2", "default");
-
-		radio = elm_radio_add(content);
+		radio = elm_radio_add(obj);
 		elm_radio_state_value_set(radio, index);
 		elm_radio_group_add(radio, genlist_item->genlist_popup_instance->radio_group);
 		if (genlist_item->type == value_item) {
@@ -155,29 +151,25 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 		evas_object_smart_callback_add(radio, "changed", __cam_genlist_popup_gl_selected_cb, (void *)genlist_item);
 		evas_object_size_hint_weight_set(radio, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 		evas_object_size_hint_align_set(radio, EVAS_HINT_FILL, EVAS_HINT_FILL);
-		elm_layout_content_set(content, "elm.swallow.content", radio);
-	} else if (!strcmp(part, "elm.icon.1")) {
+		return radio;
+	} else if (!strcmp(part, "elm.swallow.icon")) {
 		if ((genlist_item->genlist_popup_instance->menu_type) != CAM_MENU_VOLUME_KEY) {
 			char icon_name[1024 + 1] = { '\0', };
 			char *get_incon_name = NULL;
 			Evas_Object *icon = NULL;
 			char edj_path[1024] = {0};
-
-			content = elm_layout_add(obj);
-			elm_layout_theme_set(content, "layout", "list/B/type.3", "default");
-
 			get_incon_name = (char *)cam_get_menu_item_image(genlist_item->type, CAM_MENU_STATE_NORMAL);
 			cam_retvm_if(get_incon_name == NULL, NULL, "can not get icon name");
 			strncpy(icon_name, get_incon_name, sizeof(icon_name) - 1);
 
 			snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
-			icon = elm_image_add(content);
+			icon = elm_image_add(obj);
 			elm_image_file_set(icon, edj_path, icon_name);
-			elm_layout_content_set(content, "elm.swallow.content", icon);
+			return icon;
 		}
 	}
 
-	return content;
+	return NULL;
 }
 
 static void __cam_genlist_popup_gl_item_del(void *data, Evas_Object *obj)
