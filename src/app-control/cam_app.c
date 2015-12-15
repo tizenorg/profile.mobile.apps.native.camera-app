@@ -5848,6 +5848,7 @@ static int cam_app_camera_state_manager(int previous, int current, gboolean by_a
 
 void cam_app_exit(void *data)
 {
+	return ;
 	struct appdata *ad = (struct appdata *)data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 

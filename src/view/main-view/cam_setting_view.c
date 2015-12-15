@@ -719,14 +719,11 @@ static Evas_Object *__cam_setting_view_genlist_content_get(void *data, Evas_Obje
 	cam_retvm_if(setting_view->ad == NULL, NULL, "appdata is NULL");
 
 	Evas_Object *check = NULL;
-	Evas_Object *content = NULL;
 
 	if (!strcmp(itc->item_style, "type1")) {
 		if (!strcmp(part, "elm.swallow.end")
 		        && (CAM_SETTING_TYPE_SWITCH == __cam_setting_view_get_menu_type(genlist_item->type))) {
-			content = elm_layout_add(obj);
-			elm_layout_theme_set(content, "layout", "list/C/type.3", "default");
-			check = elm_check_add(content);
+			check = elm_check_add(obj);
 			evas_object_size_hint_align_set(check, EVAS_HINT_FILL, EVAS_HINT_FILL);
 			evas_object_size_hint_weight_set(check, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 			elm_object_style_set(check, "on&off");
@@ -736,14 +733,14 @@ static Evas_Object *__cam_setting_view_genlist_content_get(void *data, Evas_Obje
 			evas_object_propagate_events_set(check, EINA_FALSE);
 			evas_object_repeat_events_set(check, EINA_FALSE);
 			evas_object_smart_callback_add(check, "changed", __cam_setting_view_genlist_item_selected, (void *)genlist_item);
-			elm_layout_content_set(content, "elm.swallow.content", check);
 			cam_debug(LOG_UI, "genlist_item->type %d, value_item %d, state %d", genlist_item->type, value_item, state);
+			return check;
 		}
 	} else {
 		cam_critical(LOG_UI, "error item_style %s", itc->item_style);
 	}
 
-	return content;
+	return NULL;
 }
 
 static void __cam_setting_view_genlist_item_del(void *data, Evas_Object *obj)
