@@ -64,25 +64,33 @@ gboolean cam_config_init()
 
 	gchar cam_data_ini[CAM_INIT_PATH_MAX] = { 0, };
 	gchar cam_res_ini[CAM_INIT_PATH_MAX] = { 0, };
+	gchar cam_internal_path[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_file[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_file_bak[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_folder[CAM_INIT_PATH_MAX] = { 0, };
 	char *datapath = NULL;
 	char *respath = NULL;
 	datapath = app_get_data_path();
-	if (datapath != NULL) {
-		respath = app_get_resource_path();
-		if (respath != NULL) {
-			cam_warning(LOG_UI, "app_get_data_path = %s , app_get_resource_path = %s", datapath, respath);
-			snprintf(cam_data_ini, sizeof(cam_data_ini), "%s%s", datapath, ".camera.ini");
-			snprintf(cam_res_ini, sizeof(cam_res_ini), "%s%s", respath, ".camera.ini");
+	respath = app_get_resource_path();
+	if ((datapath != NULL) && (respath != NULL)) {
+		cam_warning(LOG_UI, "app_get_data_path = %s , app_get_resource_path = %s", datapath, respath);
+		snprintf(cam_data_ini, sizeof(cam_data_ini), "%s%s", datapath, ".camera.ini");
+		snprintf(cam_res_ini, sizeof(cam_res_ini), "%s%s", respath, ".camera.ini");
 
-			cam_warning(LOG_UI, " app_data_ini_path = %s app_res_ini_path = %s", cam_data_ini, cam_res_ini);
-			free(respath);
-			if (cam_file_check_exists(cam_data_ini) == FALSE) {
-				cam_file_copy(cam_res_ini, cam_data_ini);
-			}
-			ad->cam_data_ini = strdup(cam_data_ini);
-		}
+		cam_warning(LOG_UI, " app_data_ini_path = %s app_res_ini_path = %s", cam_data_ini, cam_res_ini);
 		free(datapath);
+		free(respath);
+		if (cam_file_check_exists(cam_data_ini) == FALSE) {
+			cam_file_copy(cam_res_ini, cam_data_ini);
+		}
+		ad->cam_data_ini = strdup(cam_data_ini);
 	}
+		snprintf(temp_thumbnail_file, sizeof(temp_thumbnail_file), "%s%s", ad->cam_internal_path, ".thumbnail/temp_thumbnail.jpg");
+		snprintf(temp_thumbnail_file_bak, sizeof(temp_thumbnail_file_bak), "%s%s", ad->cam_internal_path, ".thumbnail/temp_thumbnail_bak.jpg");
+		snprintf(temp_thumbnail_folder, sizeof(temp_thumbnail_folder), "%s%s", ad->cam_internal_path, ".thumbnail");
+		ad->temp_thumbnail_file = strdup(temp_thumbnail_file);
+		ad->temp_thumbnail_file_bak = strdup(temp_thumbnail_file_bak);
+		ad->temp_thumbnail_folder = strdup(temp_thumbnail_folder);
 	if (!g_group_name) {
 		g_group_name = g_new0(gchar *, CAM_CONFIG_MAX);
 		cam_config_set_group_name(CAM_CONFIG_TYPE_COMMON, "common");

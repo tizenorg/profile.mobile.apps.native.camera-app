@@ -201,14 +201,18 @@ cam_file_rename(const gchar *filename, const gchar *new_name, GError **error)
 
 const gchar *cam_file_get_internal_image_path(void)
 {
-	gchar *spath = INTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_internal_path ;
 
 	return spath;
 }
 
 const gchar *cam_file_get_internal_video_path(void)
 {
-	gchar *spath = INTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_internal_path ;
 
 	return spath;
 }
@@ -232,48 +236,23 @@ gboolean cam_check_phone_dir()
 	DIR *internal_dcim_dir = NULL;
 	DIR *internal_file_dir = NULL;
 	int ret = -1;
-
-	internal_dcim_dir = opendir(INTERNAL_DCIM_PATH);
-	if (internal_dcim_dir == NULL) {
-		ret = mkdir(INTERNAL_DCIM_PATH, 0777);
-		if (ret < 0) {
-			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", INTERNAL_DCIM_PATH, errno);
-			if (errno != ENOSPC) {
-				goto ERROR;
-			}
-		}
-	}
-
-	internal_file_dir = opendir(INTERNAL_FILE_PATH);
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
+	internal_file_dir = opendir(ad->cam_internal_path);
 	if (internal_file_dir == NULL) {
-		ret = mkdir(INTERNAL_FILE_PATH, 0777);
+		ret = mkdir(ad->cam_internal_path, 0777);
 		if (ret < 0) {
-			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", INTERNAL_FILE_PATH, errno);
+			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", ad->cam_internal_path, errno);
 			if (errno != ENOSPC) {
-				goto ERROR;
+				return FALSE;
 			}
 		}
 	}
-
 	if (internal_file_dir) {
 		closedir(internal_file_dir);
 		internal_file_dir = NULL;
 	}
-
-	if (internal_dcim_dir) {
-		closedir(internal_dcim_dir);
-		internal_dcim_dir = NULL;
-	}
-
 	return TRUE;
-
-ERROR:
-	if (internal_dcim_dir) {
-		closedir(internal_dcim_dir);
-		internal_dcim_dir = NULL;
-	}
-
-	return FALSE;
 }
 
 
@@ -512,7 +491,8 @@ gchar *cam_file_get_last_file_path(void *data, int storage_type)
 	if (storage_type == CAM_STORAGE_EXTERNAL) {
 		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=1) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, EXTERNAL_FILE_PATH);
 	} else {
-		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=0) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, INTERNAL_FILE_PATH);
+		//snprintf(condition, CAM_FILE_PATH_MAX, "(%s=0) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, INTERNAL_FILE_PATH);
+		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=0) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, ad->cam_internal_path);
 	}
 
 	filter_h filter = NULL;
