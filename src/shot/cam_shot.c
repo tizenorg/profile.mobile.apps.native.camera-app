@@ -42,10 +42,6 @@
 
 /* review image check count */
 static int g_review_image_check_count = 0;
-const gchar *temp_thumbnail_file = INTERNAL_FILE_PATH"/.thumbnail/temp_thumbnail.jpg";
-const gchar *temp_thumbnail_file_bak = INTERNAL_FILE_PATH"/.thumbnail/temp_thumbnail_bak.jpg";
-const gchar *temp_thumbnail_folder = INTERNAL_FILE_PATH"/.thumbnail";
-
 static void *__image_viewer_thread_run(void *data);
 static Eina_Bool __run_image_viewer_idler(void *data);
 static void __image_viewer_thread_join(void *data);
@@ -271,14 +267,14 @@ static void __shot_cb_update_thumbnial(void *data)
 		break;
 	}
 
-	if (access(temp_thumbnail_folder, 0)) {
-		if (mkdir(temp_thumbnail_folder, S_IRUSR | S_IWUSR | S_IXUSR) < 0) {
+	if (access(ad->temp_thumbnail_folder, 0)) {
+		if (mkdir(ad->temp_thumbnail_folder, S_IRUSR | S_IWUSR | S_IXUSR) < 0) {
 			cam_critical(LOG_FILE, "mkdir(for origin) is failed");
 			return;
 		}
 	}
 
-	thumbnail_file = count == 0 ? temp_thumbnail_file : temp_thumbnail_file_bak;
+	thumbnail_file = count == 0 ? ad->temp_thumbnail_file : ad->temp_thumbnail_file_bak;
 	count++;
 	count = count >= 2 ? 0 : count;
 	if (thumbnail_rotate_image_file_from_memory((const char *)thumbnail->data, thumbnail->size, IMAGE_UTIL_COLORSPACE_RGB888, dest_direction, thumbnail_file) == TRUE) {

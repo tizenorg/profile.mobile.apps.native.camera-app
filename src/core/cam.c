@@ -40,6 +40,7 @@
 #include <system_settings.h>
 #include <storage.h>
 #include <runtime_info.h>
+#include <storage.h>
 
 #define CAM_EXT_LIB_PATH "/usr/lib/libcamera-external-engine.so"
 
@@ -180,6 +181,8 @@ static bool cam_create(void *user_data)
 	cam_retvm_if(ad == NULL, false, "appdata is NULL");
 
 	int ret = -1;
+	char *cam_internal_path = NULL;
+	char *cam_external_path = NULL;
 
 	bindtextdomain(PACKAGE, LOCALESDIR);
 
@@ -231,6 +234,11 @@ static bool cam_create(void *user_data)
 		return false;
 	}
 	CAM_LAUNCH("cam_appdata_init", "OUT");
+
+	storage_get_directory(STORAGE_TYPE_INTERNAL, STORAGE_DIRECTORY_CAMERA, &cam_internal_path);
+	storage_get_directory(STORAGE_TYPE_EXTERNAL, STORAGE_DIRECTORY_CAMERA, &cam_external_path);
+	ad->cam_internal_path = strdup(cam_internal_path);
+	ad->cam_external_path = strdup(cam_external_path);
 
 	cam_init_shooting_mode();
 
