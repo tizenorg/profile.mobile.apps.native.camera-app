@@ -241,8 +241,13 @@ struct appdata {
 	CamExeArgs *exe_args;
 	/* caller */
 	char *caller;
-	char *cam_data_ini;
 	char *cam_res_ini;
+	char *cam_data_ini;
+	char *cam_internal_path;
+	char *cam_external_path;
+	gchar *temp_thumbnail_file;
+	gchar *temp_thumbnail_file_bak;
+	gchar *temp_thumbnail_folder;
 	/* Thread for file register */
 	pthread_mutex_t file_reg_mutex;
 	pthread_cond_t file_reg_cond;

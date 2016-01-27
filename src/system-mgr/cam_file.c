@@ -201,28 +201,36 @@ cam_file_rename(const gchar *filename, const gchar *new_name, GError **error)
 
 const gchar *cam_file_get_internal_image_path(void)
 {
-	gchar *spath = INTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_internal_path ;
 
 	return spath;
 }
 
 const gchar *cam_file_get_internal_video_path(void)
 {
-	gchar *spath = INTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_internal_path ;
 
 	return spath;
 }
 
 const gchar *cam_file_get_external_image_path(void)
 {
-	gchar *spath = EXTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_external_path ;
 
 	return spath;
 }
 
 const gchar *cam_file_get_external_video_path(void)
 {
-	gchar *spath = EXTERNAL_FILE_PATH;
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, NULL, "ad is NULL");
+	gchar *spath = ad->cam_external_path ;
 
 	return spath;
 }
@@ -232,48 +240,23 @@ gboolean cam_check_phone_dir()
 	DIR *internal_dcim_dir = NULL;
 	DIR *internal_file_dir = NULL;
 	int ret = -1;
-
-	internal_dcim_dir = opendir(INTERNAL_DCIM_PATH);
-	if (internal_dcim_dir == NULL) {
-		ret = mkdir(INTERNAL_DCIM_PATH, 0777);
-		if (ret < 0) {
-			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", INTERNAL_DCIM_PATH, errno);
-			if (errno != ENOSPC) {
-				goto ERROR;
-			}
-		}
-	}
-
-	internal_file_dir = opendir(INTERNAL_FILE_PATH);
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
+	internal_file_dir = opendir(ad->cam_internal_path);
 	if (internal_file_dir == NULL) {
-		ret = mkdir(INTERNAL_FILE_PATH, 0777);
+		ret = mkdir(ad->cam_internal_path, 0777);
 		if (ret < 0) {
-			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", INTERNAL_FILE_PATH, errno);
+			cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", ad->cam_internal_path, errno);
 			if (errno != ENOSPC) {
-				goto ERROR;
+				return FALSE;
 			}
 		}
 	}
-
 	if (internal_file_dir) {
 		closedir(internal_file_dir);
 		internal_file_dir = NULL;
 	}
-
-	if (internal_dcim_dir) {
-		closedir(internal_dcim_dir);
-		internal_dcim_dir = NULL;
-	}
-
 	return TRUE;
-
-ERROR:
-	if (internal_dcim_dir) {
-		closedir(internal_dcim_dir);
-		internal_dcim_dir = NULL;
-	}
-
-	return FALSE;
 }
 
 
@@ -281,41 +264,29 @@ gboolean cam_check_mmc_dir(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
-	DIR *external_dcim_dir = NULL;
 	DIR *external_file_dir = NULL;
 	int ret = -1;
 	storage_state_e mmc_state;
 	int error_code = storage_get_state(ad->externalstorageId, &mmc_state);
 	if (error_code == STORAGE_ERROR_NONE) {
 		if (mmc_state == STORAGE_STATE_MOUNTED) {
-			external_dcim_dir = opendir(EXTERNAL_DCIM_PATH);
-			if (external_dcim_dir == NULL) {
-				ret = mkdir(EXTERNAL_DCIM_PATH, 0777);
-				if (ret < 0) {
-					cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", EXTERNAL_DCIM_PATH, errno);
-					if (errno != ENOSPC) {
-						goto ERROR;
-					}
-				}
-			}
-
-			external_file_dir = opendir(EXTERNAL_FILE_PATH);
+			external_file_dir = opendir(ad->cam_external_path);
 			if (external_file_dir == NULL) {
-				ret = mkdir(EXTERNAL_FILE_PATH, 0777);
+				ret = mkdir(ad->cam_external_path, 0777);
 				if (ret < 0) {
-					cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", EXTERNAL_FILE_PATH, errno);
+					cam_secure_critical(LOG_UI, "mkdir [%s] failed - [%d]", ad->cam_external_path, errno);
 					if (errno != ENOSPC) {
-						goto ERROR;
+						return FALSE;
 					}
 				}
 			}
 		} else {
 			cam_warning(LOG_UI, "mmc state is [%d]", mmc_state);
-			goto ERROR;
+			return FALSE;
 		}
 	} else {
 		cam_critical(LOG_UI, "failed to get storage state");
-		goto ERROR;
+		return FALSE;
 	}
 
 	if (external_file_dir) {
@@ -323,20 +294,7 @@ gboolean cam_check_mmc_dir(void *data)
 		external_file_dir = NULL;
 	}
 
-	if (external_dcim_dir) {
-		closedir(external_dcim_dir);
-		external_dcim_dir = NULL;
-	}
-
 	return TRUE;
-
-ERROR:
-	if (external_dcim_dir) {
-		closedir(external_dcim_dir);
-		external_dcim_dir = NULL;
-	}
-
-	return FALSE;
 }
 
 gchar *cam_file_get_next_filename_for_multishot(const gchar *storage_root,
@@ -510,9 +468,9 @@ gchar *cam_file_get_last_file_path(void *data, int storage_type)
 
 	char condition[CAM_FILE_PATH_MAX + 1] = { '\0', };
 	if (storage_type == CAM_STORAGE_EXTERNAL) {
-		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=1) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, EXTERNAL_FILE_PATH);
+		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=1) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, ad->cam_external_path);
 	} else {
-		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=0) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, INTERNAL_FILE_PATH);
+		snprintf(condition, CAM_FILE_PATH_MAX, "(%s=0) AND (%s LIKE '%s/%%')", MEDIA_STORAGE_TYPE, MEDIA_PATH, ad->cam_internal_path);
 	}
 
 	filter_h filter = NULL;
