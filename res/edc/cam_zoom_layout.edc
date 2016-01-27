@@ -16,8 +16,8 @@
 */
 
 #include "cam_funcs.edc"
-#include "../inc/edc_image_name.h"
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
 
 #define ZOOM_BG_W		52
 #define ZOOM_BG_H		412

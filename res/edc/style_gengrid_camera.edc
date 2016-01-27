@@ -16,8 +16,8 @@
 */
 
 
-#include "../inc/edc_image_name.h"
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
 
 
 #define GRID_DEFAULT_BG_COLOR		0 0 0 0
