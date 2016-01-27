@@ -15,8 +15,8 @@
 *
 */
 
-#include "../inc/edc_image_name.h"
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
 
 #define PROCESSING_BG_AREA_W	330
 #define PROCESSING_BG_AREA_H	74

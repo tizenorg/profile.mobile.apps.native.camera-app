@@ -15,8 +15,8 @@
 *
 */
 
-#include "../inc/edc_image_name.h"
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
 #include "cam_funcs.edc"
 
 

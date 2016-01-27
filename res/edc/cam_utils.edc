@@ -16,7 +16,7 @@
 */
 
 #include "cam_funcs.edc"
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 
 #define CAM_FOCUS_IMG "CAMERA_FOCUS_IMG"
 

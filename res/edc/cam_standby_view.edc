@@ -17,7 +17,7 @@
 
 
 #include "cam_funcs.edc"
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 #include "cam_standby_view_inc.edc"
 
 #define THUMBNAIL_OFFSET_X 15

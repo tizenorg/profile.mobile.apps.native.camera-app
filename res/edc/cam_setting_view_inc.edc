@@ -17,7 +17,7 @@
 
 #ifndef __H_EDC_CAM_SETTING_VIEW_INC_EDC_H__
 #define __H_EDC_CAM_SETTING_VIEW_INC_EDC_H__
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_defines.h"
 
 
 #define SETTING_GENLIST_ARROW_OFFSET 40
