@@ -15,7 +15,7 @@
 *
 */
 
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 
 
 #define RESOURCE_IMAGE( FILE_NAME ) \
