@@ -16,7 +16,7 @@
 */
 
 #include "cam_funcs.edc"
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 #include "cam_setting_view_inc.edc"
 
 collections {

@@ -1,7 +1,7 @@
 APPNAME = camera-app
 
 type = app
-profile = mobile-2.4
+profile = mobile-3.0
 
 USER_SRCS = src/camera-app.c
 USER_DEFS =

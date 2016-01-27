@@ -15,7 +15,7 @@
 *
 */
 
-#include "../inc/edc_defines.h"
+#include "../../inc/edc_defines.h"
 
 styles {
 	style {
