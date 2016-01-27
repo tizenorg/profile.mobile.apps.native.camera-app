@@ -181,10 +181,9 @@ typedef enum _preview_mode_{
 
 /* storage path */
 #define INTERNAL_DCIM_PATH			"/opt/usr/media/DCIM"
-#define EXTERNAL_DCIM_PATH			"/opt/storage/sdcard/DCIM"
+#define EXTERNAL_DCIM_PATH			"/usr/storage/sdcard"
 #define INTERNAL_FILE_PATH			INTERNAL_DCIM_PATH"/Camera"
 #define EXTERNAL_FILE_PATH			EXTERNAL_DCIM_PATH"/Camera"
-#define POSTVIEW_IMAGE_PATH			INTERNAL_DCIM_PATH"/Camera/.postview.jpg"
 
 /* resolution string for camera ug */
 #define CAM_CAPTURE_RES_VGA			"VGA"

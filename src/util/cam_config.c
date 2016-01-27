@@ -64,6 +64,9 @@ gboolean cam_config_init()
 
 	gchar cam_data_ini[CAM_INIT_PATH_MAX] = { 0, };
 	gchar cam_res_ini[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_file[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_file_bak[CAM_INIT_PATH_MAX] = { 0, };
+	gchar temp_thumbnail_folder[CAM_INIT_PATH_MAX] = { 0, };
 	char *datapath = NULL;
 	char *respath = NULL;
 	datapath = app_get_data_path();
@@ -83,6 +86,12 @@ gboolean cam_config_init()
 		}
 		free(datapath);
 	}
+	snprintf(temp_thumbnail_file, sizeof(temp_thumbnail_file), "%s%s", ad->cam_internal_path, ".thumbnail/temp_thumbnail.jpg");
+	snprintf(temp_thumbnail_file_bak, sizeof(temp_thumbnail_file_bak), "%s%s", ad->cam_internal_path, ".thumbnail/temp_thumbnail_bak.jpg");
+	snprintf(temp_thumbnail_folder, sizeof(temp_thumbnail_folder), "%s%s", ad->cam_internal_path, ".thumbnail");
+	ad->temp_thumbnail_file = strdup(temp_thumbnail_file);
+	ad->temp_thumbnail_file_bak = strdup(temp_thumbnail_file_bak);
+	ad->temp_thumbnail_folder = strdup(temp_thumbnail_folder);
 	if (!g_group_name) {
 		g_group_name = g_new0(gchar *, CAM_CONFIG_MAX);
 		cam_config_set_group_name(CAM_CONFIG_TYPE_COMMON, "common");

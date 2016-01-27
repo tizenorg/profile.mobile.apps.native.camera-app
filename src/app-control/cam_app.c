@@ -574,6 +574,12 @@ int cam_appdata_fini(void *data)
 	IF_FREE(ad->app_control_mime);
 	IF_FREE(ad->cam_data_ini);
 	IF_FREE(ad->cam_res_ini);
+	IF_FREE(ad->cam_internal_path);
+	IF_FREE(ad->cam_external_path);
+	IF_FREE(ad->temp_thumbnail_file);
+	IF_FREE(ad->temp_thumbnail_file_bak);
+	IF_FREE(ad->temp_thumbnail_folder);
+
 	if (ad->file_reg_queue) {
 		while (!g_queue_is_empty(ad->file_reg_queue)) {
 			char *filename = NULL;
