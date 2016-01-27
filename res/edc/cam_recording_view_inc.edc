@@ -15,7 +15,7 @@
 *
 */
 
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 
 images {
 	image: REC_ICON_RECORDING_IMAGE COMP;

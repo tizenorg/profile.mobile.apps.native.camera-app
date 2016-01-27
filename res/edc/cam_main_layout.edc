@@ -16,7 +16,7 @@
 */
 
 #include "cam_funcs.edc"
-#include "../inc/edc_image_name.h"
+#include "../../inc/edc_image_name.h"
 
 #define QUICK_SETTING_HELP_X	238
 #define QUICK_SETTING_HELP_Y	100
