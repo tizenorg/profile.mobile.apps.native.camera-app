@@ -48,7 +48,6 @@ BuildRequires: pkgconfig(capi-system-system-settings)
 BuildRequires: pkgconfig(capi-system-runtime-info)
 BuildRequires: pkgconfig(capi-telephony)
 BuildRequires: pkgconfig(notification)
-BuildRequires: pkgconfig(libtzplatform-config)
 
 #Requires(post): signing-client
 
