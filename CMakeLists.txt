@@ -118,6 +118,7 @@ pkg_check_modules(pkgs REQUIRED
 	capi-system-system-settings
 	capi-telephony
 	notification
+	libtzplatform-config
 )
 
 FOREACH(flag ${pkgs_CFLAGS})
