@@ -165,6 +165,8 @@ static Evas_Object *__cam_genlist_popup_gl_icon_get(void *data, Evas_Object *obj
 			snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_IMAGE_EDJ_NAME);
 			icon = elm_image_add(obj);
 			elm_image_file_set(icon, edj_path, icon_name);
+			Evas_Coord w = 80, h = 80;
+			evas_object_size_hint_min_set(icon, w, h);
 			return icon;
 		}
 	}
@@ -185,7 +187,7 @@ static void __cam_genlist_popup_gl_style_set(Cam_Genlist_Popup *genlist_popup_in
 	cam_debug(LOG_UI, "start");
 	cam_retm_if(genlist_popup_instance == NULL, "genlist_popup_instance is NULL");
 
-	genlist_popup_instance->genlist_itc.item_style = "1line";
+	genlist_popup_instance->genlist_itc.item_style = "default";
 	genlist_popup_instance->genlist_itc.func.text_get = __cam_genlist_popup_gl_text_get;
 	genlist_popup_instance->genlist_itc.func.content_get = __cam_genlist_popup_gl_icon_get;
 	genlist_popup_instance->genlist_itc.func.state_get = NULL;
