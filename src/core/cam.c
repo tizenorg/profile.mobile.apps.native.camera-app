@@ -875,4 +875,108 @@ DLL_DEFAULT int main(int argc, char *argv[])
 	}
 	return ui_app_main(argc, argv, &event_callbacks, &ad);
 }
+
+void ResetCaps()
+{
+	//CCamDeviceCapacity::GetInstance()->ResetCaps();
+}
+
+
+void GetCamDevFuncCaps(unsigned int *eType, void *user_data)
+{
+	//CCamDeviceCapacity::GetInstance()->GetCamDevFuncCaps(eType, user_data);
+}
+
+bool GetCamDevCamResolutionCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevRecResolutionCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevFocusCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevEffectCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevWBCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevSceneModeCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevMeteringCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevISOCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevFlashCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevFpsCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevShotModeCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevRecModeCaps(unsigned int *uCapacity, void *user_data)
+{
+	return false;
+}
+
+bool GetCamDevZoomCaps(int *min, int *max)
+{
+	return false;
+}
+
+ bool GetCamDevEvCaps(int *min, int *max)
+{
+	return false;
+}
+
+bool GetCamDevBrCaps(int *min, int *max)
+{
+	return false;
+}
+
+unsigned int cam_iso_dev_convert_caps(camera_attr_iso_e iso) { return 0; }
+//unsigned int cam_effect_dev_convert_caps(camera_effect_gs_e effect) { return 0; }
+unsigned int cam_fps_dev_convert_caps(camera_attr_fps_e fps) { return 0; }
+unsigned int cam_wb_dev_convert_caps(camera_attr_whitebalance_e wb) { return 0; }
+unsigned int cam_metering_dev_convert_caps(camera_attr_exposure_mode_e metering) { return 0; }
+unsigned int cam_scene_dev_convert_caps(camera_attr_scene_mode_e scene) { return 0; }
+unsigned int cam_flash_dev_convert_caps(camera_attr_flash_mode_e flash) { return 0; }
+unsigned int cam_focus_dev_convert_caps(camera_attr_af_mode_e focus) { return 0; }
+
+unsigned int cam_iso_cam_convert_caps(CamIso iso) { return 0; }
+unsigned int cam_effect_cam_convert_caps(CamSettingsEffects effect) { return 0; }
+unsigned int cam_wb_cam_convert_caps(CamSettingsWB wb) { return 0; }
+unsigned int cam_metering_cam_convert_caps(CamMetering metering) { return 0; }
+unsigned int cam_scene_cam_convert_caps(CamSceneMode scene) { return 0; }
+unsigned int cam_flash_cam_convert_caps(CamFlashMode flash) { return 0; }
+unsigned int cam_focus_cam_convert_caps(CamFocusMode focus) { return 0; }
+unsigned int cam_resolution_cam_convert_caps(unsigned int res) { return 0; }
 /*end file*/

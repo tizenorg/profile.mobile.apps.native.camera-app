@@ -14,7 +14,11 @@
 * limitations under the License.
 *
 */
+#ifndef __H_CAM_ANIMATION_H__
+#define __H_CAM_ANIMATION_H__
 
 void cam_animation_create_rect_image(void *data);
 gboolean cam_start_capture_animation(void *data);
 
+#endif	/* __H_CAM_ANIMATION_H__ */
+//end file

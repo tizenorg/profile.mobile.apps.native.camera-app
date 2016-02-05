@@ -13,10 +13,10 @@ SET(SRCS_BASE
 	src/animation/cam_ui_rotate_utils.c
 	src/app-control/cam_app.c
 	src/app-control/cam_common_edc_callback.c
-	src/capacity/cam_device_capacity.cpp
-	src/capacity/CamDeviceCapacity.cpp
-	src/capacity/cam_typeconverter.cpp
-	src/capacity/CamTypeConverter.cpp
+#	src/capacity/cam_device_capacity.cpp
+#	src/capacity/CamDeviceCapacity.cpp
+#	src/capacity/cam_typeconverter.cpp
+#	src/capacity/CamTypeConverter.cpp
 	src/core/cam.c
 	src/dev-control/cam_mm.c
 	src/menu/cam_menu_composer.c
@@ -125,8 +125,12 @@ FOREACH(flag ${pkgs_CFLAGS})
 	SET(EXTRA_CXXFLAGS "${EXTRA_CXXFLAGS} ${flag}")
 ENDFOREACH(flag)
 
+	SET(EXTRA_CFLAGS "${EXTRA_CXXFLAGS}")
+
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CXXFLAGS} -Wall -fPIC -fvisibility=hidden")
-SET(CMAKE_C_FLAGS ${CMAKE_CXX_FLAGS})
+SET(CMAKE_C_FLAGS "${EXTRA_CFLAGS} -Wall -fPIE -fvisibility=hidden")
+#SET(CMAKE_C_FLAGS_DEBUG "-fpie")
+#SET(CMAKE_C_FLAGS_RELEASE "-fpie")
 
 SET(PREFIX ${CMAKE_INSTALL_PREFIX})
 
@@ -151,6 +155,7 @@ SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 SET(CMAKE_INSTALL_RPATH "${LIBDIR}")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 ########################## set custom-defined lib path  end ##########################
+
 
 MESSAGE("LDFLAGS= ${pkgs_LDFLAGS}")
 MESSAGE("CMAKE_C_FLAGS= ${CMAKE_C_FLAGS}")
