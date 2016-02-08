@@ -19,7 +19,7 @@
 		<label xml:lang="te-in">కెమెరా</label>
 		<label xml:lang="ur-in">کیمرہ</label>
 	</ui-application>
-	<ui-application appid="org.tizen.camera-appcontrol" exec="/usr/apps/org.tizen.camera-app/bin/camera-appcontrol" nodisplay="true" multiple="true" type="capp" taskmanage="false" submode="true" submode-mainid="org.tizen.camera-app" process-pool="true" hw-acceleration="use-GL" launch_mode="caller">
+	<ui-application appid="org.tizen.camera-appcontrol" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="true" multiple="true" type="capp" taskmanage="false" submode="true" submode-mainid="org.tizen.camera-app" process-pool="true" hw-acceleration="use-GL" launch_mode="caller">
 		<icon>/usr/share/icons/default/small/org.tizen.camera-app.png</icon>
 		<label>Camera</label>
 		<label xml:lang="bn-in">ক্যামেরা</label>
