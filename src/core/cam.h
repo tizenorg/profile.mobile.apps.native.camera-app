@@ -28,6 +28,7 @@
 #include "cam_property.h"
 #include "cam_app.h"
 #include "edc_defines.h"
+#include <sound_manager.h>
 #include <fcntl.h>
 
 #include <app.h>
@@ -161,6 +162,9 @@ struct appdata {
 	gboolean is_rotating;
 	gboolean is_capture_animation_processing;
 	gboolean is_rec_file_registering;
+
+	sound_stream_info_h stream_info;
+	bool reacquire_state;
 
 	int camcorder_rotate;
 

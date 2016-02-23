@@ -461,7 +461,7 @@ gboolean cam_shot_capture(void *data)
 	/*check app_state*/
 	if (ad->app_state == CAM_APP_TERMINATE_STATE
 	        || ad->app_state == CAM_APP_PAUSE_STATE) {
-		cam_critical(LOG_MM, "ignor because app_state %d", ad->app_state);
+		cam_critical(LOG_MM, "ignore because app_state %d", ad->app_state);
 		return FALSE;
 	}
 
@@ -471,7 +471,7 @@ gboolean cam_shot_capture(void *data)
 	cam_debug(LOG_UI, "display_state is [%d]", state);
 
 	if (DISPLAY_STATE_SCREEN_OFF == state) {
-		cam_critical(LOG_UI, "donot capture by display state");
+		cam_critical(LOG_UI, "do not capture by display state");
 		return FALSE;
 	}
 
@@ -557,9 +557,17 @@ void cam_shot_capture_completed_cb(void *user_data)
 {
 	cam_warning(LOG_CAM, "start");
 	struct appdata *ad = (struct appdata *)user_data;
+	int nret = -1;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retm_if(camapp == NULL, "cam_handle is NULL");
+
+	if (ad->stream_info) {
+		nret = sound_manager_release_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
+		if (nret != SOUND_MANAGER_ERROR_NONE) {
+			cam_warning(LOG_CAM, "Failed to release focus %x", nret);
+		}
+	}
 
 	if (camapp->shooting_mode == CAM_SINGLE_MODE
 	        || camapp->shooting_mode == CAM_SELF_SINGLE_MODE
@@ -574,6 +582,7 @@ void cam_shot_capture_completed_cb(void *user_data)
 	}
 
 	if (ad->app_state == CAM_APP_PAUSE_STATE) {
+
 		cam_warning(LOG_MM, "CAM_APP_PAUSE_STATE");
 		return;
 	}
@@ -648,6 +657,7 @@ void cam_shot_push_multi_shots(void *data)
 void cam_shot_restore_sound_session(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
+	int ret = -1;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	REMOVE_TIMER(ad->cam_timer[CAM_TIMER_SET_SOUND_SESSION]);
@@ -739,6 +749,7 @@ void cam_shot_shutter_sound_cb(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
+	cam_critical(LOG_CAM,"SOUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
 
 	cam_start_capture_animation(ad);
 }
@@ -751,6 +762,7 @@ gboolean  cam_shot_is_capturing(void *data)
 	cam_retvm_if(camapp == NULL, TRUE, "camapp is NULL");
 
 	int mm_state = cam_mm_get_state();
+
 	cam_debug(LOG_UI, "mm_state = %d", mm_state);
 
 	if ((mm_state == CAMERA_STATE_CAPTURING) || (mm_state == CAMERA_STATE_CAPTURED)) {

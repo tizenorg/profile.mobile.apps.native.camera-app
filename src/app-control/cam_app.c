@@ -23,6 +23,7 @@
 #include <device/display.h>
 #include <storage.h>
 #include <app_common.h>
+#include <sound_manager.h>
 
 #include "cam.h"
 #include "cam_app.h"
@@ -3418,6 +3419,17 @@ gboolean cam_do_capture(void *data)
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
+	if (ad->stream_info) {
+		int error = sound_manager_acquire_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
+		if (error != SOUND_MANAGER_ERROR_NONE) {
+			cam_critical(LOG_CAM, "failed to acquire focus [%x]", error);
+		}
+		sound_manager_get_focus_reacquisition(ad->stream_info, &ad->reacquire_state);
+		if (ad->reacquire_state == EINA_FALSE) {
+			sound_manager_set_focus_reacquisition(ad->stream_info, EINA_TRUE);
+		}
+	}
+
 	if (ad->is_rotating) {
 		cam_warning(LOG_UI, "rotating");
 		return FALSE;
@@ -4533,15 +4545,13 @@ static void __cam_interrupted_cb(camera_policy_e policy, camera_state_e previous
 	cam_warning(LOG_UI, "policy is [%d]", policy);
 
 	switch (policy) {
-	case CAMERA_POLICY_SOUND:
+	case CAMERA_POLICY_RESOURCE_CONFLICT:
 		/*cam_popup_toast_popup_create(ad,
 				dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),
 				NULL);*/
-		notification_status_message_post(dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"));
+		/*notification_status_message_post(dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"));
 		cam_app_exit(ad);
-		break;
-	case CAMERA_POLICY_SOUND_BY_CALL:
-	case CAMERA_POLICY_SOUND_BY_ALARM:
+		break;*/
 		cam_popup_toast_popup_create(ad,
 		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
 		break;
@@ -4580,14 +4590,12 @@ static void __rec_interrupted_cb(recorder_policy_e policy, recorder_state_e prev
 		}
 	}
 	switch (policy) {
-	case RECORDER_POLICY_SOUND:
-		cam_popup_toast_popup_create(ad,
+	case RECORDER_POLICY_RESOURCE_CONFLICT:
+		/*cam_popup_toast_popup_create(ad,
 		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),
 		                             NULL);
 		cam_app_exit(ad);
-		break;
-	case RECORDER_POLICY_SOUND_BY_CALL:
-	case RECORDER_POLICY_SOUND_BY_ALARM:
+		break;*/
 		cam_popup_toast_popup_create(ad,
 		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
 		break;
@@ -5855,6 +5863,7 @@ static int cam_app_camera_state_manager(int previous, int current, gboolean by_a
 void cam_app_exit(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
+
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	cam_warning(LOG_UI, "cam_app_exit");
