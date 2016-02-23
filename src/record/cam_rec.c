@@ -160,6 +160,12 @@ gboolean cam_video_record_stop(void *data)
 	camapp = ad->camapp_handle;
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
+	if (ad->stream_info) {
+		nret = sound_manager_release_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
+		if (nret != SOUND_MANAGER_ERROR_NONE) {
+			cam_warning(LOG_CAM, "Failed to release focus %x", nret);
+		}
+	}
 	/* mm stop rec */
 	if (!cam_mm_rec_stop(FALSE)) {
 		cam_critical(LOG_MM, "cam_mm_rec_stop failed");
