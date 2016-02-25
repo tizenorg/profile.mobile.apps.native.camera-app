@@ -183,6 +183,7 @@ static bool cam_create(void *user_data)
 	int ret = -1;
 	char *cam_internal_path = NULL;
 	char *cam_external_path = NULL;
+	ad->stream_info = NULL;
 
 	bindtextdomain(PACKAGE, LOCALESDIR);
 
@@ -277,6 +278,14 @@ static void cam_terminate(void *user_data)
 	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	ad->app_state = CAM_APP_TERMINATE_STATE;
+
+	if (ad->stream_info) {
+		int error = -1;
+		error = sound_manager_destroy_stream_information(ad->stream_info);
+		if (error != SOUND_MANAGER_ERROR_NONE) {
+			cam_debug(LOG_CAM, "Unable to destroy stream. error code [%x]", error);
+		}
+	}
 
 	cam_layout_del_all(ad);
 
@@ -380,6 +389,13 @@ static void cam_resume(void *user_data)
 	cam_warning(LOG_UI, "############## cam_resume END ##############");
 }
 
+void cam_focus_callback(sound_stream_info_h stream_info, sound_stream_focus_change_reason_e reason_for_change, const char *additional_info, void *user_data)
+{
+	struct appdata *ad = (struct appdata *)user_data;
+	// Sets the callback when explicit focus is needed
+	cam_debug(LOG_CAM, "Camera focus callback invoked");
+}
+
 static void cam_service(app_control_h app_control, void *user_data)
 {
 	cam_warning(LOG_UI, "############## cam_service START ##############");
@@ -393,10 +409,16 @@ static void cam_service(app_control_h app_control, void *user_data)
 	char *val = NULL;
 	char *operation = NULL;
 	int ret = APP_CONTROL_ERROR_NONE;
+	int nRet = SOUND_MANAGER_ERROR_NONE;
 
 	/*Settings sound session apis to stop interruption from background music*/
-	sound_manager_set_session_type(SOUND_SESSION_TYPE_MEDIA);
-	sound_manager_set_media_session_option(SOUND_SESSION_OPTION_MIX_WITH_OTHERS_WHEN_START, SOUND_SESSION_OPTION_UNINTERRUPTIBLE_DURING_PLAY);
+	if (!ad->stream_info) {
+		nRet = sound_manager_create_stream_information(SOUND_STREAM_TYPE_MEDIA, cam_focus_callback, ad, &ad->stream_info);
+		if (nRet != SOUND_MANAGER_ERROR_NONE) {
+			cam_critical(LOG_CAM, "Failed to create_stream_information %x", nRet);
+		}
+		sound_manager_set_focus_reacquisition(ad->stream_info, EINA_FALSE);
+	}
 
 	if (ad->cam_thread[CAM_THREAD_START] > 0) {
 		cam_critical(LPG_UI, "camera start thread is exist, ignore service operation");
