@@ -215,7 +215,6 @@ static Eina_Bool __setting_sub_help_popup_hide_idler_cb(void *data)
 		cam_help_popup_destroy();
 	}
 
-	help_popup_instance->destroy_sub_help_delay_timer = NULL;
 	return ECORE_CALLBACK_CANCEL;
 }
 
