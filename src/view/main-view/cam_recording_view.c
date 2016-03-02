@@ -1107,7 +1107,7 @@ bool cam_recording_view_check_memory_and_set_max_recording_time(void *data, Cam_
 		recording_view->is_memory_limited = FALSE;
 	}
 
-	recording_view->max_record_time = camapp->size_limit;
+	recording_view->max_record_time = (guint64)camapp->size_limit;
 
 	return TRUE;
 
