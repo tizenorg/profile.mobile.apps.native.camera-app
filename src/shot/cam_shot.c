@@ -563,7 +563,8 @@ void cam_shot_capture_completed_cb(void *user_data)
 	cam_retm_if(camapp == NULL, "cam_handle is NULL");
 
 	if (ad->stream_info) {
-		nret = sound_manager_release_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
+		const char *str = "cam_capture";
+		nret = sound_manager_release_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, str);
 		if (nret != SOUND_MANAGER_ERROR_NONE) {
 			cam_warning(LOG_CAM, "Failed to release focus %x", nret);
 		}

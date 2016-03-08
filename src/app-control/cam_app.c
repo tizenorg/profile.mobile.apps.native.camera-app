@@ -3420,7 +3420,8 @@ gboolean cam_do_capture(void *data)
 	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
 
 	if (ad->stream_info) {
-		int error = sound_manager_acquire_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
+		const char *str = "cam_capture";
+		int error = sound_manager_acquire_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, str);
 		if (error != SOUND_MANAGER_ERROR_NONE) {
 			cam_critical(LOG_CAM, "failed to acquire focus [%x]", error);
 		}
