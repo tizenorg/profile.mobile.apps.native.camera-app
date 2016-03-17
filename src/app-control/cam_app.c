@@ -3538,12 +3538,12 @@ gboolean cam_do_record(void *data)
 		}
 	}
 
-	if (ad->stream_info) {
+	/*if (ad->stream_info) {
 		int error = sound_manager_acquire_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, NULL);
 		if (error != SOUND_MANAGER_ERROR_NONE) {
 			cam_critical(LOG_CAM, "failed to acquire focus [%x]", error);
 		}
-	}
+	}*/
 
 	if (cam_app_is_earjack_inserted() == TRUE) {
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_TPOP_RECORDING_USING_EARPHONE_MIC"), NULL);
