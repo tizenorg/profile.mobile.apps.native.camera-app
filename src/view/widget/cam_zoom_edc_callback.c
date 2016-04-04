@@ -423,7 +423,7 @@ gboolean cam_zoom_load_edje(struct appdata *ad)
 		elm_slider_inverted_set(slider, EINA_FALSE);
 	}
 	elm_slider_indicator_show_set(slider, EINA_FALSE);
-	elm_slider_min_max_set(slider, camapp->zoom_min, camapp->zoom_max);
+	elm_slider_min_max_set(slider, camapp->zoom_min, CAM_ZOOM_VALUE_MAX);
 	elm_slider_value_set(slider, camapp->zoom_mode);
 	evas_object_size_hint_align_set(slider, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(slider, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -512,7 +512,7 @@ gboolean cam_zoom_in(struct appdata *ad, gboolean is_zoom_in, int zoom_gap)
 	zoom_value = camapp->zoom_mode;
 
 	if (is_zoom_in) {
-		if (zoom_value < camapp->zoom_max) {
+		if (zoom_value < CAM_ZOOM_VALUE_MAX) {
 			zoom_value += zoom_gap;
 		}
 	} else {
