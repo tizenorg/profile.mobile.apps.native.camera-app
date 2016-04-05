@@ -824,6 +824,12 @@ static gboolean __cam_setting_view_genlist_create(void *data)
 	Cam_Setting_View_Data *setting_view = (Cam_Setting_View_Data *)data;
 	cam_retvm_if(setting_view == NULL, FALSE, "setting_view is not created");
 	cam_retvm_if(setting_view->setting_naviframe == NULL, FALSE, "setting_naviframe is not created");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(setting_view == NULL, FALSE, "appdata is NULL");
+
+	/* indicator setting */
+	elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_SHOW);
+	elm_win_indicator_opacity_set(ad->win_main, ELM_WIN_INDICATOR_TRANSPARENT);
 
 	/*compose data*/
 	count = __cam_setting_view_genlist_data_compose();
@@ -879,11 +885,16 @@ static void __cam_setting_view_genlist_destroy()
 	cam_debug(LOG_CAM, "destroy");
 	Cam_Setting_View_Data *setting_view = __get_cam_setting_view_data();
 	cam_retm_if(setting_view == NULL, "setting_view is NULL");
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retm_if(ad == NULL, "appdata is NULL");
 
 	__cam_setting_view_genlist_data_free();
 
 	DEL_EVAS_OBJECT(setting_view->setting_genlist);
 	DEL_EVAS_OBJECT(setting_view->setting_naviframe);
+
+	/* indicator setting */
+	elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_HIDE);
 }
 
 /*end file*/

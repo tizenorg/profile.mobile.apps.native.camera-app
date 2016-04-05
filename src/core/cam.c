@@ -543,8 +543,7 @@ static void cam_service(app_control_h app_control, void *user_data)
 		IF_FREE(operation);
 
 		/* indicator setting */
-		elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_SHOW);
-		elm_win_indicator_opacity_set(ad->win_main, ELM_WIN_INDICATOR_TRANSPARENT);
+		elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_HIDE);
 		cam_elm_object_signal_emit(ad->conformant, "elm,state,indicator,overlap", "");
 		evas_object_data_set(ad->conformant, "overlap", (void *)TRUE);
 
