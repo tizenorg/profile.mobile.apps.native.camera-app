@@ -237,7 +237,6 @@ const gchar *cam_file_get_external_video_path(void)
 
 gboolean cam_check_phone_dir()
 {
-	DIR *internal_dcim_dir = NULL;
 	DIR *internal_file_dir = NULL;
 	int ret = -1;
 	struct appdata *ad = (struct appdata *)cam_appdata_get();

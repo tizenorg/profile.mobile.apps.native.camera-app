@@ -391,7 +391,7 @@ static void cam_resume(void *user_data)
 
 void cam_focus_callback(sound_stream_info_h stream_info, sound_stream_focus_change_reason_e reason_for_change, const char *additional_info, void *user_data)
 {
-	struct appdata *ad = (struct appdata *)user_data;
+	/*struct appdata *ad = (struct appdata *)user_data;*/
 	// Sets the callback when explicit focus is needed
 	cam_debug(LOG_CAM, "Camera focus callback invoked");
 }

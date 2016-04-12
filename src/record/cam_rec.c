@@ -155,7 +155,7 @@ gboolean cam_video_record_stop(void *data)
 	CamAppData *camapp = NULL;
 
 	cam_warning(LOG_UI, "record stop");
-	int nret = -1;
+	/*int nret = -1;*/
 
 	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 	camapp = ad->camapp_handle;
