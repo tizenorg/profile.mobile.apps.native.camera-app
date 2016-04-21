@@ -47,7 +47,7 @@ msgid "IDS_CAM_BODY_UP_T_CAMERA"
 msgstr "Amunt"
 
 msgid "IDS_CAM_BUTTON_CANCEL"
-msgstr "Cancel"
+msgstr "Cancel·lar"
 
 msgid "IDS_CAM_BUTTON_OK_ABB"
 msgstr "Acceptar"
