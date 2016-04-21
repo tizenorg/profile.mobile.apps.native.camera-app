@@ -43,6 +43,8 @@ gboolean cam_utils_check_battery_critical_low(void);
 gboolean cam_utils_check_voice_call_running(void);
 gboolean cam_utils_check_video_call_running(void);
 gboolean cam_utils_check_bgm_playing(void);
+gboolean cam_telephony_deinitialize(void);
+gboolean cam_telephony_initialize(void);
 
 int cam_utils_get_battery_level(void);
 

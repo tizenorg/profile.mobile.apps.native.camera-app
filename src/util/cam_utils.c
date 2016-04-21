@@ -88,6 +88,7 @@ static void YuvToRgb(int Y, int U, int V, int *R, int *G, int *B)
 #endif
 
 char *m_mmc_path = NULL;
+telephony_handle_list_s tel_list;
 
 #define RGB_BPP 3
 
@@ -217,20 +218,47 @@ void cam_utils_set_default_memory(int nVal)
 	}
 }
 
+static void _call_async_event_callback(telephony_h handle, telephony_noti_e noti_id, void *data, void *user_data)
+{
+	cam_warning(LOG_CAM,"call interrupt cb called");
+
+	struct appdata *ad = user_data;
+	int status = 0;
+	telephony_call_state_e voice_status;
+	telephony_call_state_e video_status;
+
+	cam_warning(LOG_CAM,"getting call status");
+
+	status = telephony_call_get_voice_call_state(handle, &voice_status);
+
+	if(status != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"getting call status failed");
+		return;
+	}
+
+	status = telephony_call_get_video_call_state(handle, &video_status);
+
+	if(status != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"getting video call status failed");
+		return;
+	}
+	cam_debug(LOG_CAM,"voice_status %d", voice_status);
+	cam_debug(LOG_CAM,"video_status %d", video_status);
+
+	if(voice_status != TELEPHONY_CALL_STATE_IDLE || video_status != TELEPHONY_CALL_STATE_IDLE) {
+		cam_app_pause(ad);
+	} else {
+		cam_app_resume(ad);
+	}
+	return;
+}
+
 gboolean cam_utils_check_voice_call_running(void)
 {
 	telephony_call_state_e state = TELEPHONY_CALL_STATE_IDLE;
-	telephony_handle_list_s tel_list;
-	int tel_valid = telephony_init(&tel_list);
-	if (tel_valid != TELEPHONY_ERROR_NONE) {
-		cam_debug(LOG_UI, "telephony is not initialized. ERROR Code is %d", tel_valid);
-		return FALSE;
-	}
-
 	telephony_h *newhandle = tel_list.handle;
-	int s = telephony_call_get_voice_call_state(*newhandle , &state);
-	telephony_deinit(&tel_list);
 
+	int s = telephony_call_get_voice_call_state(*newhandle , &state);
 	if (s == TELEPHONY_ERROR_NONE) {
 		if (state != TELEPHONY_CALL_STATE_IDLE) {
 			return TRUE;
@@ -245,17 +273,10 @@ gboolean cam_utils_check_voice_call_running(void)
 gboolean cam_utils_check_video_call_running(void)
 {
 	telephony_call_state_e state = TELEPHONY_CALL_STATE_IDLE;
-	telephony_handle_list_s tel_list;
-	int tel_valid = telephony_init(&tel_list);
-	if (tel_valid != TELEPHONY_ERROR_NONE) {
-		cam_debug(LOG_UI, "telephony is not initialized. ERROR Code is %d", tel_valid);
-		return FALSE;
-	}
 
 	telephony_h *newhandle = tel_list.handle;
-	int s = telephony_call_get_video_call_state(*newhandle , &state);
-	telephony_deinit(&tel_list);
 
+	int s = telephony_call_get_video_call_state(*newhandle , &state);
 	if (s == TELEPHONY_ERROR_NONE) {
 		if (state != TELEPHONY_CALL_STATE_IDLE) {
 			return TRUE;
@@ -265,6 +286,58 @@ gboolean cam_utils_check_video_call_running(void)
 	}
 
 	return FALSE;
+}
+
+gboolean cam_telephony_initialize(void)
+{
+	struct appdata *ad = (struct appdata *)cam_appdata_get();
+	cam_retvm_if(ad == NULL, false, "appdata is NULL");
+
+	int tel_valid = telephony_init(&tel_list);
+	if (tel_valid != TELEPHONY_ERROR_NONE) {
+		cam_debug(LOG_UI, "telephony is not initialized. ERROR Code is %d", tel_valid);
+		return FALSE;
+	}
+
+	/*setting callbacks*/
+	telephony_h *newhandle = tel_list.handle;
+	int api_err = telephony_set_noti_cb(*newhandle, TELEPHONY_NOTI_VOICE_CALL_STATE, (telephony_noti_cb)_call_async_event_callback,  (void *)ad);
+	if (api_err != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"tel_register_noti_event for voice call failed ( api_err : %d ) !!", api_err);
+		return FALSE;
+	}
+
+	api_err = telephony_set_noti_cb(*newhandle, TELEPHONY_NOTI_VIDEO_CALL_STATE, (telephony_noti_cb)_call_async_event_callback,  (void *)ad);
+	if (api_err != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"tel_register_noti_event for video call failed ( api_err : %d ) !!", api_err);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+gboolean cam_telephony_deinitialize(void)
+{
+	telephony_h *newhandle = tel_list.handle;
+	int nErr = -1;
+
+	nErr = telephony_unset_noti_cb(*newhandle, TELEPHONY_NOTI_VOICE_CALL_STATE);
+	if (nErr != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"telephony_unset_noti_cb is fail [0x%x]", nErr);
+		return FALSE;
+	}
+	nErr = telephony_unset_noti_cb(*newhandle, TELEPHONY_NOTI_VIDEO_CALL_STATE);
+	if (nErr != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"telephony_unset_noti_cb is fail [0x%x]", nErr);
+		return FALSE;
+	}
+	nErr = telephony_deinit(&tel_list);
+	if (nErr != TELEPHONY_ERROR_NONE) {
+		cam_critical(LOG_CAM,"telephony_deinit is fail [0x%x]", nErr);
+		return FALSE;
+	}
+
+	return TRUE;
 }
 
 gboolean cam_utils_check_bgm_playing(void)
