@@ -264,6 +264,10 @@ static bool cam_create(void *user_data)
 
 	ad->app_state = CAM_APP_CREATE_STATE;
 
+	if(!cam_telephony_initialize()){
+		cam_critical(LOG_UI, "cam_telephony_initialize failed");
+	}
+
 	CAM_LAUNCH("cam_create", "OUT");
 	cam_warning(LOG_UI, "############## cam_create END ##############");
 

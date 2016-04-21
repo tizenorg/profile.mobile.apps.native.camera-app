@@ -1023,6 +1023,9 @@ gboolean cam_app_stop(void *data)
 		cam_critical(LOG_UI, "cam_app_x_event_deinit failed");
 	}
 
+	if(!cam_telephony_deinitialize()){
+		cam_critical(LOG_UI, "cam_telephony_deinitialize failed");
+	}
 	cam_sound_finalize();
 
 	/*  finialize gps */
@@ -7565,6 +7568,7 @@ gboolean cam_condition_check_to_start_camera(void *data)
 	/* voice call state check */
 	if (cam_utils_check_voice_call_running()) {
 		ad->is_voice_calling = TRUE;
+		return FALSE;
 	} else {
 		ad->is_voice_calling = FALSE;
 	}
@@ -7739,7 +7743,7 @@ static Eina_Bool __cam_app_display_error_popup_idler(void *data)
 
 	if (ad->battery_status == LOW_BATTERY_CRITICAL_STATUS) {
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_TPOP_BATTERY_POWER_LOW"), cam_app_exit_popup_response_cb);
-	} else if (ad->is_video_calling == TRUE) {
+	} else if (ad->is_video_calling == TRUE || ad->is_voice_calling == TRUE) {
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_START_CAMERA_DURING_CALL"), cam_app_exit_popup_response_cb);
 	} else if (ad->battery_status == LOW_BATTERY_WARNING_STATUS) {
 		if (camapp->flash != CAM_FLASH_OFF) {
