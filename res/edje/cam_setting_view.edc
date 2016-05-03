@@ -1,0 +1,161 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "cam_funcs.edc"
+#include "../../inc/edc_image_name.h"
+#include "cam_setting_view_inc.edc"
+
+collections {
+	group {
+		name: "setting_genlist";
+		images {
+			image: SETTING_POPUP_BG COMP;
+			image: CTXPOPUP_LEFT_ARROW_IMAGE COMP;
+			image: CTXPOPUP_RIGHT_ARROW_IMAGE COMP;
+			image: CTXPOPUP_TOP_ARROW_IMAGE COMP;
+			image: CTXPOPUP_BOTTOM_ARROW_IMAGE COMP;
+		}
+		parts {
+			part {
+				name: "setting_genlist_bg";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to:"setting_genlist_content";}
+					rel2 { relative: 1.0 1.0; to:"setting_genlist_content";}
+					image.normal: SETTING_POPUP_BG;
+				}
+			}
+			part {
+				name: "setting_genlist_arrow";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+					visible: 0;
+				}
+				description {
+					state: "landscape" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					rel1 { relative: 0.0 0.0; offset: 0 SETTING_GENLIST_ARROW_OFFSET;}
+					fixed: 1 1;
+					align: 0.0 0.0;
+					image.normal: CTXPOPUP_LEFT_ARROW_IMAGE;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					rel2 { relative: 1.0 1.0; offset: 0 -SETTING_GENLIST_ARROW_OFFSET;}
+					fixed: 1 1;
+		 		  	align: 1.0 1.0;
+					image.normal: CTXPOPUP_RIGHT_ARROW_IMAGE;
+				}
+				description {
+					state: "portrait" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					rel2 { relative: 1.0 0.0; offset: -SETTING_GENLIST_ARROW_OFFSET 0;}
+					fixed: 1 1;
+					align: 1.0 0.0;
+					image.normal: CTXPOPUP_TOP_ARROW_IMAGE;
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					rel1 { relative: 0.0 1.0; offset: SETTING_GENLIST_ARROW_OFFSET 0;}
+					fixed: 1 1;
+					align: 0.0 1.0;
+					image.normal: CTXPOPUP_BOTTOM_ARROW_IMAGE;
+				}
+			}
+			part {
+				name: "setting_genlist_content";
+				type: SWALLOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+				}
+				description {
+					state: "landscape" 0.0;
+					rel1 { relative: 1.0 0.0; to_x:"setting_genlist_arrow"; offset: -1 0;}
+					rel2 { relative: 1.0 1.0;}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 0.0 1.0; to_x:"setting_genlist_arrow"; offset: 1 0;}
+				}
+				description {
+					state: "portrait" 0.0;
+					rel1 { relative: 0.0 1.0; to_y:"setting_genlist_arrow"; offset: 0 -1;}
+					rel2 { relative: 1.0 1.0;}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 0.0; to_y:"setting_genlist_arrow"; offset: 0 1;}
+				}
+			}
+		}/*end parts*/
+		programs {
+			program {
+				name : "setting_genlist,set,landscape";
+				source: "setting_genlist";
+				signal: "landscape";
+				script: {
+					set_state(PART:"setting_genlist_content", "landscape", 0.0);
+					set_state(PART:"setting_genlist_arrow", "landscape", 0.0);
+				}
+			}
+			program {
+				name : "setting_genlist,set,portrait";
+				source: "setting_genlist";
+				signal: "portrait";
+				script: {
+					set_state(PART:"setting_genlist_content", "portrait", 0.0);
+					set_state(PART:"setting_genlist_arrow", "portrait", 0.0);
+				}
+			}
+			program {
+				name : "setting_genlist,set,landscape_inverse";
+				source: "setting_genlist";
+				signal: "landscape_inverse";
+				script: {
+					set_state(PART:"setting_genlist_content", "landscape_inverse", 0.0);
+					set_state(PART:"setting_genlist_arrow", "landscape_inverse", 0.0);
+				}
+			}
+			program {
+				name : "setting_genlist,set,portrait_inverse";
+				source: "setting_genlist";
+				signal: "portrait_inverse";
+				script: {
+					set_state(PART:"setting_genlist_content", "portrait_inverse", 0.0);
+					set_state(PART:"setting_genlist_arrow", "portrait_inverse", 0.0);
+				}
+			}
+		}/*end programs*/
+	}/*end group : setting_genlist*/
+}/*end collections*/
+//end file

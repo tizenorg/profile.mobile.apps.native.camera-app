@@ -1,0 +1,672 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../../inc/edc_defines.h"
+
+styles {
+	style {
+		name: "textblock_style_shot_guide";
+		base: "font=Tizen:style=Regular style=outline_shadow,bottom outline_color=#4B4B4BFF shadow_color=#000000BD font_size=22 align=center color=#F4F4F4 wrap=mixed";
+		tag:  "br" "\n";
+		tag:  "hilight" "+ font=Tizen:style=Bold";
+		tag:  "b" "+ font=Tizen:style=Bold";
+		tag:  "tab" "\t";
+	}
+}
+
+#define CAMERA_BG_COLOR 8 8 8 255
+
+#define __SWALLOW_PART_DESCRIPTION(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "landscape" 0.0;	\
+		inherit: "default" 0.0; \
+		visible: 1;\
+	}	\
+	description {	\
+		state: "portrait" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: (1 - y2) x1; to: to_part;}	\
+		rel2 { relative: (1 - y1) x2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: y1 (1 - x2); to: to_part;}	\
+		rel2 { relative: y2 (1 - x1); to: to_part;}	\
+	}\
+	description {	\
+		state: "invisible" 0.0;	\
+		visible: 0;\
+		fixed: 1 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}
+
+#define SWALLOW_PART_DESCRIPTION(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "default" 0.0;	\
+		visible: 1;\
+		fixed: 1 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	__SWALLOW_PART_DESCRIPTION(x1, y1, x2, y2, to_part)
+
+#define SWALLOW_PART_DESCRIPTION_INVISIBLE_DEFAULT(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "default" 0.0;	\
+		visible: 0;\
+		fixed: 1 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	__SWALLOW_PART_DESCRIPTION(x1, y1, x2, y2, to_part)
+
+
+#define SWALLOW_PART_DESCRIPTION_MOD(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "default" 0.0;	\
+		visible: 1;\
+		fixed: 1 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: x1 y1; to: to_part; offset : 1 0;}	\
+		rel2 { relative: x2 y2; to: to_part; offset : 1 0;}	\
+	}	\
+	description {	\
+		state: "landscape" 0.0;	\
+		inherit: "default" 0.0; \
+		visible: 1;\
+	}	\
+	description {	\
+		state: "portrait" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: (1 - y2) x1; to: to_part; offset : 0 1;}	\
+		rel2 { relative: (1 - y1) x2; to: to_part; offset : 0 1;}	\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part; offset : 1 0;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part; offset : 1 0;}	\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: y1 (1 - x2); to: to_part; offset : 0 1;}	\
+		rel2 { relative: y2 (1 - x1); to: to_part; offset : 0 1;}	\
+	}\
+	description {	\
+		state: "invisible" 0.0;	\
+		visible: 0;\
+		fixed: 1 1;\
+		align: 0.5 0.5;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}
+
+#define SWALLOW_PART_DESCRIPTION_EXT(x1, y1, x2, y2, to_part, ext)	\
+	description {	\
+		state: "landscape_"ext 0.0;	\
+		visible: 1;\
+		fixed: 1 1;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait_"ext 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		rel1 { relative: (1 - y2) x1; to: to_part;}	\
+		rel2 { relative: (1 - y1) x2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "landscape_inverse_"ext 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait_inverse_"ext 0.0;	\
+		fixed: 1 1;\
+		visible: 1;\
+		rel1 { relative: y1 (1 - x2); to: to_part;}	\
+		rel2 { relative: y2 (1 - x1); to: to_part;}	\
+	}\
+	description {	\
+		state: "invisible_"ext 0.0;	\
+		visible: 0;\
+		fixed: 1 1;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}
+
+
+#define SWALLOW_PART_DESCRIPTION_H(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "landscape" 0.0;	\
+		fixed: 1 1;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		fixed: 1 1;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+	}
+
+#define SWALLOW_PART_DESCRIPTION_V(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "portrait" 0.0;	\
+		fixed: 1 1;\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		fixed: 1 1;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+	}
+
+#define SWALLOW_PART_DESCRIPTION_INVISIBLE	\
+	description {		\
+		state: "invisible" 0.0; 		\
+		fixed: 1 1;\
+		visible: 0; \
+	}
+
+#define RECT_PART_DESCRIPTION(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "landscape" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: (1 - y2) x1; to: to_part;}	\
+		rel2 { relative: (1 - y1) x2; to: to_part;}	\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		inherit: "default" 0.0; \
+		rel1 { relative: y1 (1 - x2); to: to_part;}	\
+		rel2 { relative: y2 (1 - x1); to: to_part;}	\
+	}
+
+#define IMAGE_PART_DESCRIPTION_H(x1, y1, x2, y2, to_part, image_name)	\
+	description {	\
+		state: "landscape" 0.0;	\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+		image { normal: image_name; }	\
+	}	\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		image { normal: image_name; }	\
+	}
+
+#define IMAGE_PART_DESCRIPTION_V(x1, y1, x2, y2, to_part, image_name)	\
+	description {	\
+		state: "portrait" 0.0;	\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+		image { normal: image_name; }	\
+	}	\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		image { normal: image_name; }	\
+	}
+
+#define IMAGE_PART_DESCRIPTION_INVISIBLE	\
+	description {		\
+		state: "invisible" 0.0; 		\
+		visible: 0; \
+	}
+
+#define TEXT_PART_DESCRIPTION_H(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "default" 0.0;	\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+		color: FONT_COLOR;\
+		text {\
+			font : FONT_NAME;\
+			size : 36;\
+			align: 0.0 0.5;\
+		}\
+	}	\
+	description {	\
+		state: "landscape" 0.0;	\
+		inherit: "default" 0.0;\
+	}\
+	description {	\
+		state: "landscape_inverse" 0.0;	\
+		inherit: "landscape" 0.0;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		text {\
+			align: 0.0 0.5;\
+		}\
+	}
+
+#define TEXT_PART_DESCRIPTION_V(x1, y1, x2, y2, to_part)	\
+	description {	\
+		state: "default" 0.0;	\
+		rel1 { relative: x1 y1; to: to_part;}	\
+		rel2 { relative: x2 y2; to: to_part;}	\
+		color: FONT_COLOR;\
+		text {\
+			font : FONT_NAME;\
+			size : 36;\
+			align: 0.5 0.0;\
+		}\
+	}	\
+	description {	\
+		state: "portrait" 0.0;	\
+		inherit: "default" 0.0;\
+	}\
+	description {	\
+		state: "portrait_inverse" 0.0;	\
+		inherit: "portrait" 0.0;\
+		rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+		rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		text {\
+			align: 0.5 0.0;\
+		}\
+	}
+
+#define TEXT_PART_DESCRIPTION_INVISIBLE	\
+	description {		\
+		state: "invisible" 0.0; 		\
+		visible: 0; \
+	}
+
+
+#define GENERAL_BUTTON(part_name, img_normal, img_press, img_dim) \
+	part {	\
+		name: part_name;	\
+		type: IMAGE;		\
+		mouse_events: 1;	\
+		description {		\
+			state: "default" 0.0;	\
+			rel1 { relative: 0.0 0.0; }	\
+			rel2 { relative: 1.0 1.0; }\
+			image { normal: img_normal; }	\
+		}	\
+		description {		\
+			state: "press" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_press; }\
+		}	\
+		description {		\
+			state: "dim" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_dim; }\
+		}	\
+	}
+
+
+#define GENERAL_TEXT_BUTTON(part_name, nsize, align1, align2) \
+	part { name: "bg";\
+		type: RECT;\
+		mouse_events: 0;\
+		scale: 1;\
+		description{\
+			state:"default" 0.0;\
+			rel1 { relative: 0.0 0.0;}\
+			rel2 { relative: 1.0 1.0;}\
+			color: 0 0 0 0;\
+		}\
+	}\
+	part {	\
+		name: part_name;	\
+		type: TEXT;		\
+		mouse_events: 1;	\
+		description {		\
+			state: "default" 0.0;	\
+			rel1 { relative: 0.0 0.0; to: "bg";}	\
+			rel2 { relative: 1.0 1.0; to: "bg";}\
+			color: FONT_COLOR;\
+			text {\
+				font : FONT_NAME;\
+				size : nsize;\
+				align: align1 align2;\
+			}\
+		}\
+		description {		\
+			state: "press" 0.0;			\
+			inherit: "default" 0.0;		\
+			color: FONT_COLOR_PRESSED;\
+		}	\
+		description {		\
+			state: "dim" 0.0;			\
+			inherit: "default" 0.0;		\
+		}	\
+	}
+
+
+/*NOTE: fix size and align left*/
+#define GENERAL_BUTTON_WITH_SIZE(part_name, img_normal, img_press, img_dim, width, height) \
+	part {	\
+		name: "bg";	\
+		type: RECT;		\
+		mouse_events: 1;	\
+		description {		\
+			state: "default" 0.0;	\
+			min: width height;\
+			max: width height;\
+			fixed: 1 1;\
+			align: 0.0 0.5;\
+			rel1 { relative: 0.0 0.0; }\
+			rel2 { relative: 1.0 1.0; }\
+			color: 0 0 0 0;\
+		}	\
+	}\
+	part {	\
+		name: part_name;	\
+		type: IMAGE;		\
+		mouse_events: 1;	\
+		description {		\
+			state: "default" 0.0;	\
+			fixed: 1 1;\
+			rel1 { relative: 0.0 0.0; to: "bg";}\
+			rel2 { relative: 1.0 1.0; to: "bg";}\
+			image { normal: img_normal; }	\
+		}	\
+		description {		\
+			state: "press" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_press; }\
+		}	\
+		description {		\
+			state: "dim" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_dim; }\
+		}	\
+	}
+
+
+#define GENERAL_BUTTON_FOR_TRIM(part_name, img_normal, img_focus, image_select, img_dim) \
+	part {	\
+		name: part_name;	\
+		type: IMAGE;		\
+		mouse_events: 1;	\
+		description {		\
+			state: "default" 0.0;	\
+			rel1 { relative: 0.0 0.0; }	\
+			rel2 { relative: 1.0 1.0; }\
+			image { normal: img_normal; }	\
+		}	\
+		description {		\
+			state: "press" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_focus; }\
+		}\
+		description {		\
+			state: "press" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: image_select; }\
+		}\
+		description {		\
+			state: "dim" 0.0;			\
+			inherit: "default" 0.0;		\
+			image { normal: img_dim; }\
+		}	\
+	}
+
+#define GENERAL_BUTTON_WITH_SOUND_PROGRAMS(part_name, source_name, touch_sound) \
+	program { 	\
+		name: "mouse_down_"part_name;	\
+		signal: "mouse,down,1";			\
+		source: part_name;				\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "default") == 0)	{			\
+				set_state(PART:part_name, "press", 0.0);	\
+				emit( part_name"_press", source_name );		\
+			}	\
+		}	\
+	}	\
+	program {	\
+		name: "mouse_up_"part_name;	\
+		signal: "mouse,up,1";	\
+		source: part_name;	\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "press") == 0) {			\
+				set_state(PART:part_name, "default", 0.0);	\
+				emit( part_name"_release", source_name );		\
+			}	\
+		}	\
+	}	\
+	program {	\
+		name: "mouse_clicked_"part_name;	\
+		signal: "mouse,clicked,1";	\
+		source: part_name;	\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "default") == 0)				\
+				emit( part_name"_click", source_name );	\
+		}	\
+		after: touch_sound;\
+	}	\
+	program { \
+		name: part_name",normal"; \
+		source: "prog"; \
+		signal: part_name",normal"; \
+		script: { \
+			set_state(PART:part_name, "default", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",press"; \
+		source: "prog"; \
+		signal: part_name",press"; \
+		script: { \
+			set_state(PART:part_name, "press", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",dim"; \
+		source: "prog"; \
+		signal: part_name",dim"; \
+		script: { \
+			set_state(PART:part_name, "dim", 0.0); \
+		} \
+	}
+
+#define GENERAL_BUTTON_PROGRAMS(part_name, source_name) \
+	program { 	\
+		name: "mouse_down_"part_name;	\
+		signal: "mouse,down,1";			\
+		source: part_name;				\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "default") == 0)	{			\
+				set_state(PART:part_name, "press", 0.0);	\
+				emit( part_name"_press", source_name );		\
+			}	\
+		}	\
+	}	\
+	program {	\
+		name: "mouse_up_"part_name;	\
+		signal: "mouse,up,1";	\
+		source: part_name;	\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "press") == 0) {			\
+				set_state(PART:part_name, "default", 0.0);	\
+				emit( part_name"_release", source_name );		\
+			}	\
+		}	\
+	}	\
+	program {	\
+		name: "mouse_clicked_"part_name;	\
+		signal: "mouse,clicked,1";	\
+		source: part_name;	\
+		script {	\
+			new st[31];		\
+			new Float:vl;	\
+			get_state(PART:part_name, st, 30, vl);	\
+			if (strcmp(st, "default") == 0)				\
+				emit( part_name"_click", source_name );	\
+		}	\
+	}	\
+	program { \
+		name: part_name",normal"; \
+		source: "prog"; \
+		signal: part_name",normal"; \
+		script: { \
+			set_state(PART:part_name, "default", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",press"; \
+		source: "prog"; \
+		signal: part_name",press"; \
+		script: { \
+			set_state(PART:part_name, "press", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",dim"; \
+		source: "prog"; \
+		signal: part_name",dim"; \
+		script: { \
+			set_state(PART:part_name, "dim", 0.0); \
+		} \
+	}
+
+#define GENERAL_SCREEN_READER_RECT(part_name) \
+	part { name: part_name".sr";	\
+		type: RECT;	\
+		mouse_events: 1;	\
+		repeat_events: 1;	\
+		description {	\
+			state: "default" 0.0;	\
+			rel1.to: part_name;	\
+			rel2.to: part_name;	\
+			color: 255 0 0 0;		\
+		}	\
+	}
+
+#define GENERAL_DIRECTION_PROGRAMS(part_name) \
+	program { \
+		name: part_name",landscape"; \
+		source: "prog"; \
+		signal: part_name",landscape"; \
+		script: { \
+			set_state(PART:part_name, "landscape", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",landscape_inverse"; \
+		source: "prog"; \
+		signal: part_name",landscape_inverse"; \
+		script: { \
+			set_state(PART:part_name, "landscape_inverse", 0.0); \
+		} \
+	}	\
+	program { \
+		name: part_name",portrait"; \
+		source: "prog"; \
+		signal: part_name",portrait"; \
+		script: { \
+			set_state(PART:part_name, "portrait", 0.0); \
+		} \
+	} \
+	program { \
+		name: part_name",portrait_inverse"; \
+		source: "prog"; \
+		signal: part_name",portrait_inverse"; \
+		script: { \
+			set_state(PART:part_name, "portrait_inverse", 0.0); \
+		} \
+	}
+
+#define GENERAL_HELP_MENU_DIRECTION_PROGRAMS(part_name) \
+		program { \
+			name: part_name",start"; \
+			source: "standby_view"; \
+			signal: "help_menu,start"; \
+			action: STATE_SET "start" 0.0; \
+			target: part_name ;\
+			transition: ACCELERATE 0.05;\
+			after: part_name",middle";\
+		} \
+		program { \
+			name: part_name",middle"; \
+			source: "standby_view"; \
+			signal: "help_menu,middle"; \
+			action: STATE_SET "middle" 0.0; \
+			target: part_name ;\
+			transition: ACCELERATE 0.05;\
+			after: part_name",end";\
+		} \
+		program { \
+			name: part_name",end"; \
+			source: "standby_view"; \
+			signal: "help_menu,end"; \
+			action: STATE_SET "end" 0.0; \
+			target: part_name ;\
+			transition: ACCELERATE 0.05;\
+		}

@@ -1,0 +1,394 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../../inc/edc_defines.h"
+#include "../../inc/edc_image_name.h"
+#include "cam_funcs.edc"
+
+#define MODE_GRID_VIEW_AREA_X	103
+#define MODE_GRID_VIEW_AREA_Y	10
+#define MODE_GRID_VIEW_AREA_W	170
+#define MODE_GRID_VIEW_AREA_H	460
+
+#define MODE_GRID_VIEW_BG_X	MODE_GRID_VIEW_AREA_X
+#define MODE_GRID_VIEW_BG_Y	0
+#define MODE_GRID_VIEW_BG_W	MODE_GRID_VIEW_AREA_W
+#define MODE_GRID_VIEW_BG_H	479
+
+#define MODE_AUTO_IMAGE_VIEW_AREA_X	235
+#define MODE_AUTO_IMAGE_VIEW_AREA_Y	109
+#define MODE_AUTO_IMAGE_VIEW_AREA_W	328
+#define MODE_AUTO_IMAGE_VIEW_AREA_H 	261
+
+#define MODE_AUTO_IMAGE_VIEW_AREA_P_X	65
+#define MODE_AUTO_IMAGE_VIEW_AREA_P_Y	265
+#define MODE_AUTO_IMAGE_VIEW_AREA_P_W	328
+#define MODE_AUTO_IMAGE_VIEW_AREA_P_H 	261
+
+#define MODE_ARROW_DOWN_BTN_P_X		215
+#define MODE_ARROW_DOWN_BTN_P_Y		643
+#define MODE_ARROW_DOWN_BTN_W		48
+#define MODE_ARROW_DOWN_BTN_H		38
+
+#define MODE_ARROW_DOWN_BTN_PR_X	215
+#define MODE_ARROW_DOWN_BTN_PR_Y	643
+
+#define MODE_ARROW_DOWN_BTN_L_X		376
+#define MODE_ARROW_DOWN_BTN_L_Y		424
+
+#define MODE_ARROW_DOWN_BTN_LR_X	376
+#define MODE_ARROW_DOWN_BTN_LR_Y	424
+
+#define SETTING_BTN_X			22
+#define SETTING_BTN_Y			18
+#define SETTING_BTN_W			46
+#define SETTING_BTN_H			46
+
+#define SETTING_BACK_BTN_W			56
+#define SETTING_BACK_BTN_H			56
+
+#define SELF_PORTRAIT_BTN_X	22
+#define SELF_PORTRAIT_BTN_Y	416
+#define SELF_PORTRAIT_BTN_W	46
+#define SELF_PORTRAIT_BTN_H	46
+
+#define MODE_BTN_X		22
+#define MODE_BTN_Y		354
+#define MODE_BTN_W		46
+#define MODE_BTN_H		46
+
+#define ARROW_X	94
+#define ARROW_Y	364
+
+#define ARROW_REL_X1 ARROW_X/MAIN_W
+#define ARROW_REL_Y1 ARROW_Y/MAIN_H
+#define ARROW_REL_X2 (ARROW_X+CTXPOPUP_CAMERA_ARROW_HEIGHT)/MAIN_W
+#define ARROW_REL_Y2 (ARROW_Y+CTXPOPUP_CAMERA_ARROW_WIDTH)/MAIN_H
+
+#define MODE_DISPLAY_X			40
+#define MODE_DISPLAY_Y			100
+#define MODE_DISPLAY_W			154
+#define MODE_DISPLAY_H			48
+#define VER_MODE_DISPLAY_X		163
+#define VER_MODE_DISPLAY_Y		71
+
+
+images {
+	image: SETTING_POPUP_BG COMP;
+	image: CTXPOPUP_LEFT_ARROW_IMAGE COMP;
+	image: CTXPOPUP_RIGHT_ARROW_IMAGE COMP;
+	image: CTXPOPUP_TOP_ARROW_IMAGE COMP;
+	image: CTXPOPUP_BOTTOM_ARROW_IMAGE COMP;
+	image: SHOTTING_MODE_AUTO_ICON COMP;
+}
+
+collections {
+	group {
+		name: "shooting_mode/layout";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1{ relative: 0.0 0.0;}
+					rel2{ relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+			part { name: "setting_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(SETTING_BTN_X/MAIN_W, SETTING_BTN_Y/MAIN_H,
+										(SETTING_BTN_X+SETTING_BTN_W)/MAIN_W, (SETTING_BTN_Y+SETTING_BTN_H)/MAIN_H, "bg");
+			}
+			part { name: "self_portrait_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(SELF_PORTRAIT_BTN_X/MAIN_W, SELF_PORTRAIT_BTN_Y/MAIN_H,
+										(SELF_PORTRAIT_BTN_X+SELF_PORTRAIT_BTN_W)/MAIN_W, (SELF_PORTRAIT_BTN_Y+SELF_PORTRAIT_BTN_H)/MAIN_H, "bg");
+			}
+			part { name: "auto_mode_image";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					fixed: 1 1;
+					align: 0.5 0.5;
+					rel1 { relative: MODE_AUTO_IMAGE_VIEW_AREA_X/MAIN_W MODE_AUTO_IMAGE_VIEW_AREA_Y/MAIN_H; to: "bg"; offset : 0 1;}
+					rel2 { relative: (MODE_AUTO_IMAGE_VIEW_AREA_X+MODE_AUTO_IMAGE_VIEW_AREA_W)/MAIN_W (MODE_AUTO_IMAGE_VIEW_AREA_Y+MODE_AUTO_IMAGE_VIEW_AREA_H)/MAIN_H; to: "bg"; offset : 0 1;}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					visible: 1;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					visible: 1;
+				}
+				description {
+					state: "portrait" 0.0;
+					fixed: 1 1;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: MODE_AUTO_IMAGE_VIEW_AREA_P_X/MAIN_H MODE_AUTO_IMAGE_VIEW_AREA_P_Y/MAIN_W; to: "bg"; offset : 0 1;}
+					rel2 { relative: (MODE_AUTO_IMAGE_VIEW_AREA_P_X+MODE_AUTO_IMAGE_VIEW_AREA_W)/MAIN_H (MODE_AUTO_IMAGE_VIEW_AREA_P_Y+MODE_AUTO_IMAGE_VIEW_AREA_H)/MAIN_W; to: "bg"; offset : 0 1;}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					fixed: 1 1;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: MODE_AUTO_IMAGE_VIEW_AREA_P_X/MAIN_H MODE_AUTO_IMAGE_VIEW_AREA_P_Y/MAIN_W; to: "bg"; offset : 0 1;}
+					rel2 { relative: (MODE_AUTO_IMAGE_VIEW_AREA_P_X+MODE_AUTO_IMAGE_VIEW_AREA_W)/MAIN_H (MODE_AUTO_IMAGE_VIEW_AREA_P_Y+MODE_AUTO_IMAGE_VIEW_AREA_H)/MAIN_W; to: "bg"; offset : 0 1;}
+				}
+			}
+			part { name: "mode_text";
+				type: TEXT;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0 MODE_DISPLAY_Y/MAIN_H; to: "bg";}
+					rel2 { relative: 1 (MODE_DISPLAY_Y+MODE_DISPLAY_H)/MAIN_H; to: "bg";}
+					text {
+						text: "Auto";
+						align: 0.5 0.5;
+						size: 25;
+						style: "mode_text_middle";
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_MODE_DISPLAY_X/MAIN_H VER_MODE_DISPLAY_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (MAIN_H-VER_MODE_DISPLAY_X)/MAIN_H (VER_MODE_DISPLAY_Y+MODE_DISPLAY_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_MODE_DISPLAY_X/MAIN_H VER_MODE_DISPLAY_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (MAIN_H-VER_MODE_DISPLAY_X)/MAIN_H (VER_MODE_DISPLAY_Y+MODE_DISPLAY_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+				}
+			}
+			part { name: "mode_arrow_down_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					fixed: 1 1;
+					align: 0.5 0.5;
+					rel1 { relative: MODE_ARROW_DOWN_BTN_L_X/MAIN_W MODE_ARROW_DOWN_BTN_L_Y/MAIN_H; to: "bg"; offset : 0 1;}
+					rel2 { relative: (MODE_ARROW_DOWN_BTN_L_X+MODE_ARROW_DOWN_BTN_W)/MAIN_W (MODE_ARROW_DOWN_BTN_L_Y+MODE_ARROW_DOWN_BTN_H)/MAIN_H; to: "bg"; offset : 0 1;}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+					visible: 1;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					fixed: 1 1;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: MODE_ARROW_DOWN_BTN_L_X/MAIN_W MODE_ARROW_DOWN_BTN_LR_Y/MAIN_H; to: "bg"; offset : 0 1;}
+					rel2 { relative: (MODE_ARROW_DOWN_BTN_L_X+MODE_ARROW_DOWN_BTN_W)/MAIN_W (MODE_ARROW_DOWN_BTN_LR_Y+MODE_ARROW_DOWN_BTN_H)/MAIN_H; to: "bg"; offset : 0 1;}
+				}
+				description {
+					state: "portrait" 0.0;
+					fixed: 1 1;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: (MODE_ARROW_DOWN_BTN_P_X/MAIN_H) MODE_ARROW_DOWN_BTN_P_Y/MAIN_W; to: "bg"; offset : 0 1;}
+					rel2 { relative: ((MODE_ARROW_DOWN_BTN_P_X+MODE_ARROW_DOWN_BTN_W)/MAIN_H) (MODE_ARROW_DOWN_BTN_P_Y+MODE_ARROW_DOWN_BTN_H)/MAIN_W;  to: "bg"; offset : 0 1;}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					fixed: 1 1;
+					visible: 1;
+					align: 0.5 0.5;
+					rel1 { relative: (MODE_ARROW_DOWN_BTN_PR_X/MAIN_H) MODE_ARROW_DOWN_BTN_PR_Y/MAIN_W; to: "bg"; offset : 0 1;}
+					rel2 { relative: ((MODE_ARROW_DOWN_BTN_PR_X+MODE_ARROW_DOWN_BTN_W)/MAIN_H) (MODE_ARROW_DOWN_BTN_PR_Y+MODE_ARROW_DOWN_BTN_H)/MAIN_W;  to: "bg"; offset : 0 1;}
+				}
+			}
+			part { name: "mode_button";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(MODE_BTN_X/MAIN_W, MODE_BTN_Y/MAIN_H,
+										(MODE_BTN_X+MODE_BTN_W)/MAIN_W, (MODE_BTN_Y+MODE_BTN_H)/MAIN_H, "bg");
+			}
+			part { name: "grid_view";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				SWALLOW_PART_DESCRIPTION(MODE_GRID_VIEW_AREA_X/MAIN_W, MODE_GRID_VIEW_AREA_Y/MAIN_H,
+										(MODE_GRID_VIEW_AREA_X+MODE_GRID_VIEW_AREA_W)/MAIN_W, (MODE_GRID_VIEW_AREA_Y+MODE_GRID_VIEW_AREA_H)/MAIN_H, "bg");
+			}
+
+		}
+		programs {
+			program {
+				name: "mouse_clicked";
+				signal: "mouse,clicked,1";
+				source: "bg";
+				action: SIGNAL_EMIT "shooting_mode_view_destory" "cam_shooting_mode_layout";
+			}
+
+			program {
+				name : "shooting_mode,set,landscape";
+				source: "shooting_mode/layout";
+				signal: "landscape";
+				script: {
+					set_state(PART:"setting_button", "landscape", 0.0);
+					set_state(PART:"mode_button", "landscape", 0.0);
+					set_state(PART:"self_portrait_button", "landscape", 0.0);
+					set_state(PART:"mode_arrow_down_button", "landscape", 0.0);
+//					set_state(PART:"grid_bg", "landscape", 0.0);
+					set_state(PART:"auto_mode_image", "landscape", 0.0);
+					set_state(PART:"mode_text", "landscape", 0.0);
+					set_state(PART:"grid_view", "landscape", 0.0);
+//					set_state(PART:"arrow_image", "landscape", 0.0);
+				}
+			}
+			program {
+				name : "shooting_mode,set,portrait";
+				source: "shooting_mode/layout";
+				signal: "portrait";
+				script: {
+					set_state(PART:"setting_button", "portrait", 0.0);
+					set_state(PART:"mode_button", "portrait", 0.0);
+					set_state(PART:"self_portrait_button", "portrait", 0.0);
+					set_state(PART:"mode_arrow_down_button", "portrait", 0.0);
+//					set_state(PART:"grid_bg", "portrait", 0.0);
+					set_state(PART:"auto_mode_image", "portrait", 0.0);
+					set_state(PART:"mode_text", "portrait", 0.0);
+					set_state(PART:"grid_view", "portrait", 0.0);
+//					set_state(PART:"arrow_image", "portrait", 0.0);
+				}
+			}
+			program {
+				name : "shooting_mode,set,landscape_inverse";
+				source: "shooting_mode/layout";
+				signal: "landscape_inverse";
+				script: {
+					set_state(PART:"setting_button", "landscape_inverse", 0.0);
+					set_state(PART:"mode_button", "landscape_inverse", 0.0);
+					set_state(PART:"self_portrait_button", "landscape_inverse", 0.0);
+					set_state(PART:"mode_arrow_down_button", "landscape_inverse", 0.0);
+//					set_state(PART:"grid_bg", "landscape_inverse", 0.0);
+					set_state(PART:"auto_mode_image", "landscape_inverse", 0.0);
+					set_state(PART:"mode_text", "landscape_inverse", 0.0);
+					set_state(PART:"grid_view", "landscape_inverse", 0.0);
+//					set_state(PART:"arrow_image", "landscape_inverse", 0.0);
+				}
+			}
+			program {
+				name : "shooting_mode,set,portrait_inverse";
+				source: "shooting_mode/layout";
+				signal: "portrait_inverse";
+				script: {
+					set_state(PART:"setting_button", "portrait_inverse", 0.0);
+					set_state(PART:"mode_button", "portrait_inverse", 0.0);
+					set_state(PART:"self_portrait_button", "portrait_inverse", 0.0);
+					set_state(PART:"mode_arrow_down_button", "portrait_inverse", 0.0);
+//					set_state(PART:"grid_bg", "portrait_inverse", 0.0);
+					set_state(PART:"auto_mode_image", "portrait_inverse", 0.0);
+					set_state(PART:"mode_text", "portrait_inverse", 0.0);
+					set_state(PART:"grid_view", "portrait_inverse", 0.0);
+//					set_state(PART:"arrow_image", "portrait_inverse", 0.0);
+				}
+			}
+		}
+	}
+
+	group {
+		name: "shooting_mode/grid/layout";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1{ relative: 0.0 0.0;}
+					rel2{ relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+
+			part{
+				name: "gengrid";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+				}
+			}
+		}
+	}
+
+	group {
+		name: "shooting_mode/automode/layout";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1{ relative: 0.0 0.0;}
+					rel2{ relative: 1.0 1.0;}
+					color: 255 255 255 100;
+				}
+			}
+
+			part{
+				name: "automode_view";
+				type: IMAGE;
+				mouse_events: 1;
+				scale: 1;
+				description{
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 1.0 1.0; to: "bg";}
+					image { normal: SHOTTING_MODE_AUTO_ICON;}
+				}
+			}
+		}
+	}
+}
+//end files

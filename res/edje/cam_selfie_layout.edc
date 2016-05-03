@@ -1,0 +1,223 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
+#include "cam_funcs.edc"
+
+
+#define GENERAL_SELFIE_POINT_PROGRAMS(part_name) \
+	program {\
+		name: part_name",press";\
+		source: "prog";\
+		signal: part_name",press";\
+		script: {\
+			set_state(PART:part_name"_image", "press", 0.0);\
+		}\
+	}\
+	program {\
+		name: part_name",normal";\
+		source: "prog";\
+		signal: part_name",normal";\
+		script: {\
+			set_state(PART:part_name"_image", "default", 0.0);\
+		}\
+	}
+
+#define GENERAL_SELFIE_POINT_PART(part_name, x1, y1, x2, y2) \
+	part { name: part_name"_bg";\
+		type: RECT;\
+		mouse_events: 1;\
+		description {\
+			state: "default" 0.0;\
+			visible: 0;\
+			rel1 { relative: 0.0 0.0; }\
+			rel2 { relative: 1.0 1.0; }\
+		}\
+	}\
+	part {\
+		name: part_name"_image";\
+		type: IMAGE;\
+		description {\
+			state: "default" 0.0;\
+			rel1 { relative: x1 y1; to: part_name"_bg";}\
+			rel2 { relative: x2 y2; to: part_name"_bg";}\
+			min: SELFIE_ALARM_POINT_SIZE SELFIE_ALARM_POINT_SIZE;\
+			max: SELFIE_ALARM_POINT_SIZE SELFIE_ALARM_POINT_SIZE;\
+			image { normal: SELFIE_CAMERA_RESIZE_POINT_NORMAL_IMAGE; }\
+		}\
+		description {\
+			state: "press" 0.0;\
+			inherit: "default" 0.0;\
+			image { normal: SELFIE_CAMERA_RESIZE_POINT_PRESS_IMAGE; }\
+		}\
+	}
+
+
+collections {
+	images {
+		image: SELFIE_CAMERA_RESIZE_POINT_NORMAL_IMAGE COMP;
+		image: SELFIE_CAMERA_RESIZE_POINT_PRESS_IMAGE COMP;
+		image: SELFIE_CAMERA_RESIZE_FRAME_IMAGE COMP;
+	}
+	group {
+		name: "frame";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 0;
+				repeat_events: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; }
+					rel2 { relative: 1.0 1.0; }
+					color: 0 0 0 0;
+				}
+			}
+			part { name: "line";
+				type: SWALLOW;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; offset: SELFIE_ALARM_POINT_SIZE/2-2 SELFIE_ALARM_POINT_SIZE/2-2; to: "bg";}
+					rel2 { relative: 1.0 1.0; offset: -SELFIE_ALARM_POINT_SIZE/2 -SELFIE_ALARM_POINT_SIZE/2; to: "bg";}
+					align: 0.5 0.5;
+				}
+			}
+			/*larger than point for easier touch*/
+			part { name: "selfie_alarm_point_left_top";
+				type: SWALLOW;
+				mouse_events: 1;
+				repeat_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg";}
+					rel2 { relative: 0.0 0.0; offset: SELFIE_ALARM_POINT_SIZE*2 SELFIE_ALARM_POINT_SIZE*2;  to: "bg";}
+					align: 0.5 0.5;
+				}
+			}
+			/*larger than point for easier touch*/
+			part { name: "selfie_alarm_point_right_top";
+				type: SWALLOW;
+				mouse_events: 1;
+				repeat_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 1.0 0.0;  offset: -SELFIE_ALARM_POINT_SIZE*2-2 0; to: "bg";}
+					rel2 { relative: 1.0 0.0;  offset: 0 SELFIE_ALARM_POINT_SIZE*2; to: "bg";}
+					align: 0.5 0.5;
+				}
+			}
+			/*larger than point for easier touch*/
+			part { name: "selfie_alarm_point_left_bottom";
+				type: SWALLOW;
+				mouse_events: 1;
+				repeat_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 1.0;  offset: 0 -SELFIE_ALARM_POINT_SIZE*2;  to: "bg";}
+					rel2 { relative: 0.0 1.0;  offset: SELFIE_ALARM_POINT_SIZE*2 0; to: "bg";}
+					align: 0.5 0.5;
+				}
+			}
+			/*larger than point for easier touch*/
+			part { name: "selfie_alarm_point_right_bottom";
+				type: SWALLOW;
+				mouse_events: 1;
+				repeat_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 1.0 1.0;  offset: -SELFIE_ALARM_POINT_SIZE*2 -SELFIE_ALARM_POINT_SIZE*2; to: "bg";}
+					rel2 { relative: 1.0 1.0;  to: "bg";}
+					align: 0.5 0.5;
+				}
+			}
+
+		}/*end parts*/
+	}/*end group : frame*/
+
+	group {
+		name: "selfie_alarm_line";
+		parts {
+			part {
+				name: "line_image";
+				type: IMAGE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; }
+					rel2 { relative: 1.0 1.0; }
+					image {
+						normal: SELFIE_CAMERA_RESIZE_FRAME_IMAGE;
+					}
+				}
+			}
+		}
+
+		programs {
+			GENERAL_SELFIE_POINT_PROGRAMS("line")
+		}/*end programs*/
+	}/*end group : selfie_alarm_line*/
+
+	group {
+		name: "selfie_point_left_top";
+		parts {
+			GENERAL_SELFIE_POINT_PART("point_left_top", 0, 0, 0.5, 0.5)
+		}
+		programs {
+			GENERAL_SELFIE_POINT_PROGRAMS("point_left_top")
+		}/*end programs*/
+	}/*end group : selfie_point_left_top*/
+
+	group {
+		name: "selfie_point_right_top";
+		parts {
+			GENERAL_SELFIE_POINT_PART("point_right_top", 0.5, 0, 1.0, 0.5)
+		}
+		programs {
+			GENERAL_SELFIE_POINT_PROGRAMS("point_right_top")
+		}/*end programs*/
+	}/*end group : selfie_point_right_top*/
+
+	group {
+		name: "selfie_point_left_bottom";
+		parts {
+			GENERAL_SELFIE_POINT_PART("point_left_bottom", 0, 0.5, 0.5, 1.0)
+		}
+		programs {
+			GENERAL_SELFIE_POINT_PROGRAMS("point_left_bottom")
+		}/*end programs*/
+	}/*end group : selfie_point_left_bottom*/
+
+	group {
+		name: "selfie_point_right_bottom";
+		parts {
+			GENERAL_SELFIE_POINT_PART("point_right_bottom", 0.5, 0.5, 1.0, 1.0)
+		}
+		programs {
+			GENERAL_SELFIE_POINT_PROGRAMS("point_right_bottom")
+		}/*end programs*/
+	}/*end group : selfie_point_right_bottom*/
+}/*end collections*/
+//end file
+

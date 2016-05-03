@@ -1,0 +1,131 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "cam_funcs.edc"
+#include "../../inc/edc_image_name.h"
+#include "cam_shot_guide_text_inc.edc"
+
+collections {
+	group {
+		name: "selfie_guide_text";	// for best face & best shot mode
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+			part { name: "guide_text";
+				type: TEXTBLOCK;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: SHOT_GUIDE_TEXT_X/MAIN_W SHOT_GUIDE_TEXT_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (SHOT_GUIDE_TEXT_X+SHOT_GUIDE_TEXT_W)/MAIN_W (SHOT_GUIDE_TEXT_Y+SHOT_GUIDE_TEXT_H)/MAIN_H; to: "bg";}
+					text {
+						style: "textblock_style_shot_guide";
+						min: 0 0;
+						max: 0 1;
+						align: 0.5 0.5;
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_SHOT_GUIDE_TEXT_X/MAIN_H VER_SELFIE_SHOT_GUIDE_TEXT_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_SHOT_GUIDE_TEXT_X+VER_SHOT_GUIDE_TEXT_W)/MAIN_H (VER_SELFIE_SHOT_GUIDE_TEXT_Y+VER_SHOT_GUIDE_TEXT_H)/MAIN_W; to: "bg";}
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: SHOT_GUIDE_TEXT_X/MAIN_W INS_SHOT_GUIDE_TEXT_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (SHOT_GUIDE_TEXT_X+SHOT_GUIDE_TEXT_W)/MAIN_W (INS_SHOT_GUIDE_TEXT_Y+SHOT_GUIDE_TEXT_H)/MAIN_H; to: "bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_SHOT_GUIDE_TEXT_X/MAIN_H VER_SELFIE_SHOT_GUIDE_TEXT_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_SHOT_GUIDE_TEXT_X+VER_SHOT_GUIDE_TEXT_W)/MAIN_H (VER_SELFIE_SHOT_GUIDE_TEXT_Y+VER_SHOT_GUIDE_TEXT_H)/MAIN_W; to: "bg";}
+				}
+			}
+
+		}/*end parts*/
+
+		programs {
+			GUIDE_TEXT_PROGRAM_INVERSE("selfie_guide_text")
+		}/*end programs*/
+	}/*end group : selfie_guide_text*/
+
+	group {
+		name: "panorama_shot_guide_text";	// for panorama mode
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+			part { name: "guide_text";
+				type: TEXTBLOCK;
+				effect: OUTLINE;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: PANORAMA_SHOT_GUIDE_TEXT_X/MAIN_W PANORAMA_SHOT_GUIDE_TEXT_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (PANORAMA_SHOT_GUIDE_TEXT_X+PANORAMA_SHOT_GUIDE_TEXT_W)/MAIN_W (PANORAMA_SHOT_GUIDE_TEXT_Y+SHOT_GUIDE_TEXT_H)/MAIN_H; to: "bg";}
+					text {
+						style: "textblock_style_shot_guide";
+						min: 0 0;
+						max: 0 1;
+					}
+					color2: 105 105 105 255;
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: VER_PANORAMA_SHOT_GUIDE_TEXT_X/MAIN_H VER_PANORAMA_SHOT_GUIDE_TEXT_Y/MAIN_W; to: "bg";}
+					rel2 { relative: (VER_PANORAMA_SHOT_GUIDE_TEXT_X+VER_PANORAMA_SHOT_GUIDE_TEXT_W)/MAIN_H (VER_PANORAMA_SHOT_GUIDE_TEXT_Y+VER_SHOT_GUIDE_TEXT_H)/MAIN_W; to: "bg";}
+				}
+			}
+		}/*end parts*/
+
+		programs {
+			GUIDE_TEXT_PROGRAM("panorama_shot_guide_text")
+		}/*end programs*/
+	}/*end group : panorama_shot_guide_text*/
+}
+//endfile

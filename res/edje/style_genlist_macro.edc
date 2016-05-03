@@ -1,0 +1,164 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#define GENLIST_PART_BASE( param_item_height ) \
+	part { name: "base"; \
+		type: RECT; \
+		repeat_events: 0; \
+		scale: 1; \
+		description { state: "default" 0.0; \
+			min: 0 param_item_height; \
+			color: GENLIST_PART_BG_COLOR_INC; \
+		} \
+	}
+
+#define GENLIST_PART_BG \
+	part { name: "bg"; \
+		type: RECT; \
+		mouse_events: 0; \
+		description { state: "default" 0.0; \
+			color: 66 162 207 255; \
+			visible: 0; \
+		} \
+		description { state: "selected" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 1; \
+		} \
+	}
+
+#define GENLIST_PART_BOTTOM_LINE \
+	part { name: "bottom_line"; \
+		type: IMAGE; \
+		mouse_events: 0; \
+		description { state: "default" 0.0; \
+			min: 0 2; \
+			fixed: 0 1; \
+			visible: 1; \
+			rel1 { \
+				relative: 0.0 1.0; \
+				offset: 0 -1; \
+			} \
+			image { normal: SETTING_LIST_DV_H_IMAGE; } \
+		} \
+		description { state: "hidden" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0; \
+		} \
+	}
+
+#define GENLIST_PROGRAM_BOTTOMLINE \
+	program { name : "hide_bottomline"; \
+		signal: "elm,state,bottomline,hide"; \
+		source: ""; \
+		action: STATE_SET "hidden" 0.0; \
+		target: "bottom_line"; \
+	} \
+	program { name : "show_bottomline"; \
+		signal: "elm,state,bottomline,show"; \
+		source: ""; \
+		action: STATE_SET "default" 0.0; \
+		target: "bottom_line"; \
+	}
+
+#define GENLIST_PART_PADDING_TOP( param_padding_size ) \
+	part { name: "elm.padding.top"; \
+		type: SPACER; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			min: 0 param_padding_size; \
+			fixed: 0 1; \
+			rel2.relative: 1.0 0.0; \
+			align: 0.0 0.0; \
+		} \
+	}
+
+#define GENLIST_PART_PADDING_BOTTOM( param_padding_size ) \
+	part { name: "elm.padding.bottom"; \
+		type: SPACER; \
+		scale: 1; \
+		description { state: "default" 0.0; \
+			min: 0 param_padding_size; \
+			fixed: 0 1; \
+			rel1.relative: 0.0 1.0; \
+			align: 0.0 1.0; \
+		} \
+	}
+
+#define GENLIST_PART_PADDING_LEFT( param_padding_size ) \
+	part { name: "elm.padding.left"; \
+		type: SPACER; \
+		scale: 1; \
+		description { state: "default" 0.0; \
+			min: param_padding_size 0; \
+			fixed: 1 0; \
+			rel2.relative: 0.0 1.0; \
+			align: 0.0 0.0; \
+		} \
+	}
+
+#define GENLIST_PART_PADDING_RIGHT( param_padding_size ) \
+	part { name: "elm.padding.right"; \
+		type: SPACER; \
+		scale: 1; \
+		description { state: "default" 0.0; \
+			min: param_padding_size 0; \
+			fixed: 1 0; \
+			rel1.relative: 1.0  0.0; \
+			align: 1.0 0.0; \
+		} \
+	}
+
+#define GENLIST_PART_DISCLIP \
+	part { name: "disclip"; \
+		type: RECT; \
+		description { state: "default" 0.0; \
+		} \
+		description { state: "disabled" 0.0; \
+			inherit: "default" 0.0; \
+			color: GENLIST_PART_DISCLIP_COLOR_INC; \
+		} \
+	}
+
+#define GENLIST_PART_FOCUS \
+	part { name: "focus_part"; \
+		type: IMAGE; \
+		description { state: "default" 0.0; \
+			visible: 0; \
+			image.normal: CAMERA_FOCUS_UI_BG_ICON; \
+			image.border: 7 7 7 7; \
+		} \
+		description { state: "focused" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 1; \
+		} \
+	}
+
+#define GENLIST_PROGRAM_FOCUS \
+	program { name: "focused"; \
+		signal: "elm,action,focus_highlight,show"; \
+		source: "elm"; \
+		action: STATE_SET "focused" 0.0; \
+		target: "focus_part"; \
+	} \
+	program { name: "unfocused"; \
+		signal: "elm,action,focus_highlight,hide"; \
+		source: "elm"; \
+		action: STATE_SET "default" 0.0; \
+		target: "focus_part"; \
+	}
+

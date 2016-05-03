@@ -1,0 +1,1119 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
+#include "cam_funcs.edc"
+
+
+//Content Layout
+collections {
+	styles {
+		style {
+			name: "list_menu_title";
+			base: "font=Tizen:style=Regular font_size=24 align=left color=#F4F4F4 ellipsis=1.0 wrap=mixed";
+			tag:  "br"        "  \n";
+		}
+	}
+
+	group {
+		name:"camera/list_menu/layout";
+		parts {
+			part {
+				name: "bg";
+				type:  RECT;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 250 100;
+					max: 400 258;
+					color: 0 0 0 0;
+				}
+			}
+			part {
+				name: "elm.text.leftpadding";
+				type:  SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: SETTING_SUB_TEXT_PADDING_LEFT SETTING_SUB_TEXT_H;
+					max: SETTING_SUB_TEXT_PADDING_LEFT SETTING_SUB_TEXT_H;
+					fixed: 1 1;
+					align: 0.0 0.0;
+					rel2.relative: 0.0 1.0;
+				}
+			}
+			part {
+				name: "elm.text";
+				type:  TEXTBLOCK;
+				mouse_events: 1;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 0 SETTING_SUB_TEXT_H;
+					align: 0.0 0.0;
+					rel1 { relative: 1.0 0.0; to: "elm.text.leftpadding";}
+					rel2 { relative: 0.0 1.0; to: "elm.text.rightpadding";}
+					text {
+						style: "list_menu_title";
+						min: 0 1;
+					}
+				}
+			}
+			part {
+				name: "elm.text.rightpadding";
+				type:  SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: SETTING_SUB_TEXT_PADDING_RIGHT SETTING_SUB_TEXT_H;
+					max: SETTING_SUB_TEXT_PADDING_RIGHT SETTING_SUB_TEXT_H;
+					fixed: 1 1;
+					align: 1.0 0.0;
+					rel1.relative: 1.0 0.0;
+				}
+			}
+			part {
+				name: "elm.swallow.box";
+				type: SWALLOW;
+				description {
+					rel1 { to: "elm.text.leftpadding"; relative: 0.0 1.0;}
+					rel2 { offset: 0 -SETTING_SUB_BOTTOM;}
+				}
+			}
+		}
+	}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// radio
+///////////////////////////////////////////////////////////////////////////////
+#define CAMERA_RADIO_BG_SIZE	36 36
+#define CAMERA_RADIO_SIZE		28 28
+
+	group { name: "elm/radio/base/camera/list_menu";
+		images {
+			image: SETTING_POPUP_RADIO_BG_IMAGE COMP;
+			image: SETTING_POPUP_RADIO_ICON_IMAGE COMP;
+		}
+		script {
+			public radio_state;
+			public radio_disabled;
+		}
+		parts {
+			part { name: "bg";
+				scale: 1;
+				description { state: "default" 0.0;
+					min: CAMERA_RADIO_BG_SIZE;
+					max: CAMERA_RADIO_BG_SIZE;
+					image.normal: SETTING_POPUP_RADIO_BG_IMAGE;
+					color: 8 8 8 30;
+				}
+				description { state: "on" 0.0;
+					inherit: "default" 0.0;
+					color: 93 223 140 100;
+				}
+				description { state: "disabled" 0.0;
+					inherit: "default" 0.0;
+					color: 8 8 8 15;
+				}
+			}
+			part { name: "radio";
+				scale: 1;
+				description { state: "default" 0.0;
+					min: CAMERA_RADIO_SIZE;
+					max: CAMERA_RADIO_SIZE;
+					rel1.to: "bg";
+					rel2.to: "bg";
+					image.normal: SETTING_POPUP_RADIO_ICON_IMAGE;
+					color: 245 245 245 100;
+					visible:1;
+				}
+				description { state: "on" 0.0;
+					inherit: "default" 0.0;
+					visible:1;
+				}
+			}
+			part { name: "event";
+				scale: 1;
+				type: RECT;
+				description { state: "default" 0.0;
+					rel1.to: "bg";
+					rel2.to: "bg";
+					color: 0 0 0 0;
+				}
+			}
+		}
+		programs {
+			program { name: "click";
+				signal: "mouse,clicked,1";
+				source: "event";
+				script {
+					if (get_int(radio_disabled) == 1) return;
+					emit("elm,action,radio,toggle", "");
+					run_program(PROGRAM:"touch_sound");
+				}
+			}
+			program { name: "touch_sound";
+				action: RUN_PLUGIN "touch_sound";
+			}
+			program { name: "unpressed";
+				signal: "mouse,up,1";
+				source: "event";
+				script {
+					if (get_int(radio_disabled) == 1) return;
+					if (get_int(radio_state) == 1) {
+						set_state(PART:"radio", "on", 0.0);
+						set_state(PART:"bg", "on", 0.0);
+					}
+					else {
+						set_state(PART:"radio", "default", 0.0);
+						set_state(PART:"bg", "default", 0.0);
+					}
+				}
+			}
+			program { name: "pressed";
+				signal: "mouse,down,1";
+				source: "event";
+				script {
+					if (get_int(radio_disabled) == 1) return;
+					if (get_int(radio_state) == 1) {
+						set_state(PART:"radio", "on", 0.0);
+						set_state(PART:"bg", "on", 0.0);
+					}
+					else {
+						set_state(PART:"radio", "default", 0.0);
+						set_state(PART:"bg", "default", 0.0);
+					}
+				}
+			}
+			program { name: "radio_on";
+				signal: "elm,state,radio,on";
+				source: "elm";
+				script {
+					if (get_int(radio_disabled) == 1)
+						set_state(PART:"bg", "disabled", 0.0);
+					else
+						set_state(PART:"bg", "on", 0.0);
+					set_state(PART:"radio", "on", 0.0);
+					set_int(radio_state, 1);
+				}
+			}
+			program { name: "radio_off";
+				signal: "elm,state,radio,off";
+				source: "elm";
+				script {
+					if (get_int(radio_disabled) == 1)
+						set_state(PART:"bg", "disabled", 0.0);
+					else
+						set_state(PART:"bg", "default", 0.0);
+					set_state(PART:"radio", "default", 0.0);
+					set_int(radio_state, 0);
+				}
+			}
+			program { name: "disable";
+				signal: "elm,state,disabled";
+				source: "elm";
+				script {
+					set_int(radio_disabled, 1);
+					set_state(PART:"bg", "disabled", 0.0);
+				}
+			}
+			program { name: "enable";
+				signal: "elm,state,enabled";
+				source: "elm";
+				script {
+					set_int(radio_disabled, 0);
+					if (get_int(radio_state) == 1)
+						set_state(PART:"bg", "on", 0.0);
+					else
+						set_state(PART:"bg", "default", 0.0);
+				}
+			}
+		}
+	}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// ctxpopup
+///////////////////////////////////////////////////////////////////////////////
+	group {
+		name: "elm/ctxpopup/bg/beat_winset_test/camera";
+		alias: "elm/ctxpopup/bg/beat_winset_test/camera_sub_list";
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				mouse_events: 1;
+				repeat_events: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+				}
+				description {
+					state: "visible" 0.0;
+					color: 0 0 0 0;
+					visible: 1;
+				}
+			}
+		}
+		programs {
+			program {
+				name: "show";
+				signal: "elm,state,show";
+				source: "elm";
+				action: STATE_SET "visible" 0.0;
+				target: "bg";
+			}
+			program {
+				name: "hide";
+				signal: "elm,state,hide";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "bg";
+			}
+		}
+	}
+
+///////////////////////////////////////////////////////////////////////////////
+	group {
+		name: "elm/ctxpopup/layout/beat_winset_test/camera";
+		alias: "elm/ctxpopup/layout/beat_winset_test/camera_sub_list";
+		parts {
+			part {
+				name: "layout_bg";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 0 0 0 0;
+				}
+			}
+			part {
+				name:"top_padding";
+				type: SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 0 20;
+					fixed: 0 1;
+					align: 0.5 0.0;
+					rel1.relative: 0.0 0.0;
+					rel2.relative: 1.0 0.0;
+				}
+				description {
+					state: "show_up" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "visible" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+				}
+			}
+			part {
+				name:"bottom_padding";
+				type: SPACER;
+				scale: 0;
+				description {
+					state: "default" 0.0;
+					min: 0 20;
+					fixed: 0 1;
+					align: 0.5 1.0;
+					rel1.relative: 0.0 1.0;
+					rel2.relative: 1.0 1.0;
+				}
+				description {
+					state: "show_down" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "visible" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+				}
+			}
+			part {
+				name:"left_padding";
+				type: SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 20 0;
+					fixed: 1 0;
+					align: 0.0 0.5;
+					rel1.relative: 0.0 0.0;
+					rel2.relative: 0.0 1.0;
+				}
+				description {
+					state: "show_left" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "visible" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+				}
+			}
+			part {
+				name:"right_padding";
+				type: SPACER;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: 20 0;
+					fixed: 1 0;
+					align: 1 0.5;
+					rel1.relative: 1.0 0.0;
+					rel2.relative: 1.0 1.0;
+				}
+				description {
+					state: "show_right" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "visible" 0.0;
+					inherit: "default" 0.0;
+					min: 0 0;
+				}
+			}
+			part {
+				name: "swallow";
+				type: SWALLOW;
+				clip_to: "layout_clip";
+				description {
+					state: "default" 0.0;
+					visible: 0;
+				}
+				description {
+					state: "show_up" 0.0;
+					rel1 {to_x:"left_padding"; to_y:"top_padding"; relative: 1.0 1.0;}
+					rel2 {to_x:"right_padding"; to_y:"top_padding"; relative: 0.0 1.0;}
+					align: 0.5 0.0;
+				}
+				description {
+					state: "show_down" 0.0;
+					rel1 {to_x:"left_padding"; to_y:"bottom_padding"; relative: 1.0 0.0;}
+					rel2 {to_x:"right_padding"; to_y:"bottom_padding"; relative: 0.0 0.0;}
+					align: 0.5 1.0;
+				}
+				description {
+					state: "show_left" 0.0;
+					rel1 {to_x:"left_padding"; to_y:"top_padding"; relative: 1.0 1.0;}
+					rel2 {to_x:"left_padding"; to_y:"bottom_padding"; relative: 1.0 0.0;}
+					align: 0.0 0.5;
+				}
+				description {
+					state: "show_right" 0.0;
+					rel1 {to_x:"right_padding"; to_y:"top_padding"; relative: 0.0 1.0;}
+					rel2 {to_x:"right_padding"; to_y:"bottom_padding"; relative: 0.0 0.0;}
+					align: 1.0 0.5;
+				}
+			}
+			part {
+				name: "layout_clip";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 255 255 255 127;
+					rel1 {to: "swallow"; relative: -0.2 -0.2; }
+					rel2 {to: "swallow"; relative: 1.2 1.2;}
+				}
+				description {
+					state: "show_up" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "show_down" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "show_left" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "show_right" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "visible" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+				}
+			}
+		}
+		programs {
+			program {
+				name:   "showup";
+				signal: "elm,state,show,up";
+				source: "elm";
+				action: STATE_SET "show_up" 0.0;
+				target: "swallow";
+				target: "top_padding";
+				target: "layout_clip";
+				after: "showupend";
+			}
+			program {
+				name:   "showdown";
+				signal: "elm,state,show,down";
+				source: "elm";
+				action: STATE_SET "show_down" 0.0;
+				target: "swallow";
+				target: "bottom_padding";
+				target: "layout_clip";
+				after: "showdownend";
+			}
+			program {
+				name:   "showleft";
+				signal: "elm,state,show,left";
+				source: "elm";
+				action: STATE_SET "show_left" 0.0;
+				target: "swallow";
+				target: "left_padding";
+				target: "layout_clip";
+				after: "showleftend";
+			}
+			program {
+				name:   "showright";
+				signal: "elm,state,show,right";
+				source: "elm";
+				action: STATE_SET "show_right" 0.0;
+				target: "swallow";
+				target: "right_padding";
+				target: "layout_clip";
+				after: "showrightend";
+			}
+			program {
+				name:   "showupend";
+				action: STATE_SET "visible" 0.0;
+				transition:SIN_FAC 0.33 0.6;
+				target: "top_padding";
+				target: "layout_clip";
+			}
+			program {
+				name:   "showdownend";
+				action: STATE_SET "visible" 0.0;
+				transition:SIN_FAC 0.33 0.6;
+				target: "bottom_padding";
+				target: "layout_clip";
+			}
+			program {
+				name:   "showleftend";
+				action: STATE_SET "visible" 0.0;
+				transition:SIN_FAC 0.33 0.6;
+				target: "left_padding";
+				target: "layout_clip";
+			}
+			program {
+				name:   "showrightend";
+				action: STATE_SET "visible" 0.0;
+				transition:SIN_FAC 0.33 0.6;
+				target: "right_padding";
+				target: "layout_clip";
+			}
+			program {
+				name:   "hideup";
+				signal: "elm,state,hide,up";
+				source: "elm";
+				action: STATE_SET "show_up" 0.0;
+				target: "swallow";
+				target: "top_padding";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hidedown";
+				signal: "elm,state,hide,down";
+				source: "elm";
+				action: STATE_SET "show_down" 0.0;
+				target: "swallow";
+				target: "bottom_padding";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hideleft";
+				signal: "elm,state,hide,left";
+				source: "elm";
+				action: STATE_SET "show_left" 0.0;
+				target: "swallow";
+				target: "left_padding";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hideright";
+				signal: "elm,state,hide,right";
+				source: "elm";
+				action: STATE_SET "show_right" 0.0;
+				target: "swallow";
+				target: "right_padding";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hideup_clip";
+				signal: "elm,state,hide,up";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "layout_clip";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hidedown_clip";
+				signal: "elm,state,hide,down";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "layout_clip";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hideleft_clip";
+				signal: "elm,state,hide,left";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "layout_clip";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name:   "hideright_clip";
+				signal: "elm,state,hide,right";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "layout_clip";
+				transition: SIN_FAC 0.33 0.6;
+				after: "hidefinished";
+			}
+			program {
+				name: "hidefinished";
+				action: SIGNAL_EMIT "elm,action,hide,finished" "";
+			}
+		}
+	}
+
+///////////////////////////////////////////////////////////////////////////////
+	group { name: "elm/ctxpopup/arrow/beat_winset_test/camera";
+		images {
+			image: CTXPOPUP_LEFT_ARROW_IMAGE COMP;
+			image: CTXPOPUP_RIGHT_ARROW_IMAGE COMP;
+			image: CTXPOPUP_TOP_ARROW_IMAGE COMP;
+			image: CTXPOPUP_BOTTOM_ARROW_IMAGE COMP;
+		}
+		parts {
+			part {
+				name: "ctxpopup_arrow";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					visible: 0;
+					align: 0.5 0.5;
+				}
+				description {
+					state: "left" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+					align: 1.0 0.5;
+					image {
+						normal: CTXPOPUP_LEFT_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "right" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					max: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+		 		  	align: 0.0 0.5;
+					image {
+						normal: CTXPOPUP_RIGHT_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "top" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					align: 0.5 1.0;
+					image {
+						normal: CTXPOPUP_TOP_ARROW_IMAGE;
+					}
+				}
+				description {
+					state: "bottom" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					max: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					align: 0.5 0.0;
+					image {
+						normal: CTXPOPUP_BOTTOM_ARROW_IMAGE;
+					}
+				}
+			}
+		}
+		programs {
+			program {
+				name: "enable_left_arrow";
+				signal: "elm,state,left";
+				source: "elm";
+				action: STATE_SET "left" 0.0;
+				target: "ctxpopup_arrow";
+			}
+			program {
+				name: "enable_right_arrow";
+				signal: "elm,state,right";
+				source: "elm";
+				action: STATE_SET "right" 0.0;
+				target: "ctxpopup_arrow";
+			}
+			program {
+				name: "enable_top_arrow";
+				signal: "elm,state,top";
+				source: "elm";
+				action: STATE_SET "top" 0.0;
+				target: "ctxpopup_arrow";
+			}
+			program {
+				name: "enable_bottom_arrow";
+				signal: "elm,state,bottom";
+				source: "elm";
+				action: STATE_SET "bottom" 0.0;
+				target: "ctxpopup_arrow";
+			}
+		}
+	}
+
+	group {
+		name: "elm/ctxpopup/base/beat_winset_test/camera_sub_list";
+		alias: "elm/ctxpopup/base/beat_winset_test/camera";
+		images {
+			image: SETTING_POPUP_BG_2DEPTH_IMAGE COMP;
+		}
+		parts {
+			part {
+				name: "ctxpopup_frame_left_top";
+				type: RECT;
+				scale: 1;
+				description {
+					visible:0;
+					align: 0 0;
+					min: SETTING_SUB_POPUP_LEFT SETTING_SUB_POPUP_TOP;
+					max: SETTING_SUB_POPUP_LEFT SETTING_SUB_POPUP_TOP;
+				}
+			}
+
+			part {
+				name: "ctxpopup_frame_right_top";
+				type: RECT;
+				scale: 1;
+				description {
+					visible:0;
+					align: 1 0;
+					min: SETTING_SUB_POPUP_RIGHT SETTING_SUB_POPUP_TOP;
+					max: SETTING_SUB_POPUP_RIGHT SETTING_SUB_POPUP_TOP;
+				}
+			}
+
+			part {
+				name: "ctxpopup_frame_left_bottom";
+				type: RECT;
+				scale: 1;
+				description {
+					visible:0;
+					align: 0 1;
+					min: SETTING_SUB_POPUP_LEFT SETTING_SUB_POPUP_BOTTOM;
+					max: SETTING_SUB_POPUP_LEFT SETTING_SUB_POPUP_BOTTOM;
+				}
+			}
+
+			part {
+				name: "ctxpopup_frame_right_bottom";
+				type: RECT;
+				scale: 1;
+				description {
+					visible:0;
+					align: 1 1;
+					min: SETTING_SUB_POPUP_RIGHT SETTING_SUB_POPUP_BOTTOM;
+					max: SETTING_SUB_POPUP_RIGHT SETTING_SUB_POPUP_BOTTOM;
+				}
+			}
+			part {
+				name: "ctxpopup_frame";
+				type: IMAGE;
+				scale: 1;
+				description {
+					image {
+						normal: SETTING_POPUP_BG_2DEPTH_IMAGE;
+					}
+					rel1 {to: "ctxpopup_frame_left_top"; relative: 0.0 0.0;}
+					rel2 {to: "ctxpopup_frame_right_bottom"; relative: 1.0 1.0;}
+				}
+			}
+			part {
+				name: "arrow_area_left";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				description { state: "default" 0.0;
+					visible: 0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+					align: 1 0.5;
+					rel1 {
+						relative: 1.0 1.0;
+						to: "ctxpopup_frame_left_top";
+						offset: CTXPOPUP_CAMERA_ARROW_HEIGHT 0;
+					}
+					rel2 {
+						relative: 1.0 0.0;
+						to:"ctxpopup_frame_left_bottom";
+					}
+				}
+			}
+			part {
+				name: "arrow_area_right";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				description { state: "default" 0.0;
+					visible: 0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+					align: 0 0.5;
+					rel1 {
+						relative: 0.0 1.0;
+						to:"ctxpopup_frame_right_top";
+					}
+					rel2 {
+						relative: 0.0 0.0;
+						to: "ctxpopup_frame_right_bottom";
+					}
+				}
+			}
+			part {
+				name: "arrow_area_up";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				description { state: "default" 0.0;
+					visible: 0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					align: 0.5 1;
+					rel1 {
+						relative: 1.0 1.0;
+						to: "ctxpopup_frame_left_top";
+						offset: 0 CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					}
+					rel2 {
+						relative: 0.0 1.0;
+						to:"ctxpopup_frame_right_top";
+					}
+				}
+			}
+			part {
+				name: "arrow_area_down";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				description { state: "default" 0.0;
+					visible: 0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					align: 0.5 0;
+					rel1 {
+						relative: 1.0 0.0;
+						to:"ctxpopup_frame_left_bottom";
+						offset: 0 1;
+					}
+					rel2 {
+						relative: 0.0 0.0;
+						to: "ctxpopup_frame_right_bottom";
+					}
+				}
+			}
+			part {
+				name: "elm.swallow.arrow_up";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				dragable {
+					x: 1 1 0;
+					y: 1 1 0;
+					confine: "arrow_area_up";
+				}
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					visible: 1;
+				}
+			}
+			part {
+				name: "elm.swallow.arrow_down";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				dragable {
+					x: 1 1 0;
+					y: 1 1 0;
+					confine: "arrow_area_down";
+				}
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_WIDTH CTXPOPUP_CAMERA_ARROW_HEIGHT;
+					fixed: 1 1;
+					visible: 1;
+				}
+			}
+			part {
+				name: "elm.swallow.arrow_left";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				dragable {
+					x: 1 1 0;
+					y: 1 1 0;
+					confine: "arrow_area_left";
+				}
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+					visible: 1;
+				}
+			}
+			part {
+				name: "elm.swallow.arrow_right";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				clip_to: "ctxpopup_clip";
+				dragable {
+					x: 1 1 0;
+					y: 1 1 0;
+					confine: "arrow_area_right";
+				}
+				description {
+					state: "default" 0.0;
+					min: CTXPOPUP_CAMERA_ARROW_HEIGHT CTXPOPUP_CAMERA_ARROW_WIDTH;
+					fixed: 1 1;
+					visible: 1;
+				}
+			}
+			part { name: "access.outline";
+				type: RECT;
+				repeat_events: 1;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+					rel1.to: "ctxpopup_frame";
+					rel2.to: "ctxpopup_frame";
+					color: 0 0 0 0;
+				}
+			}
+
+			part {
+				name: "elm.swallow.content";
+				type: SWALLOW;
+				clip_to: "ctxpopup_clip";
+				description {
+					state: "default" 0.0;
+					rel1 {to: "ctxpopup_frame_left_top"; relative: 1.0 1.0;}
+					rel2 {to: "ctxpopup_frame_right_bottom"; relative: 0.0 0.0;}
+				}
+			}
+
+			part { name: "ctxpopup_clip";
+				type: RECT;
+				description { state: "default" 0.0;
+				color: 255 255 255 0;
+				rel1 {to: "ctxpopup_frame_left_top"; relative: 1.0 1.0;}
+				rel2 {to: "ctxpopup_frame_right_bottom"; relative: 0.0 0.0;}
+				}
+				description { state: "show_up" 0.0;
+					color: 255 255 255 0;
+					rel1 { to:"arrow_area_down"; relative: 0 1; }
+					rel2 { to:"arrow_area_down"; relative: 1 1; }
+				}
+				description { state: "show_left" 0.0;
+					color: 255 255 255 0;
+					rel1 { to:"arrow_area_right"; relative: 1 0; }
+					rel2 { to:"arrow_area_right"; relative: 1 1; }
+				}
+				description { state: "show_right" 0.0;
+					color: 255 255 255 0;
+					rel1 { to:"arrow_area_left"; relative: 0 0; }
+					rel2 { to:"arrow_area_left"; relative: 0 1; }
+				}
+				description { state: "show_down" 0.0;
+					color: 255 255 255 0;
+					rel1 { to:"arrow_area_up"; relative: 0 0; }
+					rel2 { to:"arrow_area_up"; relative: 1 0; }
+				}
+				description { state: "hide_up" 0.0;
+					color: 255 255 255 255;
+					rel1 { to:"arrow_area_down"; relative: 0 1; }
+					rel2 { to:"arrow_area_down"; relative: 1 1; }
+				}
+				description { state: "hide_left" 0.0;
+					color: 255 255 255 255;
+					rel1 { to:"arrow_area_right"; relative: 1 0; }
+					rel2 { to:"arrow_area_right"; relative: 1 1; }
+				}
+				description { state: "hide_right" 0.0;
+					color: 255 255 255 255;
+					rel1 { to:"arrow_area_left"; relative: 0 0; }
+					rel2 { to:"arrow_area_left"; relative: 0 1; }
+				}
+				description { state: "hide_down" 0.0;
+					color: 255 255 255 255;
+					rel1 { to:"arrow_area_up"; relative: 0 0; }
+					rel2 { to:"arrow_area_up"; relative: 1 0; }
+				}
+				description { state: "visible" 0.0;
+					color: 255 255 255 255;
+					rel1 { to_x:"arrow_area_left"; to_y:"arrow_area_up"; }
+					rel2 { to_x:"arrow_area_right"; to_y:"arrow_area_down"; }
+				}
+			}
+		}
+		programs {
+			program { name: "show";
+				signal: "elm,state,show";
+				source: "elm";
+				action: STATE_SET "visible" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+			}
+			program { name: "show_up";
+				signal: "elm,state,show,up";
+				source: "elm";
+				action: STATE_SET "show_up" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+			}
+			program { name: "show_left";
+				signal: "elm,state,show,left";
+				source: "elm";
+				action: STATE_SET "show_left" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+			}
+			program { name: "show_right";
+				signal: "elm,state,show,right";
+				source: "elm";
+				action: STATE_SET "show_right" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+			}
+			program { name: "show_down";
+				signal: "elm,state,show,down";
+				source: "elm";
+				action: STATE_SET "show_down" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+			}
+			program { name: "hide_up";
+				signal: "elm,state,hide,up";
+				source: "elm";
+				action: STATE_SET "hide_up" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+				after: "hide_finished";
+			}
+			program { name: "hide_left";
+				signal: "elm,state,hide,left";
+				source: "elm";
+				action: STATE_SET "hide_left" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+				after: "hide_finished";
+			}
+			program { name: "hide_right";
+				signal: "elm,state,hide,right";
+				source: "elm";
+				action: STATE_SET "hide_right" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+				after: "hide_finished";
+			}
+			program { name: "hide_down";
+				signal: "elm,state,hide,down";
+				source: "elm";
+				action: STATE_SET "hide_down" 0.0;
+				transition: LINEAR 0.25;
+				target: "ctxpopup_clip";
+				after: "hide_finished";
+			}
+			program { name: "hide_finished";
+				action: SIGNAL_EMIT "elm,action,hide,finished" "";
+			}
+		}
+	}
+
+	group { name: "elm/ctxpopup/arrow/beat_winset_test/camera_sub_list";
+		parts {
+			part {
+				name: "ctxpopup_arrow";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					align: 0.5 0.5;
+					rel1.relative: 0.0 -0.5;
+					rel2.relative: 0.0 1.0;
+
+				}
+				description {
+					state: "left" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "right" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "top" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "bottom" 0.0;
+					inherit: "default" 0.0;
+				}
+			}
+		}
+	}
+
+#include "style_tizen_hd_inc.edc"
+#include "style_genlist_macro.edc"
+#include "style_genlist_normal.edc"
+}
+

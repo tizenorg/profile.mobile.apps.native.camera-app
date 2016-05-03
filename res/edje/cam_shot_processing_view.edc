@@ -1,0 +1,139 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
+
+#define PROCESSING_BG_AREA_W	330
+#define PROCESSING_BG_AREA_H	74
+
+#define PROCESSING_BG_AREA_X	((MAIN_W-PROCESSING_BG_AREA_W)/2)
+#define PROCESSING_BG_AREA_Y	((MAIN_H-PROCESSING_BG_AREA_H)/2)
+#define PROCESSING_BG_AREA_X_VER	((VER_MAIN_W-PROCESSING_BG_AREA_W)/2)
+#define PROCESSING_BG_AREA_Y_VER	((VER_MAIN_W-PROCESSING_BG_AREA_H)/2)
+
+#define PROCESSING_ICON_W	24
+#define PROCESSING_ICON_H	24
+#define PROCESSING_ICON_X	153
+#define PROCESSING_ICON_Y	12
+
+#define PROCESSING_TEXT_W	200
+#define PROCESSING_TEXT_H	18
+#define PROCESSING_TEXT_X	65
+#define PROCESSING_TEXT_Y	43
+
+
+collections {
+	images{
+		image: PROCESSING_BG_IMAGE COMP;
+	}
+
+	group {
+		name: "shot_processing_view";
+		parts {
+			part { name: "bg";
+				type: RECT;
+				mouse_events: 0;
+				scale: 1;
+				description{
+					state:"default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color: 255 255 255 0;
+				}
+			}
+
+			part { name: "bg_image";
+				type: IMAGE;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: PROCESSING_BG_AREA_W PROCESSING_BG_AREA_H;
+					max: PROCESSING_BG_AREA_W PROCESSING_BG_AREA_H;
+					rel1 { relative: PROCESSING_BG_AREA_X/MAIN_W PROCESSING_BG_AREA_Y/MAIN_H; to: "bg";}
+					rel2 { relative: (PROCESSING_BG_AREA_X+PROCESSING_BG_AREA_W)/MAIN_W (PROCESSING_BG_AREA_Y+PROCESSING_BG_AREA_H)/MAIN_H; to: "bg";}
+					image {
+						normal : PROCESSING_BG_IMAGE;
+						border: 6 6 6 6;
+						border_scale: 1;
+					}
+				}
+
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+
+				description {
+					state: "protrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: PROCESSING_BG_AREA_X_VER/VER_MAIN_W PROCESSING_BG_AREA_Y_VER/VER_MAIN_H; to: "bg";}
+					rel2 { relative: (PROCESSING_BG_AREA_X_VER+PROCESSING_BG_AREA_W)/VER_MAIN_W (PROCESSING_BG_AREA_Y_VER+PROCESSING_BG_AREA_H)/VER_MAIN_H; to: "bg";}
+				}
+			}
+
+			part { name: "progressbar";
+				type: SWALLOW;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: PROCESSING_ICON_X/PROCESSING_BG_AREA_W PROCESSING_ICON_Y/PROCESSING_BG_AREA_H; to: "bg_image";}
+					rel2 { relative: (PROCESSING_ICON_X+PROCESSING_ICON_W)/PROCESSING_BG_AREA_W (PROCESSING_ICON_Y+PROCESSING_ICON_H)/PROCESSING_BG_AREA_H; to: "bg_image";}
+				}
+			}
+
+			part { name: "text_area";
+				type: TEXT;
+				mouse_events: 0;
+				scale: 1;
+				description { state: "default" 0.0;
+					min: PROCESSING_TEXT_W PROCESSING_TEXT_H;
+					max: PROCESSING_TEXT_W PROCESSING_TEXT_H;
+					align: 0.5 0.5;
+					rel1 { relative: PROCESSING_TEXT_X/PROCESSING_BG_AREA_W PROCESSING_TEXT_Y/PROCESSING_BG_AREA_H; to: "bg_image";}
+					rel2 { relative: (PROCESSING_TEXT_X+PROCESSING_TEXT_W)/PROCESSING_BG_AREA_W (PROCESSING_TEXT_Y+PROCESSING_TEXT_H)/PROCESSING_BG_AREA_H; to: "bg_image";}
+					text {
+						size: 15;
+						align:    0.5 0.5;
+					}
+					color:245 245 245 255;
+				}
+			}
+		}
+
+		programs {
+			program {
+				name : "processing,set,landscape";
+				source: "processing";
+				signal: "landscape";
+				script: {
+					set_state(PART:"bg_image", "landscape", 0.0);
+				}
+			}
+			program {
+				name : "processing,set,protrait";
+				source: "processing";
+				signal: "protrait";
+				script: {
+					set_state(PART:"bg_image", "protrait", 0.0);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,656 @@
+/*
+* Copyright (c) 2000-2015 Samsung Electronics Co., Ltd All Rights Reserved
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+#include "cam_funcs.edc"
+#include "../../inc/edc_image_name.h"
+#include "../../inc/edc_defines.h"
+
+#define ZOOM_BG_W		52
+#define ZOOM_BG_H		412
+#define ZOOM_BG_X		(MAIN_W - 130 - ZOOM_BG_W)
+#define ZOOM_BG_Y		((MAIN_H - ZOOM_BG_H)/2)
+
+#define ZOOM_ICON_WIDTH	46
+#define ZOOM_ICON_HEIGHT	46
+#define ZOOM_LEFT_PADDING	((ZOOM_BG_W - ZOOM_ICON_WIDTH)/2)
+#define ZOOM_ICON_TOP_PADDING	14
+
+#define ZOOM_SLIDER_Y			(ZOOM_ICON_TOP_PADDING+ZOOM_ICON_HEIGHT+10)
+
+#define ZOOM_VAL_TEXT_1_W		81
+#define ZOOM_VAL_TEXT_2_W		310
+#define ZOOM_VAL_TEXT_H		110
+
+#define PIN_STEP_GAP (13)
+#define PIN_IMAGE_1X_WIDTH (100)
+#define PIN_IMAGE_1_125X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP)
+#define PIN_IMAGE_1_250X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*2)
+#define PIN_IMAGE_1_375X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*3)
+#define PIN_IMAGE_1_500X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*4)
+#define PIN_IMAGE_1_625X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*5)
+#define PIN_IMAGE_1_750X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*6)
+#define PIN_IMAGE_1_875X_WIDTH (PIN_IMAGE_1X_WIDTH+PIN_STEP_GAP*7)
+#define PIN_IMAGE_2X_WIDTH (204)
+
+
+images {
+	image: ZOOM_PINCH_IMAGE COMP;
+	image: ZOOM_X1_IMAGE COMP;
+	image: ZOOM_X1_PRESS_IMAGE COMP;
+	image: ZOOM_X4_IMAGE COMP;
+	image: ZOOM_X4_PRESS_IMAGE COMP;
+	image: EXPOSURE_SLIDER_BG_ICON COMP;
+}
+
+#define ZOOM_X_DESCRIPTON(name, width, height) \
+description {\
+	state: name 0.0;\
+	rel1 { relative: (MAIN_W/2 - (width)/2)/MAIN_W (MAIN_H/2 - (width)/2)/MAIN_H;}\
+	rel2 { relative: (MAIN_W/2 + (height)/2)/MAIN_W  (MAIN_H/2 + (height)/2)/MAIN_H;}\
+	image {\
+		normal: ZOOM_PINCH_IMAGE;\
+	}\
+}
+
+#define ZOOM_X_VER_DESCRIPTON(name, width, height) \
+description {\
+	state: name 0.0;\
+	rel1 { relative: (VER_MAIN_W/2 - (width)/2)/VER_MAIN_W (VER_MAIN_H/2 - (width)/2)/VER_MAIN_H;}\
+	rel2 { relative: (VER_MAIN_W/2 + (height)/2)/VER_MAIN_W  (VER_MAIN_H/2 + (height)/2)/VER_MAIN_H;}\
+	image {\
+		normal: ZOOM_PINCH_IMAGE;\
+	}\
+}
+
+#define ZOOM_X_TEXT_DESCRIPTION(name, txt) \
+description {\
+	state: name 0.0;\
+	align: 0.5 1.0;\
+	min: 80 28;\
+	max: 80 28;\
+	fixed: 1 1;\
+	rel1 { relative: 0.0 0.0; to: "pinch_image";}\
+	rel2 { relative: 1.0 0.0; to: "pinch_image";}\
+	text {\
+		size: 24;\
+		align: 0.5 0.5;\
+		text: txt;\
+	}\
+	color: 245 245 245 255; \
+}
+
+
+#define ZOOM_X_PROGRAM(pro_name, pro_signal, pro_state)\
+program {\
+	name: "set.pinch."pro_name;\
+	source: "prog";\
+	signal: "set.pinch."pro_signal;\
+	script: {\
+		set_state(PART:"pinch_image", pro_state, 0.0);\
+		set_state(PART:"text_desc", pro_state, 0.0);\
+	}\
+	transition: LINEAR 0.1;\
+}
+
+
+collections {
+	group {
+		name: "pinch";
+		parts {
+			part {
+				name: "pinch_image";
+				type: IMAGE;
+				scale: 1;
+				ZOOM_X_DESCRIPTON("default", PIN_IMAGE_1X_WIDTH, PIN_IMAGE_1X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.0", PIN_IMAGE_1X_WIDTH, PIN_IMAGE_1X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.125", PIN_IMAGE_1_125X_WIDTH, PIN_IMAGE_1_125X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.25", PIN_IMAGE_1_250X_WIDTH, PIN_IMAGE_1_250X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.375", PIN_IMAGE_1_375X_WIDTH, PIN_IMAGE_1_375X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.5", PIN_IMAGE_1_500X_WIDTH, PIN_IMAGE_1_500X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.625", PIN_IMAGE_1_625X_WIDTH, PIN_IMAGE_1_625X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.75", PIN_IMAGE_1_750X_WIDTH, PIN_IMAGE_1_750X_WIDTH)
+				ZOOM_X_DESCRIPTON("x1.875", PIN_IMAGE_1_875X_WIDTH, PIN_IMAGE_1_875X_WIDTH)
+				ZOOM_X_DESCRIPTON("x2.0", PIN_IMAGE_2X_WIDTH, PIN_IMAGE_2X_WIDTH)
+			}
+
+			part {
+				name: "text_desc";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				ZOOM_X_TEXT_DESCRIPTION("default", "x1.0")
+				ZOOM_X_TEXT_DESCRIPTION("x1.0", "x1.0")
+				ZOOM_X_TEXT_DESCRIPTION("x1.125", "x1.125")
+				ZOOM_X_TEXT_DESCRIPTION("x1.25", "x1.25")
+				ZOOM_X_TEXT_DESCRIPTION("x1.375", "x1.375")
+				ZOOM_X_TEXT_DESCRIPTION("x1.5", "x1.5")
+				ZOOM_X_TEXT_DESCRIPTION("x1.625", "x1.625")
+				ZOOM_X_TEXT_DESCRIPTION("x1.75", "x1.75")
+				ZOOM_X_TEXT_DESCRIPTION("x1.875", "x1.875")
+				ZOOM_X_TEXT_DESCRIPTION("x2.0", "x2.0")
+			}
+		}
+
+		programs {
+			ZOOM_X_PROGRAM("default", "default", "default")
+			ZOOM_X_PROGRAM("x1.0", "x1.0", "x1.0")
+			ZOOM_X_PROGRAM("x1.125", "x1.125", "x1.125")
+			ZOOM_X_PROGRAM("x1.25", "x1.25", "x1.25")
+			ZOOM_X_PROGRAM("x1.375", "x1.375", "x1.375")
+			ZOOM_X_PROGRAM("x1.5", "x1.5", "x1.5")
+			ZOOM_X_PROGRAM("x1.625", "x1.625", "x1.625")
+			ZOOM_X_PROGRAM("x1.75", "x1.75", "x1.75")
+			ZOOM_X_PROGRAM("x1.875", "x1.875", "x1.875")
+			ZOOM_X_PROGRAM("x2.0", "x2.0", "x2.0")
+		}
+	}
+
+	group {
+		name: "pinch_vertical";
+		parts {
+			part {
+				name: "pinch_image";
+				type: IMAGE;
+				scale: 1;
+				ZOOM_X_VER_DESCRIPTON("default", PIN_IMAGE_1X_WIDTH, PIN_IMAGE_1X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.0", PIN_IMAGE_1X_WIDTH, PIN_IMAGE_1X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.125", PIN_IMAGE_1_125X_WIDTH, PIN_IMAGE_1_125X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.25", PIN_IMAGE_1_250X_WIDTH, PIN_IMAGE_1_250X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.375", PIN_IMAGE_1_375X_WIDTH, PIN_IMAGE_1_375X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.5", PIN_IMAGE_1_500X_WIDTH, PIN_IMAGE_1_500X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.625", PIN_IMAGE_1_625X_WIDTH, PIN_IMAGE_1_625X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.75", PIN_IMAGE_1_750X_WIDTH, PIN_IMAGE_1_750X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x1.875", PIN_IMAGE_1_875X_WIDTH, PIN_IMAGE_1_875X_WIDTH)
+				ZOOM_X_VER_DESCRIPTON("x2.0", PIN_IMAGE_2X_WIDTH, PIN_IMAGE_2X_WIDTH)
+			}
+
+			part {
+				name: "text_desc";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				ZOOM_X_TEXT_DESCRIPTION("default", "x1.0")
+				ZOOM_X_TEXT_DESCRIPTION("x1.0", "x1.0")
+				ZOOM_X_TEXT_DESCRIPTION("x1.125", "x1.125")
+				ZOOM_X_TEXT_DESCRIPTION("x1.25", "x1.25")
+				ZOOM_X_TEXT_DESCRIPTION("x1.375", "x1.375")
+				ZOOM_X_TEXT_DESCRIPTION("x1.5", "x1.5")
+				ZOOM_X_TEXT_DESCRIPTION("x1.625", "x1.625")
+				ZOOM_X_TEXT_DESCRIPTION("x1.75", "x1.75")
+				ZOOM_X_TEXT_DESCRIPTION("x1.875", "x1.875")
+				ZOOM_X_TEXT_DESCRIPTION("x2.0", "x2.0")
+			}
+		}
+
+		programs {
+			ZOOM_X_PROGRAM("default", "default", "default")
+			ZOOM_X_PROGRAM("x1.0", "x1.0", "x1.0")
+			ZOOM_X_PROGRAM("x1.125", "x1.125", "x1.125")
+			ZOOM_X_PROGRAM("x1.25", "x1.25", "x1.25")
+			ZOOM_X_PROGRAM("x1.375", "x1.375", "x1.375")
+			ZOOM_X_PROGRAM("x1.5", "x1.5", "x1.5")
+			ZOOM_X_PROGRAM("x1.625", "x1.625", "x1.625")
+			ZOOM_X_PROGRAM("x1.75", "x1.75", "x1.75")
+			ZOOM_X_PROGRAM("x1.875", "x1.875", "x1.875")
+			ZOOM_X_PROGRAM("x2.0", "x2.0", "x2.0")
+		}
+	}
+
+
+#define ZOOM_IMAGE_PART_DESCRIPTION(x1, y1, x2, y2, to_part)	\
+		description {	\
+			state: "landscape" 0.0; \
+			inherit: "default" 0.0; \
+			visible: 0;\
+		}	\
+		description {	\
+			state: "portrait" 0.0;	\
+			inherit: "default" 0.0; \
+			rel1 { relative: (1 - y2) x1; to: to_part;} \
+			rel2 { relative: (1 - y1) x2; to: to_part;} \
+		}	\
+		description {	\
+			state: "landscape_inverse" 0.0; \
+			inherit: "default" 0.0; \
+			rel1 { relative: (1 - x2) (1 - y2); to: to_part;}	\
+			rel2 { relative: (1 - x1) (1 - y1); to: to_part;}	\
+		}	\
+		description {	\
+			state: "portrait_inverse" 0.0;	\
+			inherit: "default" 0.0; \
+			rel1 { relative: y1 (1 - x2); to: to_part;} \
+			rel2 { relative: y2 (1 - x1); to: to_part;} \
+		}
+
+	group {
+		name: "main";
+		script {
+			public orientation = 0;
+		}
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+				}
+			}
+			part {
+				name: "zoom_text";
+				type: SWALLOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0;to: "bg";}
+					rel2 { relative: 1.0 1.0;to: "bg";}
+				}
+			}
+
+#define ZOOM_SLIDER_BG_X1 ZOOM_BG_X/MAIN_W
+#define ZOOM_SLIDER_BG_Y1 ZOOM_BG_Y/MAIN_H
+#define ZOOM_SLIDER_BG_X2 (ZOOM_BG_X+ZOOM_BG_W)/MAIN_W
+#define ZOOM_SLIDER_BG_Y2 (ZOOM_BG_Y+ZOOM_BG_H)/MAIN_H
+
+			part {
+				name: "slider_bg";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					min: 	ZOOM_BG_W ZOOM_BG_H;
+					max: 	ZOOM_BG_W ZOOM_BG_H;
+					fixed:  1  1 ;
+					rel1 { relative: ZOOM_SLIDER_BG_X1 ZOOM_SLIDER_BG_Y1;to: "bg";}
+					rel2 { relative: ZOOM_SLIDER_BG_X2 ZOOM_SLIDER_BG_Y2;to: "bg";}
+					image { normal: EXPOSURE_SLIDER_BG_ICON;
+						border: 23 23 23 23;
+						border_scale:1;
+					}
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: (1 - ZOOM_SLIDER_BG_X2) (1-ZOOM_SLIDER_BG_Y2) ;to:"bg";}
+					rel2 { relative: (1 - ZOOM_SLIDER_BG_X1) (1-ZOOM_SLIDER_BG_Y1);to:"bg";}
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					min: 	ZOOM_BG_H ZOOM_BG_W;
+					max: 	ZOOM_BG_H ZOOM_BG_W;
+					rel1 { relative: (1-ZOOM_SLIDER_BG_Y2) ZOOM_SLIDER_BG_X1;to:"bg";}
+					rel2 { relative: (1-ZOOM_SLIDER_BG_Y1) ZOOM_SLIDER_BG_X2;to:"bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "portrait" 0.0;
+					rel1 { relative: ZOOM_SLIDER_BG_Y1 (1 - ZOOM_SLIDER_BG_X2);to:"bg"; }
+					rel2 { relative: ZOOM_SLIDER_BG_Y2 (1 - ZOOM_SLIDER_BG_X1);to:"bg"; }
+				}
+			}
+
+#define ZOOM_ICON_MINUS_REL_X1 ZOOM_LEFT_PADDING/ZOOM_BG_W
+#define ZOOM_ICON_MINUS_REL_Y1 (1-(ZOOM_ICON_TOP_PADDING+ZOOM_ICON_HEIGHT)/ZOOM_BG_H)
+#define ZOOM_ICON_MINUS_REL_X2 (ZOOM_LEFT_PADDING+ZOOM_ICON_WIDTH)/ZOOM_BG_W
+#define ZOOM_ICON_MINUS_REL_Y2 (1-ZOOM_ICON_TOP_PADDING/ZOOM_BG_H)
+			part {
+				name: "image_minus";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: ZOOM_ICON_MINUS_REL_X1 ZOOM_ICON_MINUS_REL_Y1; to: "slider_bg"; }
+					rel2 { relative: ZOOM_ICON_MINUS_REL_X2 ZOOM_ICON_MINUS_REL_Y2; to: "slider_bg"; }
+					min:	ZOOM_ICON_WIDTH ZOOM_ICON_HEIGHT;
+					max:	ZOOM_ICON_WIDTH ZOOM_ICON_HEIGHT;
+					fixed:	1  1 ;
+					image { normal: ZOOM_X1_IMAGE; }
+				}
+				ZOOM_IMAGE_PART_DESCRIPTION(
+					ZOOM_ICON_MINUS_REL_X1,
+					ZOOM_ICON_MINUS_REL_Y1,
+					ZOOM_ICON_MINUS_REL_X2,
+					ZOOM_ICON_MINUS_REL_Y2,
+					"slider_bg");
+
+				description {
+					state: "press_land" 0.0;
+					inherit: "landscape" 0.0;
+					image { normal: ZOOM_X1_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_land_inv" 0.0;
+					inherit: "landscape_inverse" 0.0;
+					image { normal: ZOOM_X1_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_port" 0.0;
+					inherit: "portrait" 0.0;
+					image { normal: ZOOM_X1_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_port_inv" 0.0;
+					inherit: "portrait_inverse" 0.0;
+					image { normal: ZOOM_X1_PRESS_IMAGE; }
+				}
+			}
+
+#define ZOOM_ICON_PLUS_REL_X1 ZOOM_LEFT_PADDING/ZOOM_BG_W
+#define ZOOM_ICON_PLUS_REL_Y1 ZOOM_ICON_TOP_PADDING/ZOOM_BG_H
+#define ZOOM_ICON_PLUS_REL_X2 (ZOOM_LEFT_PADDING+ZOOM_ICON_WIDTH)/ZOOM_BG_W
+#define ZOOM_ICON_PLUS_REL_Y2 (ZOOM_ICON_TOP_PADDING+ZOOM_ICON_HEIGHT)/ZOOM_BG_H
+
+			part {
+				name: "image_plus";
+				type: IMAGE;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: ZOOM_ICON_PLUS_REL_X1 ZOOM_ICON_PLUS_REL_Y1; to: "slider_bg"; }
+					rel2 { relative: ZOOM_ICON_PLUS_REL_X2 ZOOM_ICON_PLUS_REL_Y2; to: "slider_bg"; }
+					min:	ZOOM_ICON_WIDTH ZOOM_ICON_HEIGHT;
+					max:	ZOOM_ICON_WIDTH ZOOM_ICON_HEIGHT;
+					fixed:	1  1 ;
+					image { normal: ZOOM_X4_IMAGE; }
+				}
+				ZOOM_IMAGE_PART_DESCRIPTION(
+					ZOOM_ICON_PLUS_REL_X1,
+					ZOOM_ICON_PLUS_REL_Y1,
+					ZOOM_ICON_PLUS_REL_X2,
+					ZOOM_ICON_PLUS_REL_Y2,
+					"slider_bg"
+					)
+				description {
+					state: "press_land" 0.0;
+					inherit: "default" 0.0;
+					image { normal: ZOOM_X4_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_land_inv" 0.0;
+					inherit: "landscape_inverse" 0.0;
+					image { normal: ZOOM_X4_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_port" 0.0;
+					inherit: "portrait" 0.0;
+					image { normal: ZOOM_X4_PRESS_IMAGE; }
+				}
+				description {
+					state: "press_port_inv" 0.0;
+					inherit: "portrait_inverse" 0.0;
+					image { normal: ZOOM_X4_PRESS_IMAGE; }
+				}
+			}
+
+
+#define ZOOM_SLIDER_X1 (ZOOM_LEFT_PADDING)/ZOOM_BG_W
+#define ZOOM_SLIDER_Y1 (ZOOM_SLIDER_Y)/ZOOM_BG_H
+#define ZOOM_SLIDER_X2 (1-(ZOOM_LEFT_PADDING)/ZOOM_BG_W)
+#define ZOOM_SLIDER_Y2 (1-ZOOM_SLIDER_Y/ZOOM_BG_H)
+
+			part {
+				name: "slider";
+				type: SWALLOW;
+				description {
+					state: "default" 0.0;
+					visible: 1;
+					rel1 { relative: ZOOM_SLIDER_X1 ZOOM_SLIDER_Y1-(ZOOM_ICON_TOP_PADDING/ZOOM_BG_H); to: "slider_bg"; }
+					rel2 { relative: ZOOM_SLIDER_X2 ZOOM_SLIDER_Y2; to: "slider_bg"; }
+					fixed:  1  1 ;
+				}
+				description {
+					state: "landscape" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "landscape_inverse" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: ZOOM_SLIDER_X1 ZOOM_SLIDER_Y1-(ZOOM_ICON_TOP_PADDING/ZOOM_BG_H); to: "slider_bg";}
+					rel2 { relative: ZOOM_SLIDER_X2 ZOOM_SLIDER_Y2; to: "slider_bg";}
+				}
+				description {
+					state: "portrait" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: ZOOM_SLIDER_Y1+(ZOOM_ICON_TOP_PADDING/ZOOM_BG_H)/2 ZOOM_SLIDER_X1 ; to: "slider_bg";}
+					rel2 { relative: ZOOM_SLIDER_Y2 ZOOM_SLIDER_X2 ; to: "slider_bg";}
+				}
+				description {
+					state: "portrait_inverse" 0.0;
+					inherit: "portrait" 0.0;
+					rel1 { relative: ZOOM_SLIDER_Y1+(ZOOM_ICON_TOP_PADDING/ZOOM_BG_H)/2 ZOOM_SLIDER_X1; to: "slider_bg";}
+					rel2 { relative: ZOOM_SLIDER_Y2 ZOOM_SLIDER_X2 ; to: "slider_bg";}
+				}
+			}
+		}
+		programs {
+			program {
+				name : "zoom,set,landscape";
+				source: "zoom";
+				signal: "landscape";
+				script: {
+					set_state(PART:"slider_bg", "landscape", 0.0);
+					set_state(PART:"image_minus", "landscape", 0.0);
+					set_state(PART:"image_plus", "landscape", 0.0);
+					set_state(PART:"slider", "landscape", 0.0);
+					set_int(orientation,0);
+				}
+			}
+			program {
+				name : "zoom,set,landscape_inverse";
+				source: "zoom";
+				signal: "landscape_inverse";
+				script: {
+					set_state(PART:"slider_bg", "landscape_inverse", 0.0);
+					set_state(PART:"image_minus", "landscape_inverse", 0.0);
+					set_state(PART:"image_plus", "landscape_inverse", 0.0);
+					set_state(PART:"slider", "landscape_inverse", 0.0);
+					set_int(orientation,2);
+				}
+			}
+			program {
+				name : "zoom,set,portrait";
+				source: "zoom";
+				signal: "portrait";
+				script: {
+					set_state(PART:"slider_bg", "portrait", 0.0);
+					set_state(PART:"image_minus", "portrait", 0.0);
+					set_state(PART:"image_plus", "portrait", 0.0);
+					set_state(PART:"slider", "portrait", 0.0);
+					set_int(orientation,1);
+				}
+			}
+			program {
+				name : "zoom,set,portrait_inverse";
+				source: "zoom";
+				signal: "portrait_inverse";
+				script: {
+					set_state(PART:"slider_bg", "portrait_inverse", 0.0);
+					set_state(PART:"image_minus", "portrait_inverse", 0.0);
+					set_state(PART:"image_plus", "portrait_inverse", 0.0);
+					set_state(PART:"slider", "portrait_inverse", 0.0);
+					set_int(orientation,3);
+				}
+			}
+			program {
+				name: "icon_minus_press";
+				signal: "mouse,down,1";
+				source: "image_minus";
+				script: {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"image_minus", "press_port", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"image_minus", "press_land_inv", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"image_minus", "press_port_inv", 0.0);
+					}
+					else
+					{
+						set_state(PART:"image_minus", "press_land", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_minus_release";
+				signal: "mouse,up,1";
+				source: "image_minus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"image_minus", "portrait", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"image_minus", "landscape_inverse", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"image_minus", "portrait_inverse", 0.0);
+					}
+					else
+					{
+						set_state(PART:"image_minus", "landscape", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_plus_press";
+				signal: "mouse,down,1";
+				source: "image_plus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"image_plus", "press_port", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"image_plus", "press_land_inv", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"image_plus", "press_port_inv", 0.0);
+					}
+					else
+					{
+						set_state(PART:"image_plus", "press_land", 0.0);
+					}
+				}
+			}
+			program {
+				name: "icon_plus_release";
+				signal: "mouse,up,1";
+				source: "image_plus";
+				script {
+					if(get_int(orientation) == 1)
+					{
+						set_state(PART:"image_plus", "portrait", 0.0);
+					}
+					else if(get_int(orientation) == 2)
+					{
+						set_state(PART:"image_plus", "landscape_inverse", 0.0);
+					}
+					else if (get_int(orientation) == 3)
+					{
+						set_state(PART:"image_plus", "portrait_inverse", 0.0);
+					}
+					else
+					{
+						set_state(PART:"image_plus", "landscape", 0.0);
+					}
+				}
+			}
+		}
+
+	 }
+	group {
+		name: "zoom_text";
+		parts {
+			part {
+				name: "bg";
+				type: RECT;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible: 0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+				  }
+			}
+			part {
+				name: "zoom.txt.1";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					max: ZOOM_VAL_TEXT_1_W ZOOM_VAL_TEXT_H;
+					align: 1.0 0.5;
+					rel1 { relative: 0.0 0.0; to:"zoom.txt.2";}
+					rel2 { relative: 0.0 1.0; to:"zoom.txt.2";}
+					text {
+						size: 57;
+						align: 1.0 1.0;
+						min: 1 1;
+					}
+					color: 245 245 245 255;
+					color2: 75 75 75 255;
+					color3: 0 0 0 255;
+				 }
+			}
+			part {
+				name: "zoom.txt.2";
+				type: TEXT;
+				effect: OUTLINE;
+				scale: 1;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					min: ZOOM_VAL_TEXT_2_W ZOOM_VAL_TEXT_H;
+					max: ZOOM_VAL_TEXT_2_W ZOOM_VAL_TEXT_H;
+					align: 0.6 0.5;
+					rel1 { relative: 0.0 0.0; to:"bg";}
+					rel2 { relative: 1.0 1.0; to:"bg";}
+					text {
+						size: 61;
+						align: 0.5 1.0;
+					}
+					color: 245 245 245 255;
+					color2: 75 75 75 255;
+					color3: 0 0 0 255;
+				}
+			}
+		}
+	}
+}
+//end files

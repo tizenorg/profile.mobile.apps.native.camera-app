@@ -160,9 +160,9 @@ ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} -lm -ldl -pie)
 
 ###################################### EDC, Begin ################################
-SET(EDC_DIR		${CMAKE_SOURCE_DIR}/res/edc)
-SET(IMAGE_DIR	${CMAKE_SOURCE_DIR}/res/images)
-SET(SOUND_DIR	${CMAKE_SOURCE_DIR}/res/sounds)
+SET(EDC_DIR		${CMAKE_SOURCE_DIR}/res/edje)
+SET(IMAGE_DIR	${CMAKE_SOURCE_DIR}/res/edje/images)
+SET(SOUND_DIR	${CMAKE_SOURCE_DIR}/res/edje/sounds)
 
 SET(EDC_FILES
 	cam_main_layout
@@ -224,7 +224,7 @@ INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.camera-app.png DESTINATION ${CMAKE_A
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/fake_portrait.png DESTINATION ${SHAREDDIR}/res/)
 
 # install sound & image files
-INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/res/sounds DESTINATION ${RESDIR})
+INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/res/edje/sounds DESTINATION ${RESDIR})
 
 # install .camera.ini file
 INSTALL(FILES ${CMAKE_SOURCE_DIR}/.camera.ini DESTINATION ${RESDIR})
