@@ -34,11 +34,7 @@
 #include <app.h>
 
 
-#define PACKAGE							"org.tizen.camera-app"
-
-#define RESDIR							"/usr/apps/"PACKAGE"/res"
-#define LOCALESDIR						RESDIR"/locale"
-#define EDJ_PATH						RESDIR"/edje"
+#define PACKAGE							"camera-app"
 
 #define GRP_MAIN						"main"
 #define GRP_ZOOM_TEXT					"zoom_text"
