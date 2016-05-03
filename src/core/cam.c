@@ -185,7 +185,14 @@ static bool cam_create(void *user_data)
 	char *cam_external_path = NULL;
 	ad->stream_info = NULL;
 
-	bindtextdomain(PACKAGE, LOCALESDIR);
+	char *path = app_get_resource_path();
+	char full_path[1024];
+	if (path) {
+		snprintf(full_path, 1024, "%s%s", path, "locale");
+		free(path);
+	}
+	cam_warning(LOG_UI, "path is %s", full_path);
+	bindtextdomain(PACKAGE, full_path);
 
 	/* create main window */
 	CAM_LAUNCH("__create_window", "IN");

@@ -19,7 +19,7 @@ FOREACH(pofile ${POFILES})
 			DEPENDS ${absPofile}
 	)
 	INSTALL(FILES ${moFile}
-			DESTINATION ${LOCALEDIR}/${lang}/LC_MESSAGES RENAME org.tizen.camera-app.mo)
+			DESTINATION ${LOCALEDIR}/${lang}/LC_MESSAGES RENAME camera-app.mo)
 	SET(moFiles ${moFiles} ${moFile})
 ENDFOREACH(pofile)
 
