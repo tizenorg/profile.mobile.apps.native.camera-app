@@ -21,7 +21,7 @@
 #include <device/battery.h>
 #include <device/callback.h>
 #include <device/display.h>
-#include <storage.h>
+#include <storage/storage.h>
 #include <app_common.h>
 #include <sound_manager.h>
 

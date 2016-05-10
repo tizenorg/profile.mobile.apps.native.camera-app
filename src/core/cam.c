@@ -38,7 +38,7 @@
 #include "cam_sound_session_manager.h"
 #include "cam_error.h"
 #include <system_settings.h>
-#include <storage.h>
+#include <storage/storage.h>
 #include <runtime_info.h>
 #include <storage.h>
 

@@ -23,7 +23,7 @@
 #include <device/battery.h>
 #include <device/power.h>
 #include <app_preference.h>
-#include <storage.h>
+#include <storage/storage.h>
 #include <cairo.h>
 #include <efl_extension.h>
 #include <telephony.h>

@@ -28,7 +28,7 @@
 #include <dirent.h>
 #include <media_content.h>
 #include <errno.h>
-#include <storage.h>
+#include <storage/storage.h>
 
 #define CAM_FILE_PATH_MAX	512
 #define BUF_MAX 16384

@@ -31,7 +31,7 @@
 #include "cam_storage_popup.h"
 #include "cam_sound_session_manager.h"
 #include "cam_standby_view.h"
-#include <storage.h>
+#include <storage/storage.h>
 
 static void __video_update_thumbnail(void *data);
 

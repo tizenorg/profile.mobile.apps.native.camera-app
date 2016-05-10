@@ -22,7 +22,7 @@
 #include "cam_device_capacity.h"
 #include "cam_typeconverter.h"
 #include "cam_menu_item.h"
-#include <storage.h>
+#include <storage/storage.h>
 
 const CAM_MENU_ITEM setting_rear[] = { CAM_MENU_PHOTO_RESOLUTION,
                                        CAM_MENU_VIDEO_RESOLUTION,
