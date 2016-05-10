@@ -541,7 +541,6 @@ int __cam_mode_read_gengrid_order_from_file()
 		int shot_mode_menu = -1;
 		shot_mode_menu = cam_config_get_int(grid_view->gkeyfile_conf_param.cur_config_type, tmpstring, -1);
 		cam_debug(LOGUI, "shot_mode_menu index = %d", shot_mode_menu);
-		LOGW("shot_mode_menu index = %d", shot_mode_menu);
 		grid_view->shot_modes[i] = shot_mode_menu;
 		IF_FREE(tmpstring);
 	}

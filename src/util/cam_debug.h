@@ -60,35 +60,13 @@ G_BEGIN_DECLS
 	dlog_print(DLOG_DEBUG, "LAUNCH", "[camera-app:Application:"fct":"opt"]")
 #endif
 
-#ifndef LOGD
-#define LOGD(fmt, arg...) dlog_print(DLOG_DEBUG, LOG_TAG, ##arg)
-#endif
-#ifndef LOGI
-#define LOGI(fmt, arg...) dlog_print(DLOG_INFO, LOG_TAG, ##arg)
-#endif
-#ifndef LOGW
-#define LOGW(fmt, arg...) dlog_print(DLOG_ERROR, LOG_TAG, ##arg)
-#endif
-#ifndef LOGE
-#define LOGE(fmt, arg...) dlog_print(DLOG_ERROR, LOG_TAG, ##arg)
-#endif
-#ifndef SECURE_LOGD
-#define SECURE_LOGD(fmt, arg...) dlog_print(DLOG_DEBUG, LOG_TAG, ##arg)
-#endif
-#ifndef SECURE_LOGI
-#define SECURE_LOGI(fmt, arg...) dlog_print(DLOG_DEBUG, LOG_TAG, ##arg)
-#endif
-#ifndef SECURE_LOGE
-#define SECURE_LOGE(fmt, arg...) dlog_print(DLOG_DEBUG, LOG_TAG, ##arg)
-#endif
-
-#define cam_debug(domain, fmt, arg...)          LOGD(true, LOG_COLOR_GREEN""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_info(domain, fmt, arg...)           LOGI(true, LOG_COLOR_GREEN""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_message(domain, fmt, arg...)        LOGD(true, LOG_COLOR_GREEN""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_warning(domain, fmt, arg...)        LOGW(true, LOG_COLOR_YELLOW""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_critical(domain, fmt, arg...)       LOGE(true, LOG_COLOR_RED""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_secure_debug(domain, fmt, arg...)	SECURE_LOGD(true, LOG_COLOR_GREEN""fmt""LOG_COLOR_RESET, ##arg)
-#define cam_secure_critical(domain, fmt, arg...)SECURE_LOGE(true, LOG_COLOR_RED""fmt""LOG_COLOR_RESET, ##arg)
+#define cam_debug(domain, fmt, arg...)          dlog_print(DLOG_DEBUG, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_info(domain, fmt, arg...)           dlog_print(DLOG_INFO, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_message(domain, fmt, arg...)        dlog_print(DLOG_DEBUG, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_warning(domain, fmt, arg...)        dlog_print(DLOG_ERROR, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_critical(domain, fmt, arg...)       dlog_print(DLOG_ERROR, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_secure_debug(domain, fmt, arg...)	dlog_print(DLOG_DEBUG, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
+#define cam_secure_critical(domain, fmt, arg...) dlog_print(DLOG_DEBUG, LOG_TAG, "[%s : %05d]" fmt "\n", __func__, __LINE__, ##arg)
 
 #else	/* DEBUG_MESSAGE_ON */
 
