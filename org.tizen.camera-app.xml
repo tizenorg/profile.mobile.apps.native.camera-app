@@ -5,7 +5,7 @@
 	<author email="sora.hyun@samsung.com" href="www.samsung.com">Sora Hyun</author>
 	<author email="h2.seo@samsung.com" href="www.samsung.com">Hyunho Seo</author>
 	<description>Camera Application</description>
-	<ui-application appid="org.tizen.camera-app" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="false" multiple="false" type="capp" taskmanage="true" mainapp="true" process-pool="true" hw-acceleration="use-GL" indicatordisplay="false" portrait-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png" landscape-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png">
+	<ui-application appid="org.tizen.camera-app" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="false" multiple="false" type="capp" taskmanage="true" mainapp="true" hw-acceleration="on" process-pool="true" indicatordisplay="false" portrait-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png" landscape-effectimage="/usr/apps/org.tizen.camera-app/shared/res/fake_portrait.png">
 		<icon>/usr/share/icons/default/small/org.tizen.camera-app.png</icon>
 		<label>Camera</label>
 		<label xml:lang="bn-in">ক্যামেরা</label>
@@ -19,7 +19,7 @@
 		<label xml:lang="te-in">కెమెరా</label>
 		<label xml:lang="ur-in">کیمرہ</label>
 	</ui-application>
-	<ui-application appid="org.tizen.camera-appcontrol" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="true" multiple="true" type="capp" taskmanage="false" submode="true" submode-mainid="org.tizen.camera-app" process-pool="true" hw-acceleration="use-GL" launch_mode="caller">
+	<ui-application appid="org.tizen.camera-appcontrol" exec="/usr/apps/org.tizen.camera-app/bin/camera" nodisplay="true" multiple="true" type="capp" taskmanage="false" submode="true" submode-mainid="org.tizen.camera-app" process-pool="true" hw-acceleration="on" launch_mode="caller">
 		<icon>/usr/share/icons/default/small/org.tizen.camera-app.png</icon>
 		<label>Camera</label>
 		<label xml:lang="bn-in">ক্যামেরা</label>

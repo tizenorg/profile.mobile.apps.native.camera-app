@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="org.tizen.camera-app" version="1.0.0">
     <profile name="mobile"/>
-    <ui-application appid="org.tizen.camera-app" exec="camera-app" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+    <ui-application appid="org.tizen.camera-app" exec="camera-app" hw-acceleration="on" process-pool="true" multiple="false" nodisplay="false" splash-screen-display="true" taskmanage="true" type="capp">
         <label>Camera</label>
         <label xml:lang="bn-in">ক্যামেরা</label>
         <label xml:lang="en-us">Camera</label>
@@ -20,10 +20,10 @@
         <privilege>http://tizen.org/privilege/location</privilege>
         <privilege>http://tizen.org/privilege/mediastorage</privilege>
         <privilege>http://tizen.org/privilege/camera</privilege>
-        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
         <privilege>http://tizen.org/privilege/content.write</privilege>
-        <privilege>http://tizen.org/privilege/display</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
         <privilege>http://tizen.org/privilege/telephony</privilege>
+        <privilege>http://tizen.org/privilege/display</privilege>
         <privilege>http://tizen.org/privilege/externalstorage</privilege>
     </privileges>
 </manifest>
