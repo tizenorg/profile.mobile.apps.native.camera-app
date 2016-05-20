@@ -1,6 +1,6 @@
 Name:       org.tizen.camera-app
 #VCS_FROM:   profile/mobile/apps/native/camera-app#f4b87c92d7e2a6c6f5918060d3e01be7c52f462e
-#RS_Ver:    20160519_2 
+#RS_Ver:    20160520_2 
 Summary:    camera application
 Version:    1.0.0
 Release:    1
@@ -8,6 +8,7 @@ Group:      Applications
 License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
 
+ExcludeArch:  aarch64 x86_64
 BuildRequires:  pkgconfig(libtzplatform-config)
 Requires(post):  /usr/bin/tpk-backend
 
