@@ -229,8 +229,8 @@ gboolean cam_lbs_init(void)
 ERROR:
 	if (cam_lbs_info) {
 		g_free(cam_lbs_info);
+		cam_lbs_info = NULL;
 	}
-	cam_lbs_info = NULL;
 
 	return FALSE;
 }
@@ -248,8 +248,8 @@ gboolean cam_lbs_finialize(void)
 
 	if (cam_lbs_info) {
 		g_free(cam_lbs_info);
+		cam_lbs_info = NULL;
 	}
-	cam_lbs_info = NULL;
 
 	if (ret != LOCATIONS_ERROR_NONE) {
 		cam_warning(LOG_SYS, "location_manager_destroy failed!! error = %d", ret);
@@ -329,6 +329,7 @@ gboolean cam_lbs_get_current_position(double *longitude, double *latitude,
 
 	if (cam_lbs_info == NULL) {
 		cam_warning(LOG_SYS, "cam_lbs_info = NULL");
+		return FALSE;
 	}
 
 	*altitude = cam_lbs_info->altitude;
