@@ -70,7 +70,7 @@
 #define IMAGE_VIEWER_FIXED_RATIO						"Fixed ratio"
 #define IMAGE_VIEWER_CROP_MODE							"http://tizen.org/appcontrol/data/image/crop_mode"
 
-#define IMAGE_VIEWER_APP_ID								"image-viewer-efl"
+#define IMAGE_VIEWER_APP_ID								"org.tizen.image-viewer"
 #define GE_IV_UG_NAME										 "image-viewer-efl-lite"
 #define IMAGE_VIEWER_APP_ID_FOR_APPCONTROL				"org.tizen.image-viewer"
 
