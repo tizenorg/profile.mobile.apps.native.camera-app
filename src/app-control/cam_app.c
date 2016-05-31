@@ -1023,8 +1023,10 @@ gboolean cam_app_stop(void *data)
 		cam_critical(LOG_UI, "cam_app_x_event_deinit failed");
 	}
 
-	if(!cam_telephony_deinitialize()){
-		cam_critical(LOG_UI, "cam_telephony_deinitialize failed");
+	if(ad->istelinit) {
+		if(!cam_telephony_deinitialize()){
+			cam_critical(LOG_UI, "cam_telephony_deinitialize failed");
+		}
 	}
 	cam_sound_finalize();
 
@@ -7566,19 +7568,27 @@ gboolean cam_condition_check_to_start_camera(void *data)
 	}
 
 	/* voice call state check */
-	if (cam_utils_check_voice_call_running()) {
-		ad->is_voice_calling = TRUE;
-		return FALSE;
+	if(ad->istelinit) {
+		if (cam_utils_check_voice_call_running()) {
+			ad->is_voice_calling = TRUE;
+			return FALSE;
+		} else {
+			ad->is_voice_calling = FALSE;
+		}
 	} else {
-		ad->is_voice_calling = FALSE;
+		cam_warning(LOG_CAM, "telephony not initialised");
 	}
 
 	/* video call state check */
-	if (cam_utils_check_video_call_running()) {
-		ad->is_video_calling = TRUE;
-		return FALSE;
+	if(ad->istelinit) {
+		if (cam_utils_check_video_call_running()) {
+			ad->is_video_calling = TRUE;
+			return FALSE;
+		} else {
+			ad->is_video_calling = FALSE;
+		}
 	} else {
-		ad->is_video_calling = FALSE;
+		cam_warning(LOG_CAM, "telephony not initialised");
 	}
 
 	/* memory state check */
@@ -8437,10 +8447,14 @@ gboolean cam_app_check_record_condition(void *data)
 	}
 
 
-	if (cam_utils_check_voice_call_running()) {
-		cam_warning(LOG_UI, "Unable to start recording during call");
-		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"), NULL);
-		return FALSE;
+	if(ad->istelinit) {
+		if (cam_utils_check_voice_call_running()) {
+			cam_warning(LOG_UI, "Unable to start recording during call");
+			cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_UNABLE_TO_RECORD_VIDEOS_DURING_CALL"), NULL);
+			return FALSE;
+		}
+	} else {
+		cam_warning(LOG_CAM, "telephony not initialised");
 	}
 
 	if (ad->is_recording == TRUE) {

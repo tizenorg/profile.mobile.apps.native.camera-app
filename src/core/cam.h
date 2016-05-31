@@ -324,6 +324,7 @@ struct appdata {
 
 	int externalstorageId;
 	int lock_value_on;
+	gboolean istelinit;
 };
 
 

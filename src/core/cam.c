@@ -271,7 +271,8 @@ static bool cam_create(void *user_data)
 
 	ad->app_state = CAM_APP_CREATE_STATE;
 
-	if(!cam_telephony_initialize()){
+	ad->istelinit = cam_telephony_initialize();
+	if(!ad->istelinit){
 		cam_critical(LOG_UI, "cam_telephony_initialize failed");
 	}
 

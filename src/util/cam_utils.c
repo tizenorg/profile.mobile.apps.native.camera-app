@@ -304,13 +304,11 @@ gboolean cam_telephony_initialize(void)
 	int api_err = telephony_set_noti_cb(*newhandle, TELEPHONY_NOTI_VOICE_CALL_STATE, (telephony_noti_cb)_call_async_event_callback,  (void *)ad);
 	if (api_err != TELEPHONY_ERROR_NONE) {
 		cam_critical(LOG_CAM,"tel_register_noti_event for voice call failed ( api_err : %d ) !!", api_err);
-		return FALSE;
 	}
 
 	api_err = telephony_set_noti_cb(*newhandle, TELEPHONY_NOTI_VIDEO_CALL_STATE, (telephony_noti_cb)_call_async_event_callback,  (void *)ad);
 	if (api_err != TELEPHONY_ERROR_NONE) {
 		cam_critical(LOG_CAM,"tel_register_noti_event for video call failed ( api_err : %d ) !!", api_err);
-		return FALSE;
 	}
 
 	return TRUE;
@@ -324,12 +322,10 @@ gboolean cam_telephony_deinitialize(void)
 	nErr = telephony_unset_noti_cb(*newhandle, TELEPHONY_NOTI_VOICE_CALL_STATE);
 	if (nErr != TELEPHONY_ERROR_NONE) {
 		cam_critical(LOG_CAM,"telephony_unset_noti_cb is fail [0x%x]", nErr);
-		return FALSE;
 	}
 	nErr = telephony_unset_noti_cb(*newhandle, TELEPHONY_NOTI_VIDEO_CALL_STATE);
 	if (nErr != TELEPHONY_ERROR_NONE) {
 		cam_critical(LOG_CAM,"telephony_unset_noti_cb is fail [0x%x]", nErr);
-		return FALSE;
 	}
 	nErr = telephony_deinit(&tel_list);
 	if (nErr != TELEPHONY_ERROR_NONE) {
