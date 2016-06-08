@@ -187,6 +187,10 @@ gboolean cam_lbs_init(void)
 	cam_warning(LOG_UI, "start");
 
 	cam_lbs_info = g_new0(CamLBSInfo, 1);
+	if(!cam_lbs_info){
+		goto ERROR;
+	}
+
 	cam_lbs_info->location_handle = NULL;
 	cam_lbs_info->m_lbs_state = CAM_LBS_STATE_DISABLE;
 	cam_lbs_info->lbs_update_cb = NULL;
