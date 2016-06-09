@@ -1,6 +1,6 @@
 Name:       org.tizen.camera-app
-#VCS_FROM:   profile/mobile/apps/native/camera-app#0474ef61bca5e00df2393af84effa8bd950ef7ad
-#RS_Ver:    20160603_1 
+#VCS_FROM:   profile/mobile/apps/native/camera-app#77e35b560349638bd7e0ad403915e6976b799364
+#RS_Ver:    20160609_3 
 Summary:    camera application
 Version:    1.0.0
 Release:    1
@@ -26,7 +26,7 @@ Requires(post):  /usr/bin/tpk-backend
 %endif
 
 %description
-profile/mobile/apps/native/camera-app#0474ef61bca5e00df2393af84effa8bd950ef7ad
+profile/mobile/apps/native/camera-app#77e35b560349638bd7e0ad403915e6976b799364
 This is a container package which have preload TPK files
 
 %prep
