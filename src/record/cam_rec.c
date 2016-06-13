@@ -194,7 +194,7 @@ gboolean cam_video_record_stop(void *data)
 	cam_app_timeout_checker_init(ad);
 
 	cam_reset_focus_mode(ad);
-
+	REMOVE_TIMER(camapp->pause_timer);
 	return TRUE;
 }
 
