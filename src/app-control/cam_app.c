@@ -6743,8 +6743,8 @@ gboolean cam_app_return_ext_app(void *data, gboolean multishots)
 					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_SELECTED, (const char **)path_array, 1);
 				} else {
 					return_path = CAM_STRDUP(ad->path_in_return);
-					app_control_add_extra_data(reply, APP_CONTROL_DATA_SELECTED, (const char *)return_path);
-					/*app_control_add_extra_data_array(reply, APP_CONTROL_DATA_SELECTED, (const char **)path_array, 1);*/
+					/*app_control_add_extra_data(reply, APP_CONTROL_DATA_SELECTED, (const char *)return_path);*/
+					app_control_add_extra_data_array(reply, APP_CONTROL_DATA_SELECTED, (const char **)path_array, 1);
 				}
 				app_control_reply_to_launch_request(reply, ad->app_control_handle, APP_CONTROL_RESULT_SUCCEEDED);
 			}
