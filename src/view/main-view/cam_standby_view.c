@@ -74,6 +74,7 @@ static void __standby_view_mode_button_destroy();
 static void __standby_view_thumbnail_button_create(Evas_Object *parent);
 static void __standby_view_thumbnail_button_destroy();
 static void __standby_view_mode_display_update(int shot_mode);
+static Eina_Bool __standby_view_mode_name_diappear_timer(void *data);
 static void __standby_view_mode_display_destroy();
 
 void cam_standby_view_effects_button_cb(void *data, Evas_Object *obj, void *event_info);
@@ -2514,6 +2515,13 @@ static void __standby_view_thumbnail_button_key_up(void *data, Evas *evas, Evas_
 	}
 }
 
+static Eina_Bool __standby_view_mode_name_diappear_timer(void *data)
+{
+	__standby_view_mode_display_destroy();
+	return ECORE_CALLBACK_CANCEL;
+
+}
+
 static void __standby_view_mode_display_update(int shot_mode)
 {
 	cam_retm_if(standby_view == NULL, "standby_view is NULL");
@@ -2540,6 +2548,10 @@ static void __standby_view_mode_display_update(int shot_mode)
 		cam_utils_sr_layout_set(standby_view->layout, mode_display_obj, ELM_ACCESS_INFO, dgettext(PACKAGE, get_stringID));
 	}
 	IF_FREE(convert_text);
+	if(standby_view->mode_name_timer){
+		ecore_timer_del(standby_view->mode_name_timer);
+	}
+	standby_view->mode_name_timer = ecore_timer_add(5.0, __standby_view_mode_name_diappear_timer, standby_view);
 }
 
 static void __standby_view_mode_display_destroy()

@@ -48,6 +48,7 @@ typedef struct __Cam_Standby_View
 	Evas_Object *foucs_rect[MAX_FACE_COUNT];
 
 	Ecore_Timer *check_af_timer;
+	Ecore_Timer *mode_name_timer;
 	Ecore_Timer *shot_guide_text_timer;
 	Ecore_Timer *wait_file_register_timer;
 
