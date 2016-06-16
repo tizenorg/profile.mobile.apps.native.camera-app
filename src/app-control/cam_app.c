@@ -94,7 +94,10 @@ static struct appdata *app_handle = NULL;
 
 static void __cam_app_start_after_preview(void *data);
 
-static void cam_mmc_state_change_cb(int storage_id, storage_state_e state, void *data);
+static void cam_mmc_state_change_cb(int storage_id,
+        storage_dev_e dev, storage_state_e state,
+        const char *fstype, const char *fsuuid, const char *mountpath,
+        bool primary, int flags, void *user_data);
 
 /* device changed cb */
 static void __cam_app_display_state_changed_cb(device_callback_e type, void *value, void *user_data);
@@ -381,19 +384,6 @@ int cam_convert_video_orient_value(void *data, int video_orient)
 	return convert_orient;
 }
 
-bool __cam_noti_get_supported_storages_callback(int storageId, storage_type_e type, storage_state_e state, const char *path, void *userData)
-{
-	struct appdata *ad = (struct appdata *)userData;
-	cam_retvm_if(ad == NULL, false, "appdata is NULL");
-
-	if (type == STORAGE_TYPE_EXTERNAL) {
-		ad->externalstorageId = storageId;
-		return false;
-	}
-
-	return true;
-}
-
 int cam_noti_init(void *data)
 {
 	struct appdata *ad = (struct appdata *)data;
@@ -402,12 +392,7 @@ int cam_noti_init(void *data)
 
 	cam_retvm_if(ad == NULL, EXIT_FAILURE, "appdata is NULL");
 
-	int error_code = storage_foreach_device_supported(__cam_noti_get_supported_storages_callback, ad);
-	if (error_code != STORAGE_ERROR_NONE) {
-		cam_debug(LOG_CAM, "failed to get storage Id");
-	}
-
-	error_code  = storage_set_state_changed_cb(ad->externalstorageId, cam_mmc_state_change_cb, ad);
+	int error_code  = storage_set_changed_cb(STORAGE_TYPE_EXTERNAL, cam_mmc_state_change_cb, ad);
 	if (error_code != STORAGE_ERROR_NONE) {
 		cam_debug(LOG_CAM, "failed to register storage changed callback");
 	}
@@ -433,7 +418,7 @@ int cam_noti_deinit(void *data)
 
 	cam_retvm_if(ad == NULL, EXIT_FAILURE, "appdata is NULL");
 
-	int error_code  = storage_unset_state_changed_cb(ad->externalstorageId, cam_mmc_state_change_cb);
+	int error_code  = storage_unset_changed_cb(STORAGE_TYPE_EXTERNAL, cam_mmc_state_change_cb);
 	if (error_code != STORAGE_ERROR_NONE) {
 		cam_debug(LOG_CAM, "failed to unregister storage changed callback");
 	}
@@ -5883,14 +5868,27 @@ void cam_app_exit(void *data)
 	elm_exit();
 }
 
-static void cam_mmc_state_change_cb(int storage_id, storage_state_e state, void *data)
+static void cam_mmc_state_change_cb(int storage_id,
+        storage_dev_e dev, storage_state_e state,
+        const char *fstype, const char *fsuuid, const char *mountpath,
+        bool primary, int flags, void *user_data)
 {
-	struct appdata *ad = (struct appdata *)data;
+	struct appdata *ad = (struct appdata *)user_data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
 	cam_retm_if(camapp == NULL, "camapp_handle is NULL");
 
 	int mmc_state = state;
+	if (dev ==  STORAGE_DEV_EXT_SDCARD) {
+		ad->externalstorageId = storage_id;
+		if(ad->externalstorageId != -1) {
+			char *cam_external_path = NULL;
+			storage_get_directory(ad->externalstorageId, STORAGE_DIRECTORY_CAMERA, &cam_external_path);
+			cam_debug(LOG_CAM, "External storage path is %s", cam_external_path);
+			ad->cam_external_path = strdup(cam_external_path);
+			IF_FREE(cam_external_path);
+		}
+	}
 
 	cam_debug(LOG_UI, "mmc_state_changed to [%d]", mmc_state);
 
