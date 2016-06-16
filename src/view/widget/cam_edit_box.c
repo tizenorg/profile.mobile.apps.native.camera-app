@@ -809,6 +809,7 @@ int is_cam_edit_box_sub_popup_exist()
 static Evas_Object *__cam_edit_box_item_get_by_menu_type(int menu_type)
 {
 	Cam_Edit_Box *edit_box_instance = __cam_edit_box_instance_get();
+	cam_retvm_if(edit_box_instance == NULL, NULL, "edit_box_instance is null");
 	cam_retvm_if(edit_box_instance->edit_box == NULL, NULL, "edit_box is null");
 	Eina_List *children = NULL;
 	Eina_List *l = NULL;
@@ -1666,6 +1667,7 @@ int cam_edit_box_item_num_get()
 	Eina_List *children = NULL;
 	int count = 0;
 	Cam_Edit_Box *edit_box_instance = __cam_edit_box_instance_get();
+	cam_retvm_if(edit_box_instance == NULL, 0, "edit_box_instance is null");
 	cam_retvm_if(edit_box_instance->edit_box == NULL, 0, "edit_box is null");
 
 	children = elm_box_children_get(edit_box_instance->edit_box);
