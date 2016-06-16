@@ -323,6 +323,7 @@ struct appdata {
 	int cur_setting_tab_index;
 
 	int externalstorageId;
+	int internalstorageId;
 	int lock_value_on;
 	gboolean istelinit;
 };

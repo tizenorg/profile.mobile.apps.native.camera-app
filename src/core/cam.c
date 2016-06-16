@@ -77,6 +77,21 @@ static void cam_language_changed_cb(app_event_info_h event_info, void *data)
 	}
 }
 
+bool __cam_noti_get_supported_storages_callback(int storageId, storage_type_e type, storage_state_e state, const char *path, void *userData)
+{
+	struct appdata *ad = (struct appdata *)userData;
+	cam_retvm_if(ad == NULL, false, "appdata is NULL");
+
+	if (type == STORAGE_TYPE_EXTERNAL) {
+		ad->externalstorageId = storageId;
+	}
+	if (type == STORAGE_TYPE_INTERNAL) {
+		ad->internalstorageId = storageId;
+	}
+
+	return true;
+}
+
 static void cam_low_battery_cb(app_event_info_h event_info, void *data)
 {
 	cam_warning(LOG_UI, "low battery");
@@ -243,11 +258,30 @@ static bool cam_create(void *user_data)
 	}
 	CAM_LAUNCH("cam_appdata_init", "OUT");
 
-	storage_get_directory(STORAGE_TYPE_INTERNAL, STORAGE_DIRECTORY_CAMERA, &cam_internal_path);
-	storage_get_directory(STORAGE_TYPE_EXTERNAL, STORAGE_DIRECTORY_CAMERA, &cam_external_path);
-	ad->cam_internal_path = strdup(cam_internal_path);
+	/*getting storage ids*/
+	ad->internalstorageId = -1;
+	ad->externalstorageId = -1;
+
+	int error_code = storage_foreach_device_supported(__cam_noti_get_supported_storages_callback, ad);
+	if (error_code != STORAGE_ERROR_NONE) {
+		cam_debug(LOG_CAM, "failed to get storage Id");
+	}
+	cam_debug(LOG_CAM, "ad->internalstorageId = %d", ad->internalstorageId);
+	cam_debug(LOG_CAM, "ad->externalstorageId = %d", ad->externalstorageId);
+
+	if(ad->internalstorageId != -1) {
+		storage_get_directory(ad->internalstorageId, STORAGE_DIRECTORY_CAMERA, &cam_internal_path);
+		cam_debug(LOG_CAM, "Internal storage path is %s", cam_internal_path);
+		ad->cam_internal_path = strdup(cam_internal_path);
+	}
+
+	if(ad->externalstorageId != -1) {
+		storage_get_directory(ad->externalstorageId, STORAGE_DIRECTORY_CAMERA, &cam_external_path);
+		cam_debug(LOG_CAM, "External storage path is %s", cam_external_path);
+		ad->cam_external_path = strdup(cam_external_path);
+	}
+
 	IF_FREE(cam_internal_path);
-	ad->cam_external_path = strdup(cam_external_path);
 	IF_FREE(cam_external_path);
 
 	cam_init_shooting_mode();
