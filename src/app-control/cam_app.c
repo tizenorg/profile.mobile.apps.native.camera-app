@@ -1313,8 +1313,8 @@ gboolean cam_layout_init(void *data)
 	cam_app_start_rotate(ad, TRUE);
 
 	elm_theme_extension_add(NULL, edj_path);
-	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_LABEL_STYLE_EDJ_NAME);
-	elm_theme_extension_add(NULL, edj_path);
+	//snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_LABEL_STYLE_EDJ_NAME);
+	//elm_theme_extension_add(NULL, edj_path);
 	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_GENGRID_STYLE_EDJ_NAME);
 	elm_theme_extension_add(NULL, edj_path);
 	snprintf(edj_path, 1024, "%s%s/%s", ad->cam_res_ini, "edje", CAM_BUTTON_STYLE_EDJ_NAME);

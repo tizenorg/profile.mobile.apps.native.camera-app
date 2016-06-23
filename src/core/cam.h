@@ -50,7 +50,7 @@
 #define CAM_SETTING_POPUP_LAYOUT_EDJ_NAME				"cam_setting_popup_layout.edj"
 
 #define CAM_SETTING_POPUP_STYLE_WITH_RADIO_EDJ_NAME		"style_ctxpopup_camera_with_radio.edj"
-#define CAM_LABEL_STYLE_EDJ_NAME						"style_label_camera.edj"
+//#define CAM_LABEL_STYLE_EDJ_NAME						"style_label_camera.edj"
 #define CAM_GENGRID_STYLE_EDJ_NAME						"style_gengrid_camera.edj"
 #define CAM_BUTTON_STYLE_EDJ_NAME						"style_button_camera.edj"
 
