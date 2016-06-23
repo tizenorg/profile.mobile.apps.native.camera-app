@@ -350,7 +350,7 @@ static void cam_terminate(void *user_data)
 
 	cam_app_stop(ad);
 	cam_util_lcd_unlock();
-	close_cam_ext_handle();
+	//close_cam_ext_handle();
 
 	cam_warning(LOG_UI, "############## cam_terminate END ##############");
 }

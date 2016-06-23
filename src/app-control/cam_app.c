@@ -4543,11 +4543,8 @@ static void __cam_interrupted_cb(camera_policy_e policy, camera_state_e previous
 		/*cam_popup_toast_popup_create(ad,
 				dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),
 				NULL);*/
-		/*notification_status_message_post(dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"));
+		notification_status_message_post(dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"));
 		cam_app_exit(ad);
-		break;*/
-		cam_popup_toast_popup_create(ad,
-		                             dgettext(PACKAGE, "IDS_CAM_POP_CAMERA_WILL_CLOSE"),	cam_app_exit_popup_response_cb);
 		break;
 	case CAMERA_POLICY_SECURITY:
 		cam_popup_toast_popup_create(ad, dgettext(PACKAGE, "IDS_CAM_POP_SECURITY_POLICY_RESTRICTS_USE_OF_CAMERA"), cam_app_exit_popup_response_cb);
