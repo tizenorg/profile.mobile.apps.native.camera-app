@@ -1,6 +1,6 @@
 Name:       org.tizen.camera-app
-VCS:         profile/mobile/apps/native/camera-app#a822d5e5b3aeb7a3b23cd47e7e95d2e6691a4ed2
-#RS_Ver:    20160622_2 
+VCS:         profile/mobile/apps/native/camera-app#1ed6a6caf11c66be5498492983492e761c0b5e6a
+#RS_Ver:    20160623_1 
 Summary:    camera application
 Version:    1.0.0
 Release:    1
