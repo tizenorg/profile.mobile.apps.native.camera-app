@@ -179,8 +179,6 @@ void cam_indicator_destroy()
 	DEL_EVAS_OBJECT(indicator->indicator_layout);
 
 	cam_indicator_destroy_battery();
-
-	__destroy_indicator_instance();
 }
 
 void cam_indicator_destroy_battery()
