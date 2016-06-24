@@ -281,6 +281,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 			IF_FREE(selfie_photo_thumbnail_buffer[index]->data);
 			IF_FREE(selfie_photo_thumbnail_buffer[index]);
 		}
+		IF_FREE(thumbnail_filename);
 		return TRUE;
 	}
 
@@ -293,6 +294,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 
 	if (ret > 0) {
 		cam_critical(LOG_UI, "image_util_decode_jpeg failed %d", ret);
+		IF_FREE(thumbnail_filename);
 		return FALSE;
 	}
 	thumbnail_names[index] = thumbnail_filename;
@@ -347,6 +349,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 		cam_critical(LOG_UI, "image_util_decode_jpeg failed %d", ret);
 		IF_FREE(destBuffer);
 		IF_FREE(tempBuffer);
+		IF_FREE(thumbnail_filename);
 		return FALSE;
 	}
 	void * get_buf = NULL;
@@ -355,6 +358,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 		cam_critical(LOG_UI, "image_util_encode_jpeg failed %d", ret);
 		IF_FREE(destBuffer);
 		IF_FREE(tempBuffer);
+		IF_FREE(thumbnail_filename);
 		return FALSE;
 	}
 	if (selfie_photo_thumbnail_buffer[index] != NULL) {
@@ -367,7 +371,7 @@ static gboolean __cam_selfie_rotate_thumbnail_image(void *data, CamTargetDirecti
 
 	IF_FREE(destBuffer);
 	IF_FREE(tempBuffer);
-
+	IF_FREE(thumbnail_filename);
 	return TRUE;
 }
 

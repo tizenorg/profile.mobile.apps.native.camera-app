@@ -180,7 +180,7 @@ void cam_indicator_destroy()
 
 	cam_indicator_destroy_battery();
 
-	__destroy_indicator_instance();
+	//__destroy_indicator_instance();
 }
 
 void cam_indicator_destroy_battery()
