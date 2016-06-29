@@ -387,6 +387,7 @@ static void cam_resume(void *user_data)
 {
 	cam_warning(LOG_UI, "############## cam_resume START ##############");
 
+	static bool firstlaunch = TRUE;
 	struct appdata *ad = (struct appdata *)user_data;
 	cam_retm_if(ad == NULL, "appdata is NULL");
 	CamAppData *camapp = ad->camapp_handle;
@@ -423,11 +424,27 @@ static void cam_resume(void *user_data)
 			cam_change_device_orientation(target_direction, ad);
 		}
 	}
-
-	if (!cam_app_resume(ad)) {
-		cam_critical(LOG_UI, "cam_app_resume failed");
-		return;
+	
+#if 1 //nsg
+	if(firstlaunch) {
+		firstlaunch = FALSE;
+		if (!cam_app_first_resume(ad)) {
+			cam_critical(LOG_UI, "cam_app_resume failed");
+			return;
+		}
+ 	}
+	else {
+		if (!cam_app_resume(ad)) {
+			cam_critical(LOG_UI, "cam_app_resume failed");
+			return;
+		}
 	}
+#else
+if (!cam_app_resume(ad)) {
+	cam_critical(LOG_UI, "cam_app_resume failed");
+	return;
+}
+#endif
 
 	cam_app_timeout_checker_init(ad);
 	SHOW_EVAS_OBJECT(ad->win_main);
@@ -855,7 +872,7 @@ static void __app_init_idler(void *data)
 
 	cam_app_timeout_checker_init(ad);
 	cam_app_check_storage_location_popup(ad);
-	cam_app_gps_update(ad);
+	//cam_app_gps_update(ad);
 
 	cam_warning(LOG_UI, "END");
 }

@@ -694,7 +694,7 @@ gboolean cam_app_start(void *data)
 	ecore_main_loop_thread_safe_call_async(__cam_app_start_after_preview, ad);
 
 	CAM_LAUNCH("cam_app_start", "OUT");
-
+	cam_app_gps_update(ad);
 	cam_warning(LOG_UI, "############# cam_app_start - END #############");
 	return TRUE;
 }
@@ -835,6 +835,63 @@ gboolean cam_app_pause(void *data)
 	cam_app_timeout_checker_remove();
 
 	cam_warning(LOG_UI, "############# cam_app_pause - END #############");
+	return TRUE;
+}
+
+gboolean cam_app_first_resume(void *data)
+{
+	cam_warning(LOG_UI, "############# cam_app_first_resume - START #############");
+	CAM_LAUNCH("cam_app_resume", "IN");
+
+	struct appdata *ad = (struct appdata *)data;
+	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
+	
+	CamAppData *camapp = NULL;
+	camapp = ad->camapp_handle;
+	cam_retvm_if(camapp == NULL, FALSE, "camapp_handle is NULL");
+
+	debug_fenter(LOG_CAM);
+
+	cam_app_focus_guide_destroy(ad);
+	
+	if (camapp->camera_mode == CAM_CAMCORDER_MODE) {
+		GValue value = {0, };
+		CAM_GVALUE_SET_INT(value, CAM_CAMERA_MODE);
+		if (!cam_handle_value_set(ad, PROP_MODE, &value)) {
+			return FALSE;
+		}
+	}
+	cam_utils_reload_common_settings(ad);
+
+	if (camapp->camera_mode == CAM_CAMERA_MODE) {
+		if (!cam_shot_create(ad)) {
+			cam_critical(LOG_UI, "cam_shot_create failed");
+			return FALSE;
+		}
+	}
+
+	switch (ad->main_view_type) {
+	case CAM_VIEW_STANDBY:
+		/*cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);*/
+		cam_standby_view_update_quickview_thumbnail_no_animation();
+		if (cam_edit_box_check_exist()) {
+			cam_edit_box_update();
+		} else {
+			cam_standby_view_create_indicator();
+		}
+		break;
+	case CAM_VIEW_SETTING:
+		cam_setting_view_update(ad);
+		break;
+	default:
+		cam_standby_view_update(CAM_STANDBY_VIEW_NORMAL);
+		cam_indicator_update();
+		break;
+	}
+	camapp->review_selfie = FALSE;
+
+	CAM_LAUNCH("cam_app_resume", "OUT");
+	cam_warning(LOG_UI, "############# cam_app_first_resume - END #############");
 	return TRUE;
 }
 

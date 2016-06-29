@@ -275,6 +275,7 @@ CamAppData *cam_handle_get(void);
 
 gboolean cam_app_start(void *data);
 gboolean cam_app_stop(void *data);
+gboolean cam_app_first_resume(void *data);
 gboolean cam_app_resume(void *data);
 gboolean cam_app_pause(void *data);
 
