@@ -7999,6 +7999,7 @@ static gboolean __cam_change_camcorder_mode(void *data)
 		cam_secure_debug(LOG_MM, "FILE NAME : %s", filename);
 		if (!cam_mm_set_filename(filename)) {
 			cam_critical(LOG_MM, "cam_mm_set_filename failed");
+			IF_FREE(filename);
 			return FALSE;
 		}
 		IF_FREE(filename);
