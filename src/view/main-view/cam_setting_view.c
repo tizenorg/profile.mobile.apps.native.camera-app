@@ -825,7 +825,7 @@ static gboolean __cam_setting_view_genlist_create(void *data)
 	cam_retvm_if(setting_view == NULL, FALSE, "setting_view is not created");
 	cam_retvm_if(setting_view->setting_naviframe == NULL, FALSE, "setting_naviframe is not created");
 	struct appdata *ad = (struct appdata *)cam_appdata_get();
-	cam_retvm_if(setting_view == NULL, FALSE, "appdata is NULL");
+	cam_retvm_if(ad == NULL, FALSE, "appdata is NULL");
 
 	/* indicator setting */
 	elm_win_indicator_mode_set(ad->win_main, ELM_WIN_INDICATOR_SHOW);
