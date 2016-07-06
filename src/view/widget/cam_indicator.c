@@ -292,12 +292,20 @@ static void __indicator_update_image_by_type(CamIndicator type, const char *imag
 			evas_object_show(label_shots);
 			indicator->indicator_obj[type] = label_shots;
 		} else {
-			//if (!indicator->indicator_obj[type])
-			//{
-			indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
-			cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
-			elm_image_file_set(indicator->indicator_obj[type], edj_path, image_file);
-			//}
+			if ((type == CAM_INDI_BATTERY_STATUS)||(type == CAM_INDI_STORAGE))
+			{
+				if(!indicator->indicator_obj[type]) {
+					indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
+					cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
+					elm_image_file_set(indicator->indicator_obj[type], edj_path, image_file);
+				}
+			}
+			else
+			{
+				indicator->indicator_obj[type] = elm_image_add(indicator->indicator_layout);
+				cam_retm_if(indicator->indicator_obj[type] == NULL, "indicator->indicator_obj[CAM_INDI_FALSH] is NULL");
+				elm_image_file_set(indicator->indicator_obj[type], edj_path, image_file);
+			}
 		}
 		double scale = elm_config_scale_get();
 		evas_object_size_hint_min_set(indicator->indicator_obj[type], ((INDICATOR_W) / (2.4)) * (scale), ((INDICATOR_H) / (2.4)) * (scale));
