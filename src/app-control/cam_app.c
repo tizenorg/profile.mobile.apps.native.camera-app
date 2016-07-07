@@ -5649,9 +5649,13 @@ Eina_Bool cam_app_after_shot_edje_create(void *data)
 
 	Evas_Object *img = elm_image_add(ad->gallery_edje);
 	elm_object_part_content_set(ad->gallery_edje, "after_shot", img);
+	if (camapp->photo_resolution > CAM_RESOLUTION_640x480) {
+		elm_image_prescale_set(img, 320);
+	}
 	elm_image_file_set(img, camapp->filename, NULL);
-	elm_image_no_scale_set(img, EINA_FALSE);
+	//elm_image_no_scale_set(img, EINA_FALSE);
 	elm_image_aspect_fixed_set(img, EINA_FALSE);
+
 	elm_image_fill_outside_set(img, EINA_TRUE);
 	if (img == NULL) {
 		cam_critical(LOG_CAM, "elm_bg_add failed");
