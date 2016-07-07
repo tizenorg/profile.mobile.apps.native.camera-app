@@ -185,7 +185,7 @@ gboolean cam_video_record_stop(void *data)
 		cam_app_create_main_view(ad, CAM_VIEW_STANDBY, NULL);
 	}
 
-	if ((ad->app_state != CAM_APP_TERMINATE_STATE) && (ad->app_state != CAM_APP_PAUSE_STATE)) {
+	if (ad->app_state != CAM_APP_TERMINATE_STATE) {
 		cam_utils_request_main_pipe_handler(ad, NULL, CAM_MAIN_PIPE_OP_TYPE_VIDEO_CAPTURE_HANDLE);
 	} else {
 		cam_rec_save_and_register_video_file(ad);
