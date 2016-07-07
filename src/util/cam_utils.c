@@ -1634,6 +1634,7 @@ Evas_Object *cam_util_setting_button_create(Evas_Object *parent, CAM_MENU_ITEM b
 	evas_object_size_hint_min_set(btn, ((80) / (2.4)) * (scale), ((80) / (2.4)) * (scale));
 	evas_object_resize(btn, ((80) / (2.4)) * (scale), ((80) / (2.4)) * (scale));
 	SHOW_EVAS_OBJECT(btn);
+	evas_object_data_set(btn, "ref_cnt", (void *)0);
 	return btn;
 }
 

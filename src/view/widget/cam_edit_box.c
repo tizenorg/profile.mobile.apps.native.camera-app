@@ -425,6 +425,9 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 	struct appdata *ad = edit_box_instance->ad;
 	cam_retm_if(ad == NULL, "ad is null");
 
+	if (evas_object_data_get(obj, "ref_cnt")) return;
+	evas_object_data_set(obj, "ref_cnt", (void *)1);
+
 	CAM_MENU_ITEM menu_item = (CAM_MENU_ITEM)data;
 
 	REMOVE_TIMER(edit_box_instance->show_sub_timer);
@@ -448,6 +451,7 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 			cam_warning(LOG_CAM, "same one, close it");
 			cam_sound_play_touch_sound();
 			cam_edit_box_popup_destroy();
+			evas_object_data_set(obj, "ref_cnt", (void *)0);
 			return;
 		} else {
 			cam_edit_box_popup_destroy();
@@ -459,6 +463,7 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 		if (menu_item == CAM_MENU_EXPOSURE_VALUE) {
 			cam_warning(LOG_CAM, "same one, close it");
 			cam_sound_play_touch_sound();
+			evas_object_data_set(obj, "ref_cnt", (void *)0);
 			return;
 		}
 	}
@@ -467,6 +472,7 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 
 	if (!cam_is_enabled_menu(ad, menu_item)) {
 		cam_warning(LOG_CAM, "type %d disable", menu_item);
+		evas_object_data_set(obj, "ref_cnt", (void *)0);
 		return;
 	}
 
@@ -534,6 +540,7 @@ static void __cam_edit_box_item_selected_cb(void *data, Evas_Object *obj, void *
 		break;
 	}
 
+	evas_object_data_set(obj, "ref_cnt", (void *)0);
 	return;
 }
 
