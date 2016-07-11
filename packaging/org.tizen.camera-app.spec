@@ -1,6 +1,6 @@
 Name:       org.tizen.camera-app
-#VCS_FROM:   profile/mobile/apps/native/camera-app#ec5637d73612694c2764cc402f0023c66607b49d
-#RS_Ver:    20160707_1 
+#VCS_FROM:   profile/mobile/apps/native/camera-app#3c4ef0e5062fd4108a4064017c07f5eb50c4f815
+#RS_Ver:    20160711_2 
 Summary:    camera application
 Version:    1.0.0
 Release:    1
@@ -15,6 +15,8 @@ Requires(post):  /usr/bin/tpk-backend
 %define internal_name org.tizen.camera-app
 %define preload_tpk_path %{TZ_SYS_RO_APP}/.preload-tpk 
 
+%define build_mode %{nil}
+
 %ifarch i386 i486 i586 i686 x86_64
 %define target i386
 %else
@@ -26,7 +28,7 @@ Requires(post):  /usr/bin/tpk-backend
 %endif
 
 %description
-profile/mobile/apps/native/camera-app#ec5637d73612694c2764cc402f0023c66607b49d
+profile/mobile/apps/native/camera-app#3c4ef0e5062fd4108a4064017c07f5eb50c4f815
 This is a container package which have preload TPK files
 
 %prep
@@ -37,7 +39,7 @@ This is a container package which have preload TPK files
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{preload_tpk_path}
-install %{internal_name}-%{version}-%{target}.tpk %{buildroot}/%{preload_tpk_path}/
+install %{internal_name}-%{version}-%{target}%{build_mode}.tpk %{buildroot}/%{preload_tpk_path}/
 
 %post
 
