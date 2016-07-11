@@ -169,6 +169,24 @@ gboolean cam_shot_update_thumbnail_using_thumbnail_data(struct appdata *ad)
 
 	return FALSE;
 }
+static void __shot_capture_on_recording_completed_cb(void *user_data)
+{
+	cam_debug(LOG_CAM, "start");
+	struct appdata *ad = (struct appdata *)user_data;
+	cam_retm_if(ad == NULL, "appdata is NULL");
+	CamAppData *camapp = ad->camapp_handle;
+	cam_retm_if(camapp == NULL, "camapp is NULL");
+	int nret = -1;
+
+	if (ad->stream_info) {
+		const char *str = "cam_capture";
+		nret = sound_manager_release_focus(ad->stream_info, SOUND_STREAM_FOCUS_FOR_PLAYBACK, str);
+		if (nret != SOUND_MANAGER_ERROR_NONE) {
+			cam_warning(LOG_CAM, "Failed to release focus %x", nret);
+		}
+	}
+}
+
 static void __shot_capture_on_recording_cb(camera_image_data_s *image, camera_image_data_s *postview, camera_image_data_s *thumbnail, void *user_data)
 {
 	cam_debug(LOG_CAM, "start");
@@ -549,7 +567,7 @@ void cam_shot_init_callback(void *data)
 		}
 	} else {
 		camapp->capture_cb = __shot_capture_on_recording_cb;
-		camapp->capture_completed_cb = NULL;
+		camapp->capture_completed_cb = __shot_capture_on_recording_completed_cb;
 	}
 }
 
