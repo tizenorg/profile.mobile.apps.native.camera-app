@@ -245,10 +245,10 @@ static void _call_async_event_callback(telephony_h handle, telephony_noti_e noti
 	cam_debug(LOG_CAM,"voice_status %d", voice_status);
 	cam_debug(LOG_CAM,"video_status %d", video_status);
 
-	if(voice_status != TELEPHONY_CALL_STATE_IDLE || video_status != TELEPHONY_CALL_STATE_IDLE) {
-		cam_app_pause(ad);
-	} else {
+	if(voice_status == TELEPHONY_CALL_STATE_IDLE && video_status == TELEPHONY_CALL_STATE_IDLE) {
 		cam_app_resume(ad);
+	} else if(voice_status == TELEPHONY_CALL_STATE_CONNECTED || video_status == TELEPHONY_CALL_STATE_CONNECTED){
+		cam_app_pause(ad);
 	}
 	return;
 }
