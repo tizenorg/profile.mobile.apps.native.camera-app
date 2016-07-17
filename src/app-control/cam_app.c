@@ -5033,7 +5033,7 @@ gboolean cam_app_launch_image_viewer(void *data, char *file_path, gboolean launc
 					}
 					i++;
 				}
-
+				count = eina_list_count(camapp->secure_filename_list);
 				app_control_add_extra_data_array(app_control, "http://tizen.org/appcontrol/data/path", (const char **)file_list, count);
 				app_control_add_extra_data(app_control, IMAGE_VIEWER_VIEW_MODE_KEY_NAME, "CAMERA_SIMPLE");
 
