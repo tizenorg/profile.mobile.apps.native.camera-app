@@ -708,7 +708,11 @@ static void __cam_app_start_after_preview(void *data)
 	ad->remained_count = cam_system_get_still_count_by_resolution(ad);
 	cam_indicator_update();
 
-	if (g_strcmp0(ad->caller, "lock_screen") == 0) {
+	char *caller_id;
+	app_control_get_caller(ad->app_control_handle, &caller_id);
+	cam_debug(LOG_UI, "Caller is: %s", caller_id);
+	if (g_strcmp0(caller_id, "org.tizen.lockscreen") == 0) {
+		cam_debug(LOG_UI, "Reply to lockscreen");
 		app_control_h reply;
 		app_control_create(&reply);
 		app_control_add_extra_data(reply, "destroy_request", "true");
