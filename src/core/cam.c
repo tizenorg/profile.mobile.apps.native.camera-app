@@ -425,6 +425,8 @@ static void cam_resume(void *user_data)
 		}
 	}
 
+	cam_standby_view_shooting_frame_destroy();
+
 #if 1 //nsg
 	if(firstlaunch) {
 		firstlaunch = FALSE;
