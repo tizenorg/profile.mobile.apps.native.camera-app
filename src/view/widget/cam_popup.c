@@ -170,7 +170,7 @@ void cam_popup_toast_popup_create(void *data,
 
 	/* custom attributes */
 	elm_object_text_set(popup, msg);
-	elm_popup_timeout_set(popup, 2.0);
+	elm_popup_timeout_set(popup, 3.0);
 
 	cam_utils_sr_obj_set(popup, ELM_ACCESS_INFO, (char *)msg);
 	cam_utils_sr_obj_set(popup, ELM_ACCESS_TYPE, cam_utils_sr_type_text_get(CAM_SR_OBJ_TYPE_NULL));
