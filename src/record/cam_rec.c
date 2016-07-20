@@ -322,6 +322,14 @@ gboolean cam_rec_save_and_register_video_file(void *data)
 			}
 		}
 	}
+	else
+	{
+		if (ad->launching_mode == CAM_LAUNCHING_MODE_EXTERNAL) {
+		cam_debug(LOG_CAM, "CAM_LAUNCHING_MODE_EXTERNAL Exit");
+		ad->path_in_return = CAM_STRDUP(camapp->filename);
+		cam_app_exit(ad);
+		}
+	}
 
 	return TRUE;
 }
